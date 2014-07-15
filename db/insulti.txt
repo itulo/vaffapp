@@ -3,6 +3,7 @@
 
 ## Molise
 'Coccia r pruvulon','Coccia di provolone (stupido)'
+'Mo sigg''','Adesso riscuoti (ti meno)'
 'Muss r puorc','Muso di porco (brutto)'
 'Puozza ittà ru sang','Che tu possa sputare sangue'
 'Vatt a r''pon','Vai via'
@@ -66,7 +67,11 @@
 'At dag un cargadour ad bòti','Ti carico di botte' 
 #'At dag un s-ciafon cut parrà e dè d pasqua','Ti do uno schiaffone che ti sembrerà pasqua'
 'At faz na bretta','Te ne faccio un berretto (te lo tiro in testa)'
-'At''si quèdar ''me la testa ''d ''n arsan!','Sei quadrato come la testa di un reggiano' PERCHE'''
+'At''si quèdar ''me la testa ''d ''n arsan!','Sei quadrato come la testa di un reggiano'
+'Cat viena al zamor','Che ti venga il cimurro'
+#'Cat viena dù cancar ala volta finchè idventa dispar','Che ti vengano due cancri alla volta finchè diventino dispari'
+#'Cat viena un mal che un cancar al sia un suliev','Che ti venga un male che un cancro sia un solliveo'
+'Cat viena un mal saltarin in una camara dal sufit bas','Che ti venga un male salterino in una camera dal soffitto basso'
 'Ci acsè svampei che t''coz','Sei così svampito che vai a sbattere con la testa'
 #'Ci forra cum una bessa','Sei fuori come una biscia'
 'Ci fort c''mè l''aseda','Sei forte come l''aceto'
@@ -118,9 +123,12 @@
 'Che te potessero lancià contro 3 colpi... uno che te liscia uno che te pia e uno che stenne tu sorella...','Che ti possano lanciare 3 colpi... uno che ti liscia, uno che ti prende e uno che stende tua sorella'
 #'Cuglio de puzzica!','Ti dai troppe arie (come una puzzola che mostra il culo)'
 'Me te metto ''n tasca e te meno quanno ciò tempo','Ti metto in tasca e ti meno quando ho tempo'
+'''n te sputo che t''amprofumo','Non ti sputo perchè ti improfumerei'
 'T''atteggi t''atteggi ma sur cazzo mio nun ce scureggi','Ti atteggi ma sul mio cazzo non ci scorreggi (non mi fai impressione)'
 'Te apro come ''na cozza','Ti apro come una cozza'
 #'Te apro come ''na sdraio','Ti apro come una sedia sdraio'
+'Te ciancico e poi te sputo','Ti mastico e poi ti sputo'
+'Te do li schiaffi a due a due finchè nun diventeno dispari','Ti tiro schiaffi a due a due finchè non diventano dispari'
 'Te do mezz''ora de schiaffi in cinque minuti','Ti do mezz''ora di schiaffi in 5 minuti'
 'Te do ''n carcio ar culo che se per aria nun te porti da magnà te mori de fame','Ti do un calcio nel culo che se quando sei per aria non ti porti da mangiare ti muori di fame'
 'Te do ''na cricca sur petto che te ce faccio vení a nicchietta pe la madonna','Ti do un colpo in petto che ti faccio diventare come una nicchia per la madonna'
@@ -132,15 +140,26 @@
 'Te mischio come un mazzo de carte','Ti mischio come un mazzo di carte'
 'Te parcheggio ''na mano ''n faccia','Ti parcheggio una mano in faccia'
 'Te piglio pe'' li buchi der naso e t''aribbarto come li porpi','Ti prendo per i buchi del naso e ti ribalto come un polpo'
+'Te pijo pe ''na recchia e te sventolo come ''na bandierina','Ti prendo per un orecchio e ti sventolo come una bandierina'
 #'Te pio pe'' le recchie e te arzo com a coppa uefa', 'Ti prendo per le orecchie e ti alzo come la coppa uefa'
 'Te ribarto come ''na cotoletta','Ti ribalto come una cotoletta'
 #'Te rivolto come ''n carzino','Ti rivolto come un calzino'
 #'Te sparecchio la faccia','Ti sparecchio la faccia'
+'Te strappo ''n braccio e te lo metto pè cravatta','Ti stacco un braccio e te lo metto addosso come cravatta'
 #'Te succhio come ''n gamberetto','Ti succhio come un gamberetto'
 
+## UMBRIA
+'Almeno te piasse la cacarella a zompi!','Almeno ti venga una cacarella ad oltranza'
+'Te pijasse un corbu! Ma anche un altro se no sberbichi','Ti prendesse un ictus! Ma anche un altro dall'altra parte altrimenti perdi l'equilibrio'
+'Te spojasse ''n trono e t''arvestisse n'' furmine','Che ti spogli un tuono e ti rivesta un fulmine'
+
 ## MARCHE
+#'C''hai le fregne ''ntela testa','Hai vagine nella testa (te la tiri troppo)'
 'Lota!','Merda!'
 'M'' par'' na mutand'' staj siemp'' annanz'' o'' cazz''','Mi sembri una mutanda stai sempre tra le scatole'
+'Ma nun te vai a fa da ''ntel culo!?','Ma non vai a prenderlo in culo!?'
+#'Sciacquate dai cojoni','Vai via dai coglioni'
+'Se te pio t'intreccio','Se ti prendo ti intreccio'
 
 ## ABRUZZO
 'Broccolò','Stupido'

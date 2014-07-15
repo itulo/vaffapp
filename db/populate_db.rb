@@ -45,7 +45,7 @@ begin
           line = line[2..-1]
           reg = line.gsub!(/\s+/, '').downcase
           id_region = region[reg] 
-          puts "#{reg} - #{id_region}"
+          print "#{reg} "
           next
         else
           next

@@ -150,7 +150,7 @@
 
 ## UMBRIA
 'Almeno te piasse la cacarella a zompi!','Almeno ti venga una cacarella ad oltranza'
-'Te pijasse un corbu! Ma anche un altro se no sberbichi','Ti prendesse un ictus! Ma anche un altro dall'altra parte altrimenti perdi l'equilibrio'
+'Te pijasse un corbu! Ma anche un altro se no sberbichi','Ti prendesse un ictus! Ma anche un altro dall''altra parte altrimenti perdi l''equilibrio'
 'Te spojasse ''n trono e t''arvestisse n'' furmine','Che ti spogli un tuono e ti rivesta un fulmine'
 
 ## MARCHE
@@ -159,7 +159,7 @@
 'M'' par'' na mutand'' staj siemp'' annanz'' o'' cazz''','Mi sembri una mutanda stai sempre tra le scatole'
 'Ma nun te vai a fa da ''ntel culo!?','Ma non vai a prenderlo in culo!?'
 #'Sciacquate dai cojoni','Vai via dai coglioni'
-'Se te pio t'intreccio','Se ti prendo ti intreccio'
+'Se te pio t''intreccio','Se ti prendo ti intreccio'
 
 ## ABRUZZO
 'Broccolò','Stupido'

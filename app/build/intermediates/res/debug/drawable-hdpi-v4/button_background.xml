@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <stroke
+        android:width="2dp"
+        android:color="@android:color/black" />
+    <padding
+        android:left="7dp"
+        android:top="7dp"
+        android:right="7dp"
+        android:bottom="7dp" />
+    <corners
+        android:radius="20dp" />
+    <gradient
+        android:startColor="#FFFFFF"
+        android:endColor="#F6E7D2"
+        android:angle="-90" />
+</shape><!-- From: file:/Users/iarmenti/Dropbox/apps/VaffApp/app/src/main/res/drawable-hdpi/button_background.xml -->

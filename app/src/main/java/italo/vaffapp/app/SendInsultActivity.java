@@ -1,0 +1,143 @@
+package italo.vaffapp.app;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import java.util.ArrayList;
+
+import italo.vaffapp.app.databases.DatabaseHandler;
+
+import android.view.View;
+import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioButton;
+import android.widget.Button;
+
+import italo.vaffapp.app.mail.GMailSender;
+
+import android.os.AsyncTask;
+
+import android.graphics.Color;
+
+import android.util.Log;
+
+public class SendInsultActivity extends ActionBarActivity {
+    //private ArrayList<Region> regions = null;
+    private String email_msg = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_send_insult);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // comment so it doesn't show 'Settings'
+        //getMenuInflater().inflate(R.menu.send_insult, menu);
+        return true;
+    }
+
+    public void onStart(){
+        super.onStart();
+
+    }
+
+    /*public void loadRegions(){
+        DatabaseHandler db = new DatabaseHandler(this);
+        db.openDataBase();
+        regions = db.getAllRegions();
+        db.close();
+    }*/
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void sendFeedback(View view){
+        Button button_manda;
+
+        if ( checkForm() ) {
+            new AsyncTask<Void, Void, Void>() {
+                @Override public Void doInBackground(Void... params) {
+                    try {
+                        GMailSender sender = new GMailSender("vaffapp@gmail.com", "kuukausi");
+                        sender.sendMail("from VaffApp",
+                                email_msg,
+                                "vaffapp",
+                                "vaffapp@gmail.com");
+                    } catch (Exception e) {
+                        Log.e("SendInsultActivity","SendMail\n" + e.getMessage());
+                    }
+                    return null;
+                }
+            }.execute();
+
+            // disable button, thank user
+            button_manda = (Button)findViewById(R.id.button_manda);
+            button_manda.setEnabled(false);
+            button_manda.setText("Grazie!");
+        }
+    }
+
+    // check the form but also build the message for the email
+    public boolean checkForm(){
+        EditText tmp_edittext;
+        TextView tmp_textview;
+        RadioButton tmp_radiobutt;
+        String str = null;
+        email_msg = "";
+
+        // Check radio group choice
+        RadioGroup rg = (RadioGroup)findViewById(R.id.radio_group_choice);
+        int choice = rg.getCheckedRadioButtonId();
+        if (choice == -1) {
+            tmp_textview = (TextView) findViewById(R.id.textview_choice);
+            tmp_textview.setTextColor(Color.RED);
+            return false;
+        }
+        tmp_radiobutt = (RadioButton) findViewById(choice);
+        email_msg += "regione: " + tmp_radiobutt.getText() + "\n";
+
+        // check edittext(s)
+        tmp_edittext = (EditText) findViewById(R.id.edittext_insulto);
+        if ( tmp_edittext != null ) {
+            str = tmp_edittext.getText().toString();
+            if ( str.trim().length() <= 0 ) {
+                tmp_textview = (TextView) findViewById(R.id.textview_insulto);
+                tmp_textview.setTextColor(Color.RED);
+                return false;
+            }
+        }
+        if (str != null)
+            email_msg += "'" + str + "',";
+
+        tmp_edittext = (EditText) findViewById(R.id.edittext_descrizione);
+        if ( tmp_edittext != null ) {
+            str = tmp_edittext.getText().toString();
+            if (str.trim().length() <= 0 && !tmp_radiobutt.getText().equals("Commento/Richiesta") ) {
+                tmp_textview = (TextView) findViewById(R.id.textview_descrizione);
+                tmp_textview.setTextColor(Color.RED);
+                return false;
+            }
+        }
+        if (str != null)
+            email_msg += "'" + str + "'";
+
+        return true;
+    }
+
+}

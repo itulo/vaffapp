@@ -1601,6 +1601,7 @@ containing a value of this type.
         public static final int listMode=0x7f070001;
         public static final int list_item=0x7f07003d;
         public static final int match_parent=0x7f07001e;
+        public static final int menu_item_share=0x7f070092;
         public static final int middle=0x7f07000b;
         public static final int monochrome=0x7f070025;
         public static final int never=0x7f070010;

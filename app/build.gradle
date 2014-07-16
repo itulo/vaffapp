@@ -4,12 +4,6 @@ android {
     compileSdkVersion 19
     buildToolsVersion '19.1.0'
 
-    defaultConfig {
-        minSdkVersion 10
-        targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
-    }
     signingConfigs {
         release {
             storeFile file("italo-android.keystore")
@@ -21,7 +15,7 @@ android {
     buildTypes {
         release {
             runProguard true
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), file('proguard-project.txt')
             signingConfig signingConfigs.release
         }
     }

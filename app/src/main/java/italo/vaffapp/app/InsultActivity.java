@@ -327,6 +327,16 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
+    public void condividi(View view){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+"\n#vaffapp");
+        sendIntent.setType("text/plain");
+        //startActivity(sendIntent);
+        //startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
+        startActivity(Intent.createChooser(sendIntent, "Scegli!"));
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

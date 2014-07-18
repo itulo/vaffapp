@@ -9,8 +9,8 @@
     <string name="title_activity_insulto">Ti insulto!</string>
     <string name="insult">Vaffanculo, cazzo</string>
     <string name="insult_desc">Qualcosa è andato storto... chissenefrega, cazzi tuoi</string>
-    <string name="button_insult_1">Insultati\n ancora</string>
-    <string name="button_insult_2">Copia\ninsulto</string>
+    <string name="button_insult_1">Insultati ancora</string>
+    <string name="button_insult_2">Condividi</string>
     <string name="title_activity_main2">MainActivity</string>
     <string name="app_id">1435530263364363</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>

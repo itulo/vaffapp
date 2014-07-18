@@ -29,10 +29,16 @@ import com.google.android.gms.ads.*;
 
 import android.widget.LinearLayout;
 
+import java.util.List;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.text.TextUtils;
+import android.os.Parcelable;
+
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
-    //private UiLifecycleHelper uiHelper;
-    //private Session.StatusCallback callback = null;
+    private UiLifecycleHelper uiHelper;
+    private Session.StatusCallback callback = null;
     private TextView insult;
     private TextView insult_desc;
 
@@ -48,6 +54,10 @@ public class InsultActivity extends ActionBarActivity {
         INSULT, INSULTDESC, DESC;
     }
     private State copy_state = State.INSULT;
+
+    private List<Intent> targetedShareIntents;
+    private List<String> diff_app;
+    private Intent sharingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +93,8 @@ public class InsultActivity extends ActionBarActivity {
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
         // 1. configure the UiLifecycleHelper in onCreate
-        /*uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);*/
+        uiHelper = new UiLifecycleHelper(this, callback);
+        uiHelper.onCreate(savedInstanceState);
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -112,13 +122,13 @@ public class InsultActivity extends ActionBarActivity {
         if (banner != null) {
             banner.resume();
         }
-        //uiHelper.onResume();
+        uiHelper.onResume();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //uiHelper.onSaveInstanceState(outState);
+        uiHelper.onSaveInstanceState(outState);
     }
 
     @Override
@@ -127,7 +137,7 @@ public class InsultActivity extends ActionBarActivity {
             banner.pause();
         }
         super.onPause();
-        //uiHelper.onPause();
+        uiHelper.onPause();
     }
 
     @Override
@@ -137,7 +147,7 @@ public class InsultActivity extends ActionBarActivity {
             banner.destroy();
         }
         super.onDestroy();
-        //uiHelper.onDestroy();
+        uiHelper.onDestroy();
     }
 
     public void onStart(){
@@ -270,15 +280,15 @@ public class InsultActivity extends ActionBarActivity {
         return region;
     }
 
-    /*void postToFB() {
+    public void postToFB() {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
             .setApplicationName("VaffApp")
             .setDescription(insult_desc.getText().toString())
             .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
-    }*/
+    }
 
-    /*public void insultFriend(View view) {
+    public void insultFriendOnFB() {
         // place text in clipboard
         if (insult == null ) {
             // error, re-try
@@ -300,7 +310,7 @@ public class InsultActivity extends ActionBarActivity {
                 });
         // Create the AlertDialog object and return it
         builder.create().show();
-    }*/
+    }
 
     public void copyData(View view) {
         Button button_copy = (Button)findViewById(R.id.button_copy);
@@ -327,14 +337,80 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
+    public void checkPresenceOfApps(View view){
+        targetedShareIntents = new ArrayList<Intent>();
+        diff_app = new ArrayList<String>();
+        sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        PackageManager pm = view.getContext().getPackageManager();
+        List<ResolveInfo> activityList = pm.queryIntentActivities(sharingIntent, 0);
+        for(final ResolveInfo app : activityList) {
+            String packageName = app.activityInfo.packageName;
+            if ( packageName.contains("facebook") || packageName.contains("twitter") ){
+                diff_app.add(packageName);
+                continue;
+            }
+            Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+            targetedShareIntent.setType("text/plain");
+            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+            targetedShareIntent.setPackage(packageName);
+            targetedShareIntents.add(targetedShareIntent);
+        }
+    }
+
+    // 1. show a first choice dialog to choose between Twitter, Facebook and Other
+    // 2. if "Other" is chosen, show a another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
+    public void twoChoiceMenu(){
+        // I have to declare this an array, only this way I can modify it later (final statement is necessary)
+        final String[] twitterPackageName = { "twitter" };
+        final CharSequence[] items = new CharSequence[diff_app.size()+1];
+        for (int i=0; i<diff_app.size();i++) {
+            if (diff_app.get(i).contains("facebook"))
+                items[i] = "Facebook";
+            if (diff_app.get(i).contains("twitter")) {
+                items[i] = "Twitter";
+                twitterPackageName[0] = diff_app.get(i);
+            }
+        }
+        items[diff_app.size()] = "Altro";
+        new AlertDialog.Builder(this)
+                .setTitle("Scegli cazzo!")
+                .setItems(items, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        String choice = items[which].toString();
+                        if ( choice.equals("Facebook") ){
+                            insultFriendOnFB();
+                        }
+                        if ( choice.equals("Twitter") ){
+                            Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                            targetedShareIntent.setType("text/plain");
+                            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
+                            targetedShareIntent.setPackage(twitterPackageName[0]);
+                            startActivity(targetedShareIntent);
+                        }
+                        if (choice.equals("Altro") ) {
+                            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "E scegli cazzo!");
+                            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+                            startActivity(chooserIntent);
+                        }
+                    }
+                }).create().show();
+    }
+
     public void condividi(View view){
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+"\n#vaffapp");
-        sendIntent.setType("text/plain");
-        //startActivity(sendIntent);
-        //startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
-        startActivity(Intent.createChooser(sendIntent, "Scegli!"));
+        checkPresenceOfApps(view);
+
+        // build dialog if twitter or facebook app are present
+        if ( diff_app.size() > 0 ){
+            twoChoiceMenu();
+        }
+        else {
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+            startActivity(Intent.createChooser(sharingIntent, "Scegli cazzo!"));
+        }
     }
 
 

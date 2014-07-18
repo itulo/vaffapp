@@ -39,32 +39,23 @@
         android:paddingTop="10dp" >
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_insult_1"
-        android:layout_weight="0.45"
+        android:layout_weight="1"
         style="?android:attr/borderlessButtonStyle"
         android:onClick="showInsult"
         android:background="@drawable/button_background" />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.1" />
-    <!-- <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_insult_2"
-        android:layout_weight="0.3"
-        android:drawableLeft="@drawable/fb_icon"
-        style="?android:attr/borderlessButtonStyle"
-        android:onClick="insultFriend"
-        android:background="@drawable/button_background" /> -->
     <Button
         android:id="@+id/button_copy"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_insult_2"
-        android:layout_weight="0.45"
+        android:layout_weight="1"
         style="?android:attr/borderlessButtonStyle"
         android:onClick="condividi"
         android:background="@drawable/button_background" />
@@ -78,7 +69,7 @@
         android:gravity="center"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-6113915254397786/1328742956"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>
 <!-- From: file:/Users/iarmenti/Dropbox/apps/VaffApp/app/src/main/res/layout/fragment_main2.xml -->

@@ -50,11 +50,12 @@ public class InsultActivity extends ActionBarActivity {
     private AdView banner;
     private InterstitialAd interstitial;
 
-    private enum State {
+    /*private enum State {
         INSULT, INSULTDESC, DESC;
     }
-    private State copy_state = State.INSULT;
+    private State copy_state = State.INSULT;*/
 
+    // for condividi
     private List<Intent> targetedShareIntents;
     private List<String> diff_app;
     private Intent sharingIntent;
@@ -68,27 +69,6 @@ public class InsultActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        /* allow app post on FB
-         https://developers.facebook.com/docs/facebook-login/permissions/v2.0 */
-        /*Session.openActiveSession(this, true, new Session.StatusCallback() {
-            // callback when session changes state
-            @Override
-            public void call(Session session, SessionState state, Exception exception) {
-                if (session.isOpened()) {
-                    // make request to the /me API
-                    Request.newMeRequest(session, new Request.GraphUserCallback() {
-
-                        // callback after Graph API response with user object
-                        @Override
-                        public void onCompleted(GraphUser user, Response response) {
-                            if (user != null) {
-                                System.out.println("Hello "+user.getName());
-                            }
-                        }
-                    }).executeAsync();
-                }
-            }
-        });*/
 
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
@@ -101,18 +81,6 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        /*uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
-            @Override
-            public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
-                Log.e("Activity", String.format("Error: %s", error.toString()));
-            }
-
-            @Override
-            public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
-                Log.i("Activity", "Success!");
-            }
-        });*/
     }
 
     // 3. configure other methods on uiHelper to handle Activity lifecycle callbacks correctly
@@ -312,7 +280,7 @@ public class InsultActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    public void copyData(View view) {
+    /*public void copyData(View view) {
         Button button_copy = (Button)findViewById(R.id.button_copy);
         ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
@@ -335,15 +303,18 @@ public class InsultActivity extends ActionBarActivity {
             default:
                 // do nothing
         }
-    }
+    }*/
 
+    // check for presence of Facebook and Twitter apps (these will be treated differently)
     public void checkPresenceOfApps(View view){
         targetedShareIntents = new ArrayList<Intent>();
         diff_app = new ArrayList<String>();
         sharingIntent = new Intent(Intent.ACTION_SEND);
+
         sharingIntent.setType("text/plain");
         PackageManager pm = view.getContext().getPackageManager();
         List<ResolveInfo> activityList = pm.queryIntentActivities(sharingIntent, 0);
+
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
             if ( packageName.contains("facebook") || packageName.contains("twitter") ){
@@ -359,7 +330,7 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     // 1. show a first choice dialog to choose between Twitter, Facebook and Other
-    // 2. if "Other" is chosen, show a another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
+    // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
     public void twoChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] twitterPackageName = { "twitter" };
@@ -400,10 +371,11 @@ public class InsultActivity extends ActionBarActivity {
                 }).create().show();
     }
 
+    // Checks presence of apps Facebook and Twitter
+    // if not, shows a dialog box with all apps able to receive the insult
     public void condividi(View view){
         checkPresenceOfApps(view);
 
-        // build dialog if twitter or facebook app are present
         if ( diff_app.size() > 0 ){
             twoChoiceMenu();
         }
@@ -434,12 +406,6 @@ public class InsultActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    /*@Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-    }*/
 
     /**
      * A placeholder fragment containing a simple view.

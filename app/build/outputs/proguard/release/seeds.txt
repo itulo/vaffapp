@@ -1684,9 +1684,8 @@ com.google.android.gms.wallet.fragment.WalletFragmentStyle: android.os.Parcelabl
 italo.vaffapp.app.InsultActivity
 italo.vaffapp.app.InsultActivity: InsultActivity()
 italo.vaffapp.app.InsultActivity: void showInsult(android.view.View)
-italo.vaffapp.app.InsultActivity: void copyData(android.view.View)
-italo.vaffapp.app.InsultActivity$State: italo.vaffapp.app.InsultActivity$State[] values()
-italo.vaffapp.app.InsultActivity$State: italo.vaffapp.app.InsultActivity$State valueOf(java.lang.String)
+italo.vaffapp.app.InsultActivity: void checkPresenceOfApps(android.view.View)
+italo.vaffapp.app.InsultActivity: void condividi(android.view.View)
 italo.vaffapp.app.MainActivity
 italo.vaffapp.app.MainActivity: MainActivity()
 italo.vaffapp.app.MainActivity: void startInsultActivity(android.view.View)
@@ -2183,6 +2182,7 @@ italo.vaffapp.app.R$id: int large
 italo.vaffapp.app.R$id: int listMode
 italo.vaffapp.app.R$id: int list_item
 italo.vaffapp.app.R$id: int match_parent
+italo.vaffapp.app.R$id: int menu_item_share
 italo.vaffapp.app.R$id: int middle
 italo.vaffapp.app.R$id: int monochrome
 italo.vaffapp.app.R$id: int never

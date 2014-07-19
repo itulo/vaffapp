@@ -21,7 +21,7 @@ public class SimpleEula {
             "    Condizioni di utilizzo:\n" +
             "    - l'autore declina ogni responsabilità se la VaffApp viene utilizzata per insultare una persona;\n" +
             "    - l'autore non fornisce alcuna garanzia;\n" +
-            "    - è vietata la riproduzione su altre piattaforme;\n" +
+            "    - è vietata la traduzione e la riproduzione su altre piattaforme;\n" +
             "    - l'autore non è obbligato dal presente EULA a fornire al Licenziatario alcun servizio di supporto tecnico relativo al Software concesso in licenza;\n" +
             "    L'autore si riserva tutti i diritti non espressamente concessi al Licenziatario dal presente EULA. I diritti concessi al Licenziatario sono\n" +
             "    limitati ai diritti di proprietà intellettuale della VaffApp.\n" +
@@ -31,7 +31,7 @@ public class SimpleEula {
             "    This EULA regulates the usage of the VaffApp app:\n" +
             "    - the author declines any responsibility when the VaffApp is used to insult a person;\n" +
             "    - the VaffApp has no guarantees;\n" +
-            "    - it is forbidden the reproduction of the VaffApp on other software platforms;\n" +
+            "    - it is forbidden the translation and reproduction of the VaffApp on other software platforms;\n" +
             "    - the author doesn't provide any kind of support for the VaffApp;\n" +
             "    Except for the rights explicitly granted in this License, the author retains all right, title and interest (including all intellectual property rights).\n" +
             "    This EULA may be modified in the future.\n" +

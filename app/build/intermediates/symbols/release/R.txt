@@ -490,6 +490,7 @@ int id large 0x7f070027
 int id listMode 0x7f070001
 int id list_item 0x7f07003d
 int id match_parent 0x7f07001e
+int id menu_item_share 0x7f070092
 int id middle 0x7f07000b
 int id monochrome 0x7f070025
 int id never 0x7f070010

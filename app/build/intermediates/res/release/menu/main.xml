@@ -2,10 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="italo.vaffapp.app.MainActivity" >
-    
-    <item android:id="@+id/action_settings"
+
+    <item
+        android:id="@+id/menu_item_share"
+        app:showAsAction="never"
+        android:title="Condividi"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
+
+    <!--<item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 </menu>
 <!-- From: file:/Users/iarmenti/Dropbox/apps/VaffApp/app/src/main/res/menu/main.xml -->

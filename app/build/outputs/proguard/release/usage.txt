@@ -2178,10 +2178,9 @@ com.facebook.LoginActivity:
     private static final java.lang.String SAVED_CALLING_PKG_KEY
     private static final java.lang.String SAVED_AUTH_CLIENT
     private static final java.lang.String EXTRA_REQUEST
-com.facebook.NativeAppCallAttachmentStore
-com.facebook.NativeAppCallAttachmentStore$1
-com.facebook.NativeAppCallAttachmentStore$2
-com.facebook.NativeAppCallAttachmentStore$ProcessAttachment
+com.facebook.NativeAppCallAttachmentStore:
+    static final java.lang.String ATTACHMENTS_DIR_NAME
+    168:178:public java.io.File openAttachment(java.util.UUID,java.lang.String)
 com.facebook.NativeAppCallContentProvider
 com.facebook.NativeAppCallContentProvider$AttachmentDataSource
 com.facebook.NonCachingTokenCachingStrategy
@@ -2333,7 +2332,6 @@ com.facebook.Session:
     private static final java.lang.String BASIC_INFO_PERMISSION
     139:239:private Session(java.lang.String,com.facebook.SessionState,com.facebook.AccessToken,java.util.Date,boolean,com.facebook.Session$AuthorizationRequest)
     139:258:private Session(java.lang.String,com.facebook.SessionState,com.facebook.AccessToken,java.util.Date,boolean,com.facebook.Session$AuthorizationRequest,java.util.Set)
-    266:267:public Session(android.content.Context)
     325:327:public final android.os.Bundle getAuthorizationBundle()
     342:344:public final boolean isClosed()
     424:428:public boolean isPermissionGranted(java.lang.String)
@@ -2345,8 +2343,6 @@ com.facebook.Session:
     717:754:public final boolean onActivityResult(android.app.Activity,int,int,android.content.Intent)
     855:855:private java.lang.Object writeReplace()
     861:861:private void readObject(java.io.ObjectInputStream)
-    872:882:public static final void saveSession(com.facebook.Session,android.os.Bundle)
-    900:925:public static final com.facebook.Session restoreSession(android.content.Context,com.facebook.TokenCachingStrategy,com.facebook.Session$StatusCallback,android.os.Bundle)
     1011:1011:public static com.facebook.Session openActiveSession(android.app.Activity,boolean,com.facebook.Session$StatusCallback)
     1035:1035:public static com.facebook.Session openActiveSession(android.app.Activity,boolean,java.util.List,com.facebook.Session$StatusCallback)
     1061:1061:public static com.facebook.Session openActiveSession(android.content.Context,android.support.v4.app.Fragment,boolean,com.facebook.Session$StatusCallback)
@@ -2425,7 +2421,6 @@ com.facebook.Settings:
     504:508:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
     524:525:public static void setOnProgressThreshold(long)
     545:546:public static void setPlatformCompatibilityEnabled(boolean)
-    582:585:static void loadDefaultsFromMetadataIfNeeded(android.content.Context)
     601:602:public static void setApplicationId(java.lang.String)
     618:619:public static void setClientToken(java.lang.String)
 com.facebook.Settings$2
@@ -2484,9 +2479,15 @@ com.facebook.TokenCachingStrategy:
     327:330:public static void putLastRefreshDate(android.os.Bundle,java.util.Date)
     342:343:public static long getLastRefreshMilliseconds(android.os.Bundle)
     358:360:public static void putLastRefreshMilliseconds(android.os.Bundle,long)
-com.facebook.UiLifecycleHelper
-com.facebook.UiLifecycleHelper$1
-com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver
+com.facebook.UiLifecycleHelper:
+    private static final java.lang.String DIALOG_CALL_BUNDLE_SAVE_KEY
+    private static final java.lang.String ACTIVITY_NULL_MESSAGE
+    private com.facebook.AppEventsLogger appEventsLogger
+    131:132:public void onActivityResult(int,int,android.content.Intent)
+    145:151:public void onActivityResult(int,int,android.content.Intent,com.facebook.widget.FacebookDialog$Callback)
+    182:183:public void onStop()
+    219:233:public com.facebook.AppEventsLogger getAppEventsLogger()
+    259:291:private boolean handleFacebookDialogActivityResult(int,int,android.content.Intent,com.facebook.widget.FacebookDialog$Callback)
 com.facebook.android.AsyncFacebookRunner
 com.facebook.android.AsyncFacebookRunner$1
 com.facebook.android.AsyncFacebookRunner$2
@@ -2672,11 +2673,6 @@ com.facebook.internal.NativeProtocol:
     private static final java.lang.String PLATFORM_PROVIDER_VERSION_COLUMN
     private static final java.lang.String PLATFORM_ASYNC_APPCALL_ACTION
     37:238:public NativeProtocol()
-    372:389:private static android.content.Intent findActivityIntent(android.content.Context,java.lang.String,java.lang.String)
-    393:402:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,int,android.os.Bundle)
-    419:419:public static boolean isErrorResult(android.content.Intent)
-    423:434:public static java.lang.Exception getErrorFromResult(android.content.Intent)
-    443:444:public static int getLatestAvailableProtocolVersionForAction(android.content.Context,java.lang.String,int)
 com.facebook.internal.NativeProtocol$KatanaAppInfo:
     static final java.lang.String KATANA_PACKAGE
 com.facebook.internal.NativeProtocol$MessengerAppInfo:
@@ -2736,10 +2732,8 @@ com.facebook.internal.Utility:
     197:206:public static void putObjectInBundle(android.os.Bundle,java.lang.String,java.lang.Object)
     233:247:static java.util.Map convertJSONObjectToHashMap(org.json.JSONObject)
     301:313:public static boolean stringsEqualOrEmpty(java.lang.String,java.lang.String)
-    422:432:public static void deleteDirectory(java.io.File)
 com.facebook.internal.Validate:
     26:26:public Validate()
-    49:58:public static void containsNoNullOrEmpty(java.util.Collection,java.lang.String)
     72:83:public static varargs void oneOf(java.lang.Object,java.lang.String,java.lang.Object[])
 com.facebook.internal.WorkQueue:
     public static final int DEFAULT_MAX_CONCURRENT
@@ -2837,64 +2831,48 @@ com.facebook.widget.FacebookDialog:
     private static final java.lang.String EXTRA_DIALOG_COMPLETE_KEY
     private static final java.lang.String EXTRA_DIALOG_COMPLETION_GESTURE_KEY
     private static final java.lang.String EXTRA_DIALOG_COMPLETION_ID_KEY
-    private static com.facebook.NativeAppCallAttachmentStore attachmentStore
-    private android.app.Activity activity
-    private android.support.v4.app.Fragment fragment
-    private com.facebook.widget.FacebookDialog$PendingCall appCall
-    private com.facebook.widget.FacebookDialog$OnPresentCallback onPresentCallback
     255:255:public static boolean getNativeDialogDidComplete(android.os.Bundle)
     266:266:public static java.lang.String getNativeDialogCompletionGesture(android.os.Bundle)
     277:277:public static java.lang.String getNativeDialogPostId(android.os.Bundle)
-    286:291:private FacebookDialog(android.app.Activity,android.support.v4.app.Fragment,com.facebook.widget.FacebookDialog$PendingCall,com.facebook.widget.FacebookDialog$OnPresentCallback)
-    302:318:public com.facebook.widget.FacebookDialog$PendingCall present()
-    333:350:public static boolean handleActivityResult(android.content.Context,com.facebook.widget.FacebookDialog$PendingCall,int,android.content.Intent,com.facebook.widget.FacebookDialog$Callback)
     365:365:public static varargs boolean canPresentShareDialog(android.content.Context,com.facebook.widget.FacebookDialog$ShareDialogFeature[])
     380:380:public static varargs boolean canPresentMessageDialog(android.content.Context,com.facebook.widget.FacebookDialog$MessageDialogFeature[])
     395:395:public static varargs boolean canPresentOpenGraphActionDialog(android.content.Context,com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature[])
     410:410:public static varargs boolean canPresentOpenGraphMessageDialog(android.content.Context,com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature[])
     414:414:private static boolean handleCanPresent(android.content.Context,java.lang.Iterable)
-    419:419:private static int getProtocolVersionForNativeDialog(android.content.Context,java.lang.String,int)
-    423:426:private static com.facebook.NativeAppCallAttachmentStore getAttachmentStore()
-    430:435:private static int getMinVersionForFeatures(java.lang.Iterable)
-    439:446:private static java.lang.String getActionForFeatures(java.lang.Iterable)
-    450:454:private static void logDialogActivity(android.app.Activity,android.support.v4.app.Fragment,java.lang.String,java.lang.String)
-    457:459:private static java.lang.String getEventName(android.content.Intent)
-    465:480:private static java.lang.String getEventName(java.lang.String,boolean)
-    45:45:static synthetic java.lang.String access$100(java.lang.Iterable)
-    45:45:static synthetic int access$200(java.lang.Iterable)
-    45:45:static synthetic int access$300(android.content.Context,java.lang.String,int)
-    45:45:static synthetic java.lang.String access$400(java.lang.String,boolean)
-    45:45:static synthetic void access$500(android.app.Activity,android.support.v4.app.Fragment,java.lang.String,java.lang.String)
-    45:45:synthetic FacebookDialog(android.app.Activity,android.support.v4.app.Fragment,com.facebook.widget.FacebookDialog$PendingCall,com.facebook.widget.FacebookDialog$OnPresentCallback,com.facebook.widget.FacebookDialog$1)
     45:45:static synthetic boolean access$800(android.content.Context,java.lang.Iterable)
-    45:45:static synthetic com.facebook.NativeAppCallAttachmentStore access$900()
-com.facebook.widget.FacebookDialog$Builder
-com.facebook.widget.FacebookDialog$Builder$1
-com.facebook.widget.FacebookDialog$Callback
-com.facebook.widget.FacebookDialog$DialogFeature
+com.facebook.widget.FacebookDialog$Builder:
+    508:511:public com.facebook.widget.FacebookDialog$Builder setRequestCode(int)
+    537:540:public com.facebook.widget.FacebookDialog$Builder setFragment(android.support.v4.app.Fragment)
+    583:583:public boolean canPresent()
+    606:617:protected java.util.List addImageAttachments(java.util.Collection)
+    621:632:protected java.util.List addImageAttachmentFiles(java.util.Collection)
+    636:636:java.util.List getImageAttachmentNames()
+    650:653:protected com.facebook.widget.FacebookDialog$Builder addImageAttachment(java.lang.String,android.graphics.Bitmap)
+    657:660:protected com.facebook.widget.FacebookDialog$Builder addImageAttachment(java.lang.String,java.io.File)
 com.facebook.widget.FacebookDialog$MessageDialogBuilder
 com.facebook.widget.FacebookDialog$MessageDialogFeature
-com.facebook.widget.FacebookDialog$OnPresentCallback
 com.facebook.widget.FacebookDialog$OpenGraphActionDialogBuilder
 com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature
 com.facebook.widget.FacebookDialog$OpenGraphDialogBuilderBase
 com.facebook.widget.FacebookDialog$OpenGraphMessageDialogBuilder
 com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature
 com.facebook.widget.FacebookDialog$PendingCall:
-    1566:1569:public FacebookDialog$PendingCall(int)
-    1578:1580:private void setRequestIntent(android.content.Intent)
-    1588:1588:public android.content.Intent getRequestIntent()
-    1597:1597:public java.util.UUID getCallId()
     1601:1602:private void setRequestCode(int)
-    1610:1610:public int getRequestCode()
     1556:1556:static synthetic void access$000(com.facebook.widget.FacebookDialog$PendingCall,int)
-    1556:1556:static synthetic void access$600(com.facebook.widget.FacebookDialog$PendingCall,android.content.Intent)
 com.facebook.widget.FacebookDialog$PhotoDialogBuilderBase
 com.facebook.widget.FacebookDialog$PhotoMessageDialogBuilder
 com.facebook.widget.FacebookDialog$PhotoShareDialogBuilder
-com.facebook.widget.FacebookDialog$ShareDialogBuilder
-com.facebook.widget.FacebookDialog$ShareDialogBuilderBase
-com.facebook.widget.FacebookDialog$ShareDialogFeature
+com.facebook.widget.FacebookDialog$ShareDialogBuilder:
+    829:829:public bridge synthetic boolean canPresent()
+com.facebook.widget.FacebookDialog$ShareDialogBuilderBase:
+    691:694:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setName(java.lang.String)
+    704:707:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setCaption(java.lang.String)
+    730:733:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setLink(java.lang.String)
+    743:746:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setPicture(java.lang.String)
+    756:759:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setPlace(java.lang.String)
+    769:772:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setFriends(java.util.List)
+    782:785:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setRef(java.lang.String)
+    796:799:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setDataErrorsFatal(boolean)
 com.facebook.widget.FacebookFragment
 com.facebook.widget.FacebookFragment$1
 com.facebook.widget.FacebookFragment$DefaultSessionStatusCallback

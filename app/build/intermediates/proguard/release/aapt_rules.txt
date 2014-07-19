@@ -55,7 +55,7 @@
 # view AndroidManifest.xml #generated:50
 -keep class com.google.android.gms.ads.AdActivity { <init>(...); }
 
-# view res/layout/fragment_main2.xml #generated:73
+# view res/layout/fragment_main2.xml #generated:64
 -keep class com.google.android.gms.ads.AdView { <init>(...); }
 
 # view AndroidManifest.xml #generated:31
@@ -67,8 +67,8 @@
 # view AndroidManifest.xml #generated:53
 -keep class italo.vaffapp.app.SendInsultActivity { <init>(...); }
 
-# onClick res/layout/fragment_main2.xml #generated:62
--keepclassmembers class * { *** copyData(...); }
+# onClick res/layout/fragment_main2.xml #generated:53
+-keepclassmembers class * { *** condividi(...); }
 
 # onClick res/layout/activity_send_insult.xml #generated:102
 -keepclassmembers class * { *** sendFeedback(...); }

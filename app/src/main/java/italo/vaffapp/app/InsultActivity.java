@@ -16,8 +16,10 @@ import android.util.Log;
 import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collection;
 
 import com.facebook.*;
 import com.facebook.widget.*;
@@ -81,6 +83,7 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        uiHelper.onActivityResult(requestCode, resultCode, data);
     }
 
     // 3. configure other methods on uiHelper to handle Activity lifecycle callbacks correctly
@@ -256,14 +259,44 @@ public class InsultActivity extends ActionBarActivity {
         uiHelper.trackPendingDialogCall(shareDialog.present());
     }
 
+    public void checkFBPublishAction(){
+        List<String> PERMISSIONS = Arrays.asList("publish_actions");
+        //private boolean pendingPublishReauthorization = false;
+        Session session = Session.getActiveSession();
+
+        if (session != null) {
+            System.out.println("not null");
+            // Check for publish permissions
+            List<String> permissions = session.getPermissions();
+            if (!isSubsetOf(PERMISSIONS, permissions)) {
+                //pendingPublishReauthorization = true;
+                Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
+                        this, PERMISSIONS);
+                session.requestNewPublishPermissions(newPermissionsRequest);
+                return;
+            }
+        }
+    }
+
+    private boolean isSubsetOf(Collection<String> subset, Collection<String> superset) {
+        for (String string : subset) {
+            if (!superset.contains(string)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void insultFriendOnFB() {
         // place text in clipboard
         if (insult == null ) {
-            // error, re-try
+            return;
         } else {
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
             clipb.setText(insult.getText());
         }
+
+        checkFBPublishAction();
 
         // Create Dialog to warn user
         //http://developer.android.com/guide/topics/ui/dialogs.html

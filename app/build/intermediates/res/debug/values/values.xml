@@ -729,8 +729,8 @@
     <!-- From: file:/Users/iarmenti/Dropbox/apps/VaffApp/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
-    <dimen name="activity_horizontal_margin">20dp</dimen>
-    <dimen name="activity_vertical_margin">20dp</dimen>
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
     <!-- From: file:/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/res/values/values.xml -->
     <eat-comment />
 

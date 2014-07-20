@@ -41,6 +41,9 @@ public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
     private UiLifecycleHelper uiHelper;
     private Session.StatusCallback callback = null;
+    // Activity code to flag an incoming activity result is due
+// to a new permissions request
+    private static final int REAUTH_ACTIVITY_CODE = 100;
     private TextView insult;
     private TextView insult_desc;
 
@@ -261,17 +264,13 @@ public class InsultActivity extends ActionBarActivity {
 
     public void checkFBPublishAction(){
         List<String> PERMISSIONS = Arrays.asList("publish_actions");
-        //private boolean pendingPublishReauthorization = false;
         Session session = Session.getActiveSession();
 
-        if (session != null) {
-            System.out.println("not null");
-            // Check for publish permissions
+        if (session != null && session.isOpened()) {
             List<String> permissions = session.getPermissions();
             if (!isSubsetOf(PERMISSIONS, permissions)) {
-                //pendingPublishReauthorization = true;
                 Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
-                        this, PERMISSIONS);
+                        this, PERMISSIONS).setRequestCode(REAUTH_ACTIVITY_CODE);
                 session.requestNewPublishPermissions(newPermissionsRequest);
                 return;
             }

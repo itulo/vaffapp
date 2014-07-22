@@ -49,11 +49,6 @@ public class InsultActivity extends ActionBarActivity {
     private static short generated_n = 0;
     private final short MAX_RETRIES = 10;
 
-    /*private enum State {
-        INSULT, INSULTDESC, DESC;
-    }
-    private State copy_state = State.INSULT;*/
-
     // for condividi
     private List<Intent> targetedShareIntents;
     private List<String> diff_app;
@@ -237,7 +232,6 @@ public class InsultActivity extends ActionBarActivity {
 
     public void checkFBPublishAction(){
         List<String> PERMISSIONS = Arrays.asList("publish_actions");
-        //private boolean pendingPublishReauthorization = false;
         Session session = Session.getActiveSession();
 
         if (session != null) {
@@ -245,7 +239,6 @@ public class InsultActivity extends ActionBarActivity {
             // Check for publish permissions
             List<String> permissions = session.getPermissions();
             if (!isSubsetOf(PERMISSIONS, permissions)) {
-                //pendingPublishReauthorization = true;
                 Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
                         this, PERMISSIONS);
                 session.requestNewPublishPermissions(newPermissionsRequest);
@@ -289,31 +282,6 @@ public class InsultActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    /*public void copyData(View view) {
-        Button button_copy = (Button)findViewById(R.id.button_copy);
-        ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-
-        switch(copy_state){
-            case INSULT:
-                clipb.setText(insult.getText());
-                button_copy.setText("Copia insulto\ne descrizione");
-                copy_state = State.INSULTDESC;
-                break;
-            case INSULTDESC:
-                clipb.setText(insult.getText() + "\n" + insult_desc.getText());
-                button_copy.setText("Copia\ndescrizione");
-                copy_state = State.DESC;
-                break;
-            case DESC:
-                clipb.setText(insult_desc.getText());
-                button_copy.setText("Copia\ninsulto");
-                copy_state = State.INSULT;
-                break;
-            default:
-                // do nothing
-        }
-    }*/
-
     // check for presence of Facebook and Twitter apps (these will be treated differently)
     public void checkPresenceOfApps(View view){
         targetedShareIntents = new ArrayList<Intent>();
@@ -338,14 +306,40 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
+    public void insultFriendOnFBTemp(String package_name){
+        final String pck_nm = package_name;
+
+        // copia insulto
+        ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        clipb.setText(insult.getText());
+
+        // avvisa che bisogna copiare
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l'insulto è stato copiato nella clipboard: devi solo incollarlo!")
+                .setTitle("Mamma, che coglioni")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // apri facebook app
+                        Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                        targetedShareIntent.setType("text/plain");
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+                        targetedShareIntent.setPackage(pck_nm);
+                        startActivity(targetedShareIntent);
+                    }
+                });
+        builder.create().show();
+    }
+
     // 1. show a first choice dialog to choose between Twitter, Facebook and Other
     // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
     public void twoChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] twitterPackageName = { "twitter" };
+        final String[] facebookPackageName = { "facebook" };
         final CharSequence[] items = new CharSequence[diff_app.size()+1];
         for (int i=0; i<diff_app.size();i++) {
             if (diff_app.get(i).contains("facebook"))
+                facebookPackageName[0] = diff_app.get(i);
                 items[i] = "Facebook";
             if (diff_app.get(i).contains("twitter")) {
                 items[i] = "Twitter";
@@ -362,7 +356,8 @@ public class InsultActivity extends ActionBarActivity {
                     {
                         String choice = items[which].toString();
                         if ( choice.equals("Facebook") ){
-                            insultFriendOnFB();
+                            //insultFriendOnFB();
+                            insultFriendOnFBTemp(facebookPackageName[0]);
                         }
                         if ( choice.equals("Twitter") ){
                             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);

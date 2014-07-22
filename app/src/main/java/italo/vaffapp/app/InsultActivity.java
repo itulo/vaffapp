@@ -27,8 +27,6 @@ import android.text.ClipboardManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-//import com.google.android.gms.ads.*;
-
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -36,6 +34,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import android.os.Parcelable;
+
+import com.appnext.appnextsdk.Appnext;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -49,9 +49,6 @@ public class InsultActivity extends ActionBarActivity {
     private static short generated_n = 0;
     private final short MAX_RETRIES = 10;
 
-    //private AdView banner;
-    //private InterstitialAd interstitial;
-
     /*private enum State {
         INSULT, INSULTDESC, DESC;
     }
@@ -61,6 +58,8 @@ public class InsultActivity extends ActionBarActivity {
     private List<Intent> targetedShareIntents;
     private List<String> diff_app;
     private Intent sharingIntent;
+
+    private Appnext appnext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +89,6 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //if (banner != null) {
-        //    banner.resume();
-        //}
         uiHelper.onResume();
     }
 
@@ -104,19 +100,12 @@ public class InsultActivity extends ActionBarActivity {
 
     @Override
     public void onPause() {
-        //if (banner != null) {
-        //    banner.pause();
-        //}
         super.onPause();
         uiHelper.onPause();
     }
 
     @Override
     public void onDestroy() {
-        // Destroy the AdView.
-        //if (banner != null) {
-        //    banner.destroy();
-        //}
         super.onDestroy();
         uiHelper.onDestroy();
     }
@@ -124,16 +113,9 @@ public class InsultActivity extends ActionBarActivity {
     public void onStart(){
         super.onStart();
 
-        // Look up the AdView as a resource and load a request.
-        //banner = (AdView)this.findViewById(R.id.adView);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //banner.loadAd(adRequest);
-
-        // prepare interstitial
-        //interstitial = new InterstitialAd(this);
-        //interstitial.setAdUnitId("ca-app-pub-6113915254397786/9432578150");
-        //adRequest = new AdRequest.Builder().build();
-        //interstitial.loadAd(adRequest);
+        appnext = new Appnext(this);
+        appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
+        appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
 
         if ( insults == null ) {
             showInsult(null);
@@ -142,12 +124,6 @@ public class InsultActivity extends ActionBarActivity {
             setTextviews();
         }
     }
-
-    //public void displayInterstitial() {
-    //    if (interstitial.isLoaded()) {
-    //        interstitial.show();
-    //    }
-   // }
 
     public void getTextviews(){
         if ( insult == null )
@@ -209,7 +185,7 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n % 10 == 0 ){
-            //displayInterstitial();
+            appnext.showBubble();
         }
     }
 

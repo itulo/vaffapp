@@ -17,7 +17,6 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,6 +45,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="italo.vaffapp.app.MainActivity" />
         </activity>
+
+        <service android:name="com.appnext.appnextsdk.DownloadService"/>
     </application>
 
     <uses-sdk

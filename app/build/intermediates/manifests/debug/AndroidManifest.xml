@@ -53,6 +53,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="italo.vaffapp.app.MainActivity" />
         </activity>
+
+        <service android:name="com.appnext.appnextsdk.DownloadService" />
     </application>
 
 </manifest>

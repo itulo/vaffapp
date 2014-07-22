@@ -32,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // my db version
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
-    private static int DB_VER = 2;
+    private static int DB_VER = 3;
 
     // Insults Table Columns names
     private static final String KEY_ID = "rowid";

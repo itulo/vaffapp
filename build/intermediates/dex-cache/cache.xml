@@ -2,17 +2,17 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/bolts-49c4f8a6895b15f3f70824faf1dc209121aee501.jar"
-        jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/libs/bolts.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="1e5ba33c837d05dcca9dc40a0ab458f8599d7aef"/>
-    <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/classes-26f557a254dfeb27fd1a34da6feb21d33c88187f.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/bolts-49c4f8a6895b15f3f70824faf1dc209121aee501.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/libs/bolts.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="1e5ba33c837d05dcca9dc40a0ab458f8599d7aef"/>
     <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-fe930dc68beb1e566675ce71b270d4091c6c249b.jar"
         jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
@@ -30,7 +30,7 @@
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="8dce537cd082c1cd611f6cd7ecfedcc1a6bf8949"/>
+        sha1="c95452f1e3567c53fc791c1c879a6d885fb4b43f"/>
     <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/mail-354637c634117b52e4e598856bdd6d0a9038ae55.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/mail.jar"

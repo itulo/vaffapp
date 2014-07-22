@@ -27,7 +27,7 @@ import android.text.ClipboardManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import com.google.android.gms.ads.*;
+//import com.google.android.gms.ads.*;
 
 import android.widget.LinearLayout;
 
@@ -49,8 +49,8 @@ public class InsultActivity extends ActionBarActivity {
     private static short generated_n = 0;
     private final short MAX_RETRIES = 10;
 
-    private AdView banner;
-    private InterstitialAd interstitial;
+    //private AdView banner;
+    //private InterstitialAd interstitial;
 
     /*private enum State {
         INSULT, INSULTDESC, DESC;
@@ -90,9 +90,9 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (banner != null) {
-            banner.resume();
-        }
+        //if (banner != null) {
+        //    banner.resume();
+        //}
         uiHelper.onResume();
     }
 
@@ -104,9 +104,9 @@ public class InsultActivity extends ActionBarActivity {
 
     @Override
     public void onPause() {
-        if (banner != null) {
-            banner.pause();
-        }
+        //if (banner != null) {
+        //    banner.pause();
+        //}
         super.onPause();
         uiHelper.onPause();
     }
@@ -114,9 +114,9 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     public void onDestroy() {
         // Destroy the AdView.
-        if (banner != null) {
-            banner.destroy();
-        }
+        //if (banner != null) {
+        //    banner.destroy();
+        //}
         super.onDestroy();
         uiHelper.onDestroy();
     }
@@ -125,15 +125,15 @@ public class InsultActivity extends ActionBarActivity {
         super.onStart();
 
         // Look up the AdView as a resource and load a request.
-        banner = (AdView)this.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner.loadAd(adRequest);
+        //banner = (AdView)this.findViewById(R.id.adView);
+        //AdRequest adRequest = new AdRequest.Builder().build();
+        //banner.loadAd(adRequest);
 
         // prepare interstitial
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId("ca-app-pub-6113915254397786/9432578150");
-        adRequest = new AdRequest.Builder().build();
-        interstitial.loadAd(adRequest);
+        //interstitial = new InterstitialAd(this);
+        //interstitial.setAdUnitId("ca-app-pub-6113915254397786/9432578150");
+        //adRequest = new AdRequest.Builder().build();
+        //interstitial.loadAd(adRequest);
 
         if ( insults == null ) {
             showInsult(null);
@@ -143,11 +143,11 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
-    public void displayInterstitial() {
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-        }
-    }
+    //public void displayInterstitial() {
+    //    if (interstitial.isLoaded()) {
+    //        interstitial.show();
+    //    }
+   // }
 
     public void getTextviews(){
         if ( insult == null )
@@ -209,7 +209,7 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n % 10 == 0 ){
-            displayInterstitial();
+            //displayInterstitial();
         }
     }
 

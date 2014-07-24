@@ -27,8 +27,6 @@ import android.text.ClipboardManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import com.google.android.gms.ads.*;
-
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -36,6 +34,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import android.os.Parcelable;
+
+import com.appnext.appnextsdk.Appnext;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -52,18 +52,12 @@ public class InsultActivity extends ActionBarActivity {
     private static short generated_n = 0;
     private final short MAX_RETRIES = 10;
 
-    private AdView banner;
-    private InterstitialAd interstitial;
-
-    /*private enum State {
-        INSULT, INSULTDESC, DESC;
-    }
-    private State copy_state = State.INSULT;*/
-
     // for condividi
     private List<Intent> targetedShareIntents;
     private List<String> diff_app;
     private Intent sharingIntent;
+
+    private Appnext appnext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,9 +87,6 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (banner != null) {
-            banner.resume();
-        }
         uiHelper.onResume();
     }
 
@@ -107,19 +98,12 @@ public class InsultActivity extends ActionBarActivity {
 
     @Override
     public void onPause() {
-        if (banner != null) {
-            banner.pause();
-        }
         super.onPause();
         uiHelper.onPause();
     }
 
     @Override
     public void onDestroy() {
-        // Destroy the AdView.
-        if (banner != null) {
-            banner.destroy();
-        }
         super.onDestroy();
         uiHelper.onDestroy();
     }
@@ -127,28 +111,14 @@ public class InsultActivity extends ActionBarActivity {
     public void onStart(){
         super.onStart();
 
-        // Look up the AdView as a resource and load a request.
-        banner = (AdView)this.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner.loadAd(adRequest);
-
-        // prepare interstitial
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId("ca-app-pub-6113915254397786/9432578150");
-        adRequest = new AdRequest.Builder().build();
-        interstitial.loadAd(adRequest);
+        appnext = new Appnext(this);
+        appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
 
         if ( insults == null ) {
             showInsult(null);
         } else{
             getTextviews();
             setTextviews();
-        }
-    }
-
-    public void displayInterstitial() {
-        if (interstitial.isLoaded()) {
-            interstitial.show();
         }
     }
 
@@ -212,7 +182,8 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n % 10 == 0 ){
-            displayInterstitial();
+            appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
+            appnext.showBubble();
         }
     }
 
@@ -312,31 +283,6 @@ public class InsultActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    /*public void copyData(View view) {
-        Button button_copy = (Button)findViewById(R.id.button_copy);
-        ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-
-        switch(copy_state){
-            case INSULT:
-                clipb.setText(insult.getText());
-                button_copy.setText("Copia insulto\ne descrizione");
-                copy_state = State.INSULTDESC;
-                break;
-            case INSULTDESC:
-                clipb.setText(insult.getText() + "\n" + insult_desc.getText());
-                button_copy.setText("Copia\ndescrizione");
-                copy_state = State.DESC;
-                break;
-            case DESC:
-                clipb.setText(insult_desc.getText());
-                button_copy.setText("Copia\ninsulto");
-                copy_state = State.INSULT;
-                break;
-            default:
-                // do nothing
-        }
-    }*/
-
     // check for presence of Facebook and Twitter apps (these will be treated differently)
     public void checkPresenceOfApps(View view){
         targetedShareIntents = new ArrayList<Intent>();
@@ -349,7 +295,7 @@ public class InsultActivity extends ActionBarActivity {
 
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
-            if ( packageName.contains("facebook") || packageName.contains("twitter") ){
+            if ( packageName.contains("facebook.katana") || packageName.contains("twitter") ){
                 diff_app.add(packageName);
                 continue;
             }
@@ -361,14 +307,40 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
+    public void insultFriendOnFBTemp(String package_name){
+        final String pck_nm = package_name;
+
+        // copia insulto
+        ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        clipb.setText(insult.getText());
+
+        // avvisa che bisogna copiare
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l'insulto è stato copiato nella clipboard: devi solo incollarlo!")
+                .setTitle("Mamma, che coglioni")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // apri facebook app
+                        Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                        targetedShareIntent.setType("text/plain");
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+                        targetedShareIntent.setPackage(pck_nm);
+                        startActivity(targetedShareIntent);
+                    }
+                });
+        builder.create().show();
+    }
+
     // 1. show a first choice dialog to choose between Twitter, Facebook and Other
     // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
     public void twoChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] twitterPackageName = { "twitter" };
+        final String[] facebookPackageName = { "facebook" };
         final CharSequence[] items = new CharSequence[diff_app.size()+1];
         for (int i=0; i<diff_app.size();i++) {
             if (diff_app.get(i).contains("facebook"))
+                facebookPackageName[0] = diff_app.get(i);
                 items[i] = "Facebook";
             if (diff_app.get(i).contains("twitter")) {
                 items[i] = "Twitter";
@@ -385,7 +357,8 @@ public class InsultActivity extends ActionBarActivity {
                     {
                         String choice = items[which].toString();
                         if ( choice.equals("Facebook") ){
-                            insultFriendOnFB();
+                            //insultFriendOnFB();
+                            insultFriendOnFBTemp(facebookPackageName[0]);
                         }
                         if ( choice.equals("Twitter") ){
                             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);

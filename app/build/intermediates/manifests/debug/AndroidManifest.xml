@@ -43,13 +43,7 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <activity
             android:name="italo.vaffapp.app.SendInsultActivity"
             android:configChanges="orientation"
@@ -59,6 +53,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="italo.vaffapp.app.MainActivity" />
         </activity>
+
+        <service android:name="com.appnext.appnextsdk.DownloadService" />
     </application>
 
 </manifest>

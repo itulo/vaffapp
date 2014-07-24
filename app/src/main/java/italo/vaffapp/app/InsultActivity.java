@@ -109,7 +109,6 @@ public class InsultActivity extends ActionBarActivity {
         super.onStart();
 
         appnext = new Appnext(this);
-        appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
         appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
 
         if ( insults == null ) {
@@ -180,6 +179,7 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n % 10 == 0 ){
+            appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
             appnext.showBubble();
         }
     }
@@ -294,7 +294,7 @@ public class InsultActivity extends ActionBarActivity {
 
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
-            if ( packageName.contains("facebook") || packageName.contains("twitter") ){
+            if ( packageName.contains("facebook.katana") || packageName.contains("twitter") ){
                 diff_app.add(packageName);
                 continue;
             }

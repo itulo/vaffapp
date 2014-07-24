@@ -69,40 +69,40 @@ public class InsultActivity extends ActionBarActivity {
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
         // 1. configure the UiLifecycleHelper in onCreate
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
+        //uiHelper = new UiLifecycleHelper(this, callback);
+        //uiHelper.onCreate(savedInstanceState);
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
+        //uiHelper.onActivityResult(requestCode, resultCode, data);
     }
 
     // 3. configure other methods on uiHelper to handle Activity lifecycle callbacks correctly
     @Override
     protected void onResume() {
         super.onResume();
-        uiHelper.onResume();
+        //uiHelper.onResume();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        uiHelper.onSaveInstanceState(outState);
+        //uiHelper.onSaveInstanceState(outState);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        uiHelper.onPause();
+        //uiHelper.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        uiHelper.onDestroy();
+        //uiHelper.onDestroy();
     }
 
     public void onStart(){

@@ -422,9 +422,8 @@ int id action_context_bar 0x7f070031
 int id action_menu_divider 0x7f070029
 int id action_menu_presenter 0x7f07002a
 int id action_mode_close_button 0x7f070038
-int id action_settings 0x7f070091
+int id action_settings 0x7f070090
 int id activity_chooser_view_content 0x7f070039
-int id adView 0x7f070090
 int id always 0x7f070012
 int id beginning 0x7f07000a
 int id book_now 0x7f070022
@@ -490,7 +489,7 @@ int id large 0x7f070027
 int id listMode 0x7f070001
 int id list_item 0x7f07003d
 int id match_parent 0x7f07001e
-int id menu_item_share 0x7f070092
+int id menu_item_share 0x7f070091
 int id middle 0x7f07000b
 int id monochrome 0x7f070025
 int id never 0x7f070010

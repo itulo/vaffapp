@@ -311,7 +311,7 @@ public class InsultActivity extends ActionBarActivity {
 
         // copia insulto
         ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        clipb.setText(insult.getText());
+        clipb.setText(insult.getText()+" #vaffapp");
 
         // avvisa che bisogna copiare
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -322,7 +322,7 @@ public class InsultActivity extends ActionBarActivity {
                         // apri facebook app
                         Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                         targetedShareIntent.setType("text/plain");
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
                         targetedShareIntent.setPackage(pck_nm);
                         startActivity(targetedShareIntent);
                     }

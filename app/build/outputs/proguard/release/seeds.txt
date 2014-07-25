@@ -843,6 +843,33 @@ android.support.v7.widget.SearchView$SearchAutoComplete: void setSearchView(andr
 android.support.v7.widget.SearchView$SearchAutoComplete: void setThreshold(int)
 bolts.AppLinkNavigation$NavigationResult: bolts.AppLinkNavigation$NavigationResult[] values()
 bolts.AppLinkNavigation$NavigationResult: bolts.AppLinkNavigation$NavigationResult valueOf(java.lang.String)
+com.appnext.appnextsdk.Appnext: void setAppID(java.lang.String)
+com.appnext.appnextsdk.Appnext: java.lang.String getAppID()
+com.appnext.appnextsdk.Appnext: void setFrameButton(android.widget.Button)
+com.appnext.appnextsdk.Appnext: java.lang.String getAdsID()
+com.appnext.appnextsdk.Appnext: java.lang.String getEmail()
+com.appnext.appnextsdk.Appnext: void setUserName(java.lang.String)
+com.appnext.appnextsdk.Appnext: com.appnext.appnextsdk.ImageDownloader getImageDownloader()
+com.appnext.appnextsdk.Appnext: double getScreenSize()
+com.appnext.appnextsdk.Appnext: void setHCallback(com.appnext.appnextsdk.HCallback)
+com.appnext.appnextsdk.Appnext: java.lang.String getDevice()
+com.appnext.appnextsdk.Appnext: void setNoAdsInterface(com.appnext.appnextsdk.NoAdsInterface)
+com.appnext.appnextsdk.Appnext: void setPopupClosedCallback(com.appnext.appnextsdk.PopupClosedInterface)
+com.appnext.appnextsdk.Appnext: void setPopupClickedCallback(com.appnext.appnextsdk.PopupClickedInterface)
+com.appnext.appnextsdk.Appnext: void setAdLoadInterface(com.appnext.appnextsdk.OnAdLoadInterface)
+com.appnext.appnextsdk.Appnext: void setPopupOpenedInterface(com.appnext.appnextsdk.PopupOpenedInterface)
+com.appnext.appnextsdk.Appnext: void setVisibility(int)
+com.appnext.appnextsdk.Appnext: void setImagePath(java.lang.String)
+com.appnext.appnextsdk.Appnext: java.lang.String getVersion()
+com.appnext.appnextsdk.Appnext$DownloadReceiver
+com.appnext.appnextsdk.AppnextMoreApps: void setAppext(com.appnext.appnextsdk.Appnext)
+com.appnext.appnextsdk.AppnextMoreApps: double getScreenSize()
+com.appnext.appnextsdk.AppnextMoreGames: void setAppext(com.appnext.appnextsdk.Appnext)
+com.appnext.appnextsdk.AppnextMoreGames: double getScreenSize()
+com.appnext.appnextsdk.DownloadService
+com.appnext.appnextsdk.DownloadService: DownloadService()
+com.appnext.appnextsdk.ImageDownloader$DMode: com.appnext.appnextsdk.ImageDownloader$DMode[] values()
+com.appnext.appnextsdk.ImageDownloader$DMode: com.appnext.appnextsdk.ImageDownloader$DMode valueOf(java.lang.String)
 com.facebook.AccessTokenSource: com.facebook.AccessTokenSource[] values()
 com.facebook.AccessTokenSource: com.facebook.AccessTokenSource valueOf(java.lang.String)
 com.facebook.AppEventsLogger$FlushBehavior: com.facebook.AppEventsLogger$FlushBehavior[] values()
@@ -1296,13 +1323,7 @@ com.google.android.gms.R$styleable: int WalletFragmentStyle_maskedWalletDetailsH
 com.google.android.gms.R$styleable: int WalletFragmentStyle_maskedWalletDetailsLogoImageType
 com.google.android.gms.R$styleable: int WalletFragmentStyle_maskedWalletDetailsLogoTextColor
 com.google.android.gms.R$styleable: int WalletFragmentStyle_maskedWalletDetailsTextAppearance
-com.google.android.gms.ads.AdActivity
-com.google.android.gms.ads.AdActivity: AdActivity()
 com.google.android.gms.ads.AdActivity: void setContentView(android.view.View)
-com.google.android.gms.ads.AdView
-com.google.android.gms.ads.AdView: AdView(android.content.Context)
-com.google.android.gms.ads.AdView: AdView(android.content.Context,android.util.AttributeSet)
-com.google.android.gms.ads.AdView: AdView(android.content.Context,android.util.AttributeSet,int)
 com.google.android.gms.ads.AdView: com.google.android.gms.ads.AdListener getAdListener()
 com.google.android.gms.ads.AdView: com.google.android.gms.ads.AdSize getAdSize()
 com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()
@@ -2116,7 +2137,6 @@ italo.vaffapp.app.R$id: int action_menu_presenter
 italo.vaffapp.app.R$id: int action_mode_close_button
 italo.vaffapp.app.R$id: int action_settings
 italo.vaffapp.app.R$id: int activity_chooser_view_content
-italo.vaffapp.app.R$id: int adView
 italo.vaffapp.app.R$id: int always
 italo.vaffapp.app.R$id: int beginning
 italo.vaffapp.app.R$id: int book_now

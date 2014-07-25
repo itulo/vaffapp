@@ -2,6 +2,7 @@
 <pre-dex-items>
 
     <item
+<<<<<<< HEAD
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/additionnal-a35f493aa63d9212699d65dd3d1c90a8aead36be.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/additionnal.jar"
         jumboMode="false"
@@ -14,6 +15,8 @@
         revision="19.1.0"
         sha1="5c273dae562d747b22e814a0c5d7fd31a7010e69"/>
     <item
+=======
+>>>>>>> master
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/classes-26f557a254dfeb27fd1a34da6feb21d33c88187f.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
         jumboMode="false"
@@ -25,6 +28,32 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="1e5ba33c837d05dcca9dc40a0ab458f8599d7aef"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/AppNextSDK-caed716eaddb2b50ba89a8146e9c1881d7d2ea7d.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/AppNextSDK.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="7ab9f1d6041fdca8c1bff7e9c0b8ac63051f3755"/>
+    <item
+<<<<<<< HEAD
+=======
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-fe930dc68beb1e566675ce71b270d4091c6c249b.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/additionnal-a35f493aa63d9212699d65dd3d1c90a8aead36be.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/additionnal.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/classes-64bc065bcafe12f85a61acf2b7f88822ab1d01ff.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="cb3b8295104e8892c9f9df21c447370c05b6c2eb"/>
     <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/mail-354637c634117b52e4e598856bdd6d0a9038ae55.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/mail.jar"
@@ -38,12 +67,7 @@
         revision="19.1.0"
         sha1="3dfdf1db5ce5ea2999a5dcde8c8e650b02660059"/>
     <item
-        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/AppNextSDK-caed716eaddb2b50ba89a8146e9c1881d7d2ea7d.jar"
-        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/AppNextSDK.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="7ab9f1d6041fdca8c1bff7e9c0b8ac63051f3755"/>
-    <item
+>>>>>>> master
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/activation-5106d9d6b15570510ae5dcfcee282eba9f16c013.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/activation.jar"
         jumboMode="false"

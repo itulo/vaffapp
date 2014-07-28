@@ -39,8 +39,11 @@ import com.appnext.appnextsdk.Appnext;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
-    private UiLifecycleHelper uiHelper;
+    //private UiLifecycleHelper uiHelper;
     private Session.StatusCallback callback = null;
+    // Activity code to flag an incoming activity result is due
+// to a new permissions request
+    private static final int REAUTH_ACTIVITY_CODE = 100;
     private TextView insult;
     private TextView insult_desc;
 
@@ -167,7 +170,7 @@ public class InsultActivity extends ActionBarActivity {
 
         getTextviews();
         setTextviews();
-        setTitle("Ti insulto! ("+getRegionFromId(insults.get(rand_index).getRegionId())+")");
+        getSupportActionBar().setTitle("Ti insulto! ("+getRegionFromId(insults.get(rand_index).getRegionId())+")");
 
         occurrences[rand_index] = 1;
         generated_n++;
@@ -227,20 +230,18 @@ public class InsultActivity extends ActionBarActivity {
             .setApplicationName("VaffApp")
             .setDescription(insult_desc.getText().toString())
             .build();
-        uiHelper.trackPendingDialogCall(shareDialog.present());
+        //uiHelper.trackPendingDialogCall(shareDialog.present());
     }
 
     public void checkFBPublishAction(){
         List<String> PERMISSIONS = Arrays.asList("publish_actions");
         Session session = Session.getActiveSession();
 
-        if (session != null) {
-            System.out.println("not null");
-            // Check for publish permissions
+        if (session != null && session.isOpened()) {
             List<String> permissions = session.getPermissions();
             if (!isSubsetOf(PERMISSIONS, permissions)) {
                 Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
-                        this, PERMISSIONS);
+                        this, PERMISSIONS).setRequestCode(REAUTH_ACTIVITY_CODE);
                 session.requestNewPublishPermissions(newPermissionsRequest);
                 return;
             }

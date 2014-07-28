@@ -36,7 +36,7 @@
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="cb3b8295104e8892c9f9df21c447370c05b6c2eb"/>
+        sha1="825e2d819b5de6c04ad10f5febf0aed0ab13af80"/>
     <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/mail-354637c634117b52e4e598856bdd6d0a9038ae55.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/mail.jar"

@@ -230,7 +230,6 @@
 'Animale eggebbia','Animale che beve dall''abbeveratorio (sempliciotto)'
 'Maccarrune','Deficiente'
 '''nchiappafico','stupido'
-'''ncul a quantu nnai!','Vaffanculo a tutti i tuoi parenti!'
 'Rusica ossa','Insensibile'
 'Spennagalletti','spenna galli (nullafacente)'
 

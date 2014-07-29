@@ -34,7 +34,6 @@ public class MainActivity extends ActionBarActivity {
 
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state.isOpened()) {
-            Log.i(TAG, "Logged in...");
             List<String> PERMISSIONS = Arrays.asList("publish_actions");
             List<String> permissions = session.getPermissions();
             if (!isSubsetOf(PERMISSIONS, permissions)) {
@@ -42,9 +41,9 @@ public class MainActivity extends ActionBarActivity {
                         .NewPermissionsRequest(this, PERMISSIONS);
                 session.requestNewPublishPermissions(newPermissionsRequest);
             }
-        } else if (state.isClosed()) {
-            Log.i(TAG, "Logged out...");
-        }
+        } //else if (state.isClosed()) {
+            //
+        //}
     }
 
     private boolean isSubsetOf(Collection<String> subset, Collection<String> superset) {

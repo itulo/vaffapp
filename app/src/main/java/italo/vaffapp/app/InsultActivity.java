@@ -170,7 +170,7 @@ public class InsultActivity extends ActionBarActivity {
 
         getTextviews();
         setTextviews();
-        setTitle("Ti insulto! ("+getRegionFromId(insults.get(rand_index).getRegionId())+")");
+        getSupportActionBar().setTitle("Ti insulto! ("+getRegionFromId(insults.get(rand_index).getRegionId())+")");
 
         occurrences[rand_index] = 1;
         generated_n++;

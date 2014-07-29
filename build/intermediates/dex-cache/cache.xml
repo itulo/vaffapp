@@ -2,18 +2,6 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/additionnal-a35f493aa63d9212699d65dd3d1c90a8aead36be.jar"
-        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/additionnal.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4"/>
-    <item
-        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/classes-64bc065bcafe12f85a61acf2b7f88822ab1d01ff.jar"
-        jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8fa654ff8475f455190d1c8e8405d194034e5f41"/>
-    <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/bolts-49c4f8a6895b15f3f70824faf1dc209121aee501.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/libs/bolts.jar"
         jumboMode="false"
@@ -25,6 +13,30 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/AppNextSDK-caed716eaddb2b50ba89a8146e9c1881d7d2ea7d.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/AppNextSDK.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="7ab9f1d6041fdca8c1bff7e9c0b8ac63051f3755"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-fe930dc68beb1e566675ce71b270d4091c6c249b.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/additionnal-a35f493aa63d9212699d65dd3d1c90a8aead36be.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/additionnal.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4"/>
+    <item
+        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/classes-64bc065bcafe12f85a61acf2b7f88822ab1d01ff.jar"
+        jar="/Users/iarmenti/Dropbox/apps/VaffApp/build/intermediates/exploded-aar/VaffApp/facebook/unspecified/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="88c02db00c6e8f924216ab857c076b3bfbe6b69b"/>
     <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/mail-354637c634117b52e4e598856bdd6d0a9038ae55.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/mail.jar"
@@ -38,22 +50,10 @@
         revision="19.1.0"
         sha1="3dfdf1db5ce5ea2999a5dcde8c8e650b02660059"/>
     <item
-        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/AppNextSDK-caed716eaddb2b50ba89a8146e9c1881d7d2ea7d.jar"
-        jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/AppNextSDK.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="7ab9f1d6041fdca8c1bff7e9c0b8ac63051f3755"/>
-    <item
         dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/activation-5106d9d6b15570510ae5dcfcee282eba9f16c013.jar"
         jar="/Users/iarmenti/Dropbox/apps/VaffApp/app/libs/activation.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="d1257cbff6faa44c1f325ae0d9413522d4644383"/>
-    <item
-        dex="/Users/iarmenti/Dropbox/apps/VaffApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-fe930dc68beb1e566675ce71b270d4091c6c249b.jar"
-        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
 
 </pre-dex-items>

@@ -23,7 +23,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "MainActivity";
-    private UiLifecycleHelper uiHelper;
+    /*private UiLifecycleHelper uiHelper;
 
     private Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
@@ -36,11 +36,14 @@ public class MainActivity extends ActionBarActivity {
         if (state.isOpened()) {
             List<String> PERMISSIONS = Arrays.asList("publish_actions");
             List<String> permissions = session.getPermissions();
-            if (!isSubsetOf(PERMISSIONS, permissions)) {
-                Session.NewPermissionsRequest newPermissionsRequest = new Session
-                        .NewPermissionsRequest(this, PERMISSIONS);
-                session.requestNewPublishPermissions(newPermissionsRequest);
+            for (String h : permissions){
+                System.out.println(h);
             }
+            //if (!isSubsetOf(PERMISSIONS, permissions)) {
+            //    Session.NewPermissionsRequest newPermissionsRequest = new Session
+            //            .NewPermissionsRequest(this, PERMISSIONS);
+            //    session.requestNewPublishPermissions(newPermissionsRequest);
+            //}
         } //else if (state.isClosed()) {
             //
         //}
@@ -53,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
             }
         }
         return true;
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +68,8 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
 
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
+        //uiHelper = new UiLifecycleHelper(this, callback);
+        //uiHelper.onCreate(savedInstanceState);
 
         /* allow app post on FB
          https://developers.facebook.com/docs/facebook-login/permissions/v2.0 */
@@ -147,7 +150,7 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    @Override
+    /*@Override
     public void onResume() {
         super.onResume();
         uiHelper.onResume();
@@ -175,5 +178,5 @@ public class MainActivity extends ActionBarActivity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         uiHelper.onSaveInstanceState(outState);
-    }
+    }*/
 }

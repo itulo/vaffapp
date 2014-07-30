@@ -266,7 +266,7 @@ public class InsultActivity extends ActionBarActivity {
             clipb.setText(insult.getText());
         }
 
-        checkFBPublishAction();
+        //checkFBPublishAction();
 
         // Create Dialog to warn user
         //http://developer.android.com/guide/topics/ui/dialogs.html

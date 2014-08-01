@@ -37,10 +37,18 @@
         android:layout_height="wrap_content"
         android:text="Insultaci"
         android:id="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/button_background"
-        android:layout_marginBottom="72dp"
-        android:onClick="startSendInsultActivity" />
+        android:onClick="startSendInsultActivity"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <!--<com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />-->
 
 </RelativeLayout>

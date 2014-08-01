@@ -14,8 +14,15 @@ import android.content.Intent;
 import com.facebook.*;
 import com.facebook.widget.*;
 
+import android.util.Log;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +34,11 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
 
-        /* allow app post on FB
-         https://developers.facebook.com/docs/facebook-login/permissions/v2.0 */
-        /*Session.openActiveSession(this, true, new Session.StatusCallback() {
-            // callback when session changes state
-            @Override
-            public void call(Session session, SessionState state, Exception exception) {
-                if (session.isOpened()) {
-                    // make request to the /me API
-                    Request.newMeRequest(session, new Request.GraphUserCallback() {
-
-                        // callback after Graph API response with user object
-                        @Override
-                        public void onCompleted(GraphUser user, Response response) {
-                            if (user != null) {
-                                System.out.println("Hello "+user.getName());
-                            }
-                        }
-                    }).executeAsync();
-                }
-            }
-        });*/
         new SimpleEula(this).show();
+    }
+
+    public void onStart() {
+        super.onStart();
     }
 
 

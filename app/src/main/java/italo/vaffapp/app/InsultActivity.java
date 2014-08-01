@@ -41,11 +41,9 @@ public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
     private UiLifecycleHelper uiHelper;
     private Session.StatusCallback callback = null;
-    // Activity code to flag an incoming activity result is due
-// to a new permissions request
-    private static final int REAUTH_ACTIVITY_CODE = 100;
     private TextView insult;
     private TextView insult_desc;
+    private String region;
 
     private static int rand_index;
     private static byte[] occurrences;
@@ -170,7 +168,8 @@ public class InsultActivity extends ActionBarActivity {
 
         getTextviews();
         setTextviews();
-        getSupportActionBar().setTitle("Ti insulto! ("+getRegionFromId(insults.get(rand_index).getRegionId())+")");
+        region = "("+getRegionFromId(insults.get(rand_index).getRegionId())+")";
+        getSupportActionBar().setTitle(getString(R.string.title_activity_insulto)+" "+region);
 
         occurrences[rand_index] = 1;
         generated_n++;
@@ -228,33 +227,10 @@ public class InsultActivity extends ActionBarActivity {
     public void postToFB() {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
             .setApplicationName("VaffApp")
-            .setDescription(insult_desc.getText().toString())
+            //.setDescription(insult_desc.getText().toString())
+            .setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
             .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
-    }
-
-    public void checkFBPublishAction(){
-        List<String> PERMISSIONS = Arrays.asList("publish_actions");
-        Session session = Session.getActiveSession();
-
-        if (session != null && session.isOpened()) {
-            List<String> permissions = session.getPermissions();
-            if (!isSubsetOf(PERMISSIONS, permissions)) {
-                Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
-                        this, PERMISSIONS).setRequestCode(REAUTH_ACTIVITY_CODE);
-                session.requestNewPublishPermissions(newPermissionsRequest);
-                return;
-            }
-        }
-    }
-
-    private boolean isSubsetOf(Collection<String> subset, Collection<String> superset) {
-        for (String string : subset) {
-            if (!superset.contains(string)) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public void insultFriendOnFB() {
@@ -263,10 +239,8 @@ public class InsultActivity extends ActionBarActivity {
             return;
         } else {
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            clipb.setText(insult.getText());
+            clipb.setText(insult.getText()+" -\n"+insult_desc.getText()+"\n"+region);
         }
-
-        //checkFBPublishAction();
 
         // Create Dialog to warn user
         //http://developer.android.com/guide/topics/ui/dialogs.html
@@ -307,40 +281,14 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
-    public void insultFriendOnFBTemp(String package_name){
-        final String pck_nm = package_name;
-
-        // copia insulto
-        ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        clipb.setText(insult.getText()+" #vaffapp");
-
-        // avvisa che bisogna copiare
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l'insulto è stato copiato nella clipboard: devi solo incollarlo!")
-                .setTitle("Mamma, che coglioni")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // apri facebook app
-                        Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-                        targetedShareIntent.setType("text/plain");
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-                        targetedShareIntent.setPackage(pck_nm);
-                        startActivity(targetedShareIntent);
-                    }
-                });
-        builder.create().show();
-    }
-
     // 1. show a first choice dialog to choose between Twitter, Facebook and Other
     // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
     public void twoChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] twitterPackageName = { "twitter" };
-        final String[] facebookPackageName = { "facebook" };
         final CharSequence[] items = new CharSequence[diff_app.size()+1];
         for (int i=0; i<diff_app.size();i++) {
             if (diff_app.get(i).contains("facebook"))
-                facebookPackageName[0] = diff_app.get(i);
                 items[i] = "Facebook";
             if (diff_app.get(i).contains("twitter")) {
                 items[i] = "Twitter";
@@ -358,7 +306,6 @@ public class InsultActivity extends ActionBarActivity {
                         String choice = items[which].toString();
                         if ( choice.equals("Facebook") ){
                             insultFriendOnFB();
-                            //insultFriendOnFBTemp(facebookPackageName[0]);
                         }
                         if ( choice.equals("Twitter") ){
                             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);

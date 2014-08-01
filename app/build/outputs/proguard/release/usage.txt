@@ -2171,6 +2171,7 @@ com.facebook.AuthorizationClient$AuthorizationRequest:
     private static final long serialVersionUID
     980:980:com.facebook.SessionDefaultAudience getDefaultAudience()
     992:993:void setIsLegacy(boolean)
+    1012:1013:void setRerequest(boolean)
 com.facebook.AuthorizationClient$GetTokenAuthHandler:
     private static final long serialVersionUID
 com.facebook.AuthorizationClient$KatanaAuthHandler:
@@ -2408,6 +2409,7 @@ com.facebook.Session:
     439:454:public final java.util.List getDeclinedPermissions()
     539:569:public final void open(com.facebook.AccessToken,com.facebook.Session$StatusCallback)
     588:589:public final void requestNewReadPermissions(com.facebook.Session$NewPermissionsRequest)
+    608:609:public final void requestNewPublishPermissions(com.facebook.Session$NewPermissionsRequest)
     622:637:public final void refreshPermissions()
     855:855:private java.lang.Object writeReplace()
     861:861:private void readObject(java.io.ObjectInputStream)
@@ -2416,6 +2418,7 @@ com.facebook.Session:
     1061:1061:public static com.facebook.Session openActiveSession(android.content.Context,android.support.v4.app.Fragment,boolean,com.facebook.Session$StatusCallback)
     1086:1086:public static com.facebook.Session openActiveSession(android.content.Context,android.support.v4.app.Fragment,boolean,java.util.List,com.facebook.Session$StatusCallback)
     1115:1120:public static com.facebook.Session openActiveSessionWithAccessToken(android.content.Context,com.facebook.AccessToken,com.facebook.Session$StatusCallback)
+    1238:1262:private void requestNewPermissions(com.facebook.Session$NewPermissionsRequest,com.facebook.internal.SessionAuthorizationType)
     1637:1638:void setTokenInfo(com.facebook.AccessToken)
     1641:1641:java.util.Date getLastAttemptedTokenExtendDate()
     1649:1650:void setCurrentTokenRefreshRequest(com.facebook.Session$TokenRefreshRequest)
@@ -2432,10 +2435,12 @@ com.facebook.Session$AuthorizationRequest:
     1964:1965:public void setIsLegacy(boolean)
     1968:1968:boolean isLegacy()
     1972:1973:com.facebook.Session$AuthorizationRequest setCallback(com.facebook.Session$StatusCallback)
+    1992:1995:com.facebook.Session$AuthorizationRequest setRequestCode(int)
     2010:2010:varargs com.facebook.Session$AuthorizationRequest setPermissions(java.lang.String[])
     2025:2025:com.facebook.SessionDefaultAudience getDefaultAudience()
     2033:2033:java.lang.String getApplicationId()
     2041:2041:java.lang.String getValidateSameFbidAsToken()
+    2045:2046:void setValidateSameFbidAsToken(java.lang.String)
     2070:2070:java.lang.Object writeReplace()
     2077:2077:private void readObject(java.io.ObjectInputStream)
     1886:1886:synthetic Session$AuthorizationRequest(com.facebook.SessionLoginBehavior,int,java.util.List,java.lang.String,boolean,java.lang.String,java.lang.String,com.facebook.Session$1)
@@ -2443,18 +2448,14 @@ com.facebook.Session$AuthorizationRequest$3
 com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1
 com.facebook.Session$Builder:
     1812:1813:public com.facebook.Session$Builder setTokenCachingStrategy(com.facebook.TokenCachingStrategy)
-com.facebook.Session$NewPermissionsRequest:
-    private static final long serialVersionUID
-    2234:2236:public Session$NewPermissionsRequest(android.support.v4.app.Fragment,java.util.List)
-    2245:2247:public varargs Session$NewPermissionsRequest(android.app.Activity,java.lang.String[])
-    2256:2258:public varargs Session$NewPermissionsRequest(android.support.v4.app.Fragment,java.lang.String[])
-    2269:2270:public final com.facebook.Session$NewPermissionsRequest setCallback(com.facebook.Session$StatusCallback)
-    2213:2213:public bridge synthetic com.facebook.Session$AuthorizationRequest setCallback(com.facebook.Session$StatusCallback)
+com.facebook.Session$NewPermissionsRequest
 com.facebook.Session$OpenRequest:
     private static final long serialVersionUID
     2141:2142:public final com.facebook.Session$OpenRequest setCallback(com.facebook.Session$StatusCallback)
+    2168:2169:public final com.facebook.Session$OpenRequest setRequestCode(int)
     2192:2193:public final varargs com.facebook.Session$OpenRequest setPermissions(java.lang.String[])
     2112:2112:public bridge synthetic com.facebook.Session$AuthorizationRequest setPermissions(java.lang.String[])
+    2112:2112:public bridge synthetic com.facebook.Session$AuthorizationRequest setRequestCode(int)
     2112:2112:public bridge synthetic com.facebook.Session$AuthorizationRequest setCallback(com.facebook.Session$StatusCallback)
 com.facebook.Session$SerializationProxyV1
 com.facebook.Session$SerializationProxyV2
@@ -2933,7 +2934,7 @@ com.facebook.widget.FacebookDialog$ShareDialogBuilder:
 com.facebook.widget.FacebookDialog$ShareDialogBuilderBase:
     691:694:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setName(java.lang.String)
     704:707:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setCaption(java.lang.String)
-    730:733:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setLink(java.lang.String)
+    717:720:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setDescription(java.lang.String)
     743:746:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setPicture(java.lang.String)
     756:759:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setPlace(java.lang.String)
     769:772:public com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setFriends(java.util.List)
@@ -6500,10 +6501,8 @@ com.sun.mail.util.UUDecoderStream:
     143:144:public int getMode()
 com.sun.mail.util.UUEncoderStream
 italo.vaffapp.app.BuildConfig
-italo.vaffapp.app.InsultActivity:
-    private static final int REAUTH_ACTIVITY_CODE
-    311:332:public void insultFriendOnFBTemp(java.lang.String)
-italo.vaffapp.app.InsultActivity$2
+italo.vaffapp.app.MainActivity:
+    private static final java.lang.String TAG
 italo.vaffapp.app.R
 italo.vaffapp.app.R$anim
 italo.vaffapp.app.R$attr

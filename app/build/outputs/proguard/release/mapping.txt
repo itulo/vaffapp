@@ -4987,7 +4987,6 @@ com.facebook.AuthorizationClient$AuthorizationRequest -> com.facebook.aa:
     boolean needsNewTokenValidation() -> h
     java.lang.String getAuthId() -> i
     boolean isRerequest() -> j
-    void setRerequest(boolean) -> a
 com.facebook.AuthorizationClient$BackgroundProcessingListener -> com.facebook.ab:
     void onBackgroundProcessingStarted() -> a
     void onBackgroundProcessingStopped() -> b
@@ -5444,7 +5443,6 @@ com.facebook.Session -> com.facebook.ca:
     java.util.List getPermissions() -> f
     void openForRead(com.facebook.Session$OpenRequest) -> a
     void openForPublish(com.facebook.Session$OpenRequest) -> b
-    void requestNewPublishPermissions(com.facebook.Session$NewPermissionsRequest) -> a
     java.util.List handlePermissionResponse(com.facebook.Session,com.facebook.Response) -> a
     boolean onActivityResult(android.app.Activity,int,int,android.content.Intent) -> a
     void close() -> g
@@ -5463,7 +5461,6 @@ com.facebook.Session -> com.facebook.ca:
     void initializeStaticContext(android.content.Context) -> b
     void authorize(com.facebook.Session$AuthorizationRequest) -> a
     void open(com.facebook.Session$OpenRequest,com.facebook.internal.SessionAuthorizationType) -> a
-    void requestNewPermissions(com.facebook.Session$NewPermissionsRequest,com.facebook.internal.SessionAuthorizationType) -> a
     void validateLoginBehavior(com.facebook.Session$AuthorizationRequest) -> b
     void validatePermissions(com.facebook.Session$AuthorizationRequest,com.facebook.internal.SessionAuthorizationType) -> a
     boolean isPublishPermission(java.lang.String) -> a
@@ -5530,14 +5527,12 @@ com.facebook.Session$AuthorizationRequest -> com.facebook.cg:
     com.facebook.Session$StatusCallback getCallback() -> a
     com.facebook.Session$AuthorizationRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> a
     com.facebook.SessionLoginBehavior getLoginBehavior() -> b
-    com.facebook.Session$AuthorizationRequest setRequestCode(int) -> a
     int getRequestCode() -> c
     com.facebook.Session$AuthorizationRequest setPermissions(java.util.List) -> a
     java.util.List getPermissions() -> d
     com.facebook.Session$AuthorizationRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> a
     com.facebook.Session$StartActivityDelegate getStartActivityDelegate() -> e
     void setApplicationId(java.lang.String) -> a
-    void setValidateSameFbidAsToken(java.lang.String) -> b
     java.lang.String getAuthId() -> f
     com.facebook.AuthorizationClient$AuthorizationRequest getAuthorizationClientRequest() -> g
     java.util.Map access$500(com.facebook.Session$AuthorizationRequest) -> a
@@ -5575,29 +5570,19 @@ com.facebook.Session$Builder -> com.facebook.cl:
     com.facebook.TokenCachingStrategy tokenCachingStrategy -> c
     com.facebook.Session$Builder setApplicationId(java.lang.String) -> a
     com.facebook.Session build() -> a
-com.facebook.Session$NewPermissionsRequest -> com.facebook.cm:
-    com.facebook.Session$NewPermissionsRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> b
-    com.facebook.Session$NewPermissionsRequest setRequestCode(int) -> b
-    com.facebook.Session$NewPermissionsRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> b
-    com.facebook.AuthorizationClient$AuthorizationRequest getAuthorizationClientRequest() -> g
-    com.facebook.Session$AuthorizationRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> a
-    com.facebook.Session$AuthorizationRequest setRequestCode(int) -> a
-    com.facebook.Session$AuthorizationRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> a
-com.facebook.Session$OpenRequest -> com.facebook.cn:
+com.facebook.Session$OpenRequest -> com.facebook.cm:
     com.facebook.Session$OpenRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> b
-    com.facebook.Session$OpenRequest setRequestCode(int) -> b
     com.facebook.Session$OpenRequest setPermissions(java.util.List) -> b
     com.facebook.Session$OpenRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> b
     com.facebook.Session$AuthorizationRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> a
     com.facebook.Session$AuthorizationRequest setPermissions(java.util.List) -> a
-    com.facebook.Session$AuthorizationRequest setRequestCode(int) -> a
     com.facebook.Session$AuthorizationRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> a
-com.facebook.Session$StartActivityDelegate -> com.facebook.co:
+com.facebook.Session$StartActivityDelegate -> com.facebook.cn:
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.Session$StatusCallback -> com.facebook.cp:
+com.facebook.Session$StatusCallback -> com.facebook.co:
     void call(com.facebook.Session,com.facebook.SessionState,java.lang.Exception) -> a
-com.facebook.Session$TokenRefreshRequest -> com.facebook.cq:
+com.facebook.Session$TokenRefreshRequest -> com.facebook.cp:
     android.os.Messenger messageReceiver -> a
     android.os.Messenger messageSender -> b
     com.facebook.Session this$0 -> c
@@ -5607,11 +5592,11 @@ com.facebook.Session$TokenRefreshRequest -> com.facebook.cq:
     void cleanup() -> b
     void refreshToken() -> c
     void access$1700(com.facebook.Session$TokenRefreshRequest) -> a
-com.facebook.Session$TokenRefreshRequestHandler -> com.facebook.cr:
+com.facebook.Session$TokenRefreshRequestHandler -> com.facebook.cq:
     java.lang.ref.WeakReference sessionWeakReference -> a
     java.lang.ref.WeakReference refreshRequestWeakReference -> b
     void handleMessage(android.os.Message) -> handleMessage
-com.facebook.SessionDefaultAudience -> com.facebook.cs:
+com.facebook.SessionDefaultAudience -> com.facebook.cr:
     com.facebook.SessionDefaultAudience NONE -> a
     com.facebook.SessionDefaultAudience ONLY_ME -> b
     com.facebook.SessionDefaultAudience FRIENDS -> c
@@ -5620,7 +5605,7 @@ com.facebook.SessionDefaultAudience -> com.facebook.cs:
     com.facebook.SessionDefaultAudience[] $VALUES -> f
     com.facebook.SessionDefaultAudience[] values() -> values
     com.facebook.SessionDefaultAudience valueOf(java.lang.String) -> valueOf
-com.facebook.SessionLoginBehavior -> com.facebook.ct:
+com.facebook.SessionLoginBehavior -> com.facebook.cs:
     com.facebook.SessionLoginBehavior SSO_WITH_FALLBACK -> a
     com.facebook.SessionLoginBehavior SSO_ONLY -> b
     com.facebook.SessionLoginBehavior SUPPRESS_SSO -> c
@@ -5631,7 +5616,7 @@ com.facebook.SessionLoginBehavior -> com.facebook.ct:
     com.facebook.SessionLoginBehavior valueOf(java.lang.String) -> valueOf
     boolean allowsKatanaAuth() -> a
     boolean allowsWebViewAuth() -> b
-com.facebook.SessionState -> com.facebook.cu:
+com.facebook.SessionState -> com.facebook.ct:
     com.facebook.SessionState CREATED -> a
     com.facebook.SessionState CREATED_TOKEN_LOADED -> b
     com.facebook.SessionState OPENING -> c
@@ -5645,14 +5630,14 @@ com.facebook.SessionState -> com.facebook.cu:
     com.facebook.SessionState valueOf(java.lang.String) -> valueOf
     boolean isOpened() -> a
     boolean isClosed() -> b
-com.facebook.SessionState$Category -> com.facebook.cv:
+com.facebook.SessionState$Category -> com.facebook.cu:
     com.facebook.SessionState$Category CREATED_CATEGORY -> a
     com.facebook.SessionState$Category OPENED_CATEGORY -> b
     com.facebook.SessionState$Category CLOSED_CATEGORY -> c
     com.facebook.SessionState$Category[] $VALUES -> d
     com.facebook.SessionState$Category[] values() -> values
     com.facebook.SessionState$Category valueOf(java.lang.String) -> valueOf
-com.facebook.Settings -> com.facebook.cw:
+com.facebook.Settings -> com.facebook.cv:
     java.lang.String TAG -> a
     java.util.HashSet loggingBehaviors -> b
     java.util.concurrent.Executor executor -> c
@@ -5683,10 +5668,10 @@ com.facebook.Settings -> com.facebook.cw:
     void loadDefaultsFromMetadataIfNeeded(android.content.Context) -> c
     java.lang.String getApplicationId() -> g
     java.lang.String getClientToken() -> h
-com.facebook.Settings$1 -> com.facebook.cx:
+com.facebook.Settings$1 -> com.facebook.cw:
     java.util.concurrent.atomic.AtomicInteger counter -> a
     java.lang.Thread newThread(java.lang.Runnable) -> newThread
-com.facebook.SharedPreferencesTokenCachingStrategy -> com.facebook.cy:
+com.facebook.SharedPreferencesTokenCachingStrategy -> com.facebook.cx:
     java.lang.String TAG -> a
     java.lang.String cacheKey -> b
     android.content.SharedPreferences cache -> c
@@ -5695,7 +5680,7 @@ com.facebook.SharedPreferencesTokenCachingStrategy -> com.facebook.cy:
     void clear() -> b
     void serializeKey(java.lang.String,android.os.Bundle,android.content.SharedPreferences$Editor) -> a
     void deserializeKey(java.lang.String,android.os.Bundle) -> a
-com.facebook.TokenCachingStrategy -> com.facebook.cz:
+com.facebook.TokenCachingStrategy -> com.facebook.cy:
     android.os.Bundle load() -> a
     void save(android.os.Bundle) -> a
     void clear() -> b
@@ -5703,7 +5688,7 @@ com.facebook.TokenCachingStrategy -> com.facebook.cz:
     com.facebook.AccessTokenSource getSource(android.os.Bundle) -> c
     java.util.Date getDate(android.os.Bundle,java.lang.String) -> a
     void putDate(android.os.Bundle,java.lang.String,java.util.Date) -> a
-com.facebook.UiLifecycleHelper -> com.facebook.da:
+com.facebook.UiLifecycleHelper -> com.facebook.cz:
     android.app.Activity activity -> a
     com.facebook.Session$StatusCallback callback -> b
     android.content.BroadcastReceiver receiver -> c
@@ -5720,8 +5705,8 @@ com.facebook.UiLifecycleHelper -> com.facebook.da:
     boolean handleFacebookDialogActivityResult(int,int,android.content.Intent,com.facebook.widget.FacebookDialog$Callback) -> b
     void cancelPendingAppCall(com.facebook.widget.FacebookDialog$Callback) -> a
     com.facebook.Session$StatusCallback access$100(com.facebook.UiLifecycleHelper) -> a
-com.facebook.UiLifecycleHelper$1 -> com.facebook.db:
-com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver -> com.facebook.dc:
+com.facebook.UiLifecycleHelper$1 -> com.facebook.da:
+com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver -> com.facebook.db:
     com.facebook.UiLifecycleHelper this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.facebook.android.R -> com.facebook.a.a:
@@ -6349,7 +6334,7 @@ com.facebook.widget.FacebookDialog$ShareDialogBuilderBase -> com.facebook.widget
     java.util.ArrayList friends -> n
     java.lang.String ref -> o
     boolean dataErrorsFatal -> p
-    com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setDescription(java.lang.String) -> b
+    com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setLink(java.lang.String) -> b
     android.os.Bundle setBundleExtras(android.os.Bundle) -> a
 com.facebook.widget.FacebookDialog$ShareDialogFeature -> com.facebook.widget.j:
     com.facebook.widget.FacebookDialog$ShareDialogFeature SHARE_DIALOG -> a
@@ -11083,14 +11068,15 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     com.facebook.Session$StatusCallback callback -> q
     android.widget.TextView insult -> r
     android.widget.TextView insult_desc -> s
-    int rand_index -> t
-    byte[] occurrences -> u
-    short generated_n -> v
-    short MAX_RETRIES -> w
-    java.util.List targetedShareIntents -> x
-    java.util.List diff_app -> y
-    android.content.Intent sharingIntent -> z
-    com.appnext.appnextsdk.Appnext appnext -> A
+    java.lang.String region -> t
+    int rand_index -> u
+    byte[] occurrences -> v
+    short generated_n -> w
+    short MAX_RETRIES -> x
+    java.util.List targetedShareIntents -> y
+    java.util.List diff_app -> z
+    android.content.Intent sharingIntent -> A
+    com.appnext.appnextsdk.Appnext appnext -> B
     void onCreate(android.os.Bundle) -> onCreate
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void onResume() -> onResume
@@ -11104,11 +11090,9 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     void loadInsults() -> k
     java.lang.String getRegionFromId(int) -> b
     void postToFB() -> l
-    void checkFBPublishAction() -> m
-    boolean isSubsetOf(java.util.Collection,java.util.Collection) -> a
-    void insultFriendOnFB() -> n
+    void insultFriendOnFB() -> m
     void checkPresenceOfApps(android.view.View) -> checkPresenceOfApps
-    void twoChoiceMenu() -> o
+    void twoChoiceMenu() -> n
     void condividi(android.view.View) -> condividi
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
@@ -11117,7 +11101,7 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
 italo.vaffapp.app.InsultActivity$1 -> italo.vaffapp.app.a:
     italo.vaffapp.app.InsultActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-italo.vaffapp.app.InsultActivity$3 -> italo.vaffapp.app.b:
+italo.vaffapp.app.InsultActivity$2 -> italo.vaffapp.app.b:
     java.lang.CharSequence[] val$items -> a
     java.lang.String[] val$twitterPackageName -> b
     italo.vaffapp.app.InsultActivity this$0 -> c
@@ -11126,6 +11110,7 @@ italo.vaffapp.app.InsultActivity$PlaceholderFragment -> italo.vaffapp.app.c:
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
 italo.vaffapp.app.MainActivity -> italo.vaffapp.app.MainActivity:
     void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void startInsultActivity(android.view.View) -> startInsultActivity

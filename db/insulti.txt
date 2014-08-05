@@ -30,7 +30,7 @@
 #'Và a Bagg a sonà l''orghen','Vai alla chiesa di San Baggio a suonare l''organo (non c''è nessun organo in quella chiesa)'
 'Và a cà a fa rustì el lacc!','Vai a casa ad arrostire il latte!'
 'Và a cà a petenà i gaenn!','Vai a casa a pettinare le galline!'
-'Va a ciapà i ratt!','Vai a dar la caccia ai topi! (vaffanculo)'
+'Va a ciapà i ratt!','Vai ad acchiappare i topi! (vaffanculo)'
 #'Va a dà via ''l cul!','Vai a donare il tuo culo! (vaffanculo)'
 'Và a scuà ''l mar!','Vai a pulire il mare!'
 #'Va bèn a fèr dal pugnàt!','Vai a masturbarti'

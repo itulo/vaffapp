@@ -2064,25 +2064,18 @@ com.appnext.appnextsdk.ImageDownloader:
     private static final int DELAY_BEFORE_PURGE
     90:100:public void download(java.lang.String,android.widget.ImageView,boolean)
     379:381:public void setMode(com.appnext.appnextsdk.ImageDownloader$DMode)
-com.appnext.appnextsdk.ImageDownloader$1:
-    private static final long serialVersionUID
 com.appnext.appnextsdk.PopupActivity
 com.appnext.appnextsdk.PopupActivity$verifyImages
 com.appnext.appnextsdk.PopupActivity$verifyImages$1
 com.appnext.appnextsdk.PopupActivity$verifyImages$2
 com.bolts.BuildConfig
 com.facebook.AccessToken:
-    private static final long serialVersionUID
     static final java.lang.String ACCESS_TOKEN_KEY
     static final java.lang.String EXPIRES_IN_KEY
     143:153:public static com.facebook.AccessToken createFromExistingAccessToken(java.lang.String,java.util.Date,java.util.Date,com.facebook.AccessTokenSource,java.util.List)
     165:171:public static com.facebook.AccessToken createFromNativeLinkingIntent(android.content.Intent)
     192:192:static com.facebook.AccessToken createFromString(java.lang.String,java.util.List,com.facebook.AccessTokenSource)
     278:285:private static com.facebook.AccessToken createFromBundle(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date)
-    332:332:private java.lang.Object writeReplace()
-    337:337:private void readObject(java.io.ObjectInputStream)
-com.facebook.AccessToken$1
-com.facebook.AccessToken$SerializationProxyV1
 com.facebook.AppEventsConstants
 com.facebook.AppEventsLogger:
     private static final int NUM_LOG_EVENTS_TO_TRY_TO_FLUSH_AFTER
@@ -2110,16 +2103,6 @@ com.facebook.AppEventsLogger:
     517:518:boolean isValidForSession(com.facebook.Session)
     675:678:static void eagerFlush()
     920:921:private static void notifyDeveloperError(java.lang.String)
-com.facebook.AppEventsLogger$AccessTokenAppIdPair:
-    private static final long serialVersionUID
-    242:242:private java.lang.Object writeReplace()
-com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1
-com.facebook.AppEventsLogger$AppEvent:
-    private static final long serialVersionUID
-    1126:1129:private AppEventsLogger$AppEvent(java.lang.String,boolean)
-    1189:1189:private java.lang.Object writeReplace()
-    1057:1057:synthetic AppEventsLogger$AppEvent(java.lang.String,boolean,com.facebook.AppEventsLogger$1)
-com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1
 com.facebook.AppEventsLogger$PersistedEvents:
     static final java.lang.String PERSISTED_EVENTS_FILENAME
 com.facebook.AppEventsLogger$SessionEventsState:
@@ -2130,7 +2113,6 @@ com.facebook.AppLinkData
 com.facebook.AppLinkData$1
 com.facebook.AppLinkData$CompletionHandler
 com.facebook.AuthorizationClient:
-    private static final long serialVersionUID
     private static final java.lang.String TAG
     private static final java.lang.String WEB_VIEW_AUTH_HANDLER_STORE
     private static final java.lang.String WEB_VIEW_AUTH_HANDLER_TOKEN_KEY
@@ -2165,43 +2147,24 @@ com.facebook.AuthorizationClient:
 com.facebook.AuthorizationClient$AuthDialogBuilder:
     private static final java.lang.String OAUTH_DIALOG
     static final java.lang.String REDIRECT_URI
-com.facebook.AuthorizationClient$AuthHandler:
-    private static final long serialVersionUID
 com.facebook.AuthorizationClient$AuthorizationRequest:
-    private static final long serialVersionUID
     980:980:com.facebook.SessionDefaultAudience getDefaultAudience()
     992:993:void setIsLegacy(boolean)
     1012:1013:void setRerequest(boolean)
-com.facebook.AuthorizationClient$GetTokenAuthHandler:
-    private static final long serialVersionUID
-com.facebook.AuthorizationClient$KatanaAuthHandler:
-    private static final long serialVersionUID
-com.facebook.AuthorizationClient$KatanaProxyAuthHandler:
-    private static final long serialVersionUID
-com.facebook.AuthorizationClient$Result:
-    private static final long serialVersionUID
-com.facebook.AuthorizationClient$WebViewAuthHandler:
-    private static final long serialVersionUID
 com.facebook.FacebookAppLinkResolver
 com.facebook.FacebookAppLinkResolver$1
 com.facebook.FacebookAppLinkResolver$2
 com.facebook.FacebookAuthorizationException:
-    static final long serialVersionUID
     53:54:public FacebookAuthorizationException(java.lang.String,java.lang.Throwable)
     63:64:public FacebookAuthorizationException(java.lang.Throwable)
 com.facebook.FacebookBroadcastReceiver
 com.facebook.FacebookDialogException:
-    static final long serialVersionUID
     43:43:public int getErrorCode()
     51:51:public java.lang.String getFailingUrl()
-com.facebook.FacebookException:
-    static final long serialVersionUID
 com.facebook.FacebookGraphObjectException:
-    static final long serialVersionUID
     51:52:public FacebookGraphObjectException(java.lang.String,java.lang.Throwable)
     61:62:public FacebookGraphObjectException(java.lang.Throwable)
 com.facebook.FacebookOperationCanceledException:
-    static final long serialVersionUID
     48:49:public FacebookOperationCanceledException(java.lang.String,java.lang.Throwable)
     57:58:public FacebookOperationCanceledException(java.lang.Throwable)
 com.facebook.FacebookRequestError:
@@ -2239,8 +2202,6 @@ com.facebook.FacebookRequestError:
     313:313:public java.lang.Object getBatchRequestResult()
     322:322:public java.net.HttpURLConnection getConnection()
 com.facebook.FacebookSdkVersion
-com.facebook.FacebookServiceException:
-    private static final long serialVersionUID
 com.facebook.InsightsLogger
 com.facebook.LegacyHelper
 com.facebook.LoginActivity:
@@ -2386,7 +2347,6 @@ com.facebook.Response$PagedResults
 com.facebook.Response$PagingDirection
 com.facebook.Response$PagingInfo
 com.facebook.Session:
-    private static final long serialVersionUID
     public static final int DEFAULT_AUTHORIZE_ACTIVITY_CODE
     public static final java.lang.String WEB_VIEW_ERROR_CODE_KEY
     public static final java.lang.String WEB_VIEW_FAILING_URL_KEY
@@ -2402,7 +2362,6 @@ com.facebook.Session:
     private static final java.lang.String MANAGE_PERMISSION_PREFIX
     private static final java.lang.String BASIC_INFO_PERMISSION
     139:239:private Session(java.lang.String,com.facebook.SessionState,com.facebook.AccessToken,java.util.Date,boolean,com.facebook.Session$AuthorizationRequest)
-    139:258:private Session(java.lang.String,com.facebook.SessionState,com.facebook.AccessToken,java.util.Date,boolean,com.facebook.Session$AuthorizationRequest,java.util.Set)
     325:327:public final android.os.Bundle getAuthorizationBundle()
     342:344:public final boolean isClosed()
     424:428:public boolean isPermissionGranted(java.lang.String)
@@ -2411,8 +2370,6 @@ com.facebook.Session:
     588:589:public final void requestNewReadPermissions(com.facebook.Session$NewPermissionsRequest)
     608:609:public final void requestNewPublishPermissions(com.facebook.Session$NewPermissionsRequest)
     622:637:public final void refreshPermissions()
-    855:855:private java.lang.Object writeReplace()
-    861:861:private void readObject(java.io.ObjectInputStream)
     1011:1011:public static com.facebook.Session openActiveSession(android.app.Activity,boolean,com.facebook.Session$StatusCallback)
     1035:1035:public static com.facebook.Session openActiveSession(android.app.Activity,boolean,java.util.List,com.facebook.Session$StatusCallback)
     1061:1061:public static com.facebook.Session openActiveSession(android.content.Context,android.support.v4.app.Fragment,boolean,com.facebook.Session$StatusCallback)
@@ -2423,15 +2380,12 @@ com.facebook.Session:
     1641:1641:java.util.Date getLastAttemptedTokenExtendDate()
     1649:1650:void setCurrentTokenRefreshRequest(com.facebook.Session$TokenRefreshRequest)
     55:55:synthetic Session(java.lang.String,com.facebook.SessionState,com.facebook.AccessToken,java.util.Date,boolean,com.facebook.Session$AuthorizationRequest,com.facebook.Session$1)
-    55:55:synthetic Session(java.lang.String,com.facebook.SessionState,com.facebook.AccessToken,java.util.Date,boolean,com.facebook.Session$AuthorizationRequest,java.util.Set,com.facebook.Session$1)
     55:55:static synthetic java.lang.Object access$200(com.facebook.Session)
     55:55:static synthetic com.facebook.AccessToken access$302(com.facebook.Session,com.facebook.AccessToken)
     55:55:static synthetic com.facebook.AccessToken access$300(com.facebook.Session)
     55:55:static synthetic com.facebook.SessionState access$400(com.facebook.Session)
 com.facebook.Session$2
 com.facebook.Session$AuthorizationRequest:
-    private static final long serialVersionUID
-    1891:1956:private Session$AuthorizationRequest(com.facebook.SessionLoginBehavior,int,java.util.List,java.lang.String,boolean,java.lang.String,java.lang.String)
     1964:1965:public void setIsLegacy(boolean)
     1968:1968:boolean isLegacy()
     1972:1973:com.facebook.Session$AuthorizationRequest setCallback(com.facebook.Session$StatusCallback)
@@ -2441,16 +2395,10 @@ com.facebook.Session$AuthorizationRequest:
     2033:2033:java.lang.String getApplicationId()
     2041:2041:java.lang.String getValidateSameFbidAsToken()
     2045:2046:void setValidateSameFbidAsToken(java.lang.String)
-    2070:2070:java.lang.Object writeReplace()
-    2077:2077:private void readObject(java.io.ObjectInputStream)
-    1886:1886:synthetic Session$AuthorizationRequest(com.facebook.SessionLoginBehavior,int,java.util.List,java.lang.String,boolean,java.lang.String,java.lang.String,com.facebook.Session$1)
-com.facebook.Session$AuthorizationRequest$3
-com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1
 com.facebook.Session$Builder:
     1812:1813:public com.facebook.Session$Builder setTokenCachingStrategy(com.facebook.TokenCachingStrategy)
 com.facebook.Session$NewPermissionsRequest
 com.facebook.Session$OpenRequest:
-    private static final long serialVersionUID
     2141:2142:public final com.facebook.Session$OpenRequest setCallback(com.facebook.Session$StatusCallback)
     2168:2169:public final com.facebook.Session$OpenRequest setRequestCode(int)
     2192:2193:public final varargs com.facebook.Session$OpenRequest setPermissions(java.lang.String[])
@@ -2458,7 +2406,6 @@ com.facebook.Session$OpenRequest:
     2112:2112:public bridge synthetic com.facebook.Session$AuthorizationRequest setRequestCode(int)
     2112:2112:public bridge synthetic com.facebook.Session$AuthorizationRequest setCallback(com.facebook.Session$StatusCallback)
 com.facebook.Session$SerializationProxyV1
-com.facebook.Session$SerializationProxyV2
 com.facebook.SessionDefaultAudience:
     55:55:java.lang.String getNativeProtocolAudience()
 com.facebook.Settings:
@@ -2833,66 +2780,6 @@ com.facebook.internal.WorkQueue$WorkNode:
     176:187:com.facebook.internal.WorkQueue$WorkNode addToList(com.facebook.internal.WorkQueue$WorkNode,boolean)
     191:206:com.facebook.internal.WorkQueue$WorkNode removeFromList(com.facebook.internal.WorkQueue$WorkNode)
     210:213:void verify(boolean)
-com.facebook.model.GraphLocation
-com.facebook.model.GraphObject:
-    public abstract com.facebook.model.GraphObject getPropertyAs(java.lang.String,java.lang.Class)
-    public abstract com.facebook.model.GraphObjectList getPropertyAsList(java.lang.String,java.lang.Class)
-    public abstract void removeProperty(java.lang.String)
-com.facebook.model.GraphObject$Factory:
-    118:119:private GraphObject$Factory()
-    176:187:public static boolean hasSameId(com.facebook.model.GraphObject,com.facebook.model.GraphObject)
-com.facebook.model.GraphObject$Factory$GraphObjectListImpl:
-    784:793:public final com.facebook.model.GraphObjectList castToListOf(java.lang.Class)
-com.facebook.model.GraphObject$Factory$GraphObjectProxy:
-    private static final java.lang.String CLEAR_METHOD
-    private static final java.lang.String CONTAINSKEY_METHOD
-    private static final java.lang.String CONTAINSVALUE_METHOD
-    private static final java.lang.String ENTRYSET_METHOD
-    private static final java.lang.String GET_METHOD
-    private static final java.lang.String ISEMPTY_METHOD
-    private static final java.lang.String KEYSET_METHOD
-    private static final java.lang.String PUT_METHOD
-    private static final java.lang.String PUTALL_METHOD
-    private static final java.lang.String REMOVE_METHOD
-    private static final java.lang.String SIZE_METHOD
-    private static final java.lang.String VALUES_METHOD
-    private static final java.lang.String CAST_METHOD
-    private static final java.lang.String CASTTOMAP_METHOD
-    private static final java.lang.String GETPROPERTY_METHOD
-    private static final java.lang.String GETPROPERTYAS_METHOD
-    private static final java.lang.String GETPROPERTYASLIST_METHOD
-    private static final java.lang.String SETPROPERTY_METHOD
-    private static final java.lang.String REMOVEPROPERTY_METHOD
-    private static final java.lang.String GETINNERJSONOBJECT_METHOD
-com.facebook.model.GraphObject$Factory$ProxyBase:
-    private static final java.lang.String EQUALS_METHOD
-    private static final java.lang.String TOSTRING_METHOD
-com.facebook.model.GraphObjectList:
-    public abstract com.facebook.model.GraphObjectList castToListOf(java.lang.Class)
-com.facebook.model.GraphPlace
-com.facebook.model.GraphUser:
-    public abstract void setId(java.lang.String)
-    public abstract void setName(java.lang.String)
-    public abstract java.lang.String getFirstName()
-    public abstract void setFirstName(java.lang.String)
-    public abstract java.lang.String getMiddleName()
-    public abstract void setMiddleName(java.lang.String)
-    public abstract java.lang.String getLastName()
-    public abstract void setLastName(java.lang.String)
-    public abstract java.lang.String getLink()
-    public abstract void setLink(java.lang.String)
-    public abstract java.lang.String getUsername()
-    public abstract void setUsername(java.lang.String)
-    public abstract java.lang.String getBirthday()
-    public abstract void setBirthday(java.lang.String)
-    public abstract com.facebook.model.GraphLocation getLocation()
-    public abstract void setLocation(com.facebook.model.GraphLocation)
-com.facebook.model.JsonUtil:
-    25:47:JsonUtil()
-com.facebook.model.OpenGraphAction
-com.facebook.model.OpenGraphAction$Factory
-com.facebook.model.OpenGraphObject
-com.facebook.model.OpenGraphObject$Factory
 com.facebook.widget.FacebookDialog:
     public static final java.lang.String COMPLETION_GESTURE_CANCEL
     private static final java.lang.String EXTRA_DIALOG_COMPLETE_KEY
@@ -6621,10 +6508,8 @@ javax.activation.SecuritySupport:
     53:55:private SecuritySupport()
 javax.activation.URLDataSource
 javax.mail.Address:
-    private static final long serialVersionUID
     public abstract boolean equals(java.lang.Object)
 javax.mail.AuthenticationFailedException:
-    private static final long serialVersionUID
     67:68:public AuthenticationFailedException(java.lang.String)
 javax.mail.Authenticator:
     123:123:protected final java.net.InetAddress getRequestingSite()
@@ -6648,7 +6533,6 @@ javax.mail.Flags:
     private static final int RECENT_BIT
     private static final int SEEN_BIT
     private static final int USER_BIT
-    private static final long serialVersionUID
     102:198:public Flags(javax.mail.Flags)
     102:217:public Flags(java.lang.String)
     225:226:public void add(javax.mail.Flags$Flag)
@@ -6729,8 +6613,6 @@ javax.mail.Folder:
     1557:1559:public synchronized void removeMessageChangedListener(javax.mail.event.MessageChangedListener)
     1572:1577:protected void notifyMessageChangedListeners(int,javax.mail.Message)
     1597:1612:private void queueEvent(javax.mail.event.MailEvent,java.util.Vector)
-javax.mail.Folder$TerminatorEvent:
-    private static final long serialVersionUID
 javax.mail.FolderClosedException
 javax.mail.FolderNotFoundException
 javax.mail.IllegalWriteException
@@ -6761,14 +6643,10 @@ javax.mail.Message:
     645:646:protected void setExpunged(boolean)
     public abstract javax.mail.Message reply(boolean)
     705:705:public boolean match(javax.mail.search.SearchTerm)
-javax.mail.Message$RecipientType:
-    private static final long serialVersionUID
-    255:263:protected java.lang.Object readResolve()
 javax.mail.MessageAware
 javax.mail.MessageContext
 javax.mail.MessageRemovedException
 javax.mail.MessagingException:
-    private static final long serialVersionUID
     106:106:public synchronized java.lang.Exception getNextException()
 javax.mail.MethodNotSupportedException
 javax.mail.Multipart:
@@ -6785,8 +6663,6 @@ javax.mail.Multipart:
     263:263:public synchronized javax.mail.Part getParent()
     276:277:public synchronized void setParent(javax.mail.Part)
 javax.mail.MultipartDataSource
-javax.mail.NoSuchProviderException:
-    private static final long serialVersionUID
 javax.mail.Part:
     public static final java.lang.String ATTACHMENT
     public static final java.lang.String INLINE
@@ -6818,15 +6694,12 @@ javax.mail.Quota$Resource
 javax.mail.QuotaAwareStore
 javax.mail.ReadOnlyFolderException
 javax.mail.SendFailedException:
-    private static final long serialVersionUID
     90:91:public SendFailedException(java.lang.String,java.lang.Exception)
 javax.mail.Service:
     72:555:protected Service(javax.mail.Session,javax.mail.URLName)
     189:190:public void connect(java.lang.String,java.lang.String)
     483:486:public synchronized void addConnectionListener(javax.mail.event.ConnectionListener)
     498:500:public synchronized void removeConnectionListener(javax.mail.event.ConnectionListener)
-javax.mail.Service$TerminatorEvent:
-    private static final long serialVersionUID
 javax.mail.Session:
     242:242:public static javax.mail.Session getInstance(java.util.Properties,javax.mail.Authenticator)
     259:259:public static javax.mail.Session getInstance(java.util.Properties)
@@ -6870,13 +6743,10 @@ javax.mail.event.ConnectionEvent:
     public static final int OPENED
     public static final int DISCONNECTED
     public static final int CLOSED
-    private static final long serialVersionUID
     84:84:public int getType()
 javax.mail.event.FolderAdapter
 javax.mail.event.FolderEvent
 javax.mail.event.FolderListener
-javax.mail.event.MailEvent:
-    private static final long serialVersionUID
 javax.mail.event.MessageChangedEvent
 javax.mail.event.MessageChangedListener
 javax.mail.event.MessageCountAdapter
@@ -6888,7 +6758,6 @@ javax.mail.event.TransportAdapter
 javax.mail.event.TransportEvent
 javax.mail.event.TransportListener
 javax.mail.internet.AddressException:
-    private static final long serialVersionUID
     56:80:public AddressException(java.lang.String)
     110:110:public java.lang.String getRef()
     118:118:public int getPos()
@@ -6916,7 +6785,6 @@ javax.mail.internet.HeaderTokenizer$Token:
     public static final int COMMENT
     public static final int EOF
 javax.mail.internet.InternetAddress:
-    private static final long serialVersionUID
     private static final java.lang.String specialsNoDotNoAt
     private static final java.lang.String specialsNoDot
     133:136:public InternetAddress(java.lang.String,boolean)
@@ -6941,8 +6809,6 @@ javax.mail.internet.InternetHeaders:
 javax.mail.internet.InternetHeaders$InternetHeader:
     108:117:public InternetHeaders$InternetHeader(java.lang.String)
 javax.mail.internet.InternetHeaders$matchEnum
-javax.mail.internet.MailDateFormat:
-    private static final long serialVersionUID
 javax.mail.internet.MailDateParser:
     523:526:public int peekChar()
 javax.mail.internet.MimeBodyPart:
@@ -7059,9 +6925,6 @@ javax.mail.internet.MimeMessage:
     2009:2013:public synchronized void setFlags(javax.mail.Flags,boolean)
     2110:2110:protected javax.mail.internet.InternetHeaders createInternetHeaders(java.io.InputStream)
     2126:2126:protected javax.mail.internet.MimeMessage createMimeMessage(javax.mail.Session)
-javax.mail.internet.MimeMessage$RecipientType:
-    private static final long serialVersionUID
-    485:488:protected java.lang.Object readResolve()
 javax.mail.internet.MimeMultipart:
     130:220:public MimeMultipart(javax.activation.DataSource)
     231:234:public synchronized void setSubType(java.lang.String)
@@ -7113,7 +6976,6 @@ javax.mail.internet.MimeUtility:
     1089:1096:private static int indexOfAny(java.lang.String,java.lang.String,int)
     1374:1391:static int checkAscii(byte[])
 javax.mail.internet.NewsAddress:
-    private static final long serialVersionUID
     101:102:public void setNewsgroup(java.lang.String)
     110:110:public java.lang.String getNewsgroup()
     119:120:public void setHost(java.lang.String)
@@ -7125,8 +6987,6 @@ javax.mail.internet.ParameterList:
     552:552:public java.util.Enumeration getNames()
     665:689:private static javax.mail.internet.ParameterList$Value encodeValue(java.lang.String,java.lang.String)
 javax.mail.internet.ParameterList$ParamEnum
-javax.mail.internet.ParseException:
-    private static final long serialVersionUID
 javax.mail.internet.PreencodedMimeBodyPart
 javax.mail.internet.SharedInputStream:
     public abstract long getPosition()
@@ -7163,7 +7023,6 @@ javax.mail.util.SharedByteArrayInputStream:
 javax.mail.util.SharedFileInputStream
 javax.mail.util.SharedFileInputStream$SharedFile
 myjava.awt.datatransfer.DataFlavor:
-    private static final long serialVersionUID
     public static final java.lang.String javaJVMLocalObjectMimeType
     public static final java.lang.String javaRemoteObjectMimeType
     public static final java.lang.String javaSerializedObjectMimeType
@@ -7210,7 +7069,6 @@ myjava.awt.datatransfer.DataFlavor:
     685:702:private static java.util.List fetchTextFlavors(java.util.List,java.lang.String)
     714:717:private boolean isByteCodeFlavor()
 myjava.awt.datatransfer.MimeTypeProcessor$MimeType:
-    private static final long serialVersionUID
     241:242:void removeParameter(java.lang.String)
     245:245:java.lang.Object getSystemParameter(java.lang.String)
     249:250:void addSystemParameter(java.lang.String,java.lang.Object)

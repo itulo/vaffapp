@@ -21,3 +21,19 @@
 -dontwarn java.awt.datatransfer.*, java.awt.dnd.*, java.awt.*, java.awt.image.*, java.awt.color.*, java.awt.dnd.peer.*
 -dontwarn java.beans.*
 -dontwarn javax.security.sasl.*, javax.security.auth.callback.*
+
+# For facebook
+# avoid error 'com.facebook.ao: Unable to save session.'
+-keepattributes Signature
+-keep class com.facebook.model.** { *; }
+
+-keepnames class * implements java.io.Serializable
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}

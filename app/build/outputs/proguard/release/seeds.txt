@@ -1,5 +1,6 @@
 android.support.v4.app.BackStackState
 android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$InstantiationException
 android.support.v4.app.Fragment$SavedState
 android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentActivity: FragmentActivity()
@@ -10,6 +11,8 @@ android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
 android.support.v4.app.FragmentTabHost$SavedState
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.SuperNotCalledException
+android.support.v4.content.ModernAsyncTask$Status
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
 android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
@@ -841,6 +844,10 @@ android.support.v7.widget.SearchView$SearchAutoComplete: SearchView$SearchAutoCo
 android.support.v7.widget.SearchView$SearchAutoComplete: SearchView$SearchAutoComplete(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.SearchView$SearchAutoComplete: void setSearchView(android.support.v7.widget.SearchView)
 android.support.v7.widget.SearchView$SearchAutoComplete: void setThreshold(int)
+bolts.AggregateException
+bolts.AggregateException: long serialVersionUID
+bolts.AggregateException: java.util.List errors
+bolts.AppLinkNavigation$NavigationResult
 bolts.AppLinkNavigation$NavigationResult: bolts.AppLinkNavigation$NavigationResult[] values()
 bolts.AppLinkNavigation$NavigationResult: bolts.AppLinkNavigation$NavigationResult valueOf(java.lang.String)
 com.appnext.appnextsdk.Appnext: void setAppID(java.lang.String)
@@ -868,42 +875,249 @@ com.appnext.appnextsdk.AppnextMoreGames: void setAppext(com.appnext.appnextsdk.A
 com.appnext.appnextsdk.AppnextMoreGames: double getScreenSize()
 com.appnext.appnextsdk.DownloadService
 com.appnext.appnextsdk.DownloadService: DownloadService()
+com.appnext.appnextsdk.ImageDownloader$1
+com.appnext.appnextsdk.ImageDownloader$1: long serialVersionUID
+com.appnext.appnextsdk.ImageDownloader$1: com.appnext.appnextsdk.ImageDownloader this$0
+com.appnext.appnextsdk.ImageDownloader$DMode
 com.appnext.appnextsdk.ImageDownloader$DMode: com.appnext.appnextsdk.ImageDownloader$DMode[] values()
 com.appnext.appnextsdk.ImageDownloader$DMode: com.appnext.appnextsdk.ImageDownloader$DMode valueOf(java.lang.String)
+com.facebook.AccessToken
+com.facebook.AccessToken: long serialVersionUID
+com.facebook.AccessToken: java.util.Date expires
+com.facebook.AccessToken: java.util.List permissions
+com.facebook.AccessToken: java.lang.String token
+com.facebook.AccessToken: com.facebook.AccessTokenSource source
+com.facebook.AccessToken: java.util.Date lastRefresh
+com.facebook.AccessToken: java.lang.Object writeReplace()
+com.facebook.AccessToken: void readObject(java.io.ObjectInputStream)
+com.facebook.AccessToken$SerializationProxyV1
+com.facebook.AccessToken$SerializationProxyV1: long serialVersionUID
+com.facebook.AccessToken$SerializationProxyV1: java.util.Date expires
+com.facebook.AccessToken$SerializationProxyV1: java.util.List permissions
+com.facebook.AccessToken$SerializationProxyV1: java.lang.String token
+com.facebook.AccessToken$SerializationProxyV1: com.facebook.AccessTokenSource source
+com.facebook.AccessToken$SerializationProxyV1: java.util.Date lastRefresh
+com.facebook.AccessToken$SerializationProxyV1: java.lang.Object readResolve()
+com.facebook.AccessTokenSource
+com.facebook.AccessTokenSource: boolean canExtendToken
 com.facebook.AccessTokenSource: com.facebook.AccessTokenSource[] values()
 com.facebook.AccessTokenSource: com.facebook.AccessTokenSource valueOf(java.lang.String)
+com.facebook.AppEventsLogger$1
+com.facebook.AppEventsLogger$AccessTokenAppIdPair
+com.facebook.AppEventsLogger$AccessTokenAppIdPair: long serialVersionUID
+com.facebook.AppEventsLogger$AccessTokenAppIdPair: java.lang.String accessToken
+com.facebook.AppEventsLogger$AccessTokenAppIdPair: java.lang.String applicationId
+com.facebook.AppEventsLogger$AccessTokenAppIdPair: java.lang.Object writeReplace()
+com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1
+com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1: long serialVersionUID
+com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1: java.lang.String accessToken
+com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1: java.lang.String appId
+com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1: java.lang.Object readResolve()
+com.facebook.AppEventsLogger$AppEvent
+com.facebook.AppEventsLogger$AppEvent: long serialVersionUID
+com.facebook.AppEventsLogger$AppEvent: org.json.JSONObject jsonObject
+com.facebook.AppEventsLogger$AppEvent: boolean isImplicit
+com.facebook.AppEventsLogger$AppEvent: java.lang.String name
+com.facebook.AppEventsLogger$AppEvent: java.lang.Object writeReplace()
+com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1
+com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1: long serialVersionUID
+com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1: java.lang.String jsonString
+com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1: boolean isImplicit
+com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1: java.lang.Object readResolve()
+com.facebook.AppEventsLogger$FlushBehavior
 com.facebook.AppEventsLogger$FlushBehavior: com.facebook.AppEventsLogger$FlushBehavior[] values()
 com.facebook.AppEventsLogger$FlushBehavior: com.facebook.AppEventsLogger$FlushBehavior valueOf(java.lang.String)
+com.facebook.AppEventsLogger$FlushReason
 com.facebook.AppEventsLogger$FlushReason: com.facebook.AppEventsLogger$FlushReason[] values()
 com.facebook.AppEventsLogger$FlushReason: com.facebook.AppEventsLogger$FlushReason valueOf(java.lang.String)
+com.facebook.AppEventsLogger$FlushResult
 com.facebook.AppEventsLogger$FlushResult: com.facebook.AppEventsLogger$FlushResult[] values()
 com.facebook.AppEventsLogger$FlushResult: com.facebook.AppEventsLogger$FlushResult valueOf(java.lang.String)
+com.facebook.AppEventsLogger$SuppressionTimeoutBehavior
 com.facebook.AppEventsLogger$SuppressionTimeoutBehavior: com.facebook.AppEventsLogger$SuppressionTimeoutBehavior[] values()
 com.facebook.AppEventsLogger$SuppressionTimeoutBehavior: com.facebook.AppEventsLogger$SuppressionTimeoutBehavior valueOf(java.lang.String)
+com.facebook.AuthorizationClient
+com.facebook.AuthorizationClient: long serialVersionUID
+com.facebook.AuthorizationClient: java.util.List handlersToTry
+com.facebook.AuthorizationClient: com.facebook.AuthorizationClient$AuthHandler currentHandler
+com.facebook.AuthorizationClient: com.facebook.AuthorizationClient$AuthorizationRequest pendingRequest
+com.facebook.AuthorizationClient: java.util.Map loggingExtras
+com.facebook.AuthorizationClient$AuthHandler
+com.facebook.AuthorizationClient$AuthHandler: long serialVersionUID
+com.facebook.AuthorizationClient$AuthHandler: java.util.Map methodLoggingExtras
+com.facebook.AuthorizationClient$AuthHandler: com.facebook.AuthorizationClient this$0
+com.facebook.AuthorizationClient$AuthorizationRequest
+com.facebook.AuthorizationClient$AuthorizationRequest: long serialVersionUID
+com.facebook.AuthorizationClient$AuthorizationRequest: com.facebook.SessionLoginBehavior loginBehavior
+com.facebook.AuthorizationClient$AuthorizationRequest: int requestCode
+com.facebook.AuthorizationClient$AuthorizationRequest: boolean isLegacy
+com.facebook.AuthorizationClient$AuthorizationRequest: java.util.List permissions
+com.facebook.AuthorizationClient$AuthorizationRequest: com.facebook.SessionDefaultAudience defaultAudience
+com.facebook.AuthorizationClient$AuthorizationRequest: java.lang.String applicationId
+com.facebook.AuthorizationClient$AuthorizationRequest: java.lang.String previousAccessToken
+com.facebook.AuthorizationClient$AuthorizationRequest: java.lang.String authId
+com.facebook.AuthorizationClient$AuthorizationRequest: boolean isRerequest
+com.facebook.AuthorizationClient$GetTokenAuthHandler
+com.facebook.AuthorizationClient$GetTokenAuthHandler: long serialVersionUID
+com.facebook.AuthorizationClient$GetTokenAuthHandler: com.facebook.AuthorizationClient this$0
+com.facebook.AuthorizationClient$KatanaAuthHandler
+com.facebook.AuthorizationClient$KatanaAuthHandler: long serialVersionUID
+com.facebook.AuthorizationClient$KatanaAuthHandler: com.facebook.AuthorizationClient this$0
+com.facebook.AuthorizationClient$KatanaProxyAuthHandler
+com.facebook.AuthorizationClient$KatanaProxyAuthHandler: long serialVersionUID
+com.facebook.AuthorizationClient$KatanaProxyAuthHandler: java.lang.String applicationId
+com.facebook.AuthorizationClient$KatanaProxyAuthHandler: com.facebook.AuthorizationClient this$0
+com.facebook.AuthorizationClient$Result
+com.facebook.AuthorizationClient$Result: long serialVersionUID
+com.facebook.AuthorizationClient$Result: com.facebook.AuthorizationClient$Result$Code code
+com.facebook.AuthorizationClient$Result: com.facebook.AccessToken token
+com.facebook.AuthorizationClient$Result: java.lang.String errorMessage
+com.facebook.AuthorizationClient$Result: java.lang.String errorCode
+com.facebook.AuthorizationClient$Result: com.facebook.AuthorizationClient$AuthorizationRequest request
+com.facebook.AuthorizationClient$Result: java.util.Map loggingExtras
+com.facebook.AuthorizationClient$Result$Code
+com.facebook.AuthorizationClient$Result$Code: java.lang.String loggingValue
 com.facebook.AuthorizationClient$Result$Code: com.facebook.AuthorizationClient$Result$Code[] values()
 com.facebook.AuthorizationClient$Result$Code: com.facebook.AuthorizationClient$Result$Code valueOf(java.lang.String)
+com.facebook.AuthorizationClient$WebViewAuthHandler
+com.facebook.AuthorizationClient$WebViewAuthHandler: long serialVersionUID
+com.facebook.AuthorizationClient$WebViewAuthHandler: java.lang.String applicationId
+com.facebook.AuthorizationClient$WebViewAuthHandler: java.lang.String e2e
+com.facebook.AuthorizationClient$WebViewAuthHandler: com.facebook.AuthorizationClient this$0
+com.facebook.FacebookAuthorizationException
+com.facebook.FacebookAuthorizationException: long serialVersionUID
+com.facebook.FacebookDialogException
+com.facebook.FacebookDialogException: long serialVersionUID
+com.facebook.FacebookDialogException: int errorCode
+com.facebook.FacebookDialogException: java.lang.String failingUrl
+com.facebook.FacebookException
+com.facebook.FacebookException: long serialVersionUID
+com.facebook.FacebookGraphObjectException
+com.facebook.FacebookGraphObjectException: long serialVersionUID
+com.facebook.FacebookOperationCanceledException
+com.facebook.FacebookOperationCanceledException: long serialVersionUID
+com.facebook.FacebookRequestError$Category
 com.facebook.FacebookRequestError$Category: com.facebook.FacebookRequestError$Category[] values()
 com.facebook.FacebookRequestError$Category: com.facebook.FacebookRequestError$Category valueOf(java.lang.String)
+com.facebook.FacebookServiceException
+com.facebook.FacebookServiceException: com.facebook.FacebookRequestError error
+com.facebook.FacebookServiceException: long serialVersionUID
+com.facebook.HttpMethod
 com.facebook.HttpMethod: com.facebook.HttpMethod[] values()
 com.facebook.HttpMethod: com.facebook.HttpMethod valueOf(java.lang.String)
+com.facebook.LoggingBehavior
 com.facebook.LoggingBehavior: com.facebook.LoggingBehavior[] values()
 com.facebook.LoggingBehavior: com.facebook.LoggingBehavior valueOf(java.lang.String)
 com.facebook.LoginActivity
 com.facebook.LoginActivity: LoginActivity()
 com.facebook.Request$ParcelFileDescriptorWithMimeType
 com.facebook.Request$ParcelFileDescriptorWithMimeType: android.os.Parcelable$Creator CREATOR
+com.facebook.Response$PagingDirection
 com.facebook.Response$PagingDirection: com.facebook.Response$PagingDirection[] values()
 com.facebook.Response$PagingDirection: com.facebook.Response$PagingDirection valueOf(java.lang.String)
+com.facebook.Session
+com.facebook.Session: long serialVersionUID
+com.facebook.Session: java.lang.String applicationId
+com.facebook.Session: com.facebook.SessionState state
+com.facebook.Session: com.facebook.AccessToken tokenInfo
+com.facebook.Session: java.util.Date lastAttemptedTokenExtendDate
+com.facebook.Session: com.facebook.Session$AuthorizationRequest pendingAuthorizationRequest
+com.facebook.Session: com.facebook.AuthorizationClient authorizationClient
+com.facebook.Session: java.util.Set requestedPermissions
+com.facebook.Session: android.os.Bundle authorizationBundle
+com.facebook.Session: java.util.List callbacks
+com.facebook.Session: android.os.Handler handler
+com.facebook.Session: com.facebook.Session$AutoPublishAsyncTask autoPublishAsyncTask
+com.facebook.Session: java.lang.Object lock
+com.facebook.Session: com.facebook.TokenCachingStrategy tokenCachingStrategy
+com.facebook.Session: com.facebook.Session$TokenRefreshRequest currentTokenRefreshRequest
+com.facebook.Session: com.facebook.AppEventsLogger appEventsLogger
+com.facebook.Session: java.lang.Object writeReplace()
+com.facebook.Session: void readObject(java.io.ObjectInputStream)
+com.facebook.Session$1
+com.facebook.Session$AuthorizationRequest
+com.facebook.Session$AuthorizationRequest: long serialVersionUID
+com.facebook.Session$AuthorizationRequest: com.facebook.Session$StartActivityDelegate startActivityDelegate
+com.facebook.Session$AuthorizationRequest: com.facebook.SessionLoginBehavior loginBehavior
+com.facebook.Session$AuthorizationRequest: int requestCode
+com.facebook.Session$AuthorizationRequest: com.facebook.Session$StatusCallback statusCallback
+com.facebook.Session$AuthorizationRequest: boolean isLegacy
+com.facebook.Session$AuthorizationRequest: java.util.List permissions
+com.facebook.Session$AuthorizationRequest: com.facebook.SessionDefaultAudience defaultAudience
+com.facebook.Session$AuthorizationRequest: java.lang.String applicationId
+com.facebook.Session$AuthorizationRequest: java.lang.String validateSameFbidAsToken
+com.facebook.Session$AuthorizationRequest: java.lang.String authId
+com.facebook.Session$AuthorizationRequest: java.util.Map loggingExtras
+com.facebook.Session$AuthorizationRequest: java.lang.Object writeReplace()
+com.facebook.Session$AuthorizationRequest: void readObject(java.io.ObjectInputStream)
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: long serialVersionUID
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: com.facebook.SessionLoginBehavior loginBehavior
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: int requestCode
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: boolean isLegacy
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: java.util.List permissions
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: java.lang.String defaultAudience
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: java.lang.String applicationId
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: java.lang.String validateSameFbidAsToken
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1: java.lang.Object readResolve()
+com.facebook.Session$NewPermissionsRequest
+com.facebook.Session$NewPermissionsRequest: long serialVersionUID
+com.facebook.Session$OpenRequest
+com.facebook.Session$OpenRequest: long serialVersionUID
+com.facebook.Session$SerializationProxyV1
+com.facebook.Session$SerializationProxyV1: long serialVersionUID
+com.facebook.Session$SerializationProxyV1: java.lang.String applicationId
+com.facebook.Session$SerializationProxyV1: com.facebook.SessionState state
+com.facebook.Session$SerializationProxyV1: com.facebook.AccessToken tokenInfo
+com.facebook.Session$SerializationProxyV1: java.util.Date lastAttemptedTokenExtendDate
+com.facebook.Session$SerializationProxyV1: boolean shouldAutoPublish
+com.facebook.Session$SerializationProxyV1: com.facebook.Session$AuthorizationRequest pendingAuthorizationRequest
+com.facebook.Session$SerializationProxyV1: java.lang.Object readResolve()
+com.facebook.Session$SerializationProxyV2
+com.facebook.Session$SerializationProxyV2: long serialVersionUID
+com.facebook.Session$SerializationProxyV2: java.lang.String applicationId
+com.facebook.Session$SerializationProxyV2: com.facebook.SessionState state
+com.facebook.Session$SerializationProxyV2: com.facebook.AccessToken tokenInfo
+com.facebook.Session$SerializationProxyV2: java.util.Date lastAttemptedTokenExtendDate
+com.facebook.Session$SerializationProxyV2: boolean shouldAutoPublish
+com.facebook.Session$SerializationProxyV2: com.facebook.Session$AuthorizationRequest pendingAuthorizationRequest
+com.facebook.Session$SerializationProxyV2: java.util.Set requestedPermissions
+com.facebook.Session$SerializationProxyV2: java.lang.Object readResolve()
+com.facebook.SessionDefaultAudience
+com.facebook.SessionDefaultAudience: java.lang.String nativeProtocolAudience
 com.facebook.SessionDefaultAudience: com.facebook.SessionDefaultAudience[] values()
 com.facebook.SessionDefaultAudience: com.facebook.SessionDefaultAudience valueOf(java.lang.String)
+com.facebook.SessionLoginBehavior
+com.facebook.SessionLoginBehavior: boolean allowsKatanaAuth
+com.facebook.SessionLoginBehavior: boolean allowsWebViewAuth
 com.facebook.SessionLoginBehavior: com.facebook.SessionLoginBehavior[] values()
 com.facebook.SessionLoginBehavior: com.facebook.SessionLoginBehavior valueOf(java.lang.String)
+com.facebook.SessionState
+com.facebook.SessionState: com.facebook.SessionState$Category category
 com.facebook.SessionState: com.facebook.SessionState[] values()
 com.facebook.SessionState: com.facebook.SessionState valueOf(java.lang.String)
+com.facebook.SessionState$Category
 com.facebook.SessionState$Category: com.facebook.SessionState$Category[] values()
 com.facebook.SessionState$Category: com.facebook.SessionState$Category valueOf(java.lang.String)
+com.facebook.TestSession
+com.facebook.TestSession: long serialVersionUID
+com.facebook.TestSession: java.lang.String sessionUniqueUserTag
+com.facebook.TestSession: java.util.List requestedPermissions
+com.facebook.TestSession: com.facebook.TestSession$Mode mode
+com.facebook.TestSession: java.lang.String testAccountId
+com.facebook.TestSession: java.lang.String testAccountUserName
+com.facebook.TestSession: boolean wasAskedToExtendAccessToken
+com.facebook.TestSession$Mode
 com.facebook.TestSession$Mode: com.facebook.TestSession$Mode[] values()
 com.facebook.TestSession$Mode: com.facebook.TestSession$Mode valueOf(java.lang.String)
+com.facebook.android.DialogError
+com.facebook.android.DialogError: long serialVersionUID
+com.facebook.android.DialogError: int mErrorCode
+com.facebook.android.DialogError: java.lang.String mFailingUrl
+com.facebook.android.FacebookError
+com.facebook.android.FacebookError: long serialVersionUID
+com.facebook.android.FacebookError: int mErrorCode
+com.facebook.android.FacebookError: java.lang.String mErrorType
 com.facebook.android.R$attr: int confirm_logout
 com.facebook.android.R$attr: int done_button_background
 com.facebook.android.R$attr: int done_button_text
@@ -1080,18 +1294,277 @@ com.facebook.android.R$styleable: int com_facebook_place_picker_fragment_show_se
 com.facebook.android.R$styleable: int[] com_facebook_profile_picture_view
 com.facebook.android.R$styleable: int com_facebook_profile_picture_view_is_cropped
 com.facebook.android.R$styleable: int com_facebook_profile_picture_view_preset_size
+com.facebook.internal.SessionAuthorizationType
 com.facebook.internal.SessionAuthorizationType: com.facebook.internal.SessionAuthorizationType[] values()
 com.facebook.internal.SessionAuthorizationType: com.facebook.internal.SessionAuthorizationType valueOf(java.lang.String)
+com.facebook.model.CreateGraphObject
+com.facebook.model.CreateGraphObject: java.lang.String value()
+com.facebook.model.GraphLocation
+com.facebook.model.GraphLocation: java.lang.String getStreet()
+com.facebook.model.GraphLocation: void setStreet(java.lang.String)
+com.facebook.model.GraphLocation: java.lang.String getCity()
+com.facebook.model.GraphLocation: void setCity(java.lang.String)
+com.facebook.model.GraphLocation: java.lang.String getState()
+com.facebook.model.GraphLocation: void setState(java.lang.String)
+com.facebook.model.GraphLocation: java.lang.String getCountry()
+com.facebook.model.GraphLocation: void setCountry(java.lang.String)
+com.facebook.model.GraphLocation: java.lang.String getZip()
+com.facebook.model.GraphLocation: void setZip(java.lang.String)
+com.facebook.model.GraphLocation: double getLatitude()
+com.facebook.model.GraphLocation: void setLatitude(double)
+com.facebook.model.GraphLocation: double getLongitude()
+com.facebook.model.GraphLocation: void setLongitude(double)
+com.facebook.model.GraphMultiResult
+com.facebook.model.GraphMultiResult: com.facebook.model.GraphObjectList getData()
+com.facebook.model.GraphObject
+com.facebook.model.GraphObject: com.facebook.model.GraphObject cast(java.lang.Class)
+com.facebook.model.GraphObject: java.util.Map asMap()
+com.facebook.model.GraphObject: org.json.JSONObject getInnerJSONObject()
+com.facebook.model.GraphObject: java.lang.Object getProperty(java.lang.String)
+com.facebook.model.GraphObject: com.facebook.model.GraphObject getPropertyAs(java.lang.String,java.lang.Class)
+com.facebook.model.GraphObject: com.facebook.model.GraphObjectList getPropertyAsList(java.lang.String,java.lang.Class)
+com.facebook.model.GraphObject: void setProperty(java.lang.String,java.lang.Object)
+com.facebook.model.GraphObject: void removeProperty(java.lang.String)
+com.facebook.model.GraphObject$Factory
+com.facebook.model.GraphObject$Factory: java.util.HashSet verifiedGraphObjectClasses
+com.facebook.model.GraphObject$Factory: java.text.SimpleDateFormat[] dateFormats
+com.facebook.model.GraphObject$Factory: GraphObject$Factory()
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObject create(org.json.JSONObject)
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObject create(org.json.JSONObject,java.lang.Class)
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObject create()
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObject create(java.lang.Class)
+com.facebook.model.GraphObject$Factory: boolean hasSameId(com.facebook.model.GraphObject,com.facebook.model.GraphObject)
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObjectList createList(org.json.JSONArray,java.lang.Class)
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObjectList createList(java.lang.Class)
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObject createGraphObjectProxy(java.lang.Class,org.json.JSONObject)
+com.facebook.model.GraphObject$Factory: java.util.Map createGraphObjectProxyForMap(org.json.JSONObject)
+com.facebook.model.GraphObject$Factory: boolean hasClassBeenVerified(java.lang.Class)
+com.facebook.model.GraphObject$Factory: void recordClassHasBeenVerified(java.lang.Class)
+com.facebook.model.GraphObject$Factory: void verifyCanProxyClass(java.lang.Class)
+com.facebook.model.GraphObject$Factory: java.lang.Object coerceValueToExpectedType(java.lang.Object,java.lang.Class,java.lang.reflect.ParameterizedType)
+com.facebook.model.GraphObject$Factory: java.lang.String convertCamelCaseToLowercaseWithUnderscores(java.lang.String)
+com.facebook.model.GraphObject$Factory: java.lang.Object getUnderlyingJSONObject(java.lang.Object)
+com.facebook.model.GraphObject$Factory: com.facebook.model.GraphObject access$000(java.lang.Class,org.json.JSONObject)
+com.facebook.model.GraphObject$Factory: java.util.Map access$100(org.json.JSONObject)
+com.facebook.model.GraphObject$Factory: java.lang.Object access$200(java.lang.Object)
+com.facebook.model.GraphObject$Factory: void <clinit>()
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: org.json.JSONArray state
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: java.lang.Class itemType
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: GraphObject$Factory$GraphObjectListImpl(org.json.JSONArray,java.lang.Class)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: java.lang.String toString()
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: void add(int,java.lang.Object)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: java.lang.Object set(int,java.lang.Object)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: int hashCode()
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: boolean equals(java.lang.Object)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: java.lang.Object get(int)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: int size()
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: com.facebook.model.GraphObjectList castToListOf(java.lang.Class)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: org.json.JSONArray getInnerJSONArray()
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: void clear()
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: boolean remove(java.lang.Object)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: boolean removeAll(java.util.Collection)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: boolean retainAll(java.util.Collection)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: void checkIndex(int)
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl: void put(int,java.lang.Object)
+com.facebook.model.GraphObject$Factory$GraphObjectProxy
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String CLEAR_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String CONTAINSKEY_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String CONTAINSVALUE_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String ENTRYSET_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String GET_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String ISEMPTY_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String KEYSET_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String PUT_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String PUTALL_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String REMOVE_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String SIZE_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String VALUES_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String CAST_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String CASTTOMAP_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String GETPROPERTY_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String GETPROPERTYAS_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String GETPROPERTYASLIST_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String SETPROPERTY_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String REMOVEPROPERTY_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String GETINNERJSONOBJECT_METHOD
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Class graphObjectClass
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: GraphObject$Factory$GraphObjectProxy(org.json.JSONObject,java.lang.Class)
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.String toString()
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Object proxyMapMethods(java.lang.reflect.Method,java.lang.Object[])
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Object proxyGraphObjectMethods(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Object createGraphObjectsFromParameters(com.facebook.model.CreateGraphObject,java.lang.Object)
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Object proxyGraphObjectGettersAndSetters(java.lang.reflect.Method,java.lang.Object[])
+com.facebook.model.GraphObject$Factory$GraphObjectProxy: java.lang.Object setJSONProperty(java.lang.Object[])
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1: java.lang.Class val$expectedType
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1: com.facebook.model.GraphObject$Factory$GraphObjectProxy this$0
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1: GraphObject$Factory$GraphObjectProxy$1(com.facebook.model.GraphObject$Factory$GraphObjectProxy,java.lang.Class)
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1: java.lang.reflect.Type[] getActualTypeArguments()
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1: java.lang.reflect.Type getOwnerType()
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1: java.lang.reflect.Type getRawType()
+com.facebook.model.GraphObject$Factory$ProxyBase
+com.facebook.model.GraphObject$Factory$ProxyBase: java.lang.String EQUALS_METHOD
+com.facebook.model.GraphObject$Factory$ProxyBase: java.lang.String TOSTRING_METHOD
+com.facebook.model.GraphObject$Factory$ProxyBase: java.lang.Object state
+com.facebook.model.GraphObject$Factory$ProxyBase: GraphObject$Factory$ProxyBase(java.lang.Object)
+com.facebook.model.GraphObject$Factory$ProxyBase: java.lang.Object throwUnexpectedMethodSignature(java.lang.reflect.Method)
+com.facebook.model.GraphObject$Factory$ProxyBase: java.lang.Object proxyObjectMethods(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])
+com.facebook.model.GraphObjectList
+com.facebook.model.GraphObjectList: com.facebook.model.GraphObjectList castToListOf(java.lang.Class)
+com.facebook.model.GraphObjectList: org.json.JSONArray getInnerJSONArray()
+com.facebook.model.GraphPlace
+com.facebook.model.GraphPlace: java.lang.String getId()
+com.facebook.model.GraphPlace: void setId(java.lang.String)
+com.facebook.model.GraphPlace: java.lang.String getName()
+com.facebook.model.GraphPlace: void setName(java.lang.String)
+com.facebook.model.GraphPlace: java.lang.String getCategory()
+com.facebook.model.GraphPlace: void setCategory(java.lang.String)
+com.facebook.model.GraphPlace: com.facebook.model.GraphLocation getLocation()
+com.facebook.model.GraphPlace: void setLocation(com.facebook.model.GraphLocation)
+com.facebook.model.GraphUser
+com.facebook.model.GraphUser: java.lang.String getId()
+com.facebook.model.GraphUser: void setId(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getName()
+com.facebook.model.GraphUser: void setName(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getFirstName()
+com.facebook.model.GraphUser: void setFirstName(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getMiddleName()
+com.facebook.model.GraphUser: void setMiddleName(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getLastName()
+com.facebook.model.GraphUser: void setLastName(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getLink()
+com.facebook.model.GraphUser: void setLink(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getUsername()
+com.facebook.model.GraphUser: void setUsername(java.lang.String)
+com.facebook.model.GraphUser: java.lang.String getBirthday()
+com.facebook.model.GraphUser: void setBirthday(java.lang.String)
+com.facebook.model.GraphUser: com.facebook.model.GraphLocation getLocation()
+com.facebook.model.GraphUser: void setLocation(com.facebook.model.GraphLocation)
+com.facebook.model.JsonUtil
+com.facebook.model.JsonUtil: JsonUtil()
+com.facebook.model.JsonUtil: void jsonObjectClear(org.json.JSONObject)
+com.facebook.model.JsonUtil: boolean jsonObjectContainsValue(org.json.JSONObject,java.lang.Object)
+com.facebook.model.JsonUtil: java.util.Set jsonObjectEntrySet(org.json.JSONObject)
+com.facebook.model.JsonUtil: java.util.Set jsonObjectKeySet(org.json.JSONObject)
+com.facebook.model.JsonUtil: void jsonObjectPutAll(org.json.JSONObject,java.util.Map)
+com.facebook.model.JsonUtil: java.util.Collection jsonObjectValues(org.json.JSONObject)
+com.facebook.model.JsonUtil$JSONObjectEntry
+com.facebook.model.JsonUtil$JSONObjectEntry: java.lang.String key
+com.facebook.model.JsonUtil$JSONObjectEntry: java.lang.Object value
+com.facebook.model.JsonUtil$JSONObjectEntry: JsonUtil$JSONObjectEntry(java.lang.String,java.lang.Object)
+com.facebook.model.JsonUtil$JSONObjectEntry: java.lang.String getKey()
+com.facebook.model.JsonUtil$JSONObjectEntry: java.lang.Object getValue()
+com.facebook.model.JsonUtil$JSONObjectEntry: java.lang.Object setValue(java.lang.Object)
+com.facebook.model.JsonUtil$JSONObjectEntry: java.lang.Object getKey()
+com.facebook.model.OpenGraphAction
+com.facebook.model.OpenGraphAction: java.lang.String getId()
+com.facebook.model.OpenGraphAction: void setId(java.lang.String)
+com.facebook.model.OpenGraphAction: java.lang.String getType()
+com.facebook.model.OpenGraphAction: void setType(java.lang.String)
+com.facebook.model.OpenGraphAction: java.util.Date getStartTime()
+com.facebook.model.OpenGraphAction: void setStartTime(java.util.Date)
+com.facebook.model.OpenGraphAction: java.util.Date getEndTime()
+com.facebook.model.OpenGraphAction: void setEndTime(java.util.Date)
+com.facebook.model.OpenGraphAction: java.util.Date getPublishTime()
+com.facebook.model.OpenGraphAction: void setPublishTime(java.util.Date)
+com.facebook.model.OpenGraphAction: java.util.Date getCreatedTime()
+com.facebook.model.OpenGraphAction: void setCreatedTime(java.util.Date)
+com.facebook.model.OpenGraphAction: java.util.Date getExpiresTime()
+com.facebook.model.OpenGraphAction: void setExpiresTime(java.util.Date)
+com.facebook.model.OpenGraphAction: java.lang.String getRef()
+com.facebook.model.OpenGraphAction: void setRef(java.lang.String)
+com.facebook.model.OpenGraphAction: java.lang.String getMessage()
+com.facebook.model.OpenGraphAction: void setMessage(java.lang.String)
+com.facebook.model.OpenGraphAction: com.facebook.model.GraphPlace getPlace()
+com.facebook.model.OpenGraphAction: void setPlace(com.facebook.model.GraphPlace)
+com.facebook.model.OpenGraphAction: com.facebook.model.GraphObjectList getTags()
+com.facebook.model.OpenGraphAction: void setTags(java.util.List)
+com.facebook.model.OpenGraphAction: java.util.List getImage()
+com.facebook.model.OpenGraphAction: void setImage(java.util.List)
+com.facebook.model.OpenGraphAction: void setImageUrls(java.util.List)
+com.facebook.model.OpenGraphAction: com.facebook.model.GraphUser getFrom()
+com.facebook.model.OpenGraphAction: void setFrom(com.facebook.model.GraphUser)
+com.facebook.model.OpenGraphAction: org.json.JSONObject getLikes()
+com.facebook.model.OpenGraphAction: void setLikes(org.json.JSONObject)
+com.facebook.model.OpenGraphAction: com.facebook.model.GraphObject getApplication()
+com.facebook.model.OpenGraphAction: void setApplication(com.facebook.model.GraphObject)
+com.facebook.model.OpenGraphAction: org.json.JSONObject getComments()
+com.facebook.model.OpenGraphAction: void setComments(org.json.JSONObject)
+com.facebook.model.OpenGraphAction: com.facebook.model.GraphObject getData()
+com.facebook.model.OpenGraphAction: void setData(com.facebook.model.GraphObject)
+com.facebook.model.OpenGraphAction: boolean getExplicitlyShared()
+com.facebook.model.OpenGraphAction: void setExplicitlyShared(boolean)
+com.facebook.model.OpenGraphAction$Factory
+com.facebook.model.OpenGraphAction$Factory: OpenGraphAction$Factory()
+com.facebook.model.OpenGraphAction$Factory: com.facebook.model.OpenGraphAction createForPost()
+com.facebook.model.OpenGraphAction$Factory: com.facebook.model.OpenGraphAction createForPost(java.lang.String)
+com.facebook.model.OpenGraphAction$Factory: com.facebook.model.OpenGraphAction createForPost(java.lang.Class,java.lang.String)
+com.facebook.model.OpenGraphObject
+com.facebook.model.OpenGraphObject: java.lang.String getId()
+com.facebook.model.OpenGraphObject: void setId(java.lang.String)
+com.facebook.model.OpenGraphObject: java.lang.String getType()
+com.facebook.model.OpenGraphObject: void setType(java.lang.String)
+com.facebook.model.OpenGraphObject: java.lang.String getUrl()
+com.facebook.model.OpenGraphObject: void setUrl(java.lang.String)
+com.facebook.model.OpenGraphObject: java.lang.String getTitle()
+com.facebook.model.OpenGraphObject: void setTitle(java.lang.String)
+com.facebook.model.OpenGraphObject: java.lang.String getDescription()
+com.facebook.model.OpenGraphObject: void setDescription(java.lang.String)
+com.facebook.model.OpenGraphObject: com.facebook.model.GraphObjectList getImage()
+com.facebook.model.OpenGraphObject: void setImage(com.facebook.model.GraphObjectList)
+com.facebook.model.OpenGraphObject: void setImageUrls(java.util.List)
+com.facebook.model.OpenGraphObject: com.facebook.model.GraphObjectList getVideo()
+com.facebook.model.OpenGraphObject: void setVideo(com.facebook.model.GraphObjectList)
+com.facebook.model.OpenGraphObject: com.facebook.model.GraphObjectList getAudio()
+com.facebook.model.OpenGraphObject: void setAudio(com.facebook.model.GraphObjectList)
+com.facebook.model.OpenGraphObject: java.lang.String getDeterminer()
+com.facebook.model.OpenGraphObject: void setDeterminer(java.lang.String)
+com.facebook.model.OpenGraphObject: java.util.List getSeeAlso()
+com.facebook.model.OpenGraphObject: void setSeeAlso(java.util.List)
+com.facebook.model.OpenGraphObject: java.lang.String getSiteName()
+com.facebook.model.OpenGraphObject: void setSiteName(java.lang.String)
+com.facebook.model.OpenGraphObject: java.util.Date getCreatedTime()
+com.facebook.model.OpenGraphObject: void setCreatedTime(java.util.Date)
+com.facebook.model.OpenGraphObject: java.util.Date getUpdatedTime()
+com.facebook.model.OpenGraphObject: void setUpdatedTime(java.util.Date)
+com.facebook.model.OpenGraphObject: com.facebook.model.GraphObject getApplication()
+com.facebook.model.OpenGraphObject: void setApplication(com.facebook.model.GraphObject)
+com.facebook.model.OpenGraphObject: boolean getIsScraped()
+com.facebook.model.OpenGraphObject: void setIsScraped(boolean)
+com.facebook.model.OpenGraphObject: java.lang.String getPostActionId()
+com.facebook.model.OpenGraphObject: void setPostActionId(java.lang.String)
+com.facebook.model.OpenGraphObject: com.facebook.model.GraphObject getData()
+com.facebook.model.OpenGraphObject: void setData(com.facebook.model.GraphObject)
+com.facebook.model.OpenGraphObject: boolean getCreateObject()
+com.facebook.model.OpenGraphObject: void setCreateObject(boolean)
+com.facebook.model.OpenGraphObject$Factory
+com.facebook.model.OpenGraphObject$Factory: OpenGraphObject$Factory()
+com.facebook.model.OpenGraphObject$Factory: com.facebook.model.OpenGraphObject createForPost(java.lang.String)
+com.facebook.model.OpenGraphObject$Factory: com.facebook.model.OpenGraphObject createForPost(java.lang.Class,java.lang.String)
+com.facebook.model.OpenGraphObject$Factory: com.facebook.model.OpenGraphObject createForPost(java.lang.Class,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.facebook.model.PropertyName
+com.facebook.model.PropertyName: java.lang.String value()
+com.facebook.widget.FacebookDialog$MessageDialogFeature
+com.facebook.widget.FacebookDialog$MessageDialogFeature: int minVersion
 com.facebook.widget.FacebookDialog$MessageDialogFeature: com.facebook.widget.FacebookDialog$MessageDialogFeature[] values()
 com.facebook.widget.FacebookDialog$MessageDialogFeature: com.facebook.widget.FacebookDialog$MessageDialogFeature valueOf(java.lang.String)
+com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature
+com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature: int minVersion
 com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature: com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature[] values()
 com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature: com.facebook.widget.FacebookDialog$OpenGraphActionDialogFeature valueOf(java.lang.String)
+com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature
+com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature: int minVersion
 com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature: com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature[] values()
 com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature: com.facebook.widget.FacebookDialog$OpenGraphMessageDialogFeature valueOf(java.lang.String)
 com.facebook.widget.FacebookDialog$PendingCall
 com.facebook.widget.FacebookDialog$PendingCall: android.os.Parcelable$Creator CREATOR
+com.facebook.widget.FacebookDialog$ShareDialogFeature
+com.facebook.widget.FacebookDialog$ShareDialogFeature: int minVersion
 com.facebook.widget.FacebookDialog$ShareDialogFeature: com.facebook.widget.FacebookDialog$ShareDialogFeature[] values()
 com.facebook.widget.FacebookDialog$ShareDialogFeature: com.facebook.widget.FacebookDialog$ShareDialogFeature valueOf(java.lang.String)
+com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type
 com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type: com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type[] values()
 com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type: com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type valueOf(java.lang.String)
 com.facebook.widget.LoginButton
@@ -1124,6 +1597,7 @@ com.facebook.widget.LoginButton: java.util.List getPermissions()
 com.facebook.widget.LoginButton: void setProperties(com.facebook.widget.LoginButton$LoginButtonProperties)
 com.facebook.widget.LoginButton: void setLoginLogoutEventName(java.lang.String)
 com.facebook.widget.LoginButton: void setOnClickListener(android.view.View$OnClickListener)
+com.facebook.widget.LoginButton$ToolTipMode
 com.facebook.widget.LoginButton$ToolTipMode: com.facebook.widget.LoginButton$ToolTipMode[] values()
 com.facebook.widget.LoginButton$ToolTipMode: com.facebook.widget.LoginButton$ToolTipMode valueOf(java.lang.String)
 com.facebook.widget.ProfilePictureView: int getPresetSize()
@@ -1135,12 +1609,17 @@ com.facebook.widget.ProfilePictureView: com.facebook.widget.ProfilePictureView$O
 com.facebook.widget.ProfilePictureView: void setOnErrorListener(com.facebook.widget.ProfilePictureView$OnErrorListener)
 com.facebook.widget.ProfilePictureView: void setDefaultProfilePicture(android.graphics.Bitmap)
 com.facebook.widget.ProfilePictureView: void setImageBitmap(android.graphics.Bitmap)
+com.facebook.widget.ToolTipPopup$Style
 com.facebook.widget.ToolTipPopup$Style: com.facebook.widget.ToolTipPopup$Style[] values()
 com.facebook.widget.ToolTipPopup$Style: com.facebook.widget.ToolTipPopup$Style valueOf(java.lang.String)
+com.google.ads.AdRequest$ErrorCode
+com.google.ads.AdRequest$ErrorCode: java.lang.String description
 com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode[] values()
 com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode valueOf(java.lang.String)
+com.google.ads.AdRequest$Gender
 com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender[] values()
 com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender valueOf(java.lang.String)
+com.google.ads.mediation.MediationServerParameters$MappingException
 com.google.android.gms.R$attr: int adSize
 com.google.android.gms.R$attr: int adSizes
 com.google.android.gms.R$attr: int adUnitId
@@ -1347,18 +1826,32 @@ com.google.android.gms.ads.search.SearchAdView: java.lang.String getAdUnitId()
 com.google.android.gms.ads.search.SearchAdView: void setAdListener(com.google.android.gms.ads.AdListener)
 com.google.android.gms.ads.search.SearchAdView: void setAdSize(com.google.android.gms.ads.AdSize)
 com.google.android.gms.ads.search.SearchAdView: void setAdUnitId(java.lang.String)
+com.google.android.gms.analytics.s$a
 com.google.android.gms.analytics.s$a: com.google.android.gms.analytics.s$a[] values()
 com.google.android.gms.analytics.s$a: com.google.android.gms.analytics.s$a valueOf(java.lang.String)
+com.google.android.gms.analytics.u$a
 com.google.android.gms.analytics.u$a: com.google.android.gms.analytics.u$a[] values()
 com.google.android.gms.analytics.u$a: com.google.android.gms.analytics.u$a valueOf(java.lang.String)
+com.google.android.gms.auth.GoogleAuthException
+com.google.android.gms.auth.GooglePlayServicesAvailabilityException
+com.google.android.gms.auth.GooglePlayServicesAvailabilityException: int wQ
+com.google.android.gms.auth.UserRecoverableAuthException
+com.google.android.gms.auth.UserRecoverableAuthException: android.content.Intent mIntent
+com.google.android.gms.auth.UserRecoverableNotifiedException
 com.google.android.gms.cast.ApplicationMetadata
 com.google.android.gms.cast.ApplicationMetadata: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.cast.CastDevice
 com.google.android.gms.cast.CastDevice: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.common.GooglePlayServicesNotAvailableException
+com.google.android.gms.common.GooglePlayServicesNotAvailableException: int errorCode
+com.google.android.gms.common.GooglePlayServicesRepairableException
+com.google.android.gms.common.GooglePlayServicesRepairableException: int wQ
 com.google.android.gms.common.SignInButton: void setSize(int)
 com.google.android.gms.common.SignInButton: void setColorScheme(int)
 com.google.android.gms.common.SignInButton: void setOnClickListener(android.view.View$OnClickListener)
 com.google.android.gms.common.SignInButton: void setEnabled(boolean)
+com.google.android.gms.common.UserRecoverableException
+com.google.android.gms.common.UserRecoverableException: android.content.Intent mIntent
 com.google.android.gms.common.api.Status
 com.google.android.gms.common.api.Status: com.google.android.gms.common.api.StatusCreator CREATOR
 com.google.android.gms.common.data.DataHolder
@@ -1368,6 +1861,7 @@ com.google.android.gms.common.images.WebImage
 com.google.android.gms.common.images.WebImage: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.common.internal.safeparcel.SafeParcelable
 com.google.android.gms.common.internal.safeparcel.SafeParcelable: java.lang.String NULL
+com.google.android.gms.common.internal.safeparcel.a$a
 com.google.android.gms.drive.Contents
 com.google.android.gms.drive.Contents: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.drive.DriveId
@@ -1452,6 +1946,7 @@ com.google.android.gms.drive.query.internal.NotFilter
 com.google.android.gms.drive.query.internal.NotFilter: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.drive.query.internal.Operator
 com.google.android.gms.drive.query.internal.Operator: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.dynamic.g$a
 com.google.android.gms.games.Game
 com.google.android.gms.games.GameEntity
 com.google.android.gms.games.GameEntity: android.os.Parcelable$Creator CREATOR
@@ -1505,6 +2000,8 @@ com.google.android.gms.identity.intents.model.CountrySpecification
 com.google.android.gms.identity.intents.model.CountrySpecification: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.identity.intents.model.UserAddress
 com.google.android.gms.identity.intents.model.UserAddress: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.internal.a
+com.google.android.gms.internal.a: java.lang.String name
 com.google.android.gms.internal.a: com.google.android.gms.internal.a[] values()
 com.google.android.gms.internal.a: com.google.android.gms.internal.a valueOf(java.lang.String)
 com.google.android.gms.internal.ah
@@ -1513,12 +2010,18 @@ com.google.android.gms.internal.ak
 com.google.android.gms.internal.ak: com.google.android.gms.internal.al CREATOR
 com.google.android.gms.internal.av
 com.google.android.gms.internal.av: com.google.android.gms.internal.aw CREATOR
+com.google.android.gms.internal.b
+com.google.android.gms.internal.b: java.lang.String eC
 com.google.android.gms.internal.b: com.google.android.gms.internal.b[] values()
 com.google.android.gms.internal.b: com.google.android.gms.internal.b valueOf(java.lang.String)
 com.google.android.gms.internal.cb
 com.google.android.gms.internal.cb: com.google.android.gms.internal.ca CREATOR
+com.google.android.gms.internal.cc$a
 com.google.android.gms.internal.ce
 com.google.android.gms.internal.ce: com.google.android.gms.internal.cd CREATOR
+com.google.android.gms.internal.cj$a
+com.google.android.gms.internal.cs$a
+com.google.android.gms.internal.cs$a: int oS
 com.google.android.gms.internal.cx
 com.google.android.gms.internal.cx: com.google.android.gms.internal.cy CREATOR
 com.google.android.gms.internal.cz
@@ -1528,6 +2031,8 @@ com.google.android.gms.internal.dx: com.google.android.gms.internal.dy CREATOR
 com.google.android.gms.internal.dz: void setContext(android.content.Context)
 com.google.android.gms.internal.ef
 com.google.android.gms.internal.ef: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.internal.el
+com.google.android.gms.internal.el: java.lang.String xF
 com.google.android.gms.internal.el: com.google.android.gms.internal.el[] values()
 com.google.android.gms.internal.el: com.google.android.gms.internal.el valueOf(java.lang.String)
 com.google.android.gms.internal.fc$a
@@ -1591,6 +2096,7 @@ com.google.android.gms.internal.iv
 com.google.android.gms.internal.iv: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.internal.ix
 com.google.android.gms.internal.ix: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.internal.j$a
 com.google.android.gms.internal.jk
 com.google.android.gms.internal.jk: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.internal.jm
@@ -1611,6 +2117,11 @@ com.google.android.gms.internal.ki
 com.google.android.gms.internal.ki: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.internal.kk
 com.google.android.gms.internal.kk: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.internal.ko$a
+com.google.android.gms.internal.ks
+com.google.android.gms.internal.m
+com.google.android.gms.internal.p$a
+com.google.android.gms.internal.p$a: com.google.android.gms.internal.p kj
 com.google.android.gms.location.ActivityRecognitionResult
 com.google.android.gms.location.ActivityRecognitionResult: com.google.android.gms.location.ActivityRecognitionResultCreator CREATOR
 com.google.android.gms.location.DetectedActivity
@@ -1641,6 +2152,7 @@ com.google.android.gms.maps.model.PolygonOptions
 com.google.android.gms.maps.model.PolygonOptions: com.google.android.gms.maps.model.PolygonOptionsCreator CREATOR
 com.google.android.gms.maps.model.PolylineOptions
 com.google.android.gms.maps.model.PolylineOptions: com.google.android.gms.maps.model.PolylineOptionsCreator CREATOR
+com.google.android.gms.maps.model.RuntimeRemoteException
 com.google.android.gms.maps.model.StreetViewPanoramaCamera
 com.google.android.gms.maps.model.StreetViewPanoramaCamera: com.google.android.gms.maps.model.StreetViewPanoramaCameraCreator CREATOR
 com.google.android.gms.maps.model.StreetViewPanoramaLink
@@ -1660,14 +2172,23 @@ com.google.android.gms.plus.PlusOneButton: void setAnnotation(int)
 com.google.android.gms.plus.PlusOneButton: void setSize(int)
 com.google.android.gms.plus.internal.PlusCommonExtras
 com.google.android.gms.plus.internal.PlusCommonExtras: com.google.android.gms.plus.internal.f CREATOR
+com.google.android.gms.plus.internal.g$a
 com.google.android.gms.plus.internal.h
 com.google.android.gms.plus.internal.h: com.google.android.gms.plus.internal.j CREATOR
+com.google.android.gms.tagmanager.az$a
 com.google.android.gms.tagmanager.az$a: com.google.android.gms.tagmanager.az$a[] values()
 com.google.android.gms.tagmanager.az$a: com.google.android.gms.tagmanager.az$a valueOf(java.lang.String)
+com.google.android.gms.tagmanager.bg$a
 com.google.android.gms.tagmanager.bg$a: com.google.android.gms.tagmanager.bg$a[] values()
 com.google.android.gms.tagmanager.bg$a: com.google.android.gms.tagmanager.bg$a valueOf(java.lang.String)
+com.google.android.gms.tagmanager.cd$a
 com.google.android.gms.tagmanager.cd$a: com.google.android.gms.tagmanager.cd$a[] values()
 com.google.android.gms.tagmanager.cd$a: com.google.android.gms.tagmanager.cd$a valueOf(java.lang.String)
+com.google.android.gms.tagmanager.cq$g
+com.google.android.gms.tagmanager.dg
+com.google.android.gms.tagmanager.dg: double aaC
+com.google.android.gms.tagmanager.dg: long aaD
+com.google.android.gms.tagmanager.dg: boolean aaE
 com.google.android.gms.wallet.Address
 com.google.android.gms.wallet.Address: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.wallet.Cart
@@ -1702,6 +2223,46 @@ com.google.android.gms.wallet.fragment.WalletFragmentOptions
 com.google.android.gms.wallet.fragment.WalletFragmentOptions: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.wallet.fragment.WalletFragmentStyle
 com.google.android.gms.wallet.fragment.WalletFragmentStyle: android.os.Parcelable$Creator CREATOR
+com.sun.activation.registries.MailcapParseException
+com.sun.mail.iap.BadCommandException
+com.sun.mail.iap.BadCommandException: long serialVersionUID
+com.sun.mail.iap.CommandFailedException
+com.sun.mail.iap.CommandFailedException: long serialVersionUID
+com.sun.mail.iap.ConnectionException
+com.sun.mail.iap.ConnectionException: long serialVersionUID
+com.sun.mail.iap.LiteralException
+com.sun.mail.iap.LiteralException: long serialVersionUID
+com.sun.mail.iap.ParsingException
+com.sun.mail.iap.ParsingException: long serialVersionUID
+com.sun.mail.iap.ProtocolException
+com.sun.mail.iap.ProtocolException: long serialVersionUID
+com.sun.mail.imap.protocol.FLAGS
+com.sun.mail.imap.protocol.FLAGS: int msgno
+com.sun.mail.imap.protocol.FLAGS: long serialVersionUID
+com.sun.mail.imap.protocol.IMAPAddress
+com.sun.mail.imap.protocol.IMAPAddress: boolean group
+com.sun.mail.imap.protocol.IMAPAddress: javax.mail.internet.InternetAddress[] grouplist
+com.sun.mail.imap.protocol.IMAPAddress: java.lang.String groupname
+com.sun.mail.imap.protocol.IMAPAddress: long serialVersionUID
+com.sun.mail.smtp.SMTPAddressFailedException
+com.sun.mail.smtp.SMTPAddressFailedException: javax.mail.internet.InternetAddress addr
+com.sun.mail.smtp.SMTPAddressFailedException: java.lang.String cmd
+com.sun.mail.smtp.SMTPAddressFailedException: int rc
+com.sun.mail.smtp.SMTPAddressFailedException: long serialVersionUID
+com.sun.mail.smtp.SMTPAddressSucceededException
+com.sun.mail.smtp.SMTPAddressSucceededException: javax.mail.internet.InternetAddress addr
+com.sun.mail.smtp.SMTPAddressSucceededException: java.lang.String cmd
+com.sun.mail.smtp.SMTPAddressSucceededException: int rc
+com.sun.mail.smtp.SMTPAddressSucceededException: long serialVersionUID
+com.sun.mail.smtp.SMTPSendFailedException
+com.sun.mail.smtp.SMTPSendFailedException: javax.mail.internet.InternetAddress addr
+com.sun.mail.smtp.SMTPSendFailedException: java.lang.String cmd
+com.sun.mail.smtp.SMTPSendFailedException: int rc
+com.sun.mail.smtp.SMTPSendFailedException: long serialVersionUID
+com.sun.mail.util.FolderClosedIOException
+com.sun.mail.util.FolderClosedIOException: long serialVersionUID
+com.sun.mail.util.MessageRemovedIOException
+com.sun.mail.util.MessageRemovedIOException: long serialVersionUID
 italo.vaffapp.app.InsultActivity
 italo.vaffapp.app.InsultActivity: InsultActivity()
 italo.vaffapp.app.InsultActivity: void showInsult(android.view.View)
@@ -2731,3 +3292,171 @@ italo.vaffapp.app.R$styleable: int com_facebook_profile_picture_view_preset_size
 italo.vaffapp.app.SendInsultActivity
 italo.vaffapp.app.SendInsultActivity: SendInsultActivity()
 italo.vaffapp.app.SendInsultActivity: void sendFeedback(android.view.View)
+italo.vaffapp.app.mail.JSSEProvider
+javax.activation.ActivationDataFlavor
+javax.activation.ActivationDataFlavor: java.lang.String mimeType
+javax.activation.ActivationDataFlavor: javax.activation.MimeType mimeObject
+javax.activation.ActivationDataFlavor: java.lang.String humanPresentableName
+javax.activation.ActivationDataFlavor: java.lang.Class representationClass
+javax.activation.MimeType
+javax.activation.MimeType: java.lang.String primaryType
+javax.activation.MimeType: java.lang.String subType
+javax.activation.MimeType: javax.activation.MimeTypeParameterList parameters
+javax.activation.MimeTypeParseException
+javax.activation.UnsupportedDataTypeException
+javax.mail.Address
+javax.mail.Address: long serialVersionUID
+javax.mail.AuthenticationFailedException
+javax.mail.AuthenticationFailedException: long serialVersionUID
+javax.mail.Flags
+javax.mail.Flags: int system_flags
+javax.mail.Flags: java.util.Hashtable user_flags
+javax.mail.Flags: long serialVersionUID
+javax.mail.Folder$TerminatorEvent
+javax.mail.Folder$TerminatorEvent: long serialVersionUID
+javax.mail.FolderClosedException
+javax.mail.FolderClosedException: long serialVersionUID
+javax.mail.FolderNotFoundException
+javax.mail.FolderNotFoundException: long serialVersionUID
+javax.mail.IllegalWriteException
+javax.mail.IllegalWriteException: long serialVersionUID
+javax.mail.Message$RecipientType
+javax.mail.Message$RecipientType: java.lang.String type
+javax.mail.Message$RecipientType: long serialVersionUID
+javax.mail.Message$RecipientType: java.lang.Object readResolve()
+javax.mail.MessageRemovedException
+javax.mail.MessageRemovedException: long serialVersionUID
+javax.mail.MessagingException
+javax.mail.MessagingException: java.lang.Exception next
+javax.mail.MessagingException: long serialVersionUID
+javax.mail.MethodNotSupportedException
+javax.mail.MethodNotSupportedException: long serialVersionUID
+javax.mail.NoSuchProviderException
+javax.mail.NoSuchProviderException: long serialVersionUID
+javax.mail.ReadOnlyFolderException
+javax.mail.ReadOnlyFolderException: long serialVersionUID
+javax.mail.SendFailedException
+javax.mail.SendFailedException: long serialVersionUID
+javax.mail.Service$TerminatorEvent
+javax.mail.Service$TerminatorEvent: long serialVersionUID
+javax.mail.StoreClosedException
+javax.mail.StoreClosedException: long serialVersionUID
+javax.mail.event.ConnectionEvent
+javax.mail.event.ConnectionEvent: int type
+javax.mail.event.ConnectionEvent: long serialVersionUID
+javax.mail.event.FolderEvent
+javax.mail.event.FolderEvent: int type
+javax.mail.event.FolderEvent: long serialVersionUID
+javax.mail.event.MailEvent
+javax.mail.event.MailEvent: long serialVersionUID
+javax.mail.event.MessageChangedEvent
+javax.mail.event.MessageChangedEvent: int type
+javax.mail.event.MessageChangedEvent: long serialVersionUID
+javax.mail.event.MessageCountEvent
+javax.mail.event.MessageCountEvent: int type
+javax.mail.event.MessageCountEvent: boolean removed
+javax.mail.event.MessageCountEvent: long serialVersionUID
+javax.mail.event.StoreEvent
+javax.mail.event.StoreEvent: int type
+javax.mail.event.StoreEvent: java.lang.String message
+javax.mail.event.StoreEvent: long serialVersionUID
+javax.mail.event.TransportEvent
+javax.mail.event.TransportEvent: int type
+javax.mail.event.TransportEvent: long serialVersionUID
+javax.mail.internet.AddressException
+javax.mail.internet.AddressException: java.lang.String ref
+javax.mail.internet.AddressException: int pos
+javax.mail.internet.AddressException: long serialVersionUID
+javax.mail.internet.InternetAddress
+javax.mail.internet.InternetAddress: java.lang.String address
+javax.mail.internet.InternetAddress: java.lang.String personal
+javax.mail.internet.InternetAddress: java.lang.String encodedPersonal
+javax.mail.internet.InternetAddress: long serialVersionUID
+javax.mail.internet.MailDateFormat
+javax.mail.internet.MailDateFormat: long serialVersionUID
+javax.mail.internet.MimeMessage$RecipientType
+javax.mail.internet.MimeMessage$RecipientType: long serialVersionUID
+javax.mail.internet.MimeMessage$RecipientType: java.lang.Object readResolve()
+javax.mail.internet.NewsAddress
+javax.mail.internet.NewsAddress: java.lang.String newsgroup
+javax.mail.internet.NewsAddress: java.lang.String host
+javax.mail.internet.NewsAddress: long serialVersionUID
+javax.mail.internet.ParameterList$MultiValue
+javax.mail.internet.ParameterList$MultiValue: java.lang.String value
+javax.mail.internet.ParseException
+javax.mail.internet.ParseException: long serialVersionUID
+javax.mail.search.AddressStringTerm
+javax.mail.search.AddressStringTerm: long serialVersionUID
+javax.mail.search.AddressTerm
+javax.mail.search.AddressTerm: javax.mail.Address address
+javax.mail.search.AddressTerm: long serialVersionUID
+javax.mail.search.AndTerm
+javax.mail.search.AndTerm: javax.mail.search.SearchTerm[] terms
+javax.mail.search.AndTerm: long serialVersionUID
+javax.mail.search.BodyTerm
+javax.mail.search.BodyTerm: long serialVersionUID
+javax.mail.search.ComparisonTerm
+javax.mail.search.ComparisonTerm: int comparison
+javax.mail.search.ComparisonTerm: long serialVersionUID
+javax.mail.search.DateTerm
+javax.mail.search.DateTerm: java.util.Date date
+javax.mail.search.DateTerm: long serialVersionUID
+javax.mail.search.FlagTerm
+javax.mail.search.FlagTerm: boolean set
+javax.mail.search.FlagTerm: javax.mail.Flags flags
+javax.mail.search.FlagTerm: long serialVersionUID
+javax.mail.search.FromStringTerm
+javax.mail.search.FromStringTerm: long serialVersionUID
+javax.mail.search.FromTerm
+javax.mail.search.FromTerm: long serialVersionUID
+javax.mail.search.HeaderTerm
+javax.mail.search.HeaderTerm: java.lang.String headerName
+javax.mail.search.HeaderTerm: long serialVersionUID
+javax.mail.search.IntegerComparisonTerm
+javax.mail.search.IntegerComparisonTerm: int number
+javax.mail.search.IntegerComparisonTerm: long serialVersionUID
+javax.mail.search.MessageIDTerm
+javax.mail.search.MessageIDTerm: long serialVersionUID
+javax.mail.search.MessageNumberTerm
+javax.mail.search.MessageNumberTerm: long serialVersionUID
+javax.mail.search.NotTerm
+javax.mail.search.NotTerm: javax.mail.search.SearchTerm term
+javax.mail.search.NotTerm: long serialVersionUID
+javax.mail.search.OrTerm
+javax.mail.search.OrTerm: javax.mail.search.SearchTerm[] terms
+javax.mail.search.OrTerm: long serialVersionUID
+javax.mail.search.ReceivedDateTerm
+javax.mail.search.ReceivedDateTerm: long serialVersionUID
+javax.mail.search.RecipientStringTerm
+javax.mail.search.RecipientStringTerm: javax.mail.Message$RecipientType type
+javax.mail.search.RecipientStringTerm: long serialVersionUID
+javax.mail.search.RecipientTerm
+javax.mail.search.RecipientTerm: javax.mail.Message$RecipientType type
+javax.mail.search.RecipientTerm: long serialVersionUID
+javax.mail.search.SearchException
+javax.mail.search.SearchException: long serialVersionUID
+javax.mail.search.SearchTerm
+javax.mail.search.SearchTerm: long serialVersionUID
+javax.mail.search.SentDateTerm
+javax.mail.search.SentDateTerm: long serialVersionUID
+javax.mail.search.SizeTerm
+javax.mail.search.SizeTerm: long serialVersionUID
+javax.mail.search.StringTerm
+javax.mail.search.StringTerm: java.lang.String pattern
+javax.mail.search.StringTerm: boolean ignoreCase
+javax.mail.search.StringTerm: long serialVersionUID
+javax.mail.search.SubjectTerm
+javax.mail.search.SubjectTerm: long serialVersionUID
+myjava.awt.datatransfer.DataFlavor
+myjava.awt.datatransfer.DataFlavor: long serialVersionUID
+myjava.awt.datatransfer.DataFlavor: java.lang.String humanPresentableName
+myjava.awt.datatransfer.DataFlavor: java.lang.Class representationClass
+myjava.awt.datatransfer.DataFlavor: myjava.awt.datatransfer.MimeTypeProcessor$MimeType mimeInfo
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType: long serialVersionUID
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType: java.lang.String primaryType
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType: java.lang.String subType
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType: java.util.Hashtable parameters
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType: java.util.Hashtable systemParameters
+myjava.awt.datatransfer.UnsupportedFlavorException
+myjava.awt.datatransfer.UnsupportedFlavorException: long serialVersionUID

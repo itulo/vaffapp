@@ -176,18 +176,18 @@ android.support.v4.app.Fragment -> android.support.v4.app.Fragment:
 android.support.v4.app.Fragment$1 -> android.support.v4.app.g:
     android.support.v4.app.Fragment this$0 -> a
     android.view.View findViewById(int) -> a
-android.support.v4.app.Fragment$InstantiationException -> android.support.v4.app.h:
+android.support.v4.app.Fragment$InstantiationException -> android.support.v4.app.Fragment$InstantiationException:
 android.support.v4.app.Fragment$SavedState -> android.support.v4.app.Fragment$SavedState:
     android.os.Bundle mState -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.app.Fragment$SavedState$1 -> android.support.v4.app.i:
+android.support.v4.app.Fragment$SavedState$1 -> android.support.v4.app.h:
     android.support.v4.app.Fragment$SavedState createFromParcel(android.os.Parcel) -> a
     android.support.v4.app.Fragment$SavedState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-android.support.v4.app.FragmentActivity -> android.support.v4.app.j:
+android.support.v4.app.FragmentActivity -> android.support.v4.app.i:
     android.os.Handler mHandler -> a
     android.support.v4.app.FragmentManagerImpl mFragments -> b
     android.support.v4.app.FragmentContainer mContainer -> c
@@ -236,29 +236,29 @@ android.support.v4.app.FragmentActivity -> android.support.v4.app.j:
     void startActivityFromFragment(android.support.v4.app.Fragment,android.content.Intent,int) -> a
     void invalidateSupportFragment(java.lang.String) -> a
     android.support.v4.app.LoaderManagerImpl getLoaderManager(java.lang.String,boolean,boolean) -> a
-android.support.v4.app.FragmentActivity$1 -> android.support.v4.app.k:
+android.support.v4.app.FragmentActivity$1 -> android.support.v4.app.j:
     android.support.v4.app.FragmentActivity this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-android.support.v4.app.FragmentActivity$2 -> android.support.v4.app.l:
+android.support.v4.app.FragmentActivity$2 -> android.support.v4.app.k:
     android.support.v4.app.FragmentActivity this$0 -> a
     android.view.View findViewById(int) -> a
-android.support.v4.app.FragmentActivity$FragmentTag -> android.support.v4.app.m:
+android.support.v4.app.FragmentActivity$FragmentTag -> android.support.v4.app.l:
     int[] Fragment -> a
-android.support.v4.app.FragmentActivity$NonConfigurationInstances -> android.support.v4.app.n:
+android.support.v4.app.FragmentActivity$NonConfigurationInstances -> android.support.v4.app.m:
     java.lang.Object activity -> a
     java.lang.Object custom -> b
     android.support.v4.util.SimpleArrayMap children -> c
     java.util.ArrayList fragments -> d
     android.support.v4.util.SimpleArrayMap loaders -> e
-android.support.v4.app.FragmentContainer -> android.support.v4.app.o:
+android.support.v4.app.FragmentContainer -> android.support.v4.app.n:
     android.view.View findViewById(int) -> a
-android.support.v4.app.FragmentManager -> android.support.v4.app.p:
+android.support.v4.app.FragmentManager -> android.support.v4.app.o:
     android.support.v4.app.FragmentTransaction beginTransaction() -> a
     boolean executePendingTransactions() -> b
     android.support.v4.app.Fragment findFragmentByTag(java.lang.String) -> a
-android.support.v4.app.FragmentManager$OnBackStackChangedListener -> android.support.v4.app.q:
+android.support.v4.app.FragmentManager$OnBackStackChangedListener -> android.support.v4.app.p:
     void onBackStackChanged() -> a
-android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.r:
+android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.q:
     boolean DEBUG -> a
     boolean HONEYCOMB -> b
     java.util.ArrayList mPendingActions -> c
@@ -349,10 +349,10 @@ android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.r:
     void dispatchOptionsMenuClosed(android.view.Menu) -> b
     int reverseTransit(int) -> c
     int transitToStyleIndex(int,boolean) -> b
-android.support.v4.app.FragmentManagerImpl$1 -> android.support.v4.app.s:
+android.support.v4.app.FragmentManagerImpl$1 -> android.support.v4.app.r:
     android.support.v4.app.FragmentManagerImpl this$0 -> a
     void run() -> run
-android.support.v4.app.FragmentManagerImpl$5 -> android.support.v4.app.t:
+android.support.v4.app.FragmentManagerImpl$5 -> android.support.v4.app.s:
     android.support.v4.app.Fragment val$fragment -> a
     android.support.v4.app.FragmentManagerImpl this$0 -> b
     void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
@@ -365,7 +365,7 @@ android.support.v4.app.FragmentManagerState -> android.support.v4.app.FragmentMa
     android.os.Parcelable$Creator CREATOR -> CREATOR
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.app.FragmentManagerState$1 -> android.support.v4.app.u:
+android.support.v4.app.FragmentManagerState$1 -> android.support.v4.app.t:
     android.support.v4.app.FragmentManagerState createFromParcel(android.os.Parcel) -> a
     android.support.v4.app.FragmentManagerState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
@@ -386,7 +386,7 @@ android.support.v4.app.FragmentState -> android.support.v4.app.FragmentState:
     android.support.v4.app.Fragment instantiate(android.support.v4.app.FragmentActivity,android.support.v4.app.Fragment) -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.app.FragmentState$1 -> android.support.v4.app.v:
+android.support.v4.app.FragmentState$1 -> android.support.v4.app.u:
     android.support.v4.app.FragmentState createFromParcel(android.os.Parcel) -> a
     android.support.v4.app.FragmentState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
@@ -407,18 +407,18 @@ android.support.v4.app.FragmentTabHost -> android.support.v4.app.FragmentTabHost
     void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
     void onTabChanged(java.lang.String) -> onTabChanged
     android.support.v4.app.FragmentTransaction doTabChanged(java.lang.String,android.support.v4.app.FragmentTransaction) -> a
-android.support.v4.app.FragmentTabHost$1 -> android.support.v4.app.w:
+android.support.v4.app.FragmentTabHost$1 -> android.support.v4.app.v:
 android.support.v4.app.FragmentTabHost$SavedState -> android.support.v4.app.FragmentTabHost$SavedState:
     java.lang.String curTab -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
     java.lang.String toString() -> toString
-android.support.v4.app.FragmentTabHost$SavedState$1 -> android.support.v4.app.x:
+android.support.v4.app.FragmentTabHost$SavedState$1 -> android.support.v4.app.w:
     android.support.v4.app.FragmentTabHost$SavedState createFromParcel(android.os.Parcel) -> a
     android.support.v4.app.FragmentTabHost$SavedState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.y:
+android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.x:
     java.lang.String tag -> a
     java.lang.Class clss -> b
     android.os.Bundle args -> c
@@ -428,19 +428,19 @@ android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.y:
     java.lang.String access$200(android.support.v4.app.FragmentTabHost$TabInfo) -> b
     java.lang.Class access$300(android.support.v4.app.FragmentTabHost$TabInfo) -> c
     android.os.Bundle access$400(android.support.v4.app.FragmentTabHost$TabInfo) -> d
-android.support.v4.app.FragmentTransaction -> android.support.v4.app.z:
+android.support.v4.app.FragmentTransaction -> android.support.v4.app.y:
     android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment) -> a
     android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
     android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> a
     android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> b
     int commit() -> a
-android.support.v4.app.LoaderManager -> android.support.v4.app.aa:
+android.support.v4.app.LoaderManager -> android.support.v4.app.z:
     boolean hasRunningLoaders() -> a
-android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.ab:
+android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.aa:
     android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle) -> a
     void onLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
     void onLoaderReset(android.support.v4.content.Loader) -> a
-android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ac:
+android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ab:
     boolean DEBUG -> a
     android.support.v4.util.SparseArrayCompat mLoaders -> b
     android.support.v4.util.SparseArrayCompat mInactiveLoaders -> c
@@ -459,7 +459,7 @@ android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ac:
     java.lang.String toString() -> toString
     void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
     boolean hasRunningLoaders() -> a
-android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.ad:
+android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.ac:
     int mId -> a
     android.os.Bundle mArgs -> b
     android.support.v4.app.LoaderManager$LoaderCallbacks mCallbacks -> c
@@ -484,7 +484,7 @@ android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.ad
     void callOnLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
     java.lang.String toString() -> toString
     void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
-android.support.v4.app.NavUtils -> android.support.v4.app.ae:
+android.support.v4.app.NavUtils -> android.support.v4.app.ad:
     android.support.v4.app.NavUtils$NavUtilsImpl IMPL -> a
     boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     void navigateUpTo(android.app.Activity,android.content.Intent) -> b
@@ -492,33 +492,33 @@ android.support.v4.app.NavUtils -> android.support.v4.app.ae:
     android.content.Intent getParentActivityIntent(android.content.Context,android.content.ComponentName) -> a
     java.lang.String getParentActivityName(android.app.Activity) -> b
     java.lang.String getParentActivityName(android.content.Context,android.content.ComponentName) -> b
-android.support.v4.app.NavUtils$NavUtilsImpl -> android.support.v4.app.af:
+android.support.v4.app.NavUtils$NavUtilsImpl -> android.support.v4.app.ae:
     android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NavUtils$NavUtilsImplBase -> android.support.v4.app.ag:
+android.support.v4.app.NavUtils$NavUtilsImplBase -> android.support.v4.app.af:
     android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NavUtils$NavUtilsImplJB -> android.support.v4.app.ah:
+android.support.v4.app.NavUtils$NavUtilsImplJB -> android.support.v4.app.ag:
     android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     android.content.Intent superGetParentActivityIntent(android.app.Activity) -> b
     boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NavUtilsJB -> android.support.v4.app.ai:
+android.support.v4.app.NavUtilsJB -> android.support.v4.app.ah:
     android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     java.lang.String getParentActivityName(android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.aj:
+android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ai:
     android.view.ViewGroup wrap(android.view.View) -> a
     void dispatchSaveInstanceState(android.util.SparseArray) -> dispatchSaveInstanceState
     void dispatchRestoreInstanceState(android.util.SparseArray) -> dispatchRestoreInstanceState
-android.support.v4.app.SuperNotCalledException -> android.support.v4.app.ak:
-android.support.v4.app.TaskStackBuilder -> android.support.v4.app.al:
+android.support.v4.app.SuperNotCalledException -> android.support.v4.app.SuperNotCalledException:
+android.support.v4.app.TaskStackBuilder -> android.support.v4.app.aj:
     android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl IMPL -> a
     java.util.ArrayList mIntents -> b
     android.content.Context mSourceContext -> c
@@ -529,11 +529,11 @@ android.support.v4.app.TaskStackBuilder -> android.support.v4.app.al:
     java.util.Iterator iterator() -> iterator
     void startActivities() -> a
     void startActivities(android.os.Bundle) -> a
-android.support.v4.app.TaskStackBuilder$SupportParentable -> android.support.v4.app.am:
+android.support.v4.app.TaskStackBuilder$SupportParentable -> android.support.v4.app.ak:
     android.content.Intent getSupportParentActivityIntent() -> a
-android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl -> android.support.v4.app.an:
-android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase -> android.support.v4.app.ao:
-android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb -> android.support.v4.app.ap:
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl -> android.support.v4.app.al:
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase -> android.support.v4.app.am:
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb -> android.support.v4.app.an:
 android.support.v4.content.ContextCompat -> android.support.v4.a.a:
     boolean startActivities(android.content.Context,android.content.Intent[],android.os.Bundle) -> a
 android.support.v4.content.ContextCompatHoneycomb -> android.support.v4.a.b:
@@ -4636,7 +4636,7 @@ com.appnext.appnextsdk.DownloadService$Pack -> com.appnext.appnextsdk.bl:
 com.appnext.appnextsdk.HCallback -> com.appnext.appnextsdk.bm:
     void hide() -> c
     void show() -> b
-com.appnext.appnextsdk.ImageDownloader -> com.appnext.appnextsdk.bn:
+com.appnext.appnextsdk.ImageDownloader -> com.appnext.appnextsdk.ImageDownloader:
     boolean shadow -> a
     com.appnext.appnextsdk.ImageDownloader$DMode mode -> b
     java.util.HashMap sHardBitmapCache -> c
@@ -4661,13 +4661,14 @@ com.appnext.appnextsdk.ImageDownloader -> com.appnext.appnextsdk.bn:
     com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask access$3(android.widget.ImageView) -> a
     com.appnext.appnextsdk.ImageDownloader$DMode access$4(com.appnext.appnextsdk.ImageDownloader) -> b
     int[] $SWITCH_TABLE$com$appnext$appnextsdk$ImageDownloader$DMode() -> c
-com.appnext.appnextsdk.ImageDownloader$1 -> com.appnext.appnextsdk.bo:
-    com.appnext.appnextsdk.ImageDownloader this$0 -> a
+com.appnext.appnextsdk.ImageDownloader$1 -> com.appnext.appnextsdk.ImageDownloader$1:
+    long serialVersionUID -> serialVersionUID
+    com.appnext.appnextsdk.ImageDownloader this$0 -> this$0
     boolean removeEldestEntry(java.util.Map$Entry) -> removeEldestEntry
-com.appnext.appnextsdk.ImageDownloader$2 -> com.appnext.appnextsdk.bp:
+com.appnext.appnextsdk.ImageDownloader$2 -> com.appnext.appnextsdk.bn:
     com.appnext.appnextsdk.ImageDownloader this$0 -> a
     void run() -> run
-com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask -> com.appnext.appnextsdk.bq:
+com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask -> com.appnext.appnextsdk.bo:
     java.lang.String url -> b
     java.lang.ref.WeakReference imageViewReference -> c
     com.appnext.appnextsdk.ImageDownloader this$0 -> a
@@ -4676,40 +4677,41 @@ com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask -> com.appnext.appne
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
     java.lang.String access$2(com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask) -> a
-com.appnext.appnextsdk.ImageDownloader$DMode -> com.appnext.appnextsdk.br:
+com.appnext.appnextsdk.ImageDownloader$DMode -> com.appnext.appnextsdk.ImageDownloader$DMode:
     com.appnext.appnextsdk.ImageDownloader$DMode NO_ASYNC_TASK -> a
     com.appnext.appnextsdk.ImageDownloader$DMode NO_DOWNLOADED_DRAWABLE -> b
     com.appnext.appnextsdk.ImageDownloader$DMode CORRECT -> c
     com.appnext.appnextsdk.ImageDownloader$DMode[] ENUM$VALUES -> d
     com.appnext.appnextsdk.ImageDownloader$DMode[] values() -> values
     com.appnext.appnextsdk.ImageDownloader$DMode valueOf(java.lang.String) -> valueOf
-com.appnext.appnextsdk.ImageDownloader$DownloadedDrawable -> com.appnext.appnextsdk.bs:
+com.appnext.appnextsdk.ImageDownloader$DownloadedDrawable -> com.appnext.appnextsdk.bp:
     java.lang.ref.WeakReference bitmapDownloaderTaskReference -> a
     com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask getBitmapDownloaderTask() -> a
-com.appnext.appnextsdk.ImageDownloader$FlushedInputStream -> com.appnext.appnextsdk.bt:
+com.appnext.appnextsdk.ImageDownloader$FlushedInputStream -> com.appnext.appnextsdk.bq:
     long skip(long) -> skip
-com.appnext.appnextsdk.NoAdsInterface -> com.appnext.appnextsdk.bu:
+com.appnext.appnextsdk.NoAdsInterface -> com.appnext.appnextsdk.br:
     void noAds() -> a
-com.appnext.appnextsdk.OnAdLoadInterface -> com.appnext.appnextsdk.bv:
+com.appnext.appnextsdk.OnAdLoadInterface -> com.appnext.appnextsdk.bs:
     void adLoaded() -> a
-com.appnext.appnextsdk.PopupClickedInterface -> com.appnext.appnextsdk.bw:
+com.appnext.appnextsdk.PopupClickedInterface -> com.appnext.appnextsdk.bt:
     void popupClicked() -> a
-com.appnext.appnextsdk.PopupClosedInterface -> com.appnext.appnextsdk.bx:
+com.appnext.appnextsdk.PopupClosedInterface -> com.appnext.appnextsdk.bu:
     void popupClosed() -> a
-com.appnext.appnextsdk.PopupOpenedInterface -> com.appnext.appnextsdk.by:
+com.appnext.appnextsdk.PopupOpenedInterface -> com.appnext.appnextsdk.bv:
     void popupOpened() -> a
-com.facebook.AccessToken -> com.facebook.a:
+com.facebook.AccessToken -> com.facebook.AccessToken:
+    long serialVersionUID -> serialVersionUID
     java.util.Date MIN_DATE -> b
     java.util.Date MAX_DATE -> c
     java.util.Date DEFAULT_EXPIRATION_TIME -> d
     java.util.Date DEFAULT_LAST_REFRESH_TIME -> e
     com.facebook.AccessTokenSource DEFAULT_ACCESS_TOKEN_SOURCE -> f
     java.util.Date ALREADY_EXPIRED_EXPIRATION_TIME -> g
-    java.util.Date expires -> h
-    java.util.List permissions -> i
-    java.lang.String token -> j
-    com.facebook.AccessTokenSource source -> k
-    java.util.Date lastRefresh -> l
+    java.util.Date expires -> expires
+    java.util.List permissions -> permissions
+    java.lang.String token -> token
+    com.facebook.AccessTokenSource source -> source
+    java.util.Date lastRefresh -> lastRefresh
     boolean $assertionsDisabled -> a
     java.lang.String getToken() -> a
     java.util.Date getExpires() -> b
@@ -4728,8 +4730,19 @@ com.facebook.AccessToken -> com.facebook.a:
     boolean isInvalid() -> g
     java.lang.String tokenToString() -> h
     void appendPermissions(java.lang.StringBuilder) -> a
+    java.lang.Object writeReplace() -> writeReplace
+    void readObject(java.io.ObjectInputStream) -> readObject
     java.util.Date getBundleLongAsDate(android.os.Bundle,java.lang.String,java.util.Date) -> a
-com.facebook.AccessTokenSource -> com.facebook.b:
+com.facebook.AccessToken$1 -> com.facebook.a:
+com.facebook.AccessToken$SerializationProxyV1 -> com.facebook.AccessToken$SerializationProxyV1:
+    long serialVersionUID -> serialVersionUID
+    java.util.Date expires -> expires
+    java.util.List permissions -> permissions
+    java.lang.String token -> token
+    com.facebook.AccessTokenSource source -> source
+    java.util.Date lastRefresh -> lastRefresh
+    java.lang.Object readResolve() -> readResolve
+com.facebook.AccessTokenSource -> com.facebook.AccessTokenSource:
     com.facebook.AccessTokenSource NONE -> a
     com.facebook.AccessTokenSource FACEBOOK_APPLICATION_WEB -> b
     com.facebook.AccessTokenSource FACEBOOK_APPLICATION_NATIVE -> c
@@ -4737,12 +4750,12 @@ com.facebook.AccessTokenSource -> com.facebook.b:
     com.facebook.AccessTokenSource WEB_VIEW -> e
     com.facebook.AccessTokenSource TEST_USER -> f
     com.facebook.AccessTokenSource CLIENT_TOKEN -> g
-    boolean canExtendToken -> h
-    com.facebook.AccessTokenSource[] $VALUES -> i
+    boolean canExtendToken -> canExtendToken
+    com.facebook.AccessTokenSource[] $VALUES -> h
     com.facebook.AccessTokenSource[] values() -> values
     com.facebook.AccessTokenSource valueOf(java.lang.String) -> valueOf
     boolean canExtendToken() -> a
-com.facebook.AppEventsLogger -> com.facebook.c:
+com.facebook.AppEventsLogger -> com.facebook.AppEventsLogger:
     java.lang.String TAG -> a
     android.content.Context context -> b
     com.facebook.AppEventsLogger$AccessTokenAppIdPair accessTokenAppId -> c
@@ -4780,49 +4793,63 @@ com.facebook.AppEventsLogger -> com.facebook.c:
     java.util.Map access$300() -> d
     void access$500(com.facebook.AppEventsLogger$AccessTokenAppIdPair,com.facebook.Request,com.facebook.Response,com.facebook.AppEventsLogger$SessionEventsState,com.facebook.AppEventsLogger$FlushStatistics) -> a
     java.lang.String access$800() -> e
-com.facebook.AppEventsLogger$1 -> com.facebook.d:
-com.facebook.AppEventsLogger$2 -> com.facebook.e:
+com.facebook.AppEventsLogger$1 -> com.facebook.AppEventsLogger$1:
+com.facebook.AppEventsLogger$2 -> com.facebook.b:
     void run() -> run
-com.facebook.AppEventsLogger$3 -> com.facebook.f:
+com.facebook.AppEventsLogger$3 -> com.facebook.c:
     void run() -> run
-com.facebook.AppEventsLogger$4 -> com.facebook.g:
+com.facebook.AppEventsLogger$4 -> com.facebook.d:
     com.facebook.AppEventsLogger$FlushReason val$reason -> a
     void run() -> run
-com.facebook.AppEventsLogger$5 -> com.facebook.h:
+com.facebook.AppEventsLogger$5 -> com.facebook.e:
     com.facebook.AppEventsLogger$AccessTokenAppIdPair val$accessTokenAppId -> a
     com.facebook.Request val$postRequest -> b
     com.facebook.AppEventsLogger$SessionEventsState val$sessionEventsState -> c
     com.facebook.AppEventsLogger$FlushStatistics val$flushState -> d
     void onCompleted(com.facebook.Response) -> a
-com.facebook.AppEventsLogger$AccessTokenAppIdPair -> com.facebook.i:
-    java.lang.String accessToken -> a
-    java.lang.String applicationId -> b
+com.facebook.AppEventsLogger$AccessTokenAppIdPair -> com.facebook.AppEventsLogger$AccessTokenAppIdPair:
+    long serialVersionUID -> serialVersionUID
+    java.lang.String accessToken -> accessToken
+    java.lang.String applicationId -> applicationId
     java.lang.String getAccessToken() -> a
     java.lang.String getApplicationId() -> b
     int hashCode() -> hashCode
     boolean equals(java.lang.Object) -> equals
-com.facebook.AppEventsLogger$AppEvent -> com.facebook.j:
-    org.json.JSONObject jsonObject -> a
-    boolean isImplicit -> b
-    java.util.HashSet validatedIdentifiers -> c
-    java.lang.String name -> d
+    java.lang.Object writeReplace() -> writeReplace
+com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1 -> com.facebook.AppEventsLogger$AccessTokenAppIdPair$SerializationProxyV1:
+    long serialVersionUID -> serialVersionUID
+    java.lang.String accessToken -> accessToken
+    java.lang.String appId -> appId
+    java.lang.Object readResolve() -> readResolve
+com.facebook.AppEventsLogger$AppEvent -> com.facebook.AppEventsLogger$AppEvent:
+    long serialVersionUID -> serialVersionUID
+    org.json.JSONObject jsonObject -> jsonObject
+    boolean isImplicit -> isImplicit
+    java.util.HashSet validatedIdentifiers -> a
+    java.lang.String name -> name
     java.lang.String getName() -> a
     boolean getIsImplicit() -> b
     org.json.JSONObject getJSONObject() -> c
     void validateIdentifier(java.lang.String) -> a
+    java.lang.Object writeReplace() -> writeReplace
     java.lang.String toString() -> toString
-com.facebook.AppEventsLogger$EventSuppression -> com.facebook.k:
+com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1 -> com.facebook.AppEventsLogger$AppEvent$SerializationProxyV1:
+    long serialVersionUID -> serialVersionUID
+    java.lang.String jsonString -> jsonString
+    boolean isImplicit -> isImplicit
+    java.lang.Object readResolve() -> readResolve
+com.facebook.AppEventsLogger$EventSuppression -> com.facebook.f:
     int timeoutPeriod -> a
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior behavior -> b
     int getTimeoutPeriod() -> a
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior getBehavior() -> b
-com.facebook.AppEventsLogger$FlushBehavior -> com.facebook.l:
+com.facebook.AppEventsLogger$FlushBehavior -> com.facebook.AppEventsLogger$FlushBehavior:
     com.facebook.AppEventsLogger$FlushBehavior AUTO -> a
     com.facebook.AppEventsLogger$FlushBehavior EXPLICIT_ONLY -> b
     com.facebook.AppEventsLogger$FlushBehavior[] $VALUES -> c
     com.facebook.AppEventsLogger$FlushBehavior[] values() -> values
     com.facebook.AppEventsLogger$FlushBehavior valueOf(java.lang.String) -> valueOf
-com.facebook.AppEventsLogger$FlushReason -> com.facebook.m:
+com.facebook.AppEventsLogger$FlushReason -> com.facebook.AppEventsLogger$FlushReason:
     com.facebook.AppEventsLogger$FlushReason EXPLICIT -> a
     com.facebook.AppEventsLogger$FlushReason TIMER -> b
     com.facebook.AppEventsLogger$FlushReason SESSION_CHANGE -> c
@@ -4832,7 +4859,7 @@ com.facebook.AppEventsLogger$FlushReason -> com.facebook.m:
     com.facebook.AppEventsLogger$FlushReason[] $VALUES -> g
     com.facebook.AppEventsLogger$FlushReason[] values() -> values
     com.facebook.AppEventsLogger$FlushReason valueOf(java.lang.String) -> valueOf
-com.facebook.AppEventsLogger$FlushResult -> com.facebook.n:
+com.facebook.AppEventsLogger$FlushResult -> com.facebook.AppEventsLogger$FlushResult:
     com.facebook.AppEventsLogger$FlushResult SUCCESS -> a
     com.facebook.AppEventsLogger$FlushResult SERVER_ERROR -> b
     com.facebook.AppEventsLogger$FlushResult NO_CONNECTIVITY -> c
@@ -4840,10 +4867,10 @@ com.facebook.AppEventsLogger$FlushResult -> com.facebook.n:
     com.facebook.AppEventsLogger$FlushResult[] $VALUES -> e
     com.facebook.AppEventsLogger$FlushResult[] values() -> values
     com.facebook.AppEventsLogger$FlushResult valueOf(java.lang.String) -> valueOf
-com.facebook.AppEventsLogger$FlushStatistics -> com.facebook.o:
+com.facebook.AppEventsLogger$FlushStatistics -> com.facebook.g:
     int numEvents -> a
     com.facebook.AppEventsLogger$FlushResult result -> b
-com.facebook.AppEventsLogger$PersistedEvents -> com.facebook.p:
+com.facebook.AppEventsLogger$PersistedEvents -> com.facebook.h:
     java.lang.Object staticLock -> a
     android.content.Context context -> b
     java.util.HashMap persistedEvents -> c
@@ -4855,7 +4882,7 @@ com.facebook.AppEventsLogger$PersistedEvents -> com.facebook.p:
     void write() -> b
     void readAndClearStore() -> c
     void addEvents(com.facebook.AppEventsLogger$AccessTokenAppIdPair,java.util.List) -> a
-com.facebook.AppEventsLogger$SessionEventsState -> com.facebook.q:
+com.facebook.AppEventsLogger$SessionEventsState -> com.facebook.i:
     java.util.List accumulatedEvents -> a
     java.util.List inFlightEvents -> b
     int numSkippedEventsDueToFullBuffer -> c
@@ -4871,23 +4898,24 @@ com.facebook.AppEventsLogger$SessionEventsState -> com.facebook.q:
     void accumulatePersistedEvents(java.util.List) -> a
     void populateRequest(com.facebook.Request,int,org.json.JSONArray,boolean,boolean) -> a
     byte[] getStringAsByteArray(java.lang.String) -> a
-com.facebook.AppEventsLogger$SuppressionTimeoutBehavior -> com.facebook.r:
+com.facebook.AppEventsLogger$SuppressionTimeoutBehavior -> com.facebook.AppEventsLogger$SuppressionTimeoutBehavior:
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior RESET_TIMEOUT_WHEN_LOG_SUCCESSFUL -> a
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior RESET_TIMEOUT_WHEN_LOG_ATTEMPTED -> b
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior[] $VALUES -> c
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior[] values() -> values
     com.facebook.AppEventsLogger$SuppressionTimeoutBehavior valueOf(java.lang.String) -> valueOf
-com.facebook.AuthorizationClient -> com.facebook.s:
-    java.util.List handlersToTry -> a
-    com.facebook.AuthorizationClient$AuthHandler currentHandler -> b
-    android.content.Context context -> c
-    com.facebook.AuthorizationClient$StartActivityDelegate startActivityDelegate -> d
-    com.facebook.AuthorizationClient$OnCompletedListener onCompletedListener -> e
-    com.facebook.AuthorizationClient$BackgroundProcessingListener backgroundProcessingListener -> f
-    boolean checkedInternetPermission -> g
-    com.facebook.AuthorizationClient$AuthorizationRequest pendingRequest -> h
-    java.util.Map loggingExtras -> i
-    com.facebook.AppEventsLogger appEventsLogger -> j
+com.facebook.AuthorizationClient -> com.facebook.AuthorizationClient:
+    long serialVersionUID -> serialVersionUID
+    java.util.List handlersToTry -> handlersToTry
+    com.facebook.AuthorizationClient$AuthHandler currentHandler -> currentHandler
+    android.content.Context context -> a
+    com.facebook.AuthorizationClient$StartActivityDelegate startActivityDelegate -> b
+    com.facebook.AuthorizationClient$OnCompletedListener onCompletedListener -> c
+    com.facebook.AuthorizationClient$BackgroundProcessingListener backgroundProcessingListener -> d
+    boolean checkedInternetPermission -> e
+    com.facebook.AuthorizationClient$AuthorizationRequest pendingRequest -> pendingRequest
+    java.util.Map loggingExtras -> loggingExtras
+    com.facebook.AppEventsLogger appEventsLogger -> f
     void setContext(android.content.Context) -> a
     void setContext(android.app.Activity) -> a
     void startOrContinueAuth(com.facebook.AuthorizationClient$AuthorizationRequest) -> a
@@ -4926,38 +4954,39 @@ com.facebook.AuthorizationClient -> com.facebook.s:
     java.lang.String access$100() -> h
     void access$200(com.facebook.AuthorizationClient,java.lang.String,java.lang.String) -> a
     void access$300(com.facebook.AuthorizationClient) -> b
-com.facebook.AuthorizationClient$1 -> com.facebook.t:
+com.facebook.AuthorizationClient$1 -> com.facebook.j:
     android.app.Activity val$activity -> a
     com.facebook.AuthorizationClient this$0 -> b
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.AuthorizationClient$2 -> com.facebook.u:
+com.facebook.AuthorizationClient$2 -> com.facebook.k:
     com.facebook.AuthorizationClient this$0 -> a
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.AuthorizationClient$3 -> com.facebook.v:
+com.facebook.AuthorizationClient$3 -> com.facebook.l:
     java.util.ArrayList val$fbids -> a
     com.facebook.AuthorizationClient this$0 -> b
     void onCompleted(com.facebook.Response) -> a
-com.facebook.AuthorizationClient$4 -> com.facebook.w:
+com.facebook.AuthorizationClient$4 -> com.facebook.m:
     java.util.ArrayList val$tokenPermissions -> a
     com.facebook.AuthorizationClient this$0 -> b
     void onCompleted(com.facebook.Response) -> a
-com.facebook.AuthorizationClient$5 -> com.facebook.x:
+com.facebook.AuthorizationClient$5 -> com.facebook.n:
     java.util.ArrayList val$fbids -> a
     com.facebook.AuthorizationClient$Result val$pendingResult -> b
     java.util.ArrayList val$tokenPermissions -> c
     com.facebook.AuthorizationClient this$0 -> d
     void onBatchCompleted(com.facebook.RequestBatch) -> a
-com.facebook.AuthorizationClient$AuthDialogBuilder -> com.facebook.y:
+com.facebook.AuthorizationClient$AuthDialogBuilder -> com.facebook.o:
     java.lang.String e2e -> a
     boolean isRerequest -> b
     com.facebook.AuthorizationClient$AuthDialogBuilder setE2E(java.lang.String) -> a
     com.facebook.AuthorizationClient$AuthDialogBuilder setIsRerequest(boolean) -> a
     com.facebook.widget.WebDialog build() -> a
-com.facebook.AuthorizationClient$AuthHandler -> com.facebook.z:
-    java.util.Map methodLoggingExtras -> a
-    com.facebook.AuthorizationClient this$0 -> b
+com.facebook.AuthorizationClient$AuthHandler -> com.facebook.AuthorizationClient$AuthHandler:
+    long serialVersionUID -> serialVersionUID
+    java.util.Map methodLoggingExtras -> methodLoggingExtras
+    com.facebook.AuthorizationClient this$0 -> this$0
     boolean tryAuthorize(com.facebook.AuthorizationClient$AuthorizationRequest) -> a
     java.lang.String getNameForLogging() -> a
     boolean onActivityResult(int,int,android.content.Intent) -> a
@@ -4965,17 +4994,18 @@ com.facebook.AuthorizationClient$AuthHandler -> com.facebook.z:
     boolean needsInternetPermission() -> c
     void cancel() -> d
     void addLoggingExtra(java.lang.String,java.lang.Object) -> a
-com.facebook.AuthorizationClient$AuthorizationRequest -> com.facebook.aa:
+com.facebook.AuthorizationClient$AuthorizationRequest -> com.facebook.AuthorizationClient$AuthorizationRequest:
+    long serialVersionUID -> serialVersionUID
     com.facebook.AuthorizationClient$StartActivityDelegate startActivityDelegate -> a
-    com.facebook.SessionLoginBehavior loginBehavior -> b
-    int requestCode -> c
-    boolean isLegacy -> d
-    java.util.List permissions -> e
-    com.facebook.SessionDefaultAudience defaultAudience -> f
-    java.lang.String applicationId -> g
-    java.lang.String previousAccessToken -> h
-    java.lang.String authId -> i
-    boolean isRerequest -> j
+    com.facebook.SessionLoginBehavior loginBehavior -> loginBehavior
+    int requestCode -> requestCode
+    boolean isLegacy -> isLegacy
+    java.util.List permissions -> permissions
+    com.facebook.SessionDefaultAudience defaultAudience -> defaultAudience
+    java.lang.String applicationId -> applicationId
+    java.lang.String previousAccessToken -> previousAccessToken
+    java.lang.String authId -> authId
+    boolean isRerequest -> isRerequest
     com.facebook.AuthorizationClient$StartActivityDelegate getStartActivityDelegate() -> a
     java.util.List getPermissions() -> b
     void setPermissions(java.util.List) -> a
@@ -4987,61 +5017,66 @@ com.facebook.AuthorizationClient$AuthorizationRequest -> com.facebook.aa:
     boolean needsNewTokenValidation() -> h
     java.lang.String getAuthId() -> i
     boolean isRerequest() -> j
-com.facebook.AuthorizationClient$BackgroundProcessingListener -> com.facebook.ab:
+com.facebook.AuthorizationClient$BackgroundProcessingListener -> com.facebook.p:
     void onBackgroundProcessingStarted() -> a
     void onBackgroundProcessingStopped() -> b
-com.facebook.AuthorizationClient$GetTokenAuthHandler -> com.facebook.ac:
-    com.facebook.GetTokenClient getTokenClient -> d
-    com.facebook.AuthorizationClient this$0 -> c
+com.facebook.AuthorizationClient$GetTokenAuthHandler -> com.facebook.AuthorizationClient$GetTokenAuthHandler:
+    long serialVersionUID -> serialVersionUID
+    com.facebook.GetTokenClient getTokenClient -> a
+    com.facebook.AuthorizationClient this$0 -> this$0
     java.lang.String getNameForLogging() -> a
     void cancel() -> d
     boolean needsRestart() -> b
     boolean tryAuthorize(com.facebook.AuthorizationClient$AuthorizationRequest) -> a
     void getTokenCompleted(com.facebook.AuthorizationClient$AuthorizationRequest,android.os.Bundle) -> a
-com.facebook.AuthorizationClient$GetTokenAuthHandler$1 -> com.facebook.ad:
+com.facebook.AuthorizationClient$GetTokenAuthHandler$1 -> com.facebook.q:
     com.facebook.AuthorizationClient$AuthorizationRequest val$request -> a
     com.facebook.AuthorizationClient$GetTokenAuthHandler this$1 -> b
     void completed(android.os.Bundle) -> a
-com.facebook.AuthorizationClient$KatanaAuthHandler -> com.facebook.ae:
-    com.facebook.AuthorizationClient this$0 -> c
+com.facebook.AuthorizationClient$KatanaAuthHandler -> com.facebook.AuthorizationClient$KatanaAuthHandler:
+    long serialVersionUID -> serialVersionUID
+    com.facebook.AuthorizationClient this$0 -> this$0
     boolean tryIntent(android.content.Intent,int) -> a
-com.facebook.AuthorizationClient$KatanaProxyAuthHandler -> com.facebook.af:
-    java.lang.String applicationId -> e
-    com.facebook.AuthorizationClient this$0 -> d
+com.facebook.AuthorizationClient$KatanaProxyAuthHandler -> com.facebook.AuthorizationClient$KatanaProxyAuthHandler:
+    long serialVersionUID -> serialVersionUID
+    java.lang.String applicationId -> applicationId
+    com.facebook.AuthorizationClient this$0 -> this$0
     java.lang.String getNameForLogging() -> a
     boolean tryAuthorize(com.facebook.AuthorizationClient$AuthorizationRequest) -> a
     boolean onActivityResult(int,int,android.content.Intent) -> a
     com.facebook.AuthorizationClient$Result handleResultOk(android.content.Intent) -> a
-com.facebook.AuthorizationClient$OnCompletedListener -> com.facebook.ag:
+com.facebook.AuthorizationClient$OnCompletedListener -> com.facebook.r:
     void onCompleted(com.facebook.AuthorizationClient$Result) -> a
-com.facebook.AuthorizationClient$Result -> com.facebook.ah:
-    com.facebook.AuthorizationClient$Result$Code code -> a
-    com.facebook.AccessToken token -> b
-    java.lang.String errorMessage -> c
-    java.lang.String errorCode -> d
-    com.facebook.AuthorizationClient$AuthorizationRequest request -> e
-    java.util.Map loggingExtras -> f
+com.facebook.AuthorizationClient$Result -> com.facebook.AuthorizationClient$Result:
+    long serialVersionUID -> serialVersionUID
+    com.facebook.AuthorizationClient$Result$Code code -> code
+    com.facebook.AccessToken token -> token
+    java.lang.String errorMessage -> errorMessage
+    java.lang.String errorCode -> errorCode
+    com.facebook.AuthorizationClient$AuthorizationRequest request -> request
+    java.util.Map loggingExtras -> loggingExtras
     com.facebook.AuthorizationClient$Result createTokenResult(com.facebook.AuthorizationClient$AuthorizationRequest,com.facebook.AccessToken) -> a
     com.facebook.AuthorizationClient$Result createCancelResult(com.facebook.AuthorizationClient$AuthorizationRequest,java.lang.String) -> a
     com.facebook.AuthorizationClient$Result createErrorResult(com.facebook.AuthorizationClient$AuthorizationRequest,java.lang.String,java.lang.String) -> a
     com.facebook.AuthorizationClient$Result createErrorResult(com.facebook.AuthorizationClient$AuthorizationRequest,java.lang.String,java.lang.String,java.lang.String) -> a
-com.facebook.AuthorizationClient$Result$Code -> com.facebook.ai:
+com.facebook.AuthorizationClient$Result$Code -> com.facebook.AuthorizationClient$Result$Code:
     com.facebook.AuthorizationClient$Result$Code SUCCESS -> a
     com.facebook.AuthorizationClient$Result$Code CANCEL -> b
     com.facebook.AuthorizationClient$Result$Code ERROR -> c
-    java.lang.String loggingValue -> d
-    com.facebook.AuthorizationClient$Result$Code[] $VALUES -> e
+    java.lang.String loggingValue -> loggingValue
+    com.facebook.AuthorizationClient$Result$Code[] $VALUES -> d
     com.facebook.AuthorizationClient$Result$Code[] values() -> values
     com.facebook.AuthorizationClient$Result$Code valueOf(java.lang.String) -> valueOf
     java.lang.String getLoggingValue() -> a
-com.facebook.AuthorizationClient$StartActivityDelegate -> com.facebook.aj:
+com.facebook.AuthorizationClient$StartActivityDelegate -> com.facebook.s:
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.AuthorizationClient$WebViewAuthHandler -> com.facebook.ak:
-    com.facebook.widget.WebDialog loginDialog -> d
-    java.lang.String applicationId -> e
-    java.lang.String e2e -> f
-    com.facebook.AuthorizationClient this$0 -> c
+com.facebook.AuthorizationClient$WebViewAuthHandler -> com.facebook.AuthorizationClient$WebViewAuthHandler:
+    long serialVersionUID -> serialVersionUID
+    com.facebook.widget.WebDialog loginDialog -> a
+    java.lang.String applicationId -> applicationId
+    java.lang.String e2e -> e2e
+    com.facebook.AuthorizationClient this$0 -> this$0
     java.lang.String getNameForLogging() -> a
     boolean needsRestart() -> b
     boolean needsInternetPermission() -> c
@@ -5050,18 +5085,23 @@ com.facebook.AuthorizationClient$WebViewAuthHandler -> com.facebook.ak:
     void onWebDialogComplete(com.facebook.AuthorizationClient$AuthorizationRequest,android.os.Bundle,com.facebook.FacebookException) -> a
     void saveCookieToken(java.lang.String) -> a
     java.lang.String loadCookieToken() -> e
-com.facebook.AuthorizationClient$WebViewAuthHandler$1 -> com.facebook.al:
+com.facebook.AuthorizationClient$WebViewAuthHandler$1 -> com.facebook.t:
     com.facebook.AuthorizationClient$AuthorizationRequest val$request -> a
     com.facebook.AuthorizationClient$WebViewAuthHandler this$1 -> b
     void onComplete(android.os.Bundle,com.facebook.FacebookException) -> a
-com.facebook.FacebookAuthorizationException -> com.facebook.am:
-com.facebook.FacebookDialogException -> com.facebook.an:
-    int errorCode -> a
-    java.lang.String failingUrl -> b
-com.facebook.FacebookException -> com.facebook.ao:
-com.facebook.FacebookGraphObjectException -> com.facebook.ap:
-com.facebook.FacebookOperationCanceledException -> com.facebook.aq:
-com.facebook.FacebookRequestError -> com.facebook.ar:
+com.facebook.FacebookAuthorizationException -> com.facebook.FacebookAuthorizationException:
+    long serialVersionUID -> serialVersionUID
+com.facebook.FacebookDialogException -> com.facebook.FacebookDialogException:
+    long serialVersionUID -> serialVersionUID
+    int errorCode -> errorCode
+    java.lang.String failingUrl -> failingUrl
+com.facebook.FacebookException -> com.facebook.FacebookException:
+    long serialVersionUID -> serialVersionUID
+com.facebook.FacebookGraphObjectException -> com.facebook.FacebookGraphObjectException:
+    long serialVersionUID -> serialVersionUID
+com.facebook.FacebookOperationCanceledException -> com.facebook.FacebookOperationCanceledException:
+    long serialVersionUID -> serialVersionUID
+com.facebook.FacebookRequestError -> com.facebook.FacebookRequestError:
     com.facebook.FacebookRequestError$Range EC_RANGE_PERMISSION -> a
     com.facebook.FacebookRequestError$Range HTTP_RANGE_SUCCESS -> b
     com.facebook.FacebookRequestError$Range HTTP_RANGE_CLIENT_ERROR -> c
@@ -5086,8 +5126,8 @@ com.facebook.FacebookRequestError -> com.facebook.ar:
     com.facebook.FacebookException getException() -> e
     java.lang.String toString() -> toString
     com.facebook.FacebookRequestError checkResponseAndCreateError(org.json.JSONObject,java.lang.Object,java.net.HttpURLConnection) -> a
-com.facebook.FacebookRequestError$1 -> com.facebook.as:
-com.facebook.FacebookRequestError$Category -> com.facebook.at:
+com.facebook.FacebookRequestError$1 -> com.facebook.u:
+com.facebook.FacebookRequestError$Category -> com.facebook.FacebookRequestError$Category:
     com.facebook.FacebookRequestError$Category AUTHENTICATION_RETRY -> a
     com.facebook.FacebookRequestError$Category AUTHENTICATION_REOPEN_SESSION -> b
     com.facebook.FacebookRequestError$Category PERMISSION -> c
@@ -5099,24 +5139,25 @@ com.facebook.FacebookRequestError$Category -> com.facebook.at:
     com.facebook.FacebookRequestError$Category[] $VALUES -> i
     com.facebook.FacebookRequestError$Category[] values() -> values
     com.facebook.FacebookRequestError$Category valueOf(java.lang.String) -> valueOf
-com.facebook.FacebookRequestError$Range -> com.facebook.au:
+com.facebook.FacebookRequestError$Range -> com.facebook.v:
     int start -> a
     int end -> b
     boolean contains(int) -> a
-com.facebook.FacebookServiceException -> com.facebook.av:
-    com.facebook.FacebookRequestError error -> a
+com.facebook.FacebookServiceException -> com.facebook.FacebookServiceException:
+    com.facebook.FacebookRequestError error -> error
+    long serialVersionUID -> serialVersionUID
     com.facebook.FacebookRequestError getRequestError() -> a
     java.lang.String toString() -> toString
-com.facebook.GetTokenClient -> com.facebook.aw:
+com.facebook.GetTokenClient -> com.facebook.w:
     void populateRequestBundle(android.os.Bundle) -> a
-com.facebook.HttpMethod -> com.facebook.ax:
+com.facebook.HttpMethod -> com.facebook.HttpMethod:
     com.facebook.HttpMethod GET -> a
     com.facebook.HttpMethod POST -> b
     com.facebook.HttpMethod DELETE -> c
     com.facebook.HttpMethod[] $VALUES -> d
     com.facebook.HttpMethod[] values() -> values
     com.facebook.HttpMethod valueOf(java.lang.String) -> valueOf
-com.facebook.LoggingBehavior -> com.facebook.ay:
+com.facebook.LoggingBehavior -> com.facebook.LoggingBehavior:
     com.facebook.LoggingBehavior REQUESTS -> a
     com.facebook.LoggingBehavior INCLUDE_ACCESS_TOKENS -> b
     com.facebook.LoggingBehavior INCLUDE_RAW_RESPONSES -> c
@@ -5140,14 +5181,14 @@ com.facebook.LoginActivity -> com.facebook.LoginActivity:
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     android.os.Bundle populateIntentExtras(com.facebook.AuthorizationClient$AuthorizationRequest) -> a
     void access$000(com.facebook.LoginActivity,com.facebook.AuthorizationClient$Result) -> a
-com.facebook.LoginActivity$1 -> com.facebook.az:
+com.facebook.LoginActivity$1 -> com.facebook.x:
     com.facebook.LoginActivity this$0 -> a
     void onCompleted(com.facebook.AuthorizationClient$Result) -> a
-com.facebook.LoginActivity$2 -> com.facebook.ba:
+com.facebook.LoginActivity$2 -> com.facebook.y:
     com.facebook.LoginActivity this$0 -> a
     void onBackgroundProcessingStarted() -> a
     void onBackgroundProcessingStopped() -> b
-com.facebook.NativeAppCallAttachmentStore -> com.facebook.bb:
+com.facebook.NativeAppCallAttachmentStore -> com.facebook.z:
     java.lang.String TAG -> a
     java.io.File attachmentsDirectory -> b
     void addAttachmentsForCall(android.content.Context,java.util.UUID,java.util.Map) -> a
@@ -5159,17 +5200,17 @@ com.facebook.NativeAppCallAttachmentStore -> com.facebook.bb:
     java.io.File getAttachmentsDirectoryForCall(java.util.UUID,boolean) -> a
     java.io.File getAttachmentFile(java.util.UUID,java.lang.String,boolean) -> a
     void cleanupAllAttachments(android.content.Context) -> c
-com.facebook.NativeAppCallAttachmentStore$1 -> com.facebook.bc:
+com.facebook.NativeAppCallAttachmentStore$1 -> com.facebook.aa:
     com.facebook.NativeAppCallAttachmentStore this$0 -> a
     void processAttachment(android.graphics.Bitmap,java.io.File) -> a
     void processAttachment(java.lang.Object,java.io.File) -> a
-com.facebook.NativeAppCallAttachmentStore$2 -> com.facebook.bd:
+com.facebook.NativeAppCallAttachmentStore$2 -> com.facebook.ab:
     com.facebook.NativeAppCallAttachmentStore this$0 -> a
     void processAttachment(java.io.File,java.io.File) -> a
     void processAttachment(java.lang.Object,java.io.File) -> a
-com.facebook.NativeAppCallAttachmentStore$ProcessAttachment -> com.facebook.be:
+com.facebook.NativeAppCallAttachmentStore$ProcessAttachment -> com.facebook.ac:
     void processAttachment(java.lang.Object,java.io.File) -> a
-com.facebook.ProgressNoopOutputStream -> com.facebook.bf:
+com.facebook.ProgressNoopOutputStream -> com.facebook.ad:
     java.util.Map progressMap -> a
     android.os.Handler callbackHandler -> b
     com.facebook.Request currentRequest -> c
@@ -5182,7 +5223,7 @@ com.facebook.ProgressNoopOutputStream -> com.facebook.bf:
     void write(byte[]) -> write
     void write(byte[],int,int) -> write
     void write(int) -> write
-com.facebook.ProgressOutputStream -> com.facebook.bg:
+com.facebook.ProgressOutputStream -> com.facebook.ae:
     java.util.Map progressMap -> a
     com.facebook.RequestBatch requests -> b
     long threshold -> c
@@ -5200,7 +5241,7 @@ com.facebook.ProgressOutputStream -> com.facebook.bg:
     com.facebook.RequestBatch access$000(com.facebook.ProgressOutputStream) -> a
     long access$100(com.facebook.ProgressOutputStream) -> b
     long access$200(com.facebook.ProgressOutputStream) -> c
-com.facebook.ProgressOutputStream$1 -> com.facebook.bh:
+com.facebook.ProgressOutputStream$1 -> com.facebook.af:
     com.facebook.RequestBatch$OnProgressCallback val$progressCallback -> a
     com.facebook.ProgressOutputStream this$0 -> b
     void run() -> run
@@ -5273,29 +5314,29 @@ com.facebook.Request -> com.facebook.Request:
     java.lang.String parameterToString(java.lang.Object) -> f
     boolean access$100(java.lang.Object) -> b
     java.lang.String access$200(java.lang.Object) -> c
-com.facebook.Request$1 -> com.facebook.bi:
+com.facebook.Request$1 -> com.facebook.ag:
     com.facebook.Request$GraphUserCallback val$callback -> a
     void onCompleted(com.facebook.Response) -> a
-com.facebook.Request$4 -> com.facebook.bj:
+com.facebook.Request$4 -> com.facebook.ah:
     java.util.ArrayList val$callbacks -> a
     com.facebook.RequestBatch val$requests -> b
     void run() -> run
-com.facebook.Request$5 -> com.facebook.bk:
+com.facebook.Request$5 -> com.facebook.ai:
     java.util.ArrayList val$keysAndValues -> a
     com.facebook.Request this$0 -> b
     void writeString(java.lang.String,java.lang.String) -> a
-com.facebook.Request$Attachment -> com.facebook.bl:
+com.facebook.Request$Attachment -> com.facebook.aj:
     com.facebook.Request request -> a
     java.lang.Object value -> b
     com.facebook.Request getRequest() -> a
     java.lang.Object getValue() -> b
-com.facebook.Request$Callback -> com.facebook.bm:
+com.facebook.Request$Callback -> com.facebook.ak:
     void onCompleted(com.facebook.Response) -> a
-com.facebook.Request$GraphUserCallback -> com.facebook.bn:
+com.facebook.Request$GraphUserCallback -> com.facebook.al:
     void onCompleted(com.facebook.model.GraphUser,com.facebook.Response) -> a
-com.facebook.Request$KeyValueSerializer -> com.facebook.bo:
+com.facebook.Request$KeyValueSerializer -> com.facebook.am:
     void writeString(java.lang.String,java.lang.String) -> a
-com.facebook.Request$OnProgressCallback -> com.facebook.bp:
+com.facebook.Request$OnProgressCallback -> com.facebook.an:
     void onProgress(long,long) -> a
 com.facebook.Request$ParcelFileDescriptorWithMimeType -> com.facebook.Request$ParcelFileDescriptorWithMimeType:
     java.lang.String mimeType -> a
@@ -5305,12 +5346,12 @@ com.facebook.Request$ParcelFileDescriptorWithMimeType -> com.facebook.Request$Pa
     android.os.ParcelFileDescriptor getFileDescriptor() -> b
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.facebook.Request$ParcelFileDescriptorWithMimeType$1 -> com.facebook.bq:
+com.facebook.Request$ParcelFileDescriptorWithMimeType$1 -> com.facebook.ao:
     com.facebook.Request$ParcelFileDescriptorWithMimeType createFromParcel(android.os.Parcel) -> a
     com.facebook.Request$ParcelFileDescriptorWithMimeType[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.facebook.Request$Serializer -> com.facebook.br:
+com.facebook.Request$Serializer -> com.facebook.ap:
     java.io.OutputStream outputStream -> a
     com.facebook.internal.Logger logger -> b
     boolean firstWrite -> c
@@ -5325,7 +5366,7 @@ com.facebook.Request$Serializer -> com.facebook.br:
     void writeContentDisposition(java.lang.String,java.lang.String,java.lang.String) -> a
     void write(java.lang.String,java.lang.Object[]) -> a
     void writeLine(java.lang.String,java.lang.Object[]) -> b
-com.facebook.RequestAsyncTask -> com.facebook.bs:
+com.facebook.RequestAsyncTask -> com.facebook.aq:
     java.lang.String TAG -> a
     java.lang.reflect.Method executeOnExecutorMethod -> b
     java.net.HttpURLConnection connection -> c
@@ -5338,7 +5379,7 @@ com.facebook.RequestAsyncTask -> com.facebook.bs:
     com.facebook.RequestAsyncTask executeOnSettingsExecutor() -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.facebook.RequestBatch -> com.facebook.bt:
+com.facebook.RequestBatch -> com.facebook.ar:
     java.util.concurrent.atomic.AtomicInteger idGenerator -> a
     android.os.Handler callbackHandler -> b
     java.util.List requests -> c
@@ -5371,13 +5412,13 @@ com.facebook.RequestBatch -> com.facebook.bt:
     java.lang.Object get(int) -> get
     boolean add(java.lang.Object) -> add
     void add(int,java.lang.Object) -> add
-com.facebook.RequestBatch$Callback -> com.facebook.bu:
+com.facebook.RequestBatch$Callback -> com.facebook.as:
     void onBatchCompleted(com.facebook.RequestBatch) -> a
-com.facebook.RequestBatch$OnProgressCallback -> com.facebook.bv:
+com.facebook.RequestBatch$OnProgressCallback -> com.facebook.at:
     void onBatchProgress(com.facebook.RequestBatch,long,long) -> a
-com.facebook.RequestOutputStream -> com.facebook.bw:
+com.facebook.RequestOutputStream -> com.facebook.au:
     void setCurrentRequest(com.facebook.Request) -> a
-com.facebook.RequestProgress -> com.facebook.bx:
+com.facebook.RequestProgress -> com.facebook.av:
     com.facebook.Request request -> a
     android.os.Handler callbackHandler -> b
     long threshold -> c
@@ -5387,13 +5428,13 @@ com.facebook.RequestProgress -> com.facebook.bx:
     void addProgress(long) -> a
     void addToMax(long) -> b
     void reportProgress() -> a
-com.facebook.RequestProgress$1 -> com.facebook.by:
+com.facebook.RequestProgress$1 -> com.facebook.aw:
     com.facebook.Request$OnProgressCallback val$callbackCopy -> a
     long val$currentCopy -> b
     long val$maxProgressCopy -> c
     com.facebook.RequestProgress this$0 -> d
     void run() -> run
-com.facebook.Response -> com.facebook.bz:
+com.facebook.Response -> com.facebook.ax:
     java.net.HttpURLConnection connection -> b
     com.facebook.model.GraphObject graphObject -> c
     com.facebook.model.GraphObjectList graphObjectList -> d
@@ -5414,27 +5455,28 @@ com.facebook.Response -> com.facebook.bz:
     java.util.List createResponsesFromObject(java.net.HttpURLConnection,java.util.List,java.lang.Object,boolean) -> a
     com.facebook.Response createResponseFromObject(com.facebook.Request,java.net.HttpURLConnection,java.lang.Object,boolean,java.lang.Object) -> a
     java.util.List constructErrorResponses(java.util.List,java.net.HttpURLConnection,com.facebook.FacebookException) -> a
-com.facebook.Session -> com.facebook.ca:
+com.facebook.Session -> com.facebook.Session:
+    long serialVersionUID -> serialVersionUID
     java.lang.String TAG -> a
     java.lang.Object STATIC_LOCK -> b
     com.facebook.Session activeSession -> c
     android.content.Context staticContext -> d
     java.util.Set OTHER_PUBLISH_PERMISSIONS -> e
-    java.lang.String applicationId -> f
-    com.facebook.SessionState state -> g
-    com.facebook.AccessToken tokenInfo -> h
-    java.util.Date lastAttemptedTokenExtendDate -> i
-    com.facebook.Session$AuthorizationRequest pendingAuthorizationRequest -> j
-    com.facebook.AuthorizationClient authorizationClient -> k
-    java.util.Set requestedPermissions -> l
-    android.os.Bundle authorizationBundle -> m
-    java.util.List callbacks -> n
-    android.os.Handler handler -> o
-    com.facebook.Session$AutoPublishAsyncTask autoPublishAsyncTask -> p
-    java.lang.Object lock -> q
-    com.facebook.TokenCachingStrategy tokenCachingStrategy -> r
-    com.facebook.Session$TokenRefreshRequest currentTokenRefreshRequest -> s
-    com.facebook.AppEventsLogger appEventsLogger -> t
+    java.lang.String applicationId -> applicationId
+    com.facebook.SessionState state -> state
+    com.facebook.AccessToken tokenInfo -> tokenInfo
+    java.util.Date lastAttemptedTokenExtendDate -> lastAttemptedTokenExtendDate
+    com.facebook.Session$AuthorizationRequest pendingAuthorizationRequest -> pendingAuthorizationRequest
+    com.facebook.AuthorizationClient authorizationClient -> authorizationClient
+    java.util.Set requestedPermissions -> requestedPermissions
+    android.os.Bundle authorizationBundle -> authorizationBundle
+    java.util.List callbacks -> callbacks
+    android.os.Handler handler -> handler
+    com.facebook.Session$AutoPublishAsyncTask autoPublishAsyncTask -> autoPublishAsyncTask
+    java.lang.Object lock -> lock
+    com.facebook.TokenCachingStrategy tokenCachingStrategy -> tokenCachingStrategy
+    com.facebook.Session$TokenRefreshRequest currentTokenRefreshRequest -> currentTokenRefreshRequest
+    com.facebook.AppEventsLogger appEventsLogger -> appEventsLogger
     boolean isOpened() -> a
     com.facebook.SessionState getState() -> b
     java.lang.String getApplicationId() -> c
@@ -5451,6 +5493,8 @@ com.facebook.Session -> com.facebook.ca:
     void removeCallback(com.facebook.Session$StatusCallback) -> b
     java.lang.String toString() -> toString
     void extendTokenCompleted(android.os.Bundle) -> a
+    java.lang.Object writeReplace() -> writeReplace
+    void readObject(java.io.ObjectInputStream) -> readObject
     void saveSession(com.facebook.Session,android.os.Bundle) -> a
     com.facebook.Session restoreSession(android.content.Context,com.facebook.TokenCachingStrategy,com.facebook.Session$StatusCallback,android.os.Bundle) -> a
     com.facebook.Session getActiveSession() -> i
@@ -5497,33 +5541,34 @@ com.facebook.Session -> com.facebook.ca:
     com.facebook.Session$TokenRefreshRequest access$1600(com.facebook.Session) -> d
     com.facebook.Session$TokenRefreshRequest access$1602(com.facebook.Session,com.facebook.Session$TokenRefreshRequest) -> a
     com.facebook.Session$AutoPublishAsyncTask access$1802(com.facebook.Session,com.facebook.Session$AutoPublishAsyncTask) -> a
-com.facebook.Session$1 -> com.facebook.cb:
-com.facebook.Session$3 -> com.facebook.cc:
+com.facebook.Session$1 -> com.facebook.Session$1:
+com.facebook.Session$3 -> com.facebook.ay:
     com.facebook.Session this$0 -> a
     void onCompleted(com.facebook.AuthorizationClient$Result) -> a
-com.facebook.Session$4 -> com.facebook.cd:
+com.facebook.Session$4 -> com.facebook.az:
     com.facebook.SessionState val$newState -> a
     java.lang.Exception val$exception -> b
     com.facebook.Session this$0 -> c
     void run() -> run
-com.facebook.Session$4$1 -> com.facebook.ce:
+com.facebook.Session$4$1 -> com.facebook.ba:
     com.facebook.Session$StatusCallback val$callback -> a
     com.facebook.Session$4 this$1 -> b
     void run() -> run
-com.facebook.Session$5 -> com.facebook.cf:
+com.facebook.Session$5 -> com.facebook.bb:
     int[] $SwitchMap$com$facebook$SessionState -> a
-com.facebook.Session$AuthorizationRequest -> com.facebook.cg:
-    com.facebook.Session$StartActivityDelegate startActivityDelegate -> a
-    com.facebook.SessionLoginBehavior loginBehavior -> b
-    int requestCode -> c
-    com.facebook.Session$StatusCallback statusCallback -> d
-    boolean isLegacy -> e
-    java.util.List permissions -> f
-    com.facebook.SessionDefaultAudience defaultAudience -> g
-    java.lang.String applicationId -> h
-    java.lang.String validateSameFbidAsToken -> i
-    java.lang.String authId -> j
-    java.util.Map loggingExtras -> k
+com.facebook.Session$AuthorizationRequest -> com.facebook.Session$AuthorizationRequest:
+    long serialVersionUID -> serialVersionUID
+    com.facebook.Session$StartActivityDelegate startActivityDelegate -> startActivityDelegate
+    com.facebook.SessionLoginBehavior loginBehavior -> loginBehavior
+    int requestCode -> requestCode
+    com.facebook.Session$StatusCallback statusCallback -> statusCallback
+    boolean isLegacy -> isLegacy
+    java.util.List permissions -> permissions
+    com.facebook.SessionDefaultAudience defaultAudience -> defaultAudience
+    java.lang.String applicationId -> applicationId
+    java.lang.String validateSameFbidAsToken -> validateSameFbidAsToken
+    java.lang.String authId -> authId
+    java.util.Map loggingExtras -> loggingExtras
     com.facebook.Session$StatusCallback getCallback() -> a
     com.facebook.Session$AuthorizationRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> a
     com.facebook.SessionLoginBehavior getLoginBehavior() -> b
@@ -5535,6 +5580,8 @@ com.facebook.Session$AuthorizationRequest -> com.facebook.cg:
     void setApplicationId(java.lang.String) -> a
     java.lang.String getAuthId() -> f
     com.facebook.AuthorizationClient$AuthorizationRequest getAuthorizationClientRequest() -> g
+    java.lang.Object writeReplace() -> writeReplace
+    void readObject(java.io.ObjectInputStream) -> readObject
     java.util.Map access$500(com.facebook.Session$AuthorizationRequest) -> a
     boolean access$600(com.facebook.Session$AuthorizationRequest) -> b
     com.facebook.SessionLoginBehavior access$700(com.facebook.Session$AuthorizationRequest) -> c
@@ -5542,21 +5589,35 @@ com.facebook.Session$AuthorizationRequest -> com.facebook.cg:
     java.util.List access$900(com.facebook.Session$AuthorizationRequest) -> e
     com.facebook.SessionDefaultAudience access$1000(com.facebook.Session$AuthorizationRequest) -> f
     com.facebook.Session$StartActivityDelegate access$1900(com.facebook.Session$AuthorizationRequest) -> g
-com.facebook.Session$AuthorizationRequest$1 -> com.facebook.ch:
+com.facebook.Session$AuthorizationRequest$1 -> com.facebook.bc:
     android.app.Activity val$activity -> a
     com.facebook.Session$AuthorizationRequest this$0 -> b
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.Session$AuthorizationRequest$2 -> com.facebook.ci:
+com.facebook.Session$AuthorizationRequest$2 -> com.facebook.bd:
     android.support.v4.app.Fragment val$fragment -> a
     com.facebook.Session$AuthorizationRequest this$0 -> b
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.Session$AuthorizationRequest$4 -> com.facebook.cj:
+com.facebook.Session$AuthorizationRequest$3 -> com.facebook.be:
     com.facebook.Session$AuthorizationRequest this$0 -> a
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.Session$AutoPublishAsyncTask -> com.facebook.ck:
+com.facebook.Session$AuthorizationRequest$4 -> com.facebook.bf:
+    com.facebook.Session$AuthorizationRequest this$0 -> a
+    void startActivityForResult(android.content.Intent,int) -> a
+    android.app.Activity getActivityContext() -> a
+com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1 -> com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1:
+    long serialVersionUID -> serialVersionUID
+    com.facebook.SessionLoginBehavior loginBehavior -> loginBehavior
+    int requestCode -> requestCode
+    boolean isLegacy -> isLegacy
+    java.util.List permissions -> permissions
+    java.lang.String defaultAudience -> defaultAudience
+    java.lang.String applicationId -> applicationId
+    java.lang.String validateSameFbidAsToken -> validateSameFbidAsToken
+    java.lang.Object readResolve() -> readResolve
+com.facebook.Session$AutoPublishAsyncTask -> com.facebook.bg:
     java.lang.String mApplicationId -> b
     android.content.Context mApplicationContext -> c
     com.facebook.Session this$0 -> a
@@ -5564,25 +5625,36 @@ com.facebook.Session$AutoPublishAsyncTask -> com.facebook.ck:
     void onPostExecute(java.lang.Void) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.facebook.Session$Builder -> com.facebook.cl:
+com.facebook.Session$Builder -> com.facebook.bh:
     android.content.Context context -> a
     java.lang.String applicationId -> b
     com.facebook.TokenCachingStrategy tokenCachingStrategy -> c
     com.facebook.Session$Builder setApplicationId(java.lang.String) -> a
     com.facebook.Session build() -> a
-com.facebook.Session$OpenRequest -> com.facebook.cm:
+com.facebook.Session$OpenRequest -> com.facebook.Session$OpenRequest:
+    long serialVersionUID -> serialVersionUID
     com.facebook.Session$OpenRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> b
     com.facebook.Session$OpenRequest setPermissions(java.util.List) -> b
     com.facebook.Session$OpenRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> b
     com.facebook.Session$AuthorizationRequest setDefaultAudience(com.facebook.SessionDefaultAudience) -> a
     com.facebook.Session$AuthorizationRequest setPermissions(java.util.List) -> a
     com.facebook.Session$AuthorizationRequest setLoginBehavior(com.facebook.SessionLoginBehavior) -> a
-com.facebook.Session$StartActivityDelegate -> com.facebook.cn:
+com.facebook.Session$SerializationProxyV2 -> com.facebook.Session$SerializationProxyV2:
+    long serialVersionUID -> serialVersionUID
+    java.lang.String applicationId -> applicationId
+    com.facebook.SessionState state -> state
+    com.facebook.AccessToken tokenInfo -> tokenInfo
+    java.util.Date lastAttemptedTokenExtendDate -> lastAttemptedTokenExtendDate
+    boolean shouldAutoPublish -> shouldAutoPublish
+    com.facebook.Session$AuthorizationRequest pendingAuthorizationRequest -> pendingAuthorizationRequest
+    java.util.Set requestedPermissions -> requestedPermissions
+    java.lang.Object readResolve() -> readResolve
+com.facebook.Session$StartActivityDelegate -> com.facebook.bi:
     void startActivityForResult(android.content.Intent,int) -> a
     android.app.Activity getActivityContext() -> a
-com.facebook.Session$StatusCallback -> com.facebook.co:
+com.facebook.Session$StatusCallback -> com.facebook.bj:
     void call(com.facebook.Session,com.facebook.SessionState,java.lang.Exception) -> a
-com.facebook.Session$TokenRefreshRequest -> com.facebook.cp:
+com.facebook.Session$TokenRefreshRequest -> com.facebook.bk:
     android.os.Messenger messageReceiver -> a
     android.os.Messenger messageSender -> b
     com.facebook.Session this$0 -> c
@@ -5592,31 +5664,31 @@ com.facebook.Session$TokenRefreshRequest -> com.facebook.cp:
     void cleanup() -> b
     void refreshToken() -> c
     void access$1700(com.facebook.Session$TokenRefreshRequest) -> a
-com.facebook.Session$TokenRefreshRequestHandler -> com.facebook.cq:
+com.facebook.Session$TokenRefreshRequestHandler -> com.facebook.bl:
     java.lang.ref.WeakReference sessionWeakReference -> a
     java.lang.ref.WeakReference refreshRequestWeakReference -> b
     void handleMessage(android.os.Message) -> handleMessage
-com.facebook.SessionDefaultAudience -> com.facebook.cr:
+com.facebook.SessionDefaultAudience -> com.facebook.SessionDefaultAudience:
     com.facebook.SessionDefaultAudience NONE -> a
     com.facebook.SessionDefaultAudience ONLY_ME -> b
     com.facebook.SessionDefaultAudience FRIENDS -> c
     com.facebook.SessionDefaultAudience EVERYONE -> d
-    java.lang.String nativeProtocolAudience -> e
-    com.facebook.SessionDefaultAudience[] $VALUES -> f
+    java.lang.String nativeProtocolAudience -> nativeProtocolAudience
+    com.facebook.SessionDefaultAudience[] $VALUES -> e
     com.facebook.SessionDefaultAudience[] values() -> values
     com.facebook.SessionDefaultAudience valueOf(java.lang.String) -> valueOf
-com.facebook.SessionLoginBehavior -> com.facebook.cs:
+com.facebook.SessionLoginBehavior -> com.facebook.SessionLoginBehavior:
     com.facebook.SessionLoginBehavior SSO_WITH_FALLBACK -> a
     com.facebook.SessionLoginBehavior SSO_ONLY -> b
     com.facebook.SessionLoginBehavior SUPPRESS_SSO -> c
-    boolean allowsKatanaAuth -> d
-    boolean allowsWebViewAuth -> e
-    com.facebook.SessionLoginBehavior[] $VALUES -> f
+    boolean allowsKatanaAuth -> allowsKatanaAuth
+    boolean allowsWebViewAuth -> allowsWebViewAuth
+    com.facebook.SessionLoginBehavior[] $VALUES -> d
     com.facebook.SessionLoginBehavior[] values() -> values
     com.facebook.SessionLoginBehavior valueOf(java.lang.String) -> valueOf
     boolean allowsKatanaAuth() -> a
     boolean allowsWebViewAuth() -> b
-com.facebook.SessionState -> com.facebook.ct:
+com.facebook.SessionState -> com.facebook.SessionState:
     com.facebook.SessionState CREATED -> a
     com.facebook.SessionState CREATED_TOKEN_LOADED -> b
     com.facebook.SessionState OPENING -> c
@@ -5624,20 +5696,20 @@ com.facebook.SessionState -> com.facebook.ct:
     com.facebook.SessionState OPENED_TOKEN_UPDATED -> e
     com.facebook.SessionState CLOSED_LOGIN_FAILED -> f
     com.facebook.SessionState CLOSED -> g
-    com.facebook.SessionState$Category category -> h
-    com.facebook.SessionState[] $VALUES -> i
+    com.facebook.SessionState$Category category -> category
+    com.facebook.SessionState[] $VALUES -> h
     com.facebook.SessionState[] values() -> values
     com.facebook.SessionState valueOf(java.lang.String) -> valueOf
     boolean isOpened() -> a
     boolean isClosed() -> b
-com.facebook.SessionState$Category -> com.facebook.cu:
+com.facebook.SessionState$Category -> com.facebook.SessionState$Category:
     com.facebook.SessionState$Category CREATED_CATEGORY -> a
     com.facebook.SessionState$Category OPENED_CATEGORY -> b
     com.facebook.SessionState$Category CLOSED_CATEGORY -> c
     com.facebook.SessionState$Category[] $VALUES -> d
     com.facebook.SessionState$Category[] values() -> values
     com.facebook.SessionState$Category valueOf(java.lang.String) -> valueOf
-com.facebook.Settings -> com.facebook.cv:
+com.facebook.Settings -> com.facebook.bm:
     java.lang.String TAG -> a
     java.util.HashSet loggingBehaviors -> b
     java.util.concurrent.Executor executor -> c
@@ -5668,10 +5740,10 @@ com.facebook.Settings -> com.facebook.cv:
     void loadDefaultsFromMetadataIfNeeded(android.content.Context) -> c
     java.lang.String getApplicationId() -> g
     java.lang.String getClientToken() -> h
-com.facebook.Settings$1 -> com.facebook.cw:
+com.facebook.Settings$1 -> com.facebook.bn:
     java.util.concurrent.atomic.AtomicInteger counter -> a
     java.lang.Thread newThread(java.lang.Runnable) -> newThread
-com.facebook.SharedPreferencesTokenCachingStrategy -> com.facebook.cx:
+com.facebook.SharedPreferencesTokenCachingStrategy -> com.facebook.bo:
     java.lang.String TAG -> a
     java.lang.String cacheKey -> b
     android.content.SharedPreferences cache -> c
@@ -5680,7 +5752,7 @@ com.facebook.SharedPreferencesTokenCachingStrategy -> com.facebook.cx:
     void clear() -> b
     void serializeKey(java.lang.String,android.os.Bundle,android.content.SharedPreferences$Editor) -> a
     void deserializeKey(java.lang.String,android.os.Bundle) -> a
-com.facebook.TokenCachingStrategy -> com.facebook.cy:
+com.facebook.TokenCachingStrategy -> com.facebook.bp:
     android.os.Bundle load() -> a
     void save(android.os.Bundle) -> a
     void clear() -> b
@@ -5688,7 +5760,7 @@ com.facebook.TokenCachingStrategy -> com.facebook.cy:
     com.facebook.AccessTokenSource getSource(android.os.Bundle) -> c
     java.util.Date getDate(android.os.Bundle,java.lang.String) -> a
     void putDate(android.os.Bundle,java.lang.String,java.util.Date) -> a
-com.facebook.UiLifecycleHelper -> com.facebook.cz:
+com.facebook.UiLifecycleHelper -> com.facebook.bq:
     android.app.Activity activity -> a
     com.facebook.Session$StatusCallback callback -> b
     android.content.BroadcastReceiver receiver -> c
@@ -5705,8 +5777,8 @@ com.facebook.UiLifecycleHelper -> com.facebook.cz:
     boolean handleFacebookDialogActivityResult(int,int,android.content.Intent,com.facebook.widget.FacebookDialog$Callback) -> b
     void cancelPendingAppCall(com.facebook.widget.FacebookDialog$Callback) -> a
     com.facebook.Session$StatusCallback access$100(com.facebook.UiLifecycleHelper) -> a
-com.facebook.UiLifecycleHelper$1 -> com.facebook.da:
-com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver -> com.facebook.db:
+com.facebook.UiLifecycleHelper$1 -> com.facebook.br:
+com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver -> com.facebook.bs:
     com.facebook.UiLifecycleHelper this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.facebook.android.R -> com.facebook.a.a:
@@ -5875,7 +5947,7 @@ com.facebook.android.R$styleable -> com.facebook.a.h:
 com.facebook.android.Util -> com.facebook.a.i:
     android.os.Bundle decodeUrl(java.lang.String) -> a
     android.os.Bundle parseUrl(java.lang.String) -> b
-com.facebook.internal.AttributionIdentifiers -> com.facebook.b.a:
+com.facebook.internal.AttributionIdentifiers -> com.facebook.internal.a:
     java.lang.String TAG -> a
     android.net.Uri ATTRIBUTION_ID_CONTENT_URI -> b
     java.lang.String attributionId -> c
@@ -5888,12 +5960,12 @@ com.facebook.internal.AttributionIdentifiers -> com.facebook.b.a:
     java.lang.String getAttributionId() -> a
     java.lang.String getAndroidAdvertiserId() -> b
     boolean isTrackingLimited() -> c
-com.facebook.internal.CacheableRequestBatch -> com.facebook.b.b:
+com.facebook.internal.CacheableRequestBatch -> com.facebook.internal.b:
     java.lang.String cacheKey -> a
     boolean forceRoundTrip -> b
     java.lang.String getCacheKeyOverride() -> k
     boolean getForceRoundTrip() -> l
-com.facebook.internal.FileLruCache -> com.facebook.b.c:
+com.facebook.internal.FileLruCache -> com.facebook.internal.c:
     java.lang.String TAG -> a
     java.util.concurrent.atomic.AtomicLong bufferIndex -> b
     java.lang.String tag -> c
@@ -5917,31 +5989,31 @@ com.facebook.internal.FileLruCache -> com.facebook.b.c:
     void access$100(com.facebook.internal.FileLruCache,java.lang.String,java.io.File) -> a
     void access$200(com.facebook.internal.FileLruCache) -> b
     java.util.concurrent.atomic.AtomicLong access$300() -> b
-com.facebook.internal.FileLruCache$1 -> com.facebook.b.d:
+com.facebook.internal.FileLruCache$1 -> com.facebook.internal.d:
     long val$bufferFileCreateTime -> a
     java.io.File val$buffer -> b
     java.lang.String val$key -> c
     com.facebook.internal.FileLruCache this$0 -> d
     void onClose() -> a
-com.facebook.internal.FileLruCache$2 -> com.facebook.b.e:
+com.facebook.internal.FileLruCache$2 -> com.facebook.internal.e:
     java.io.File[] val$filesToDelete -> a
     com.facebook.internal.FileLruCache this$0 -> b
     void run() -> run
-com.facebook.internal.FileLruCache$3 -> com.facebook.b.f:
+com.facebook.internal.FileLruCache$3 -> com.facebook.internal.f:
     com.facebook.internal.FileLruCache this$0 -> a
     void run() -> run
-com.facebook.internal.FileLruCache$BufferFile -> com.facebook.b.g:
+com.facebook.internal.FileLruCache$BufferFile -> com.facebook.internal.g:
     java.io.FilenameFilter filterExcludeBufferFiles -> a
     java.io.FilenameFilter filterExcludeNonBufferFiles -> b
     void deleteAll(java.io.File) -> a
     java.io.FilenameFilter excludeBufferFiles() -> a
     java.io.FilenameFilter excludeNonBufferFiles() -> b
     java.io.File newFile(java.io.File) -> b
-com.facebook.internal.FileLruCache$BufferFile$1 -> com.facebook.b.h:
+com.facebook.internal.FileLruCache$BufferFile$1 -> com.facebook.internal.h:
     boolean accept(java.io.File,java.lang.String) -> accept
-com.facebook.internal.FileLruCache$BufferFile$2 -> com.facebook.b.i:
+com.facebook.internal.FileLruCache$BufferFile$2 -> com.facebook.internal.i:
     boolean accept(java.io.File,java.lang.String) -> accept
-com.facebook.internal.FileLruCache$CloseCallbackOutputStream -> com.facebook.b.j:
+com.facebook.internal.FileLruCache$CloseCallbackOutputStream -> com.facebook.internal.j:
     java.io.OutputStream innerStream -> a
     com.facebook.internal.FileLruCache$StreamCloseCallback callback -> b
     void close() -> close
@@ -5949,7 +6021,7 @@ com.facebook.internal.FileLruCache$CloseCallbackOutputStream -> com.facebook.b.j
     void write(byte[],int,int) -> write
     void write(byte[]) -> write
     void write(int) -> write
-com.facebook.internal.FileLruCache$CopyingInputStream -> com.facebook.b.k:
+com.facebook.internal.FileLruCache$CopyingInputStream -> com.facebook.internal.k:
     java.io.InputStream input -> a
     java.io.OutputStream output -> b
     int available() -> available
@@ -5961,12 +6033,12 @@ com.facebook.internal.FileLruCache$CopyingInputStream -> com.facebook.b.k:
     int read(byte[],int,int) -> read
     void reset() -> reset
     long skip(long) -> skip
-com.facebook.internal.FileLruCache$Limits -> com.facebook.b.l:
+com.facebook.internal.FileLruCache$Limits -> com.facebook.internal.l:
     int byteCount -> a
     int fileCount -> b
     int getByteCount() -> a
     int getFileCount() -> b
-com.facebook.internal.FileLruCache$ModifiedFile -> com.facebook.b.m:
+com.facebook.internal.FileLruCache$ModifiedFile -> com.facebook.internal.m:
     java.io.File file -> a
     long modified -> b
     java.io.File getFile() -> a
@@ -5975,22 +6047,22 @@ com.facebook.internal.FileLruCache$ModifiedFile -> com.facebook.b.m:
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
     int compareTo(java.lang.Object) -> compareTo
-com.facebook.internal.FileLruCache$StreamCloseCallback -> com.facebook.b.n:
+com.facebook.internal.FileLruCache$StreamCloseCallback -> com.facebook.internal.n:
     void onClose() -> a
-com.facebook.internal.FileLruCache$StreamHeader -> com.facebook.b.o:
+com.facebook.internal.FileLruCache$StreamHeader -> com.facebook.internal.o:
     void writeHeader(java.io.OutputStream,org.json.JSONObject) -> a
     org.json.JSONObject readHeader(java.io.InputStream) -> a
-com.facebook.internal.ImageDownloader -> com.facebook.b.p:
+com.facebook.internal.ImageDownloader -> com.facebook.internal.p:
     com.facebook.internal.WorkQueue downloadQueue -> a
     com.facebook.internal.WorkQueue cacheReadQueue -> b
     java.util.Map pendingRequests -> c
     void clearCache(android.content.Context) -> a
-com.facebook.internal.ImageResponseCache -> com.facebook.b.q:
+com.facebook.internal.ImageResponseCache -> com.facebook.internal.q:
     java.lang.String TAG -> a
     com.facebook.internal.FileLruCache imageCache -> b
     com.facebook.internal.FileLruCache getCache(android.content.Context) -> a
     void clearCache(android.content.Context) -> b
-com.facebook.internal.Logger -> com.facebook.b.r:
+com.facebook.internal.Logger -> com.facebook.internal.r:
     java.util.HashMap stringsToReplace -> a
     com.facebook.LoggingBehavior behavior -> b
     java.lang.String tag -> c
@@ -6008,7 +6080,7 @@ com.facebook.internal.Logger -> com.facebook.b.r:
     void append(java.lang.String,java.lang.Object[]) -> a
     void appendKeyValue(java.lang.String,java.lang.Object) -> a
     boolean shouldLog() -> b
-com.facebook.internal.NativeProtocol -> com.facebook.b.s:
+com.facebook.internal.NativeProtocol -> com.facebook.internal.s:
     com.facebook.internal.NativeProtocol$NativeAppInfo FACEBOOK_APP_INFO -> a
     java.util.List facebookAppInfoList -> b
     java.util.Map actionToAppInfoMap -> c
@@ -6029,19 +6101,19 @@ com.facebook.internal.NativeProtocol -> com.facebook.b.s:
     int getLatestAvailableProtocolVersionForAppInfoList(android.content.Context,java.util.List,int) -> a
     int getLatestAvailableProtocolVersionForAppInfo(android.content.Context,com.facebook.internal.NativeProtocol$NativeAppInfo,int) -> a
     android.net.Uri buildPlatformProviderVersionURI(com.facebook.internal.NativeProtocol$NativeAppInfo) -> a
-com.facebook.internal.NativeProtocol$1 -> com.facebook.b.t:
-com.facebook.internal.NativeProtocol$KatanaAppInfo -> com.facebook.b.u:
+com.facebook.internal.NativeProtocol$1 -> com.facebook.internal.t:
+com.facebook.internal.NativeProtocol$KatanaAppInfo -> com.facebook.internal.u:
     java.lang.String getPackage() -> a
-com.facebook.internal.NativeProtocol$MessengerAppInfo -> com.facebook.b.v:
+com.facebook.internal.NativeProtocol$MessengerAppInfo -> com.facebook.internal.v:
     java.lang.String getPackage() -> a
-com.facebook.internal.NativeProtocol$NativeAppInfo -> com.facebook.b.w:
+com.facebook.internal.NativeProtocol$NativeAppInfo -> com.facebook.internal.w:
     java.util.HashSet validAppSignatureHashes -> a
     java.lang.String getPackage() -> a
     java.util.HashSet buildAppSignatureHashes() -> b
     boolean validateSignature(android.content.Context,java.lang.String) -> a
-com.facebook.internal.NativeProtocol$WakizashiAppInfo -> com.facebook.b.x:
+com.facebook.internal.NativeProtocol$WakizashiAppInfo -> com.facebook.internal.x:
     java.lang.String getPackage() -> a
-com.facebook.internal.PlatformServiceClient -> com.facebook.b.y:
+com.facebook.internal.PlatformServiceClient -> com.facebook.internal.y:
     android.content.Context context -> a
     android.os.Handler handler -> b
     com.facebook.internal.PlatformServiceClient$CompletedListener listener -> c
@@ -6060,12 +6132,12 @@ com.facebook.internal.PlatformServiceClient -> com.facebook.b.y:
     void populateRequestBundle(android.os.Bundle) -> a
     void handleMessage(android.os.Message) -> a
     void callback(android.os.Bundle) -> b
-com.facebook.internal.PlatformServiceClient$1 -> com.facebook.b.z:
+com.facebook.internal.PlatformServiceClient$1 -> com.facebook.internal.z:
     com.facebook.internal.PlatformServiceClient this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-com.facebook.internal.PlatformServiceClient$CompletedListener -> com.facebook.b.aa:
+com.facebook.internal.PlatformServiceClient$CompletedListener -> com.facebook.internal.aa:
     void completed(android.os.Bundle) -> a
-com.facebook.internal.ServerProtocol -> com.facebook.b.ab:
+com.facebook.internal.ServerProtocol -> com.facebook.internal.ab:
     java.util.Collection errorsProxyAuthDisabled -> a
     java.util.Collection errorsUserCanceled -> b
     java.lang.String getDialogAuthority() -> a
@@ -6073,13 +6145,13 @@ com.facebook.internal.ServerProtocol -> com.facebook.b.ab:
     java.lang.String getGraphVideoUrlBase() -> c
     java.lang.String getRestUrlBase() -> d
     java.lang.String getAPIVersion() -> e
-com.facebook.internal.SessionAuthorizationType -> com.facebook.b.ac:
+com.facebook.internal.SessionAuthorizationType -> com.facebook.internal.SessionAuthorizationType:
     com.facebook.internal.SessionAuthorizationType READ -> a
     com.facebook.internal.SessionAuthorizationType PUBLISH -> b
     com.facebook.internal.SessionAuthorizationType[] $VALUES -> c
     com.facebook.internal.SessionAuthorizationType[] values() -> values
     com.facebook.internal.SessionAuthorizationType valueOf(java.lang.String) -> valueOf
-com.facebook.internal.SessionTracker -> com.facebook.b.ad:
+com.facebook.internal.SessionTracker -> com.facebook.internal.ac:
     com.facebook.Session session -> a
     com.facebook.Session$StatusCallback callback -> b
     android.content.BroadcastReceiver receiver -> c
@@ -6094,21 +6166,21 @@ com.facebook.internal.SessionTracker -> com.facebook.b.ad:
     void addBroadcastReceiver() -> f
     com.facebook.Session$StatusCallback access$100(com.facebook.internal.SessionTracker) -> a
     com.facebook.Session access$200(com.facebook.internal.SessionTracker) -> b
-com.facebook.internal.SessionTracker$1 -> com.facebook.b.ae:
-com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver -> com.facebook.b.af:
+com.facebook.internal.SessionTracker$1 -> com.facebook.internal.ad:
+com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver -> com.facebook.internal.ae:
     com.facebook.internal.SessionTracker this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.facebook.internal.SessionTracker$CallbackWrapper -> com.facebook.b.ag:
+com.facebook.internal.SessionTracker$CallbackWrapper -> com.facebook.internal.af:
     com.facebook.Session$StatusCallback wrapped -> b
     com.facebook.internal.SessionTracker this$0 -> a
     void call(com.facebook.Session,com.facebook.SessionState,java.lang.Exception) -> a
-com.facebook.internal.UrlRedirectCache -> com.facebook.b.ah:
+com.facebook.internal.UrlRedirectCache -> com.facebook.internal.ag:
     java.lang.String TAG -> a
     java.lang.String REDIRECT_CONTENT_TAG -> b
     com.facebook.internal.FileLruCache urlRedirectCache -> c
     com.facebook.internal.FileLruCache getCache(android.content.Context) -> a
     void clearCache(android.content.Context) -> b
-com.facebook.internal.Utility -> com.facebook.b.ai:
+com.facebook.internal.Utility -> com.facebook.internal.ah:
     java.lang.String[] APP_SETTING_FIELDS -> a
     java.util.Map fetchedAppSettings -> b
     boolean isSubset(java.util.Collection,java.util.Collection) -> a
@@ -6143,8 +6215,8 @@ com.facebook.internal.Utility -> com.facebook.b.ai:
     java.lang.reflect.Method getMethodQuietly(java.lang.Class,java.lang.String,java.lang.Class[]) -> a
     java.lang.reflect.Method getMethodQuietly(java.lang.String,java.lang.String,java.lang.Class[]) -> a
     java.lang.Object invokeMethodQuietly(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> a
-com.facebook.internal.Utility$1 -> com.facebook.b.aj:
-com.facebook.internal.Utility$FetchedAppSettings -> com.facebook.b.ak:
+com.facebook.internal.Utility$1 -> com.facebook.internal.ai:
+com.facebook.internal.Utility$FetchedAppSettings -> com.facebook.internal.aj:
     boolean supportsAttribution -> a
     boolean supportsImplicitLogging -> b
     java.lang.String nuxContent -> c
@@ -6153,55 +6225,74 @@ com.facebook.internal.Utility$FetchedAppSettings -> com.facebook.b.ak:
     boolean supportsImplicitLogging() -> b
     java.lang.String getNuxContent() -> c
     boolean getNuxEnabled() -> d
-com.facebook.internal.Validate -> com.facebook.b.al:
+com.facebook.internal.Validate -> com.facebook.internal.ak:
     void notNull(java.lang.Object,java.lang.String) -> a
     void notEmpty(java.util.Collection,java.lang.String) -> a
     void containsNoNulls(java.util.Collection,java.lang.String) -> b
     void containsNoNullOrEmpty(java.util.Collection,java.lang.String) -> c
     void notEmptyAndContainsNoNulls(java.util.Collection,java.lang.String) -> d
     void notNullOrEmpty(java.lang.String,java.lang.String) -> a
-com.facebook.internal.WorkQueue -> com.facebook.b.am:
+com.facebook.internal.WorkQueue -> com.facebook.internal.al:
     java.lang.Object workLock -> b
     int maxConcurrent -> c
     java.util.concurrent.Executor executor -> d
     com.facebook.internal.WorkQueue$WorkNode runningJobs -> e
     int runningCount -> f
     boolean $assertionsDisabled -> a
-com.facebook.internal.WorkQueue$WorkNode -> com.facebook.b.an:
+com.facebook.internal.WorkQueue$WorkNode -> com.facebook.internal.am:
     boolean $assertionsDisabled -> a
-com.facebook.model.CreateGraphObject -> com.facebook.c.a:
-    java.lang.String value() -> a
-com.facebook.model.GraphMultiResult -> com.facebook.c.b:
-    com.facebook.model.GraphObjectList getData() -> a
-com.facebook.model.GraphObject -> com.facebook.c.c:
-    com.facebook.model.GraphObject cast(java.lang.Class) -> a
-    java.util.Map asMap() -> b
-    org.json.JSONObject getInnerJSONObject() -> c
-    java.lang.Object getProperty(java.lang.String) -> a
-    void setProperty(java.lang.String,java.lang.Object) -> a
-com.facebook.model.GraphObject$Factory -> com.facebook.c.d:
-    java.util.HashSet verifiedGraphObjectClasses -> a
-    java.text.SimpleDateFormat[] dateFormats -> b
-    com.facebook.model.GraphObject create(org.json.JSONObject) -> a
-    com.facebook.model.GraphObject create(org.json.JSONObject,java.lang.Class) -> a
-    com.facebook.model.GraphObject create() -> a
-    com.facebook.model.GraphObject create(java.lang.Class) -> a
-    com.facebook.model.GraphObjectList createList(org.json.JSONArray,java.lang.Class) -> a
-    com.facebook.model.GraphObjectList createList(java.lang.Class) -> b
-    com.facebook.model.GraphObject createGraphObjectProxy(java.lang.Class,org.json.JSONObject) -> b
-    java.util.Map createGraphObjectProxyForMap(org.json.JSONObject) -> c
-    boolean hasClassBeenVerified(java.lang.Class) -> c
-    void recordClassHasBeenVerified(java.lang.Class) -> d
-    void verifyCanProxyClass(java.lang.Class) -> e
-    java.lang.Object coerceValueToExpectedType(java.lang.Object,java.lang.Class,java.lang.reflect.ParameterizedType) -> a
-    java.lang.String convertCamelCaseToLowercaseWithUnderscores(java.lang.String) -> a
-    java.lang.Object getUnderlyingJSONObject(java.lang.Object) -> b
-    com.facebook.model.GraphObject access$000(java.lang.Class,org.json.JSONObject) -> a
-    java.util.Map access$100(org.json.JSONObject) -> b
-    java.lang.Object access$200(java.lang.Object) -> a
-com.facebook.model.GraphObject$Factory$GraphObjectListImpl -> com.facebook.c.e:
-    org.json.JSONArray state -> a
-    java.lang.Class itemType -> b
+com.facebook.model.CreateGraphObject -> com.facebook.model.CreateGraphObject:
+    java.lang.String value() -> value
+com.facebook.model.GraphLocation -> com.facebook.model.GraphLocation:
+    java.lang.String getStreet() -> getStreet
+    void setStreet(java.lang.String) -> setStreet
+    java.lang.String getCity() -> getCity
+    void setCity(java.lang.String) -> setCity
+    java.lang.String getState() -> getState
+    void setState(java.lang.String) -> setState
+    java.lang.String getCountry() -> getCountry
+    void setCountry(java.lang.String) -> setCountry
+    java.lang.String getZip() -> getZip
+    void setZip(java.lang.String) -> setZip
+    double getLatitude() -> getLatitude
+    void setLatitude(double) -> setLatitude
+    double getLongitude() -> getLongitude
+    void setLongitude(double) -> setLongitude
+com.facebook.model.GraphMultiResult -> com.facebook.model.GraphMultiResult:
+    com.facebook.model.GraphObjectList getData() -> getData
+com.facebook.model.GraphObject -> com.facebook.model.GraphObject:
+    com.facebook.model.GraphObject cast(java.lang.Class) -> cast
+    java.util.Map asMap() -> asMap
+    org.json.JSONObject getInnerJSONObject() -> getInnerJSONObject
+    java.lang.Object getProperty(java.lang.String) -> getProperty
+    com.facebook.model.GraphObject getPropertyAs(java.lang.String,java.lang.Class) -> getPropertyAs
+    com.facebook.model.GraphObjectList getPropertyAsList(java.lang.String,java.lang.Class) -> getPropertyAsList
+    void setProperty(java.lang.String,java.lang.Object) -> setProperty
+    void removeProperty(java.lang.String) -> removeProperty
+com.facebook.model.GraphObject$Factory -> com.facebook.model.GraphObject$Factory:
+    java.util.HashSet verifiedGraphObjectClasses -> verifiedGraphObjectClasses
+    java.text.SimpleDateFormat[] dateFormats -> dateFormats
+    com.facebook.model.GraphObject create(org.json.JSONObject) -> create
+    com.facebook.model.GraphObject create(org.json.JSONObject,java.lang.Class) -> create
+    com.facebook.model.GraphObject create() -> create
+    com.facebook.model.GraphObject create(java.lang.Class) -> create
+    boolean hasSameId(com.facebook.model.GraphObject,com.facebook.model.GraphObject) -> hasSameId
+    com.facebook.model.GraphObjectList createList(org.json.JSONArray,java.lang.Class) -> createList
+    com.facebook.model.GraphObjectList createList(java.lang.Class) -> createList
+    com.facebook.model.GraphObject createGraphObjectProxy(java.lang.Class,org.json.JSONObject) -> createGraphObjectProxy
+    java.util.Map createGraphObjectProxyForMap(org.json.JSONObject) -> createGraphObjectProxyForMap
+    boolean hasClassBeenVerified(java.lang.Class) -> hasClassBeenVerified
+    void recordClassHasBeenVerified(java.lang.Class) -> recordClassHasBeenVerified
+    void verifyCanProxyClass(java.lang.Class) -> verifyCanProxyClass
+    java.lang.Object coerceValueToExpectedType(java.lang.Object,java.lang.Class,java.lang.reflect.ParameterizedType) -> coerceValueToExpectedType
+    java.lang.String convertCamelCaseToLowercaseWithUnderscores(java.lang.String) -> convertCamelCaseToLowercaseWithUnderscores
+    java.lang.Object getUnderlyingJSONObject(java.lang.Object) -> getUnderlyingJSONObject
+    com.facebook.model.GraphObject access$000(java.lang.Class,org.json.JSONObject) -> access$000
+    java.util.Map access$100(org.json.JSONObject) -> access$100
+    java.lang.Object access$200(java.lang.Object) -> access$200
+com.facebook.model.GraphObject$Factory$GraphObjectListImpl -> com.facebook.model.GraphObject$Factory$GraphObjectListImpl:
+    org.json.JSONArray state -> state
+    java.lang.Class itemType -> itemType
     java.lang.String toString() -> toString
     void add(int,java.lang.Object) -> add
     java.lang.Object set(int,java.lang.Object) -> set
@@ -6209,53 +6300,186 @@ com.facebook.model.GraphObject$Factory$GraphObjectListImpl -> com.facebook.c.e:
     boolean equals(java.lang.Object) -> equals
     java.lang.Object get(int) -> get
     int size() -> size
-    org.json.JSONArray getInnerJSONArray() -> a
+    com.facebook.model.GraphObjectList castToListOf(java.lang.Class) -> castToListOf
+    org.json.JSONArray getInnerJSONArray() -> getInnerJSONArray
     void clear() -> clear
     boolean remove(java.lang.Object) -> remove
     boolean removeAll(java.util.Collection) -> removeAll
     boolean retainAll(java.util.Collection) -> retainAll
-    void checkIndex(int) -> a
-    void put(int,java.lang.Object) -> a
-com.facebook.model.GraphObject$Factory$GraphObjectProxy -> com.facebook.c.f:
-    java.lang.Class graphObjectClass -> b
+    void checkIndex(int) -> checkIndex
+    void put(int,java.lang.Object) -> put
+com.facebook.model.GraphObject$Factory$GraphObjectProxy -> com.facebook.model.GraphObject$Factory$GraphObjectProxy:
+    java.lang.String CLEAR_METHOD -> CLEAR_METHOD
+    java.lang.String CONTAINSKEY_METHOD -> CONTAINSKEY_METHOD
+    java.lang.String CONTAINSVALUE_METHOD -> CONTAINSVALUE_METHOD
+    java.lang.String ENTRYSET_METHOD -> ENTRYSET_METHOD
+    java.lang.String GET_METHOD -> GET_METHOD
+    java.lang.String ISEMPTY_METHOD -> ISEMPTY_METHOD
+    java.lang.String KEYSET_METHOD -> KEYSET_METHOD
+    java.lang.String PUT_METHOD -> PUT_METHOD
+    java.lang.String PUTALL_METHOD -> PUTALL_METHOD
+    java.lang.String REMOVE_METHOD -> REMOVE_METHOD
+    java.lang.String SIZE_METHOD -> SIZE_METHOD
+    java.lang.String VALUES_METHOD -> VALUES_METHOD
+    java.lang.String CAST_METHOD -> CAST_METHOD
+    java.lang.String CASTTOMAP_METHOD -> CASTTOMAP_METHOD
+    java.lang.String GETPROPERTY_METHOD -> GETPROPERTY_METHOD
+    java.lang.String GETPROPERTYAS_METHOD -> GETPROPERTYAS_METHOD
+    java.lang.String GETPROPERTYASLIST_METHOD -> GETPROPERTYASLIST_METHOD
+    java.lang.String SETPROPERTY_METHOD -> SETPROPERTY_METHOD
+    java.lang.String REMOVEPROPERTY_METHOD -> REMOVEPROPERTY_METHOD
+    java.lang.String GETINNERJSONOBJECT_METHOD -> GETINNERJSONOBJECT_METHOD
+    java.lang.Class graphObjectClass -> graphObjectClass
     java.lang.String toString() -> toString
     java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> invoke
-    java.lang.Object proxyMapMethods(java.lang.reflect.Method,java.lang.Object[]) -> a
-    java.lang.Object proxyGraphObjectMethods(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> b
-    java.lang.Object createGraphObjectsFromParameters(com.facebook.model.CreateGraphObject,java.lang.Object) -> a
-    java.lang.Object proxyGraphObjectGettersAndSetters(java.lang.reflect.Method,java.lang.Object[]) -> b
-    java.lang.Object setJSONProperty(java.lang.Object[]) -> a
-com.facebook.model.GraphObject$Factory$GraphObjectProxy$1 -> com.facebook.c.g:
-    java.lang.Class val$expectedType -> a
-    com.facebook.model.GraphObject$Factory$GraphObjectProxy this$0 -> b
+    java.lang.Object proxyMapMethods(java.lang.reflect.Method,java.lang.Object[]) -> proxyMapMethods
+    java.lang.Object proxyGraphObjectMethods(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> proxyGraphObjectMethods
+    java.lang.Object createGraphObjectsFromParameters(com.facebook.model.CreateGraphObject,java.lang.Object) -> createGraphObjectsFromParameters
+    java.lang.Object proxyGraphObjectGettersAndSetters(java.lang.reflect.Method,java.lang.Object[]) -> proxyGraphObjectGettersAndSetters
+    java.lang.Object setJSONProperty(java.lang.Object[]) -> setJSONProperty
+com.facebook.model.GraphObject$Factory$GraphObjectProxy$1 -> com.facebook.model.GraphObject$Factory$GraphObjectProxy$1:
+    java.lang.Class val$expectedType -> val$expectedType
+    com.facebook.model.GraphObject$Factory$GraphObjectProxy this$0 -> this$0
     java.lang.reflect.Type[] getActualTypeArguments() -> getActualTypeArguments
     java.lang.reflect.Type getOwnerType() -> getOwnerType
     java.lang.reflect.Type getRawType() -> getRawType
-com.facebook.model.GraphObject$Factory$ProxyBase -> com.facebook.c.h:
-    java.lang.Object state -> a
-    java.lang.Object throwUnexpectedMethodSignature(java.lang.reflect.Method) -> a
-    java.lang.Object proxyObjectMethods(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> a
-com.facebook.model.GraphObjectList -> com.facebook.c.i:
-    org.json.JSONArray getInnerJSONArray() -> a
-com.facebook.model.GraphUser -> com.facebook.c.j:
-    java.lang.String getId() -> a
-    java.lang.String getName() -> d
-com.facebook.model.JsonUtil -> com.facebook.c.k:
-    void jsonObjectClear(org.json.JSONObject) -> a
-    boolean jsonObjectContainsValue(org.json.JSONObject,java.lang.Object) -> a
-    java.util.Set jsonObjectEntrySet(org.json.JSONObject) -> b
-    java.util.Set jsonObjectKeySet(org.json.JSONObject) -> c
-    void jsonObjectPutAll(org.json.JSONObject,java.util.Map) -> a
-    java.util.Collection jsonObjectValues(org.json.JSONObject) -> d
-com.facebook.model.JsonUtil$JSONObjectEntry -> com.facebook.c.l:
-    java.lang.String key -> a
-    java.lang.Object value -> b
-    java.lang.String getKey() -> a
+com.facebook.model.GraphObject$Factory$ProxyBase -> com.facebook.model.GraphObject$Factory$ProxyBase:
+    java.lang.String EQUALS_METHOD -> EQUALS_METHOD
+    java.lang.String TOSTRING_METHOD -> TOSTRING_METHOD
+    java.lang.Object state -> state
+    java.lang.Object throwUnexpectedMethodSignature(java.lang.reflect.Method) -> throwUnexpectedMethodSignature
+    java.lang.Object proxyObjectMethods(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> proxyObjectMethods
+com.facebook.model.GraphObjectList -> com.facebook.model.GraphObjectList:
+    com.facebook.model.GraphObjectList castToListOf(java.lang.Class) -> castToListOf
+    org.json.JSONArray getInnerJSONArray() -> getInnerJSONArray
+com.facebook.model.GraphPlace -> com.facebook.model.GraphPlace:
+    java.lang.String getId() -> getId
+    void setId(java.lang.String) -> setId
+    java.lang.String getName() -> getName
+    void setName(java.lang.String) -> setName
+    java.lang.String getCategory() -> getCategory
+    void setCategory(java.lang.String) -> setCategory
+    com.facebook.model.GraphLocation getLocation() -> getLocation
+    void setLocation(com.facebook.model.GraphLocation) -> setLocation
+com.facebook.model.GraphUser -> com.facebook.model.GraphUser:
+    java.lang.String getId() -> getId
+    void setId(java.lang.String) -> setId
+    java.lang.String getName() -> getName
+    void setName(java.lang.String) -> setName
+    java.lang.String getFirstName() -> getFirstName
+    void setFirstName(java.lang.String) -> setFirstName
+    java.lang.String getMiddleName() -> getMiddleName
+    void setMiddleName(java.lang.String) -> setMiddleName
+    java.lang.String getLastName() -> getLastName
+    void setLastName(java.lang.String) -> setLastName
+    java.lang.String getLink() -> getLink
+    void setLink(java.lang.String) -> setLink
+    java.lang.String getUsername() -> getUsername
+    void setUsername(java.lang.String) -> setUsername
+    java.lang.String getBirthday() -> getBirthday
+    void setBirthday(java.lang.String) -> setBirthday
+    com.facebook.model.GraphLocation getLocation() -> getLocation
+    void setLocation(com.facebook.model.GraphLocation) -> setLocation
+com.facebook.model.JsonUtil -> com.facebook.model.JsonUtil:
+    void jsonObjectClear(org.json.JSONObject) -> jsonObjectClear
+    boolean jsonObjectContainsValue(org.json.JSONObject,java.lang.Object) -> jsonObjectContainsValue
+    java.util.Set jsonObjectEntrySet(org.json.JSONObject) -> jsonObjectEntrySet
+    java.util.Set jsonObjectKeySet(org.json.JSONObject) -> jsonObjectKeySet
+    void jsonObjectPutAll(org.json.JSONObject,java.util.Map) -> jsonObjectPutAll
+    java.util.Collection jsonObjectValues(org.json.JSONObject) -> jsonObjectValues
+com.facebook.model.JsonUtil$JSONObjectEntry -> com.facebook.model.JsonUtil$JSONObjectEntry:
+    java.lang.String key -> key
+    java.lang.Object value -> value
+    java.lang.String getKey() -> getKey
     java.lang.Object getValue() -> getValue
     java.lang.Object setValue(java.lang.Object) -> setValue
     java.lang.Object getKey() -> getKey
-com.facebook.model.PropertyName -> com.facebook.c.m:
-    java.lang.String value() -> a
+com.facebook.model.OpenGraphAction -> com.facebook.model.OpenGraphAction:
+    java.lang.String getId() -> getId
+    void setId(java.lang.String) -> setId
+    java.lang.String getType() -> getType
+    void setType(java.lang.String) -> setType
+    java.util.Date getStartTime() -> getStartTime
+    void setStartTime(java.util.Date) -> setStartTime
+    java.util.Date getEndTime() -> getEndTime
+    void setEndTime(java.util.Date) -> setEndTime
+    java.util.Date getPublishTime() -> getPublishTime
+    void setPublishTime(java.util.Date) -> setPublishTime
+    java.util.Date getCreatedTime() -> getCreatedTime
+    void setCreatedTime(java.util.Date) -> setCreatedTime
+    java.util.Date getExpiresTime() -> getExpiresTime
+    void setExpiresTime(java.util.Date) -> setExpiresTime
+    java.lang.String getRef() -> getRef
+    void setRef(java.lang.String) -> setRef
+    java.lang.String getMessage() -> getMessage
+    void setMessage(java.lang.String) -> setMessage
+    com.facebook.model.GraphPlace getPlace() -> getPlace
+    void setPlace(com.facebook.model.GraphPlace) -> setPlace
+    com.facebook.model.GraphObjectList getTags() -> getTags
+    void setTags(java.util.List) -> setTags
+    java.util.List getImage() -> getImage
+    void setImage(java.util.List) -> setImage
+    void setImageUrls(java.util.List) -> setImageUrls
+    com.facebook.model.GraphUser getFrom() -> getFrom
+    void setFrom(com.facebook.model.GraphUser) -> setFrom
+    org.json.JSONObject getLikes() -> getLikes
+    void setLikes(org.json.JSONObject) -> setLikes
+    com.facebook.model.GraphObject getApplication() -> getApplication
+    void setApplication(com.facebook.model.GraphObject) -> setApplication
+    org.json.JSONObject getComments() -> getComments
+    void setComments(org.json.JSONObject) -> setComments
+    com.facebook.model.GraphObject getData() -> getData
+    void setData(com.facebook.model.GraphObject) -> setData
+    boolean getExplicitlyShared() -> getExplicitlyShared
+    void setExplicitlyShared(boolean) -> setExplicitlyShared
+com.facebook.model.OpenGraphAction$Factory -> com.facebook.model.OpenGraphAction$Factory:
+    com.facebook.model.OpenGraphAction createForPost() -> createForPost
+    com.facebook.model.OpenGraphAction createForPost(java.lang.String) -> createForPost
+    com.facebook.model.OpenGraphAction createForPost(java.lang.Class,java.lang.String) -> createForPost
+com.facebook.model.OpenGraphObject -> com.facebook.model.OpenGraphObject:
+    java.lang.String getId() -> getId
+    void setId(java.lang.String) -> setId
+    java.lang.String getType() -> getType
+    void setType(java.lang.String) -> setType
+    java.lang.String getUrl() -> getUrl
+    void setUrl(java.lang.String) -> setUrl
+    java.lang.String getTitle() -> getTitle
+    void setTitle(java.lang.String) -> setTitle
+    java.lang.String getDescription() -> getDescription
+    void setDescription(java.lang.String) -> setDescription
+    com.facebook.model.GraphObjectList getImage() -> getImage
+    void setImage(com.facebook.model.GraphObjectList) -> setImage
+    void setImageUrls(java.util.List) -> setImageUrls
+    com.facebook.model.GraphObjectList getVideo() -> getVideo
+    void setVideo(com.facebook.model.GraphObjectList) -> setVideo
+    com.facebook.model.GraphObjectList getAudio() -> getAudio
+    void setAudio(com.facebook.model.GraphObjectList) -> setAudio
+    java.lang.String getDeterminer() -> getDeterminer
+    void setDeterminer(java.lang.String) -> setDeterminer
+    java.util.List getSeeAlso() -> getSeeAlso
+    void setSeeAlso(java.util.List) -> setSeeAlso
+    java.lang.String getSiteName() -> getSiteName
+    void setSiteName(java.lang.String) -> setSiteName
+    java.util.Date getCreatedTime() -> getCreatedTime
+    void setCreatedTime(java.util.Date) -> setCreatedTime
+    java.util.Date getUpdatedTime() -> getUpdatedTime
+    void setUpdatedTime(java.util.Date) -> setUpdatedTime
+    com.facebook.model.GraphObject getApplication() -> getApplication
+    void setApplication(com.facebook.model.GraphObject) -> setApplication
+    boolean getIsScraped() -> getIsScraped
+    void setIsScraped(boolean) -> setIsScraped
+    java.lang.String getPostActionId() -> getPostActionId
+    void setPostActionId(java.lang.String) -> setPostActionId
+    com.facebook.model.GraphObject getData() -> getData
+    void setData(com.facebook.model.GraphObject) -> setData
+    boolean getCreateObject() -> getCreateObject
+    void setCreateObject(boolean) -> setCreateObject
+com.facebook.model.OpenGraphObject$Factory -> com.facebook.model.OpenGraphObject$Factory:
+    com.facebook.model.OpenGraphObject createForPost(java.lang.String) -> createForPost
+    com.facebook.model.OpenGraphObject createForPost(java.lang.Class,java.lang.String) -> createForPost
+    com.facebook.model.OpenGraphObject createForPost(java.lang.Class,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> createForPost
+com.facebook.model.PropertyName -> com.facebook.model.PropertyName:
+    java.lang.String value() -> value
 com.facebook.widget.FacebookDialog -> com.facebook.widget.FacebookDialog:
     com.facebook.NativeAppCallAttachmentStore attachmentStore -> a
     android.app.Activity activity -> b
@@ -6336,11 +6560,11 @@ com.facebook.widget.FacebookDialog$ShareDialogBuilderBase -> com.facebook.widget
     boolean dataErrorsFatal -> p
     com.facebook.widget.FacebookDialog$ShareDialogBuilderBase setLink(java.lang.String) -> b
     android.os.Bundle setBundleExtras(android.os.Bundle) -> a
-com.facebook.widget.FacebookDialog$ShareDialogFeature -> com.facebook.widget.j:
+com.facebook.widget.FacebookDialog$ShareDialogFeature -> com.facebook.widget.FacebookDialog$ShareDialogFeature:
     com.facebook.widget.FacebookDialog$ShareDialogFeature SHARE_DIALOG -> a
     com.facebook.widget.FacebookDialog$ShareDialogFeature PHOTOS -> b
-    int minVersion -> c
-    com.facebook.widget.FacebookDialog$ShareDialogFeature[] $VALUES -> d
+    int minVersion -> minVersion
+    com.facebook.widget.FacebookDialog$ShareDialogFeature[] $VALUES -> c
     com.facebook.widget.FacebookDialog$ShareDialogFeature[] values() -> values
     com.facebook.widget.FacebookDialog$ShareDialogFeature valueOf(java.lang.String) -> valueOf
     java.lang.String getAction() -> a
@@ -6420,21 +6644,21 @@ com.facebook.widget.LoginButton -> com.facebook.widget.LoginButton:
     android.view.View$OnClickListener access$1600(com.facebook.widget.LoginButton) -> i
     void access$1700(com.facebook.widget.LoginButton) -> j
     void access$1800(com.facebook.widget.LoginButton) -> k
-com.facebook.widget.LoginButton$1 -> com.facebook.widget.k:
+com.facebook.widget.LoginButton$1 -> com.facebook.widget.j:
     java.lang.String val$appId -> a
     com.facebook.widget.LoginButton this$0 -> b
     com.facebook.internal.Utility$FetchedAppSettings doInBackground(java.lang.Void[]) -> a
     void onPostExecute(com.facebook.internal.Utility$FetchedAppSettings) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.facebook.widget.LoginButton$2 -> com.facebook.widget.l:
+com.facebook.widget.LoginButton$2 -> com.facebook.widget.k:
     com.facebook.Session val$currentSession -> a
     com.facebook.widget.LoginButton this$0 -> b
     void onCompleted(com.facebook.model.GraphUser,com.facebook.Response) -> a
-com.facebook.widget.LoginButton$LoginButtonCallback -> com.facebook.widget.m:
+com.facebook.widget.LoginButton$LoginButtonCallback -> com.facebook.widget.l:
     com.facebook.widget.LoginButton this$0 -> a
     void call(com.facebook.Session,com.facebook.SessionState,java.lang.Exception) -> a
-com.facebook.widget.LoginButton$LoginButtonProperties -> com.facebook.widget.n:
+com.facebook.widget.LoginButton$LoginButtonProperties -> com.facebook.widget.m:
     com.facebook.SessionDefaultAudience defaultAudience -> a
     java.util.List permissions -> b
     com.facebook.internal.SessionAuthorizationType authorizationType -> c
@@ -6459,25 +6683,25 @@ com.facebook.widget.LoginButton$LoginButtonProperties -> com.facebook.widget.n:
     com.facebook.internal.SessionAuthorizationType access$1400(com.facebook.widget.LoginButton$LoginButtonProperties) -> d
     com.facebook.Session$StatusCallback access$1900(com.facebook.widget.LoginButton$LoginButtonProperties) -> e
     com.facebook.widget.LoginButton$OnErrorListener access$2000(com.facebook.widget.LoginButton$LoginButtonProperties) -> f
-com.facebook.widget.LoginButton$LoginClickListener -> com.facebook.widget.o:
+com.facebook.widget.LoginButton$LoginClickListener -> com.facebook.widget.n:
     com.facebook.widget.LoginButton this$0 -> a
     void onClick(android.view.View) -> onClick
-com.facebook.widget.LoginButton$LoginClickListener$1 -> com.facebook.widget.p:
+com.facebook.widget.LoginButton$LoginClickListener$1 -> com.facebook.widget.o:
     com.facebook.Session val$openSession -> a
     com.facebook.widget.LoginButton$LoginClickListener this$1 -> b
     void onClick(android.content.DialogInterface,int) -> onClick
-com.facebook.widget.LoginButton$OnErrorListener -> com.facebook.widget.q:
+com.facebook.widget.LoginButton$OnErrorListener -> com.facebook.widget.p:
     void onError(com.facebook.FacebookException) -> a
-com.facebook.widget.LoginButton$ToolTipMode -> com.facebook.widget.r:
+com.facebook.widget.LoginButton$ToolTipMode -> com.facebook.widget.LoginButton$ToolTipMode:
     com.facebook.widget.LoginButton$ToolTipMode DEFAULT -> a
     com.facebook.widget.LoginButton$ToolTipMode DISPLAY_ALWAYS -> b
     com.facebook.widget.LoginButton$ToolTipMode NEVER_DISPLAY -> c
     com.facebook.widget.LoginButton$ToolTipMode[] $VALUES -> d
     com.facebook.widget.LoginButton$ToolTipMode[] values() -> values
     com.facebook.widget.LoginButton$ToolTipMode valueOf(java.lang.String) -> valueOf
-com.facebook.widget.LoginButton$UserInfoChangedCallback -> com.facebook.widget.s:
+com.facebook.widget.LoginButton$UserInfoChangedCallback -> com.facebook.widget.q:
     void onUserInfoFetched(com.facebook.model.GraphUser) -> a
-com.facebook.widget.ToolTipPopup -> com.facebook.widget.t:
+com.facebook.widget.ToolTipPopup -> com.facebook.widget.ToolTipPopup:
     java.lang.String mText -> a
     java.lang.ref.WeakReference mAnchorViewRef -> b
     android.content.Context mContext -> c
@@ -6496,16 +6720,16 @@ com.facebook.widget.ToolTipPopup -> com.facebook.widget.t:
     java.lang.ref.WeakReference access$000(com.facebook.widget.ToolTipPopup) -> a
     android.widget.PopupWindow access$100(com.facebook.widget.ToolTipPopup) -> b
     com.facebook.widget.ToolTipPopup$PopupContentView access$200(com.facebook.widget.ToolTipPopup) -> c
-com.facebook.widget.ToolTipPopup$1 -> com.facebook.widget.u:
+com.facebook.widget.ToolTipPopup$1 -> com.facebook.widget.r:
     com.facebook.widget.ToolTipPopup this$0 -> a
     void onScrollChanged() -> onScrollChanged
-com.facebook.widget.ToolTipPopup$2 -> com.facebook.widget.v:
+com.facebook.widget.ToolTipPopup$2 -> com.facebook.widget.s:
     com.facebook.widget.ToolTipPopup this$0 -> a
     void run() -> run
-com.facebook.widget.ToolTipPopup$3 -> com.facebook.widget.w:
+com.facebook.widget.ToolTipPopup$3 -> com.facebook.widget.t:
     com.facebook.widget.ToolTipPopup this$0 -> a
     void onClick(android.view.View) -> onClick
-com.facebook.widget.ToolTipPopup$PopupContentView -> com.facebook.widget.x:
+com.facebook.widget.ToolTipPopup$PopupContentView -> com.facebook.widget.u:
     android.widget.ImageView topArrow -> b
     android.widget.ImageView bottomArrow -> c
     android.view.View bodyFrame -> d
@@ -6519,13 +6743,13 @@ com.facebook.widget.ToolTipPopup$PopupContentView -> com.facebook.widget.x:
     android.widget.ImageView access$400(com.facebook.widget.ToolTipPopup$PopupContentView) -> b
     android.widget.ImageView access$500(com.facebook.widget.ToolTipPopup$PopupContentView) -> c
     android.widget.ImageView access$600(com.facebook.widget.ToolTipPopup$PopupContentView) -> d
-com.facebook.widget.ToolTipPopup$Style -> com.facebook.widget.y:
+com.facebook.widget.ToolTipPopup$Style -> com.facebook.widget.ToolTipPopup$Style:
     com.facebook.widget.ToolTipPopup$Style BLUE -> a
     com.facebook.widget.ToolTipPopup$Style BLACK -> b
     com.facebook.widget.ToolTipPopup$Style[] $VALUES -> c
     com.facebook.widget.ToolTipPopup$Style[] values() -> values
     com.facebook.widget.ToolTipPopup$Style valueOf(java.lang.String) -> valueOf
-com.facebook.widget.WebDialog -> com.facebook.widget.z:
+com.facebook.widget.WebDialog -> com.facebook.widget.v:
     java.lang.String url -> a
     com.facebook.widget.WebDialog$OnCompleteListener onCompleteListener -> b
     android.webkit.WebView webView -> c
@@ -6553,18 +6777,18 @@ com.facebook.widget.WebDialog -> com.facebook.widget.z:
     android.widget.FrameLayout access$600(com.facebook.widget.WebDialog) -> d
     android.webkit.WebView access$700(com.facebook.widget.WebDialog) -> e
     android.widget.ImageView access$800(com.facebook.widget.WebDialog) -> f
-com.facebook.widget.WebDialog$1 -> com.facebook.widget.aa:
+com.facebook.widget.WebDialog$1 -> com.facebook.widget.w:
     com.facebook.widget.WebDialog this$0 -> a
     void onCancel(android.content.DialogInterface) -> onCancel
-com.facebook.widget.WebDialog$2 -> com.facebook.widget.ab:
+com.facebook.widget.WebDialog$2 -> com.facebook.widget.x:
     com.facebook.widget.WebDialog this$0 -> a
     void onCancel(android.content.DialogInterface) -> onCancel
-com.facebook.widget.WebDialog$3 -> com.facebook.widget.ac:
+com.facebook.widget.WebDialog$3 -> com.facebook.widget.y:
     com.facebook.widget.WebDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.facebook.widget.WebDialog$Builder -> com.facebook.widget.ad:
+com.facebook.widget.WebDialog$Builder -> com.facebook.widget.z:
     com.facebook.widget.WebDialog build() -> a
-com.facebook.widget.WebDialog$BuilderBase -> com.facebook.widget.ae:
+com.facebook.widget.WebDialog$BuilderBase -> com.facebook.widget.aa:
     android.content.Context context -> a
     com.facebook.Session session -> b
     java.lang.String applicationId -> c
@@ -6580,14 +6804,14 @@ com.facebook.widget.WebDialog$BuilderBase -> com.facebook.widget.ae:
     android.os.Bundle getParameters() -> e
     com.facebook.widget.WebDialog$OnCompleteListener getListener() -> f
     void finishInit(android.content.Context,java.lang.String,android.os.Bundle) -> a
-com.facebook.widget.WebDialog$DialogWebViewClient -> com.facebook.widget.af:
+com.facebook.widget.WebDialog$DialogWebViewClient -> com.facebook.widget.ab:
     com.facebook.widget.WebDialog this$0 -> a
     boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
     void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
     void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError) -> onReceivedSslError
     void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap) -> onPageStarted
     void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
-com.facebook.widget.WebDialog$OnCompleteListener -> com.facebook.widget.ag:
+com.facebook.widget.WebDialog$OnCompleteListener -> com.facebook.widget.ac:
     void onComplete(android.os.Bundle,com.facebook.FacebookException) -> a
 com.google.android.gms.cast.ApplicationMetadata -> com.google.android.gms.cast.ApplicationMetadata:
     android.os.Parcelable$Creator CREATOR -> CREATOR
@@ -6862,8 +7086,8 @@ com.google.android.gms.common.internal.safeparcel.a -> com.google.android.gms.co
     android.os.Parcel B(android.os.Parcel,int) -> B
     android.os.Parcel[] C(android.os.Parcel,int) -> C
     void a(android.os.Parcel,int,java.util.List,java.lang.ClassLoader) -> a
-com.google.android.gms.common.internal.safeparcel.a$a -> com.google.android.gms.common.internal.safeparcel.b:
-com.google.android.gms.common.internal.safeparcel.b -> com.google.android.gms.common.internal.safeparcel.c:
+com.google.android.gms.common.internal.safeparcel.a$a -> com.google.android.gms.common.internal.safeparcel.a$a:
+com.google.android.gms.common.internal.safeparcel.b -> com.google.android.gms.common.internal.safeparcel.b:
     void b(android.os.Parcel,int,int) -> b
     int D(android.os.Parcel,int) -> b
     void E(android.os.Parcel,int) -> c
@@ -9966,7 +10190,7 @@ com.google.android.gms.internal.kl -> com.google.android.gms.internal.cq:
     void a(com.google.android.gms.internal.kk,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.ko -> com.google.android.gms.internal.cr:
+com.google.android.gms.internal.ko -> com.google.android.gms.internal.ko:
     byte[] buffer -> a
     int adT -> b
     int position -> c
@@ -9996,12 +10220,12 @@ com.google.android.gms.internal.ko -> com.google.android.gms.internal.cr:
     void C(long) -> c
     int D(long) -> d
     long E(long) -> e
-com.google.android.gms.internal.ko$a -> com.google.android.gms.internal.cs:
-com.google.android.gms.internal.kp -> com.google.android.gms.internal.ct:
+com.google.android.gms.internal.ko$a -> com.google.android.gms.internal.ko$a:
+com.google.android.gms.internal.kp -> com.google.android.gms.internal.cr:
     java.util.List adU -> e
     int mx() -> c
     void a(com.google.android.gms.internal.ko) -> a
-com.google.android.gms.internal.kt -> com.google.android.gms.internal.cu:
+com.google.android.gms.internal.kt -> com.google.android.gms.internal.cs:
     int adY -> f
     int c() -> b
     int mx() -> c
@@ -10009,19 +10233,19 @@ com.google.android.gms.internal.kt -> com.google.android.gms.internal.cu:
     byte[] d(com.google.android.gms.internal.kt) -> a
     void a(com.google.android.gms.internal.kt,byte[],int,int) -> a
     java.lang.String toString() -> toString
-com.google.android.gms.internal.ku -> com.google.android.gms.internal.cv:
+com.google.android.gms.internal.ku -> com.google.android.gms.internal.ct:
     java.lang.String e(com.google.android.gms.internal.kt) -> a
     void a(java.lang.String,java.lang.Object,java.lang.StringBuffer,java.lang.StringBuffer) -> a
     java.lang.String cg(java.lang.String) -> a
     java.lang.String ch(java.lang.String) -> b
     java.lang.String av(java.lang.String) -> c
     void a(byte[],java.lang.StringBuffer) -> a
-com.google.android.gms.internal.kv -> com.google.android.gms.internal.cw:
+com.google.android.gms.internal.kv -> com.google.android.gms.internal.cu:
     int tag -> a
     byte[] adZ -> b
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
-com.google.android.gms.internal.kw -> com.google.android.gms.internal.cy:
+com.google.android.gms.internal.kw -> com.google.android.gms.internal.cv:
     int[] aea -> a
     long[] aeb -> b
     float[] aec -> c
@@ -10031,10 +10255,10 @@ com.google.android.gms.internal.kw -> com.google.android.gms.internal.cy:
     byte[][] aeg -> g
     byte[] aeh -> h
     int l(int,int) -> a
-com.google.android.gms.internal.l -> com.google.android.gms.internal.da:
+com.google.android.gms.internal.l -> com.google.android.gms.internal.cw:
     com.google.android.gms.internal.h kg -> a
     void a(android.view.MotionEvent) -> a
-com.google.android.gms.internal.u -> com.google.android.gms.internal.db:
+com.google.android.gms.internal.u -> com.google.android.gms.internal.cy:
 com.google.android.gms.location.ActivityRecognitionResult -> com.google.android.gms.location.ActivityRecognitionResult:
     com.google.android.gms.location.ActivityRecognitionResultCreator CREATOR -> CREATOR
     int xH -> d
@@ -10935,14 +11159,14 @@ com.google.android.gms.wallet.o -> com.google.android.gms.wallet.o:
     void a(com.google.android.gms.wallet.ProxyCard,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.sun.activation.registries.LogSupport -> com.a.a.a.a:
+com.sun.activation.registries.LogSupport -> com.sun.activation.registries.a:
     boolean debug -> a
     java.util.logging.Logger logger -> b
     java.util.logging.Level level -> c
     void log(java.lang.String) -> a
     void log(java.lang.String,java.lang.Throwable) -> a
     boolean isLoggable() -> a
-com.sun.activation.registries.MailcapFile -> com.a.a.a.b:
+com.sun.activation.registries.MailcapFile -> com.sun.activation.registries.b:
     java.util.Map type_hash -> a
     java.util.Map fallback_hash -> b
     java.util.Map native_commands -> c
@@ -10955,8 +11179,8 @@ com.sun.activation.registries.MailcapFile -> com.a.a.a.b:
     void reportParseError(int,int,java.lang.String) -> a
     void reportParseError(int,int,int,java.lang.String) -> a
     void reportParseError(int,int,int,int,java.lang.String) -> a
-com.sun.activation.registries.MailcapParseException -> com.a.a.a.c:
-com.sun.activation.registries.MailcapTokenizer -> com.a.a.a.d:
+com.sun.activation.registries.MailcapParseException -> com.sun.activation.registries.MailcapParseException:
+com.sun.activation.registries.MailcapTokenizer -> com.sun.activation.registries.c:
     java.lang.String data -> a
     int dataIndex -> b
     int dataLength -> c
@@ -10975,11 +11199,11 @@ com.sun.activation.registries.MailcapTokenizer -> com.a.a.a.d:
     boolean isWhiteSpaceChar(char) -> c
     boolean isStringTokenChar(char) -> d
     java.lang.String fixEscapeSequences(java.lang.String) -> a
-com.sun.mail.util.ASCIIUtility -> com.a.b.a.a:
+com.sun.mail.util.ASCIIUtility -> com.sun.a.a.a:
     int parseInt(byte[],int,int,int) -> a
     java.lang.String toString(byte[],int,int) -> a
     byte[] getBytes(java.lang.String) -> a
-com.sun.mail.util.BASE64DecoderStream -> com.a.b.a.b:
+com.sun.mail.util.BASE64DecoderStream -> com.sun.a.a.b:
     byte[] buffer -> a
     int bufsize -> b
     int index -> c
@@ -10996,7 +11220,7 @@ com.sun.mail.util.BASE64DecoderStream -> com.a.b.a.b:
     int decode(byte[],int,int) -> a
     int getByte() -> a
     java.lang.String recentChars() -> b
-com.sun.mail.util.BASE64EncoderStream -> com.a.b.a.c:
+com.sun.mail.util.BASE64EncoderStream -> com.sun.a.a.c:
     byte[] buffer -> a
     int bufsize -> b
     byte[] outbuf -> c
@@ -11014,27 +11238,27 @@ com.sun.mail.util.BASE64EncoderStream -> com.a.b.a.c:
     void encode() -> a
     byte[] encode(byte[],int,int,byte[]) -> a
     int encodedSize(int) -> a
-com.sun.mail.util.BEncoderStream -> com.a.b.a.d:
+com.sun.mail.util.BEncoderStream -> com.sun.a.a.d:
     int encodedLength(byte[]) -> a
-com.sun.mail.util.LineInputStream -> com.a.b.a.e:
+com.sun.mail.util.LineInputStream -> com.sun.a.a.e:
     char[] lineBuffer -> a
     java.lang.String readLine() -> a
-com.sun.mail.util.QDecoderStream -> com.a.b.a.f:
+com.sun.mail.util.QDecoderStream -> com.sun.a.a.f:
     int read() -> read
-com.sun.mail.util.QEncoderStream -> com.a.b.a.g:
+com.sun.mail.util.QEncoderStream -> com.sun.a.a.g:
     java.lang.String specials -> a
     java.lang.String WORD_SPECIALS -> b
     java.lang.String TEXT_SPECIALS -> c
     void write(int) -> write
     int encodedLength(byte[],boolean) -> a
-com.sun.mail.util.QPDecoderStream -> com.a.b.a.h:
+com.sun.mail.util.QPDecoderStream -> com.sun.a.a.h:
     byte[] ba -> a
     int spaces -> b
     int read() -> read
     int read(byte[],int,int) -> read
     boolean markSupported() -> markSupported
     int available() -> available
-com.sun.mail.util.QPEncoderStream -> com.a.b.a.i:
+com.sun.mail.util.QPEncoderStream -> com.sun.a.a.i:
     int count -> a
     int bytesPerLine -> b
     boolean gotSpace -> c
@@ -11047,7 +11271,7 @@ com.sun.mail.util.QPEncoderStream -> com.a.b.a.i:
     void close() -> close
     void outputCRLF() -> a
     void output(int,boolean) -> a
-com.sun.mail.util.UUDecoderStream -> com.a.b.a.j:
+com.sun.mail.util.UUDecoderStream -> com.sun.a.a.j:
     java.lang.String name -> a
     int mode -> b
     byte[] buffer -> c
@@ -11171,36 +11395,36 @@ italo.vaffapp.app.databases.Insult -> italo.vaffapp.app.a.b:
     java.lang.String getInsult() -> a
     java.lang.String getDesc() -> b
     int getRegionId() -> c
-italo.vaffapp.app.mail.GMailSender -> italo.vaffapp.app.b.a:
+italo.vaffapp.app.mail.GMailSender -> italo.vaffapp.app.mail.a:
     java.lang.String mailhost -> a
     java.lang.String user -> b
     java.lang.String password -> c
     javax.mail.Session session -> d
     javax.mail.PasswordAuthentication getPasswordAuthentication() -> a
     void sendMail(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-italo.vaffapp.app.mail.GMailSender$ByteArrayDataSource -> italo.vaffapp.app.b.b:
+italo.vaffapp.app.mail.GMailSender$ByteArrayDataSource -> italo.vaffapp.app.mail.b:
     byte[] data -> b
     java.lang.String type -> c
     italo.vaffapp.app.mail.GMailSender this$0 -> a
     java.lang.String getContentType() -> a
     java.io.InputStream getInputStream() -> b
     java.lang.String getName() -> c
-italo.vaffapp.app.mail.JSSEProvider -> italo.vaffapp.app.b.c:
-italo.vaffapp.app.mail.JSSEProvider$1 -> italo.vaffapp.app.b.d:
+italo.vaffapp.app.mail.JSSEProvider -> italo.vaffapp.app.mail.JSSEProvider:
+italo.vaffapp.app.mail.JSSEProvider$1 -> italo.vaffapp.app.mail.c:
     italo.vaffapp.app.mail.JSSEProvider this$0 -> a
     java.lang.Void run() -> a
     java.lang.Object run() -> run
-javax.activation.CommandMap -> a.a.a:
+javax.activation.CommandMap -> javax.activation.a:
     javax.activation.CommandMap defaultCommandMap -> a
     javax.activation.CommandMap getDefaultCommandMap() -> a
     javax.activation.DataContentHandler createDataContentHandler(java.lang.String) -> a
     javax.activation.DataContentHandler createDataContentHandler(java.lang.String,javax.activation.DataSource) -> a
-javax.activation.DataContentHandler -> a.a.b:
+javax.activation.DataContentHandler -> javax.activation.b:
     java.lang.Object getContent(javax.activation.DataSource) -> a
     void writeTo(java.lang.Object,java.lang.String,java.io.OutputStream) -> a
-javax.activation.DataContentHandlerFactory -> a.a.c:
+javax.activation.DataContentHandlerFactory -> javax.activation.c:
     javax.activation.DataContentHandler createDataContentHandler(java.lang.String) -> a
-javax.activation.DataHandler -> a.a.d:
+javax.activation.DataHandler -> javax.activation.d:
     javax.activation.DataSource dataSource -> a
     javax.activation.DataSource objDataSource -> b
     java.lang.Object object -> c
@@ -11224,27 +11448,27 @@ javax.activation.DataHandler -> a.a.d:
     java.lang.String getBaseType() -> h
     java.lang.Object access$0(javax.activation.DataHandler) -> a
     java.lang.String access$1(javax.activation.DataHandler) -> b
-javax.activation.DataHandler$1 -> a.a.e:
+javax.activation.DataHandler$1 -> javax.activation.e:
     javax.activation.DataHandler this$0 -> a
     java.io.PipedOutputStream val$pos -> b
     javax.activation.DataContentHandler val$fdch -> c
     void run() -> run
-javax.activation.DataHandlerDataSource -> a.a.f:
+javax.activation.DataHandlerDataSource -> javax.activation.f:
     javax.activation.DataHandler dataHandler -> a
     java.io.InputStream getInputStream() -> b
     java.lang.String getContentType() -> a
     java.lang.String getName() -> c
-javax.activation.DataSource -> a.a.g:
+javax.activation.DataSource -> javax.activation.g:
     java.io.InputStream getInputStream() -> b
     java.lang.String getContentType() -> a
     java.lang.String getName() -> c
-javax.activation.DataSourceDataContentHandler -> a.a.h:
+javax.activation.DataSourceDataContentHandler -> javax.activation.h:
     javax.activation.DataSource ds -> a
     myjava.awt.datatransfer.DataFlavor[] transferFlavors -> b
     javax.activation.DataContentHandler dch -> c
     java.lang.Object getContent(javax.activation.DataSource) -> a
     void writeTo(java.lang.Object,java.lang.String,java.io.OutputStream) -> a
-javax.activation.MailcapCommandMap -> a.a.i:
+javax.activation.MailcapCommandMap -> javax.activation.i:
     com.sun.activation.registries.MailcapFile defDB -> a
     com.sun.activation.registries.MailcapFile[] DB -> b
     com.sun.activation.registries.MailcapFile loadResource(java.lang.String) -> b
@@ -11252,10 +11476,10 @@ javax.activation.MailcapCommandMap -> a.a.i:
     com.sun.activation.registries.MailcapFile loadFile(java.lang.String) -> c
     javax.activation.DataContentHandler createDataContentHandler(java.lang.String) -> a
     javax.activation.DataContentHandler getDataContentHandler(java.lang.String) -> d
-javax.activation.MimeType -> a.a.j:
-    java.lang.String primaryType -> a
-    java.lang.String subType -> b
-    javax.activation.MimeTypeParameterList parameters -> c
+javax.activation.MimeType -> javax.activation.MimeType:
+    java.lang.String primaryType -> primaryType
+    java.lang.String subType -> subType
+    javax.activation.MimeTypeParameterList parameters -> parameters
     void parse(java.lang.String) -> a
     java.lang.String toString() -> toString
     java.lang.String getBaseType() -> a
@@ -11263,7 +11487,7 @@ javax.activation.MimeType -> a.a.j:
     void readExternal(java.io.ObjectInput) -> readExternal
     boolean isTokenChar(char) -> a
     boolean isValidToken(java.lang.String) -> b
-javax.activation.MimeTypeParameterList -> a.a.k:
+javax.activation.MimeTypeParameterList -> javax.activation.j:
     java.util.Hashtable parameters -> a
     void parse(java.lang.String) -> a
     java.lang.String toString() -> toString
@@ -11271,8 +11495,8 @@ javax.activation.MimeTypeParameterList -> a.a.k:
     int skipWhiteSpace(java.lang.String,int) -> a
     java.lang.String quote(java.lang.String) -> b
     java.lang.String unquote(java.lang.String) -> c
-javax.activation.MimeTypeParseException -> a.a.l:
-javax.activation.ObjectDataContentHandler -> a.a.m:
+javax.activation.MimeTypeParseException -> javax.activation.MimeTypeParseException:
+javax.activation.ObjectDataContentHandler -> javax.activation.k:
     myjava.awt.datatransfer.DataFlavor[] transferFlavors -> a
     java.lang.Object obj -> b
     java.lang.String mimeType -> c
@@ -11280,34 +11504,36 @@ javax.activation.ObjectDataContentHandler -> a.a.m:
     javax.activation.DataContentHandler getDCH() -> a
     java.lang.Object getContent(javax.activation.DataSource) -> a
     void writeTo(java.lang.Object,java.lang.String,java.io.OutputStream) -> a
-javax.activation.SecuritySupport -> a.a.n:
+javax.activation.SecuritySupport -> javax.activation.l:
     java.lang.ClassLoader getContextClassLoader() -> a
     java.io.InputStream getResourceAsStream(java.lang.Class,java.lang.String) -> a
     java.net.URL[] getResources(java.lang.ClassLoader,java.lang.String) -> a
     java.net.URL[] getSystemResources(java.lang.String) -> a
     java.io.InputStream openStream(java.net.URL) -> a
-javax.activation.SecuritySupport$1 -> a.a.o:
+javax.activation.SecuritySupport$1 -> javax.activation.m:
     java.lang.Object run() -> run
-javax.activation.SecuritySupport$2 -> a.a.p:
+javax.activation.SecuritySupport$2 -> javax.activation.n:
     java.lang.Class val$c -> a
     java.lang.String val$name -> b
     java.lang.Object run() -> run
-javax.activation.SecuritySupport$3 -> a.a.q:
+javax.activation.SecuritySupport$3 -> javax.activation.o:
     java.lang.ClassLoader val$cl -> a
     java.lang.String val$name -> b
     java.lang.Object run() -> run
-javax.activation.SecuritySupport$4 -> a.a.r:
+javax.activation.SecuritySupport$4 -> javax.activation.p:
     java.lang.String val$name -> a
     java.lang.Object run() -> run
-javax.activation.SecuritySupport$5 -> a.a.s:
+javax.activation.SecuritySupport$5 -> javax.activation.q:
     java.net.URL val$url -> a
     java.lang.Object run() -> run
-javax.activation.UnsupportedDataTypeException -> a.a.t:
-javax.mail.Address -> a.b.a:
+javax.activation.UnsupportedDataTypeException -> javax.activation.UnsupportedDataTypeException:
+javax.mail.Address -> javax.mail.Address:
+    long serialVersionUID -> serialVersionUID
     java.lang.String getType() -> a
     java.lang.String toString() -> toString
-javax.mail.AuthenticationFailedException -> a.b.b:
-javax.mail.Authenticator -> a.b.c:
+javax.mail.AuthenticationFailedException -> javax.mail.AuthenticationFailedException:
+    long serialVersionUID -> serialVersionUID
+javax.mail.Authenticator -> javax.mail.a:
     java.net.InetAddress requestingSite -> a
     int requestingPort -> b
     java.lang.String requestingProtocol -> c
@@ -11316,26 +11542,27 @@ javax.mail.Authenticator -> a.b.c:
     void reset() -> b
     javax.mail.PasswordAuthentication requestPasswordAuthentication(java.net.InetAddress,int,java.lang.String,java.lang.String,java.lang.String) -> a
     javax.mail.PasswordAuthentication getPasswordAuthentication() -> a
-javax.mail.BodyPart -> a.b.d:
-javax.mail.EventQueue -> a.b.e:
+javax.mail.BodyPart -> javax.mail.b:
+javax.mail.EventQueue -> javax.mail.c:
     javax.mail.EventQueue$QueueElement head -> a
     javax.mail.EventQueue$QueueElement tail -> b
     java.lang.Thread qThread -> c
     void enqueue(javax.mail.event.MailEvent,java.util.Vector) -> a
     javax.mail.EventQueue$QueueElement dequeue() -> a
     void run() -> run
-javax.mail.EventQueue$QueueElement -> a.b.f:
+javax.mail.EventQueue$QueueElement -> javax.mail.d:
     javax.mail.EventQueue$QueueElement next -> a
     javax.mail.EventQueue$QueueElement prev -> b
     javax.mail.event.MailEvent event -> c
     java.util.Vector vector -> d
-javax.mail.Flags -> a.b.g:
-    int system_flags -> a
-    java.util.Hashtable user_flags -> b
+javax.mail.Flags -> javax.mail.Flags:
+    int system_flags -> system_flags
+    java.util.Hashtable user_flags -> user_flags
+    long serialVersionUID -> serialVersionUID
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
     java.lang.Object clone() -> clone
-javax.mail.Flags$Flag -> a.b.h:
+javax.mail.Flags$Flag -> javax.mail.e:
     javax.mail.Flags$Flag ANSWERED -> a
     javax.mail.Flags$Flag DELETED -> b
     javax.mail.Flags$Flag DRAFT -> c
@@ -11345,21 +11572,22 @@ javax.mail.Flags$Flag -> a.b.h:
     javax.mail.Flags$Flag USER -> g
     int bit -> h
     int access$0(javax.mail.Flags$Flag) -> a
-javax.mail.Folder -> a.b.i:
+javax.mail.Folder -> javax.mail.Folder:
     javax.mail.EventQueue q -> a
     java.lang.Object qLock -> b
     java.lang.String getFullName() -> a
     void terminateQueue() -> b
     void finalize() -> finalize
     java.lang.String toString() -> toString
-javax.mail.Folder$TerminatorEvent -> a.b.j:
+javax.mail.Folder$TerminatorEvent -> javax.mail.Folder$TerminatorEvent:
+    long serialVersionUID -> serialVersionUID
     void dispatch(java.lang.Object) -> a
-javax.mail.Header -> a.b.k:
+javax.mail.Header -> javax.mail.f:
     java.lang.String name -> a
     java.lang.String value -> b
     java.lang.String getName() -> a
     java.lang.String getValue() -> b
-javax.mail.Message -> a.b.l:
+javax.mail.Message -> javax.mail.Message:
     int msgnum -> a
     boolean expunged -> b
     javax.mail.Folder folder -> c
@@ -11369,34 +11597,38 @@ javax.mail.Message -> a.b.l:
     void setRecipients(javax.mail.Message$RecipientType,javax.mail.Address[]) -> a
     void setRecipient(javax.mail.Message$RecipientType,javax.mail.Address) -> a
     void saveChanges() -> b
-javax.mail.Message$RecipientType -> a.b.m:
+javax.mail.Message$RecipientType -> javax.mail.Message$RecipientType:
     javax.mail.Message$RecipientType TO -> a
     javax.mail.Message$RecipientType CC -> b
     javax.mail.Message$RecipientType BCC -> c
-    java.lang.String type -> d
+    java.lang.String type -> type
+    long serialVersionUID -> serialVersionUID
+    java.lang.Object readResolve() -> readResolve
     java.lang.String toString() -> toString
-javax.mail.MessagingException -> a.b.n:
-    java.lang.Exception next -> a
+javax.mail.MessagingException -> javax.mail.MessagingException:
+    java.lang.Exception next -> next
+    long serialVersionUID -> serialVersionUID
     java.lang.Throwable getCause() -> getCause
     boolean setNextException(java.lang.Exception) -> a
     java.lang.String toString() -> toString
     java.lang.String superToString() -> a
-javax.mail.Multipart -> a.b.o:
+javax.mail.Multipart -> javax.mail.g:
     java.util.Vector parts -> a
     java.lang.String contentType -> b
-javax.mail.NoSuchProviderException -> a.b.p:
-javax.mail.Part -> a.b.q:
+javax.mail.NoSuchProviderException -> javax.mail.NoSuchProviderException:
+    long serialVersionUID -> serialVersionUID
+javax.mail.Part -> javax.mail.h:
     java.lang.String getContentType() -> c
     javax.activation.DataHandler getDataHandler() -> d
     java.lang.String[] getHeader(java.lang.String) -> a
     void setHeader(java.lang.String,java.lang.String) -> a
     void removeHeader(java.lang.String) -> b
-javax.mail.PasswordAuthentication -> a.b.r:
+javax.mail.PasswordAuthentication -> javax.mail.i:
     java.lang.String userName -> a
     java.lang.String password -> b
     java.lang.String getUserName() -> a
     java.lang.String getPassword() -> b
-javax.mail.Provider -> a.b.s:
+javax.mail.Provider -> javax.mail.j:
     javax.mail.Provider$Type type -> a
     java.lang.String protocol -> b
     java.lang.String className -> c
@@ -11406,19 +11638,20 @@ javax.mail.Provider -> a.b.s:
     java.lang.String getProtocol() -> b
     java.lang.String getClassName() -> c
     java.lang.String toString() -> toString
-javax.mail.Provider$Type -> a.b.t:
+javax.mail.Provider$Type -> javax.mail.k:
     javax.mail.Provider$Type STORE -> a
     javax.mail.Provider$Type TRANSPORT -> b
     java.lang.String type -> c
     java.lang.String toString() -> toString
-javax.mail.SendFailedException -> a.b.u:
+javax.mail.SendFailedException -> javax.mail.SendFailedException:
     javax.mail.Address[] invalid -> a
     javax.mail.Address[] validSent -> b
     javax.mail.Address[] validUnsent -> c
+    long serialVersionUID -> serialVersionUID
     javax.mail.Address[] getValidSentAddresses() -> a
     javax.mail.Address[] getValidUnsentAddresses() -> b
     javax.mail.Address[] getInvalidAddresses() -> c
-javax.mail.Service -> a.b.v:
+javax.mail.Service -> javax.mail.Service:
     javax.mail.Session session -> a
     javax.mail.URLName url -> b
     boolean debug -> c
@@ -11440,9 +11673,10 @@ javax.mail.Service -> a.b.v:
     void queueEvent(javax.mail.event.MailEvent,java.util.Vector) -> a
     void terminateQueue() -> e
     void finalize() -> finalize
-javax.mail.Service$TerminatorEvent -> a.b.w:
+javax.mail.Service$TerminatorEvent -> javax.mail.Service$TerminatorEvent:
+    long serialVersionUID -> serialVersionUID
     void dispatch(java.lang.Object) -> a
-javax.mail.Session -> a.b.x:
+javax.mail.Session -> javax.mail.l:
     java.util.Properties props -> a
     javax.mail.Authenticator authenticator -> b
     java.util.Hashtable authTable -> c
@@ -11480,35 +11714,35 @@ javax.mail.Session -> a.b.x:
     java.io.InputStream openStream(java.net.URL) -> a
     void access$0(javax.mail.Session,java.io.InputStream) -> a
     java.util.Properties access$1(javax.mail.Session) -> a
-javax.mail.Session$1 -> a.b.y:
+javax.mail.Session$1 -> javax.mail.m:
     javax.mail.Session this$0 -> a
     void load(java.io.InputStream) -> a
-javax.mail.Session$2 -> a.b.z:
+javax.mail.Session$2 -> javax.mail.n:
     javax.mail.Session this$0 -> a
     void load(java.io.InputStream) -> a
-javax.mail.Session$3 -> a.b.aa:
+javax.mail.Session$3 -> javax.mail.o:
     java.lang.Object run() -> run
-javax.mail.Session$4 -> a.b.ab:
+javax.mail.Session$4 -> javax.mail.p:
     java.lang.Class val$c -> a
     java.lang.String val$name -> b
     java.lang.Object run() -> run
-javax.mail.Session$5 -> a.b.ac:
+javax.mail.Session$5 -> javax.mail.q:
     java.lang.ClassLoader val$cl -> a
     java.lang.String val$name -> b
     java.lang.Object run() -> run
-javax.mail.Session$6 -> a.b.ad:
+javax.mail.Session$6 -> javax.mail.r:
     java.lang.String val$name -> a
     java.lang.Object run() -> run
-javax.mail.Session$7 -> a.b.ae:
+javax.mail.Session$7 -> javax.mail.s:
     java.net.URL val$url -> a
     java.lang.Object run() -> run
-javax.mail.StreamLoader -> a.b.af:
+javax.mail.StreamLoader -> javax.mail.t:
     void load(java.io.InputStream) -> a
-javax.mail.Transport -> a.b.ag:
+javax.mail.Transport -> javax.mail.u:
     void send(javax.mail.Message) -> a
     void send0(javax.mail.Message,javax.mail.Address[]) -> b
     void sendMessage(javax.mail.Message,javax.mail.Address[]) -> a
-javax.mail.URLName -> a.b.ah:
+javax.mail.URLName -> javax.mail.v:
     java.lang.String fullURL -> a
     java.lang.String protocol -> c
     java.lang.String username -> d
@@ -11537,20 +11771,23 @@ javax.mail.URLName -> a.b.ah:
     java.lang.String decode(java.lang.String) -> b
     int indexOfAny(java.lang.String,java.lang.String) -> a
     int indexOfAny(java.lang.String,java.lang.String,int) -> a
-javax.mail.event.ConnectionEvent -> a.b.a.a:
-    int type -> a
+javax.mail.event.ConnectionEvent -> javax.mail.event.ConnectionEvent:
+    int type -> type
+    long serialVersionUID -> serialVersionUID
     void dispatch(java.lang.Object) -> a
-javax.mail.event.ConnectionListener -> a.b.a.b:
+javax.mail.event.ConnectionListener -> javax.mail.event.a:
     void opened(javax.mail.event.ConnectionEvent) -> a
     void disconnected(javax.mail.event.ConnectionEvent) -> b
     void closed(javax.mail.event.ConnectionEvent) -> c
-javax.mail.event.MailEvent -> a.b.a.c:
+javax.mail.event.MailEvent -> javax.mail.event.MailEvent:
+    long serialVersionUID -> serialVersionUID
     void dispatch(java.lang.Object) -> a
-javax.mail.internet.AddressException -> a.b.b.a:
-    java.lang.String ref -> a
-    int pos -> b
+javax.mail.internet.AddressException -> javax.mail.internet.AddressException:
+    java.lang.String ref -> ref
+    int pos -> pos
+    long serialVersionUID -> serialVersionUID
     java.lang.String toString() -> toString
-javax.mail.internet.AsciiOutputStream -> a.b.b.b:
+javax.mail.internet.AsciiOutputStream -> javax.mail.internet.a:
     boolean breakOnNonAscii -> a
     int ascii -> b
     int non_ascii -> c
@@ -11565,12 +11802,12 @@ javax.mail.internet.AsciiOutputStream -> a.b.b.b:
     void write(byte[],int,int) -> write
     void check(int) -> a
     int getAscii() -> a
-javax.mail.internet.ContentDisposition -> a.b.b.c:
+javax.mail.internet.ContentDisposition -> javax.mail.internet.b:
     java.lang.String disposition -> a
     javax.mail.internet.ParameterList list -> b
     java.lang.String getParameter(java.lang.String) -> a
     java.lang.String toString() -> toString
-javax.mail.internet.ContentType -> a.b.b.d:
+javax.mail.internet.ContentType -> javax.mail.internet.c:
     java.lang.String primaryType -> a
     java.lang.String subType -> b
     javax.mail.internet.ParameterList list -> c
@@ -11581,7 +11818,7 @@ javax.mail.internet.ContentType -> a.b.b.d:
     java.lang.String toString() -> toString
     boolean match(javax.mail.internet.ContentType) -> a
     boolean match(java.lang.String) -> b
-javax.mail.internet.HeaderTokenizer -> a.b.b.e:
+javax.mail.internet.HeaderTokenizer -> javax.mail.internet.d:
     java.lang.String string -> a
     boolean skipComments -> b
     java.lang.String delimiters -> c
@@ -11595,16 +11832,17 @@ javax.mail.internet.HeaderTokenizer -> a.b.b.e:
     javax.mail.internet.HeaderTokenizer$Token getNext() -> c
     int skipWhiteSpace() -> d
     java.lang.String filterToken(java.lang.String,int,int) -> a
-javax.mail.internet.HeaderTokenizer$Token -> a.b.b.f:
+javax.mail.internet.HeaderTokenizer$Token -> javax.mail.internet.e:
     int type -> a
     java.lang.String value -> b
     int getType() -> a
     java.lang.String getValue() -> b
-javax.mail.internet.InternetAddress -> a.b.b.g:
-    java.lang.String address -> a
-    java.lang.String personal -> b
-    java.lang.String encodedPersonal -> c
-    java.lang.String rfc822phrase -> d
+javax.mail.internet.InternetAddress -> javax.mail.internet.InternetAddress:
+    java.lang.String address -> address
+    java.lang.String personal -> personal
+    java.lang.String encodedPersonal -> encodedPersonal
+    long serialVersionUID -> serialVersionUID
+    java.lang.String rfc822phrase -> a
     java.lang.Object clone() -> clone
     java.lang.String getType() -> a
     void setAddress(java.lang.String) -> a
@@ -11628,17 +11866,18 @@ javax.mail.internet.InternetAddress -> a.b.b.g:
     boolean isGroup() -> c
     int indexOfAny(java.lang.String,java.lang.String) -> a
     int indexOfAny(java.lang.String,java.lang.String,int) -> a
-javax.mail.internet.InternetHeaders -> a.b.b.h:
+javax.mail.internet.InternetHeaders -> javax.mail.internet.f:
     java.util.List headers -> a
     java.lang.String[] getHeader(java.lang.String) -> a
     java.lang.String getHeader(java.lang.String,java.lang.String) -> a
     void setHeader(java.lang.String,java.lang.String) -> b
     void addHeader(java.lang.String,java.lang.String) -> c
     void removeHeader(java.lang.String) -> b
-javax.mail.internet.InternetHeaders$InternetHeader -> a.b.b.i:
+javax.mail.internet.InternetHeaders$InternetHeader -> javax.mail.internet.g:
     java.lang.String line -> c
     java.lang.String getValue() -> b
-javax.mail.internet.MailDateFormat -> a.b.b.j:
+javax.mail.internet.MailDateFormat -> javax.mail.internet.MailDateFormat:
+    long serialVersionUID -> serialVersionUID
     boolean debug -> a
     java.util.TimeZone tz -> b
     java.util.Calendar cal -> c
@@ -11648,7 +11887,7 @@ javax.mail.internet.MailDateFormat -> a.b.b.j:
     java.util.Date ourUTC(int,int,int,int,int,int,int,boolean) -> a
     void setCalendar(java.util.Calendar) -> setCalendar
     void setNumberFormat(java.text.NumberFormat) -> setNumberFormat
-javax.mail.internet.MailDateParser -> a.b.b.k:
+javax.mail.internet.MailDateParser -> javax.mail.internet.h:
     int index -> a
     char[] orig -> b
     void skipUntilNumber() -> a
@@ -11661,7 +11900,7 @@ javax.mail.internet.MailDateParser -> a.b.b.k:
     int parseNumericTimeZone() -> f
     int parseAlphaTimeZone() -> g
     int getIndex() -> h
-javax.mail.internet.MimeBodyPart -> a.b.b.l:
+javax.mail.internet.MimeBodyPart -> javax.mail.internet.i:
     boolean setDefaultTextCharset -> f
     boolean setContentTypeFileName -> g
     boolean encodeFileName -> h
@@ -11687,7 +11926,7 @@ javax.mail.internet.MimeBodyPart -> a.b.b.l:
     void setEncoding(javax.mail.internet.MimePart,java.lang.String) -> a
     void updateHeaders(javax.mail.internet.MimePart) -> c
     void invalidateContentHeaders(javax.mail.internet.MimePart) -> d
-javax.mail.internet.MimeMessage -> a.b.b.m:
+javax.mail.internet.MimeMessage -> javax.mail.internet.MimeMessage:
     javax.activation.DataHandler dh -> e
     byte[] content -> f
     java.io.InputStream contentStream -> g
@@ -11721,9 +11960,11 @@ javax.mail.internet.MimeMessage -> a.b.b.m:
     void saveChanges() -> b
     void updateMessageID() -> f
     void updateHeaders() -> g
-javax.mail.internet.MimeMessage$RecipientType -> a.b.b.n:
-    javax.mail.internet.MimeMessage$RecipientType NEWSGROUPS -> e
-javax.mail.internet.MimeMultipart -> a.b.b.o:
+javax.mail.internet.MimeMessage$RecipientType -> javax.mail.internet.MimeMessage$RecipientType:
+    long serialVersionUID -> serialVersionUID
+    javax.mail.internet.MimeMessage$RecipientType NEWSGROUPS -> d
+    java.lang.Object readResolve() -> readResolve
+javax.mail.internet.MimeMultipart -> javax.mail.internet.j:
     boolean ignoreMissingEndBoundary -> e
     boolean ignoreMissingBoundaryParameter -> f
     boolean bmparse -> g
@@ -11732,17 +11973,17 @@ javax.mail.internet.MimeMultipart -> a.b.b.o:
     boolean complete -> h
     java.lang.String preamble -> i
     void updateHeaders() -> a
-javax.mail.internet.MimePart -> a.b.b.p:
+javax.mail.internet.MimePart -> javax.mail.internet.k:
     java.lang.String getHeader(java.lang.String,java.lang.String) -> b
     java.lang.String getEncoding() -> b_
-javax.mail.internet.MimePartDataSource -> a.b.b.q:
+javax.mail.internet.MimePartDataSource -> javax.mail.internet.l:
     javax.mail.internet.MimePart part -> a
     boolean ignoreMultipartEncoding -> b
     java.io.InputStream getInputStream() -> b
     java.lang.String restrictEncoding(java.lang.String,javax.mail.internet.MimePart) -> a
     java.lang.String getContentType() -> a
     java.lang.String getName() -> c
-javax.mail.internet.MimeUtility -> a.b.b.r:
+javax.mail.internet.MimeUtility -> javax.mail.internet.m:
     boolean decodeStrict -> a
     boolean encodeEolStrict -> b
     boolean foldEncodedWords -> c
@@ -11772,18 +12013,19 @@ javax.mail.internet.MimeUtility -> a.b.b.r:
     int checkAscii(java.lang.String) -> f
     int checkAscii(java.io.InputStream,int,boolean) -> a
     boolean nonascii(int) -> a
-javax.mail.internet.MimeUtility$1NullInputStream -> a.b.b.s:
+javax.mail.internet.MimeUtility$1NullInputStream -> javax.mail.internet.n:
     int read() -> read
-javax.mail.internet.NewsAddress -> a.b.b.t:
-    java.lang.String newsgroup -> a
-    java.lang.String host -> b
+javax.mail.internet.NewsAddress -> javax.mail.internet.NewsAddress:
+    java.lang.String newsgroup -> newsgroup
+    java.lang.String host -> host
+    long serialVersionUID -> serialVersionUID
     java.lang.String getType() -> a
     java.lang.String toString() -> toString
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
     java.lang.String toString(javax.mail.Address[]) -> a
     javax.mail.internet.NewsAddress[] parse(java.lang.String) -> a
-javax.mail.internet.ParameterList -> a.b.b.u:
+javax.mail.internet.ParameterList -> javax.mail.internet.ParameterList:
     java.util.Map list -> a
     java.util.Set multisegmentNames -> b
     java.util.Map slist -> c
@@ -11803,37 +12045,39 @@ javax.mail.internet.ParameterList -> a.b.b.u:
     javax.mail.internet.ParameterList$Value decodeValue(java.lang.String) -> d
     java.lang.String decodeBytes(java.lang.String,java.lang.String) -> c
     java.lang.String access$0(java.lang.String) -> b
-javax.mail.internet.ParameterList$MultiValue -> a.b.b.v:
-    java.lang.String value -> a
-javax.mail.internet.ParameterList$ToStringBuffer -> a.b.b.w:
+javax.mail.internet.ParameterList$MultiValue -> javax.mail.internet.ParameterList$MultiValue:
+    java.lang.String value -> value
+javax.mail.internet.ParameterList$ToStringBuffer -> javax.mail.internet.o:
     int used -> a
     java.lang.StringBuffer sb -> b
     void addNV(java.lang.String,java.lang.String) -> a
     java.lang.String toString() -> toString
-javax.mail.internet.ParameterList$Value -> a.b.b.x:
+javax.mail.internet.ParameterList$Value -> javax.mail.internet.p:
     java.lang.String value -> a
     java.lang.String charset -> b
     java.lang.String encodedValue -> c
-javax.mail.internet.ParseException -> a.b.b.y:
-javax.mail.internet.SharedInputStream -> a.b.b.z:
+javax.mail.internet.ParseException -> javax.mail.internet.ParseException:
+    long serialVersionUID -> serialVersionUID
+javax.mail.internet.SharedInputStream -> javax.mail.internet.q:
     java.io.InputStream newStream(long,long) -> a
-javax.mail.internet.UniqueValue -> a.b.b.aa:
+javax.mail.internet.UniqueValue -> javax.mail.internet.r:
     int id -> a
     java.lang.String getUniqueBoundaryValue() -> a
     java.lang.String getUniqueMessageIDValue(javax.mail.Session) -> a
     int getUniqueId() -> b
-javax.mail.util.SharedByteArrayInputStream -> a.b.c.a:
+javax.mail.util.SharedByteArrayInputStream -> javax.mail.a.a:
     int start -> a
     java.io.InputStream newStream(long,long) -> a
-myjava.awt.datatransfer.DataFlavor -> b.a.a.a:
+myjava.awt.datatransfer.DataFlavor -> myjava.awt.datatransfer.DataFlavor:
+    long serialVersionUID -> serialVersionUID
     myjava.awt.datatransfer.DataFlavor plainTextFlavor -> a
     myjava.awt.datatransfer.DataFlavor stringFlavor -> b
     myjava.awt.datatransfer.DataFlavor javaFileListFlavor -> c
     java.lang.String[] sortedTextFlavors -> d
     myjava.awt.datatransfer.DataFlavor plainUnicodeFlavor -> e
-    java.lang.String humanPresentableName -> f
-    java.lang.Class representationClass -> g
-    myjava.awt.datatransfer.MimeTypeProcessor$MimeType mimeInfo -> h
+    java.lang.String humanPresentableName -> humanPresentableName
+    java.lang.Class representationClass -> representationClass
+    myjava.awt.datatransfer.MimeTypeProcessor$MimeType mimeInfo -> mimeInfo
     boolean isCharsetSupported(java.lang.String) -> a
     void init(java.lang.String,java.lang.String,java.lang.ClassLoader) -> a
     java.lang.String getCharset() -> b
@@ -11849,7 +12093,7 @@ myjava.awt.datatransfer.DataFlavor -> b.a.a.a:
     int hashCode() -> hashCode
     java.lang.String getKeyInfo() -> e
     boolean isUnicodeFlavor() -> f
-myjava.awt.datatransfer.MimeTypeProcessor -> b.a.a.b:
+myjava.awt.datatransfer.MimeTypeProcessor -> myjava.awt.datatransfer.MimeTypeProcessor:
     myjava.awt.datatransfer.MimeTypeProcessor instance -> a
     myjava.awt.datatransfer.MimeTypeProcessor$MimeType parse(java.lang.String) -> a
     java.lang.String assemble(myjava.awt.datatransfer.MimeTypeProcessor$MimeType) -> a
@@ -11861,11 +12105,12 @@ myjava.awt.datatransfer.MimeTypeProcessor -> b.a.a.b:
     int getNextMeaningfulIndex(java.lang.String,int) -> a
     boolean isTSpecialChar(char) -> a
     boolean isMeaningfulChar(char) -> b
-myjava.awt.datatransfer.MimeTypeProcessor$MimeType -> b.a.a.c:
-    java.lang.String primaryType -> a
-    java.lang.String subType -> b
-    java.util.Hashtable parameters -> c
-    java.util.Hashtable systemParameters -> d
+myjava.awt.datatransfer.MimeTypeProcessor$MimeType -> myjava.awt.datatransfer.MimeTypeProcessor$MimeType:
+    long serialVersionUID -> serialVersionUID
+    java.lang.String primaryType -> primaryType
+    java.lang.String subType -> subType
+    java.util.Hashtable parameters -> parameters
+    java.util.Hashtable systemParameters -> systemParameters
     boolean equals(myjava.awt.datatransfer.MimeTypeProcessor$MimeType) -> a
     java.lang.String getPrimaryType() -> a
     java.lang.String getSubType() -> b
@@ -11878,9 +12123,9 @@ myjava.awt.datatransfer.MimeTypeProcessor$MimeType -> b.a.a.c:
     void access$2(myjava.awt.datatransfer.MimeTypeProcessor$MimeType,java.lang.String) -> b
     void access$3(myjava.awt.datatransfer.MimeTypeProcessor$MimeType,java.util.Hashtable) -> a
     void access$4(myjava.awt.datatransfer.MimeTypeProcessor$MimeType,java.util.Hashtable) -> b
-myjava.awt.datatransfer.MimeTypeProcessor$StringPosition -> b.a.a.d:
+myjava.awt.datatransfer.MimeTypeProcessor$StringPosition -> myjava.awt.datatransfer.a:
     int i -> a
-org.apache.harmony.awt.ContextStorage -> c.a.a.a.a:
+org.apache.harmony.awt.ContextStorage -> a.a.a.a.a:
     boolean shutdownPending -> a
     org.apache.harmony.awt.ContextStorage globalContext -> b
     org.apache.harmony.awt.datatransfer.DTK dtk -> c
@@ -11890,9 +12135,9 @@ org.apache.harmony.awt.ContextStorage -> c.a.a.a.a:
     java.lang.Object getContextLock() -> b
     org.apache.harmony.awt.ContextStorage getCurrentContext() -> d
     boolean shutdownPending() -> c
-org.apache.harmony.awt.ContextStorage$ContextLock -> c.a.a.a.b:
+org.apache.harmony.awt.ContextStorage$ContextLock -> a.a.a.a.b:
     org.apache.harmony.awt.ContextStorage this$0 -> a
-org.apache.harmony.awt.datatransfer.DTK -> c.a.a.a.a.a:
+org.apache.harmony.awt.datatransfer.DTK -> a.a.a.a.a.a:
     org.apache.harmony.awt.datatransfer.NativeClipboard nativeClipboard -> b
     org.apache.harmony.awt.datatransfer.NativeClipboard nativeSelection -> c
     org.apache.harmony.awt.datatransfer.DataTransferThread dataTransferThread -> a
@@ -11901,24 +12146,24 @@ org.apache.harmony.awt.datatransfer.DTK -> c.a.a.a.a.a:
     void runEventLoop() -> c
     org.apache.harmony.awt.datatransfer.DTK createDTK() -> e
     java.lang.String getDefaultCharset() -> d
-org.apache.harmony.awt.datatransfer.DataTransferThread -> c.a.a.a.a.b:
+org.apache.harmony.awt.datatransfer.DataTransferThread -> a.a.a.a.a.b:
     org.apache.harmony.awt.datatransfer.DTK dtk -> a
     void run() -> run
     void start() -> start
-org.apache.harmony.awt.datatransfer.NativeClipboard -> c.a.a.a.a.c:
-org.apache.harmony.awt.internal.nls.Messages -> c.a.a.a.b.a.a:
+org.apache.harmony.awt.datatransfer.NativeClipboard -> a.a.a.a.a.c:
+org.apache.harmony.awt.internal.nls.Messages -> a.a.a.a.b.a.a:
     java.util.ResourceBundle bundle -> a
     java.lang.String getString(java.lang.String) -> a
     java.lang.String getString(java.lang.String,java.lang.Object) -> a
     java.lang.String getString(java.lang.String,java.lang.Object[]) -> a
     java.lang.String format(java.lang.String,java.lang.Object[]) -> b
     java.util.ResourceBundle setLocale(java.util.Locale,java.lang.String) -> a
-org.apache.harmony.awt.internal.nls.Messages$1 -> c.a.a.a.b.a.b:
+org.apache.harmony.awt.internal.nls.Messages$1 -> a.a.a.a.b.a.b:
     java.lang.String val$resource -> a
     java.util.Locale val$locale -> b
     java.lang.ClassLoader val$loader -> c
     java.lang.Object run() -> run
-org.apache.harmony.misc.SystemUtils -> c.a.a.b.a:
+org.apache.harmony.misc.SystemUtils -> a.a.a.b.a:
     int os -> a
     int arc -> b
     int getOS() -> a

@@ -6,7 +6,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("italo-android.keystore")
+            storeFile file("../../../../italo-android.keystore")
             storePassword "kiinteistomaailma"
             keyPassword "kiinteistomaailma"
             keyAlias "android_key"

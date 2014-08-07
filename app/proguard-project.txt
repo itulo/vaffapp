@@ -37,3 +37,7 @@
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+
+# for delivery of email to work
+-keep class javax.** {*;}
+-keep class com.sun.** {*;}

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="italo.vaffapp.app"
     android:installLocation="auto"
-    android:versionCode="10"
-    android:versionName="1.4" >
+    android:versionCode="11"
+    android:versionName="1.5" >
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -42,13 +42,14 @@
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/app_id" />
+            android:value="@string/facebook_app_id" />
 
         <activity
             android:name="italo.vaffapp.app.SendInsultActivity"
             android:configChanges="orientation"
             android:label="@string/title_activity_send_insult"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="italo.vaffapp.app.MainActivity" />

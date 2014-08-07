@@ -78,6 +78,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textShortMessage|textMultiLine"
                 android:id="@+id/edittext_insulto" />
         </LinearLayout>
 
@@ -95,6 +96,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textShortMessage|textMultiLine"
                 android:id="@+id/edittext_descrizione" />
         </LinearLayout>
     </LinearLayout>

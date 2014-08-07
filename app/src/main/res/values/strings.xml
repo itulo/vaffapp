@@ -12,7 +12,7 @@
     <string name="button_insult_1">Insultati ancora</string>
     <string name="button_insult_2">Condividi</string>
     <string name="title_activity_main2">MainActivity</string>
-    <string name="app_id">1435530263364363</string>
+    <string name="facebook_app_id">1435530263364363</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
 
     <string name="updates"> </string>

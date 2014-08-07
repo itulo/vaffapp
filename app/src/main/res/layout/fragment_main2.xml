@@ -20,7 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.7"
         android:background="@drawable/box_around_textviews"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:onClick="speakInsult"/>
 
     <TextView
         android:id="@+id/insult_desc"
@@ -30,7 +32,9 @@
         android:layout_below="@+id/hello_world"
         android:gravity="center"
         android:layout_weight="0.3"
-        android:background="@drawable/box_around_textviews"/>
+        android:background="@drawable/box_around_textviews"
+        android:clickable="true"
+        android:onClick="speakDesc"/>
 
     <LinearLayout
         android:layout_width="fill_parent"

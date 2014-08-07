@@ -37,6 +37,8 @@ import android.os.Parcelable;
 
 import com.appnext.appnextsdk.Appnext;
 
+import android.view.View.OnClickListener;
+
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
     private UiLifecycleHelper uiHelper;
@@ -56,6 +58,8 @@ public class InsultActivity extends ActionBarActivity {
     private Intent sharingIntent;
 
     private Appnext appnext;
+
+    private Speaker speaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +113,9 @@ public class InsultActivity extends ActionBarActivity {
     public void onStart(){
         super.onStart();
 
+        //initialize TextToSpeech objects in Speaker
+        speaker = new Speaker(getApplicationContext());
+
         appnext = new Appnext(this);
         appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
 
@@ -132,6 +139,14 @@ public class InsultActivity extends ActionBarActivity {
             insult.setText(insults.get(rand_index).getInsult());
             insult_desc.setText(insults.get(rand_index).getDesc());
         }
+    }
+
+    public void speakInsult(View v){
+        speaker.speakInsult(insult.getText().toString());
+    }
+
+    public void speakDesc(View v){
+        speaker.speakDesc(insult_desc.getText().toString());
     }
 
     /* showInsults

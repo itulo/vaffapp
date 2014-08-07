@@ -2896,7 +2896,6 @@ italo.vaffapp.app.R$string: int abc_searchview_description_voice
 italo.vaffapp.app.R$string: int abc_shareactionprovider_share_with
 italo.vaffapp.app.R$string: int abc_shareactionprovider_share_with_application
 italo.vaffapp.app.R$string: int action_settings
-italo.vaffapp.app.R$string: int app_id
 italo.vaffapp.app.R$string: int app_name
 italo.vaffapp.app.R$string: int auth_client_needs_enabling_title
 italo.vaffapp.app.R$string: int auth_client_needs_installation_title
@@ -2957,6 +2956,7 @@ italo.vaffapp.app.R$string: int common_google_play_services_update_text
 italo.vaffapp.app.R$string: int common_google_play_services_update_title
 italo.vaffapp.app.R$string: int common_signin_button_text
 italo.vaffapp.app.R$string: int common_signin_button_text_long
+italo.vaffapp.app.R$string: int facebook_app_id
 italo.vaffapp.app.R$string: int insult
 italo.vaffapp.app.R$string: int insult_desc
 italo.vaffapp.app.R$string: int title_activity_insult

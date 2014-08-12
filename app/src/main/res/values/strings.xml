@@ -14,7 +14,11 @@
     <string name="title_activity_main2">MainActivity</string>
     <string name="facebook_app_id">1435530263364363</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
-
-    <string name="updates"> </string>
+    <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
+    <string name="fb_warning_title">Mamma, che coglioni</string>
+    <string name="ok">OK</string>
+    <string name="other">Altro</string>
+    <string name="choice1">Scegli cazzo!</string>
+    <string name="choice2">E scegli cazzo!</string>
 
 </resources>

@@ -90,6 +90,7 @@ public class InsultActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         uiHelper.onResume();
+        setRegionNameInTitle();
     }
 
     @Override
@@ -146,7 +147,7 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void speakDesc(View v){
-        //speaker.speakDesc(insult_desc.getText().toString());
+        speaker.speakDesc(insult_desc.getText().toString());
     }
 
     /* showInsults
@@ -183,8 +184,7 @@ public class InsultActivity extends ActionBarActivity {
 
         getTextviews();
         setTextviews();
-        region = "("+getRegionFromId(insults.get(rand_index).getRegionId())+")";
-        getSupportActionBar().setTitle(getString(R.string.title_activity_insulto)+" "+region);
+        setRegionNameInTitle();
 
         occurrences[rand_index] = 1;
         generated_n++;
@@ -199,6 +199,11 @@ public class InsultActivity extends ActionBarActivity {
             appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
             appnext.showBubble();
         }
+    }
+
+    public void setRegionNameInTitle(){
+        region = "("+getRegionFromId(insults.get(rand_index).getRegionId())+")";
+        getSupportActionBar().setTitle(getString(R.string.title_activity_insulto)+" "+region);
     }
 
     public void loadInsults(){
@@ -242,7 +247,6 @@ public class InsultActivity extends ActionBarActivity {
     public void postToFB() {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
             .setApplicationName("VaffApp")
-            //.setDescription(insult_desc.getText().toString())
             .setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
             .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
@@ -261,9 +265,9 @@ public class InsultActivity extends ActionBarActivity {
         //http://developer.android.com/guide/topics/ui/dialogs.html
         //http://developmentality.wordpress.com/2009/10/31/android-dialog-box-tutorial/
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l'insulto è stato copiato nella clipboard: devi solo incollarlo!")
-                .setTitle("Mamma, che coglioni")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setMessage(getString(R.string.fb_warning_message))
+                .setTitle(getString(R.string.fb_warning_title))
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         postToFB();
                     }
@@ -310,9 +314,9 @@ public class InsultActivity extends ActionBarActivity {
                 twitterPackageName[0] = diff_app.get(i);
             }
         }
-        items[diff_app.size()] = "Altro";
+        items[diff_app.size()] = getString(R.string.other);
         new AlertDialog.Builder(this)
-                .setTitle("Scegli cazzo!")
+                .setTitle(getString(R.string.choice1))
                 .setItems(items, new DialogInterface.OnClickListener()
                 {
                     @Override
@@ -329,8 +333,8 @@ public class InsultActivity extends ActionBarActivity {
                             targetedShareIntent.setPackage(twitterPackageName[0]);
                             startActivity(targetedShareIntent);
                         }
-                        if (choice.equals("Altro") ) {
-                            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "E scegli cazzo!");
+                        if (choice.equals(getString(R.string.other)) ) {
+                            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.choice2));
                             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                             startActivity(chooserIntent);
                         }
@@ -348,7 +352,7 @@ public class InsultActivity extends ActionBarActivity {
         }
         else {
             sharingIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
-            startActivity(Intent.createChooser(sharingIntent, "Scegli cazzo!"));
+            startActivity(Intent.createChooser(sharingIntent, getString(R.string.choice1)));
         }
     }
 

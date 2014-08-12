@@ -67,7 +67,7 @@ public class SimpleEula {
             String title = mActivity.getString(R.string.app_name) + " v" + versionInfo.versionName;
 
             //Includes the updates as well so users know what changed.
-            String message = mActivity.getString(R.string.updates) + "\n\n" + EULA_AGREEMENT;
+            String message = EULA_AGREEMENT;
 
             AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
                     .setTitle(title)

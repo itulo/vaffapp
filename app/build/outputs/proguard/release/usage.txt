@@ -6248,6 +6248,8 @@ italo.vaffapp.app.R$menu
 italo.vaffapp.app.R$string
 italo.vaffapp.app.R$style
 italo.vaffapp.app.R$styleable
+italo.vaffapp.app.Speaker:
+    52:61:public void onPause()
 italo.vaffapp.app.databases.DatabaseHandler:
     private static final int DATABASE_VERSION
     private static final java.lang.String DATABASE_NAME

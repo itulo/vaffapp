@@ -12802,6 +12802,7 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     java.util.List diff_app -> z
     android.content.Intent sharingIntent -> A
     com.appnext.appnextsdk.Appnext appnext -> B
+    italo.vaffapp.app.Speaker speaker -> C
     void onCreate(android.os.Bundle) -> onCreate
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void onResume() -> onResume
@@ -12811,6 +12812,8 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     void onStart() -> onStart
     void getTextviews() -> i
     void setTextviews() -> j
+    void speakInsult(android.view.View) -> speakInsult
+    void speakDesc(android.view.View) -> speakDesc
     void showInsult(android.view.View) -> showInsult
     void loadInsults() -> k
     java.lang.String getRegionFromId(int) -> b
@@ -12870,6 +12873,19 @@ italo.vaffapp.app.SimpleEula$2 -> italo.vaffapp.app.h:
     java.lang.String val$eulaKey -> b
     italo.vaffapp.app.SimpleEula this$0 -> c
     void onClick(android.content.DialogInterface,int) -> onClick
+italo.vaffapp.app.Speaker -> italo.vaffapp.app.i:
+    android.speech.tts.TextToSpeech insult -> a
+    android.speech.tts.TextToSpeech desc -> b
+    void speakInsult(java.lang.String) -> speakInsult
+    void speakDesc(java.lang.String) -> speakDesc
+    android.speech.tts.TextToSpeech access$000() -> a
+    android.speech.tts.TextToSpeech access$100() -> b
+italo.vaffapp.app.Speaker$1 -> italo.vaffapp.app.j:
+    italo.vaffapp.app.Speaker this$0 -> a
+    void onInit(int) -> onInit
+italo.vaffapp.app.Speaker$2 -> italo.vaffapp.app.k:
+    italo.vaffapp.app.Speaker this$0 -> a
+    void onInit(int) -> onInit
 italo.vaffapp.app.databases.DatabaseHandler -> italo.vaffapp.app.a.a:
     int DB_VER -> a
     android.database.sqlite.SQLiteDatabase myDataBase -> b

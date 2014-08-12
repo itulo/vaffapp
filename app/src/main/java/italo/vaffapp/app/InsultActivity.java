@@ -146,7 +146,7 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void speakDesc(View v){
-        speaker.speakDesc(insult_desc.getText().toString());
+        //speaker.speakDesc(insult_desc.getText().toString());
     }
 
     /* showInsults

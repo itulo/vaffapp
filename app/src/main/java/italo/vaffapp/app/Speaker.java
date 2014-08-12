@@ -18,8 +18,6 @@ public class Speaker {
                         if(status != TextToSpeech.ERROR){
                             insult.setLanguage(Locale.ITALY);
                         }
-                        else
-                            System.out.println("insult init failed");
                     }
                 }
         );
@@ -31,8 +29,6 @@ public class Speaker {
                         if(status != TextToSpeech.ERROR){
                             desc.setLanguage(Locale.ITALY);
                         }
-                        else
-                            System.out.println("desc init failed");
                     }
                 }
         );

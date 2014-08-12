@@ -4070,6 +4070,8 @@ com.sun.mail.util.UUEncoderStream: void writeSuffix()
 com.sun.mail.util.UUEncoderStream: void encode()
 italo.vaffapp.app.InsultActivity
 italo.vaffapp.app.InsultActivity: InsultActivity()
+italo.vaffapp.app.InsultActivity: void speakInsult(android.view.View)
+italo.vaffapp.app.InsultActivity: void speakDesc(android.view.View)
 italo.vaffapp.app.InsultActivity: void showInsult(android.view.View)
 italo.vaffapp.app.InsultActivity: void checkPresenceOfApps(android.view.View)
 italo.vaffapp.app.InsultActivity: void condividi(android.view.View)
@@ -5097,6 +5099,8 @@ italo.vaffapp.app.R$styleable: int com_facebook_profile_picture_view_preset_size
 italo.vaffapp.app.SendInsultActivity
 italo.vaffapp.app.SendInsultActivity: SendInsultActivity()
 italo.vaffapp.app.SendInsultActivity: void sendFeedback(android.view.View)
+italo.vaffapp.app.Speaker: void speakInsult(java.lang.String)
+italo.vaffapp.app.Speaker: void speakDesc(java.lang.String)
 italo.vaffapp.app.mail.JSSEProvider
 javax.activation.ActivationDataFlavor
 javax.activation.ActivationDataFlavor: java.lang.String mimeType

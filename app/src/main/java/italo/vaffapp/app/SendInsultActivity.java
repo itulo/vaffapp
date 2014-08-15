@@ -54,13 +54,6 @@ public class SendInsultActivity extends ActionBarActivity {
 
     }
 
-    /*public void loadRegions(){
-        DatabaseHandler db = new DatabaseHandler(this);
-        db.openDataBase();
-        regions = db.getAllRegions();
-        db.close();
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -81,10 +74,10 @@ public class SendInsultActivity extends ActionBarActivity {
                 @Override public Void doInBackground(Void... params) {
                     try {
                         GMailSender sender = new GMailSender("vaffapp@gmail.com", "kuukausi");
-                        sender.sendMail("from VaffApp",
+                        sender.sendMail(getDeviceEmail(),
                                 email_msg,
-                                "vaffapp",
-                                getDeviceEmail());
+                                getDeviceEmail(),
+                                "vaffapp@gmail.com");
                     } catch (Exception e) {
                         Log.e("SendInsultActivity","SendMail\n" + e.getMessage());
                     }

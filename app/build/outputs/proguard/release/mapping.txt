@@ -12815,12 +12815,13 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     void speakInsult(android.view.View) -> speakInsult
     void speakDesc(android.view.View) -> speakDesc
     void showInsult(android.view.View) -> showInsult
-    void loadInsults() -> k
+    void setRegionNameInTitle() -> k
+    void loadInsults() -> l
     java.lang.String getRegionFromId(int) -> b
-    void postToFB() -> l
-    void insultFriendOnFB() -> m
+    void postToFB() -> m
+    void insultFriendOnFB() -> n
     void checkPresenceOfApps(android.view.View) -> checkPresenceOfApps
-    void twoChoiceMenu() -> n
+    void twoChoiceMenu() -> o
     void condividi(android.view.View) -> condividi
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
@@ -12852,7 +12853,8 @@ italo.vaffapp.app.SendInsultActivity -> italo.vaffapp.app.SendInsultActivity:
     void onStart() -> onStart
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void sendFeedback(android.view.View) -> sendFeedback
-    boolean checkForm() -> i
+    java.lang.String getDeviceEmail() -> i
+    boolean checkForm() -> j
     java.lang.String access$000(italo.vaffapp.app.SendInsultActivity) -> a
 italo.vaffapp.app.SendInsultActivity$1 -> italo.vaffapp.app.e:
     italo.vaffapp.app.SendInsultActivity this$0 -> a

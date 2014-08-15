@@ -4712,6 +4712,8 @@ italo.vaffapp.app.R$string: int auth_client_requested_by_msg
 italo.vaffapp.app.R$string: int auth_client_using_bad_version_title
 italo.vaffapp.app.R$string: int button_insult_1
 italo.vaffapp.app.R$string: int button_insult_2
+italo.vaffapp.app.R$string: int choice1
+italo.vaffapp.app.R$string: int choice2
 italo.vaffapp.app.R$string: int com_facebook_choose_friends
 italo.vaffapp.app.R$string: int com_facebook_dialogloginactivity_ok_button
 italo.vaffapp.app.R$string: int com_facebook_internet_permission_error_message
@@ -4764,13 +4766,16 @@ italo.vaffapp.app.R$string: int common_google_play_services_update_title
 italo.vaffapp.app.R$string: int common_signin_button_text
 italo.vaffapp.app.R$string: int common_signin_button_text_long
 italo.vaffapp.app.R$string: int facebook_app_id
+italo.vaffapp.app.R$string: int fb_warning_message
+italo.vaffapp.app.R$string: int fb_warning_title
 italo.vaffapp.app.R$string: int insult
 italo.vaffapp.app.R$string: int insult_desc
+italo.vaffapp.app.R$string: int ok
+italo.vaffapp.app.R$string: int other
 italo.vaffapp.app.R$string: int title_activity_insult
 italo.vaffapp.app.R$string: int title_activity_insulto
 italo.vaffapp.app.R$string: int title_activity_main2
 italo.vaffapp.app.R$string: int title_activity_send_insult
-italo.vaffapp.app.R$string: int updates
 italo.vaffapp.app.R$string: int wallet_buy_button_place_holder
 italo.vaffapp.app.R$string: int welcome
 italo.vaffapp.app.R$style: int AppTheme

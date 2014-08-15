@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import italo.vaffapp.app.databases.DatabaseHandler;
 
@@ -23,6 +24,11 @@ import android.os.AsyncTask;
 import android.graphics.Color;
 
 import android.util.Log;
+
+import android.accounts.AccountManager;
+import android.accounts.Account;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import android.text.TextUtils;
 
 public class SendInsultActivity extends ActionBarActivity {
     //private ArrayList<Region> regions = null;
@@ -78,7 +84,7 @@ public class SendInsultActivity extends ActionBarActivity {
                         sender.sendMail("from VaffApp",
                                 email_msg,
                                 "vaffapp",
-                                "vaffapp@gmail.com");
+                                getDeviceEmail());
                     } catch (Exception e) {
                         Log.e("SendInsultActivity","SendMail\n" + e.getMessage());
                     }
@@ -91,6 +97,20 @@ public class SendInsultActivity extends ActionBarActivity {
             button_manda.setEnabled(false);
             button_manda.setText("Grazie!");
         }
+    }
+
+    // get email of this device (the one registered on google play)
+    public String getDeviceEmail(){
+        AccountManager mAccountManager = AccountManager.get(this);
+        Account[] accounts = mAccountManager.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
+        String[] names = new String[accounts.length];
+        for (int i = 0; i < accounts.length; i++) {
+            names[i] = accounts[i].name;
+        }
+        if (accounts.length > 0 )
+            return TextUtils.join(",", names);
+        else
+            return "vaffapp@gmail.com";
     }
 
     // check the form but also build the message for the email

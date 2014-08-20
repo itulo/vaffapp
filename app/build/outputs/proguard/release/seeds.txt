@@ -4515,6 +4515,7 @@ italo.vaffapp.app.R$id: int button_manda
 italo.vaffapp.app.R$id: int buyButton
 italo.vaffapp.app.R$id: int buy_now
 italo.vaffapp.app.R$id: int buy_with_google
+italo.vaffapp.app.R$id: int checkBox1
 italo.vaffapp.app.R$id: int checkbox
 italo.vaffapp.app.R$id: int classic
 italo.vaffapp.app.R$id: int collapseActionView
@@ -4712,6 +4713,7 @@ italo.vaffapp.app.R$string: int auth_client_requested_by_msg
 italo.vaffapp.app.R$string: int auth_client_using_bad_version_title
 italo.vaffapp.app.R$string: int button_insult_1
 italo.vaffapp.app.R$string: int button_insult_2
+italo.vaffapp.app.R$string: int checkbox_text
 italo.vaffapp.app.R$string: int choice1
 italo.vaffapp.app.R$string: int choice2
 italo.vaffapp.app.R$string: int com_facebook_choose_friends

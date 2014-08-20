@@ -71,9 +71,10 @@ public class SendInsultActivity extends ActionBarActivity {
 
     public void sendFeedback(View view){
         Button button_manda;
-        final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
 
         if ( checkForm() ) {
+            final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
+
             new AsyncTask<Void, Void, Void>() {
                 @Override public Void doInBackground(Void... params) {
                     try {
@@ -112,6 +113,7 @@ public class SendInsultActivity extends ActionBarActivity {
 
     // check the form but also build the message for the email
     public boolean checkForm(){
+        CheckBox cb;
         EditText tmp_edittext;
         TextView tmp_textview;
         RadioButton tmp_radiobutt;
@@ -119,7 +121,7 @@ public class SendInsultActivity extends ActionBarActivity {
         email_msg = "";
 
         // Check anonymous checkbox is selected
-        CheckBox cb = (CheckBox) findViewById(R.id.checkBox1);
+        cb = (CheckBox) findViewById(R.id.checkBox1);
         anonymous = cb.isChecked();
 
         // Check radio group choice

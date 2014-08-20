@@ -12848,6 +12848,7 @@ italo.vaffapp.app.MainActivity$PlaceholderFragment -> italo.vaffapp.app.d:
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
 italo.vaffapp.app.SendInsultActivity -> italo.vaffapp.app.SendInsultActivity:
     java.lang.String email_msg -> o
+    boolean anonymous -> p
     void onCreate(android.os.Bundle) -> onCreate
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     void onStart() -> onStart
@@ -12857,7 +12858,8 @@ italo.vaffapp.app.SendInsultActivity -> italo.vaffapp.app.SendInsultActivity:
     boolean checkForm() -> j
     java.lang.String access$000(italo.vaffapp.app.SendInsultActivity) -> a
 italo.vaffapp.app.SendInsultActivity$1 -> italo.vaffapp.app.e:
-    italo.vaffapp.app.SendInsultActivity this$0 -> a
+    java.lang.String val$identity -> a
+    italo.vaffapp.app.SendInsultActivity this$0 -> b
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 italo.vaffapp.app.SimpleEula -> italo.vaffapp.app.f:

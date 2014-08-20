@@ -30,9 +30,12 @@ import android.accounts.Account;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import android.text.TextUtils;
 
+import android.widget.CheckBox;
+
 public class SendInsultActivity extends ActionBarActivity {
     //private ArrayList<Region> regions = null;
     private String email_msg = "";
+    private boolean anonymous = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +71,16 @@ public class SendInsultActivity extends ActionBarActivity {
 
     public void sendFeedback(View view){
         Button button_manda;
+        final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
 
         if ( checkForm() ) {
             new AsyncTask<Void, Void, Void>() {
                 @Override public Void doInBackground(Void... params) {
                     try {
                         GMailSender sender = new GMailSender("vaffapp@gmail.com", "kuukausi");
-                        sender.sendMail(getDeviceEmail(),
+                        sender.sendMail(identity,
                                 email_msg,
-                                getDeviceEmail(),
+                                identity,
                                 "vaffapp@gmail.com");
                     } catch (Exception e) {
                         Log.e("SendInsultActivity","SendMail\n" + e.getMessage());
@@ -113,6 +117,10 @@ public class SendInsultActivity extends ActionBarActivity {
         RadioButton tmp_radiobutt;
         String str = null;
         email_msg = "";
+
+        // Check anonymous checkbox is selected
+        CheckBox cb = (CheckBox) findViewById(R.id.checkBox1);
+        anonymous = cb.isChecked();
 
         // Check radio group choice
         RadioGroup rg = (RadioGroup)findViewById(R.id.radio_group_choice);

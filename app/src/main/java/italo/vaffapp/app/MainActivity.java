@@ -11,18 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
 
-import com.facebook.*;
-import com.facebook.widget.*;
-
 import android.util.Log;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+
+import android.content.SharedPreferences;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "MainActivity";
+    private static int ITALIANO = 0;
+    private static int ENGLISH = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +33,18 @@ public class MainActivity extends ActionBarActivity {
         }
 
         new SimpleEula(this).show();
+        initSharedPreferences();
+    }
+
+    private void initSharedPreferences(){
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        // 0 = Italian (default), 1 = English
+        int lang = settings.getInt("language",ITALIANO);
+
+        /* SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("language", 1|0);
+        // Commit the edits!
+        editor.commit(); */
     }
 
     public void onStart() {
@@ -47,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
         
         // Inflate the menu; this adds items to the action bar if it is present.
         // comment so it doesn't show 'Settings'
-        //getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

@@ -60,8 +60,8 @@ public class SimpleEula {
         // the eulaKey changes every time you increment the version number in the AndroidManifest.xml
         final String eulaKey = EULA_PREFIX + versionInfo.versionCode;
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity);
-        boolean hasBeenShown = prefs.getBoolean(eulaKey, false);
-        if(hasBeenShown == false){
+        final String app_ver = prefs.getString("app_ver", "");
+        if ( !app_ver.equals(eulaKey) ){
 
             // Show the Eula
             String title = mActivity.getString(R.string.app_name) + " v" + versionInfo.versionName;
@@ -78,7 +78,7 @@ public class SimpleEula {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             // Mark this version as read.
                             SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean(eulaKey, true);
+                            editor.putString("app_ver", eulaKey);
                             editor.commit();
                             dialogInterface.dismiss();
                         }

@@ -29,7 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_INSULTS = "insults";
     private static final String TABLE_REGIONS = "regions";
     private static final String TABLE_VERSION = "version";
-    // my db version
+    // my db version - increase anytime db content changes
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
     private static int DB_VER = 7;

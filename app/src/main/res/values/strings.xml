@@ -21,5 +21,6 @@
     <string name="choice1">Scegli cazzo!</string>
     <string name="choice2">E scegli cazzo!</string>
     <string name="checkbox_text">Messaggio anonimo</string>
+    <string name="language_title">Non disponibile</string>
 
 </resources>

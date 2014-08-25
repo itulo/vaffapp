@@ -33,19 +33,38 @@ public class MainActivity extends ActionBarActivity {
         }
 
         new SimpleEula(this).show();
-        initSharedPreferences();
     }
 
-    private void initSharedPreferences(){
+    // this changes the title of the settings: Italiano <-> English
+    private void setLanguageOption(Menu menu){
+        MenuItem item;
+        // get language from shared preferences
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
         // 0 = Italian (default), 1 = English
         int lang = settings.getInt("language",ITALIANO);
+
+        item = menu.findItem(R.id.language_menu);
+
+        if (item == null)
+            System.out.println("item null");
+
+        if ( lang == ITALIANO )
+            item.setTitle("English");
+        if ( lang == ENGLISH )
+            item.setTitle("Italiano");
 
         /* SharedPreferences.Editor editor = settings.edit();
         editor.putInt("language", 1|0);
         // Commit the edits!
         editor.commit(); */
     }
+
+    /*private int getLanguageSetting(){
+        // get language from shared preferences
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        // 0 = Italian (default), 1 = English
+        return settings.getInt("language",ITALIANO);
+    }*/
 
     public void onStart() {
         super.onStart();
@@ -56,8 +75,8 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        // comment so it doesn't show 'Settings'
         getMenuInflater().inflate(R.menu.main, menu);
+        setLanguageOption(menu);
         return true;
     }
 

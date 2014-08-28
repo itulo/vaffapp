@@ -14,13 +14,16 @@ import android.content.Intent;
 import android.util.Log;
 
 import android.content.SharedPreferences;
+import java.util.Locale;
+import android.content.res.Configuration;
+import android.app.PendingIntent;
+import android.app.AlarmManager;
+import android.content.Context;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private static final String TAG = "MainActivity";
-    private static int ITALIANO = 0;
-    private static int ENGLISH = 1;
+    private int pref_language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,38 +36,52 @@ public class MainActivity extends ActionBarActivity {
         }
 
         new SimpleEula(this).show();
+        setLanguage(false);
     }
 
-    // this changes the title of the settings: Italiano <-> English
-    private void setLanguageOption(Menu menu){
-        MenuItem item;
+    /* change the UI's language: Italiano <-> English
+     @params
+      savelanguage: set to true to save the new language
+    */
+    private void setLanguage(boolean savelanguage){
+        int new_lang = -1;
+        Configuration config = new Configuration();
+
         // get language from shared preferences
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
         // 0 = Italian (default), 1 = English
-        int lang = settings.getInt("language",ITALIANO);
+        pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
 
-        item = menu.findItem(R.id.language_menu);
+        switch( pref_language ) {
+            case LanguageOptions.ENGLISH: config.locale = Locale.ENGLISH; break;
+            case LanguageOptions.ITALIANO:
+            default: config.locale = Locale.ITALIAN; break;
+        }
 
-        if (item == null)
-            System.out.println("item null");
+        getResources().updateConfiguration(config, null);
 
-        if ( lang == ITALIANO )
-            item.setTitle("English");
-        if ( lang == ENGLISH )
-            item.setTitle("Italiano");
+        if (savelanguage){
 
-        /* SharedPreferences.Editor editor = settings.edit();
-        editor.putInt("language", 1|0);
-        // Commit the edits!
-        editor.commit(); */
+            switch( pref_language ) {
+                case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
+                case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
+            }
+            // save language in shared preferences
+            if ( new_lang != LanguageOptions.ITALIANO || new_lang != LanguageOptions.ENGLISH ) {
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putInt("language", new_lang);
+                editor.commit();
+            }
+
+            //restart app
+            Intent mStartActivity = new Intent(this, MainActivity.class);
+            int mPendingIntentId = 123456;
+            PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+            AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+            mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+            System.exit(0);
+        }
     }
-
-    /*private int getLanguageSetting(){
-        // get language from shared preferences
-        SharedPreferences settings = getPreferences(MODE_PRIVATE);
-        // 0 = Italian (default), 1 = English
-        return settings.getInt("language",ITALIANO);
-    }*/
 
     public void onStart() {
         super.onStart();
@@ -76,7 +93,7 @@ public class MainActivity extends ActionBarActivity {
         
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        setLanguageOption(menu);
+        //setLanguageOption(menu);
         return true;
     }
 
@@ -86,7 +103,9 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.language_menu) {
+            setLanguage(true);
+            //change_lang();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -117,6 +136,7 @@ public class MainActivity extends ActionBarActivity {
     /* Go to SendInsultActivity */
     public void startSendInsultActivity(View view){
         Intent intent = new Intent(this, SendInsultActivity.class);
+        intent.putExtra("pref_language", pref_language);
         startActivity(intent);
     }
 }

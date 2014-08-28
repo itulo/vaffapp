@@ -4567,11 +4567,11 @@ italo.vaffapp.app.R$id: int ifRoom
 italo.vaffapp.app.R$id: int image
 italo.vaffapp.app.R$id: int insult
 italo.vaffapp.app.R$id: int insult_desc
+italo.vaffapp.app.R$id: int language_menu
 italo.vaffapp.app.R$id: int large
 italo.vaffapp.app.R$id: int listMode
 italo.vaffapp.app.R$id: int list_item
 italo.vaffapp.app.R$id: int match_parent
-italo.vaffapp.app.R$id: int menu_item_share
 italo.vaffapp.app.R$id: int middle
 italo.vaffapp.app.R$id: int monochrome
 italo.vaffapp.app.R$id: int never
@@ -4772,6 +4772,9 @@ italo.vaffapp.app.R$string: int fb_warning_message
 italo.vaffapp.app.R$string: int fb_warning_title
 italo.vaffapp.app.R$string: int insult
 italo.vaffapp.app.R$string: int insult_desc
+italo.vaffapp.app.R$string: int insultaci_button
+italo.vaffapp.app.R$string: int insultati_button
+italo.vaffapp.app.R$string: int language_menu
 italo.vaffapp.app.R$string: int ok
 italo.vaffapp.app.R$string: int other
 italo.vaffapp.app.R$string: int title_activity_insult

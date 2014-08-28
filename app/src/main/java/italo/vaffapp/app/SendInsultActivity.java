@@ -8,8 +8,6 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import italo.vaffapp.app.databases.DatabaseHandler;
-
 import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -33,7 +31,6 @@ import android.text.TextUtils;
 import android.widget.CheckBox;
 
 public class SendInsultActivity extends ActionBarActivity {
-    //private ArrayList<Region> regions = null;
     private String email_msg = "";
     private boolean anonymous = false;
 
@@ -54,7 +51,6 @@ public class SendInsultActivity extends ActionBarActivity {
 
     public void onStart(){
         super.onStart();
-
     }
 
     @Override

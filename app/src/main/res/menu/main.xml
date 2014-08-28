@@ -4,7 +4,7 @@
     tools:context="italo.vaffapp.app.MainActivity" >
 
     <item android:id="@+id/language_menu"
-        android:title="@string/language_title"
+        android:title="@string/language_menu"
         android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

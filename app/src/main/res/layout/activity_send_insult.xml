@@ -35,7 +35,7 @@
             android:layout_alignParentStart="true"
             android:orientation="vertical"
             android:id="@+id/radio_group_choice">
-            <RadioButton android:id="@+id/radio1" android:text="Commento/Richiesta" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio1" android:text="@string/commento" android:layout_width="wrap_content" android:layout_height="wrap_content" />
             <RadioButton android:id="@+id/radio2" android:text="Molise" android:layout_width="wrap_content" android:layout_height="wrap_content" />
             <RadioButton android:id="@+id/radio3" android:text="Valle d'Aosta" android:layout_width="wrap_content" android:layout_height="wrap_content" />
             <RadioButton android:id="@+id/radio4" android:text="Piemonte" android:layout_width="wrap_content" android:layout_height="wrap_content" />
@@ -54,8 +54,8 @@
             <RadioButton android:id="@+id/radio17" android:text="Puglia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
             <RadioButton android:id="@+id/radio18" android:text="Basilicata" android:layout_width="wrap_content" android:layout_height="wrap_content" />
             <RadioButton android:id="@+id/radio19" android:text="Calabria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio20" android:text="Sicilia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio21" android:text="Sardegna" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio20" android:text="@string/sicilia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio21" android:text="@string/sardegna" android:layout_width="wrap_content" android:layout_height="wrap_content" />
         </RadioGroup>
     </ScrollView>
 
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Insulto:"
+                android:text="@string/insulto"
                 android:id="@+id/textview_insulto"/>
             <EditText
                 android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descrizione:"
+                android:text="@string/descrizione"
                 android:id="@+id/textview_descrizione"/>
             <EditText
                 android:layout_width="match_parent"
@@ -110,7 +110,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Manda"
+        android:text="@string/button_manda"
         android:layout_gravity="center_horizontal"
         android:onClick="sendFeedback"
         android:id="@+id/button_manda"

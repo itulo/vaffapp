@@ -171,7 +171,7 @@
 'Puzzi fà la fine deju cutturu, cò j''uncino ''ncanna e ju focu ''nculo','Che tu possa fare la fine della pecora alla cottora, con un uncino in gola e il fuoco in culo'
 'Puzza fà nu sbruff d sangh aal punt d lu cor!','Ti possa uscire il sangue dalla punta del cuore!'
 'Stordolò','Stupido'
-'Va a vedè se stengo ''npiazza','Vai a vedere se sto in piazza (vaffanculo)'
+'Va a vedè se stengo ''npiazza','Vai a vedere se sono in piazza (vaffanculo)'
 'Vattela a pijà ''nsaccoccia','Vai a prendertelo in tasca (vaffanculo)'
 
 

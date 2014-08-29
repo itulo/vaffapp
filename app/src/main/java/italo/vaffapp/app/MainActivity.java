@@ -93,7 +93,6 @@ public class MainActivity extends ActionBarActivity {
         
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        //setLanguageOption(menu);
         return true;
     }
 
@@ -105,7 +104,6 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
         if (id == R.id.language_menu) {
             setLanguage(true);
-            //change_lang();
             return true;
         }
         return super.onOptionsItemSelected(item);

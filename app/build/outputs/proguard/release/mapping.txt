@@ -12838,11 +12838,9 @@ italo.vaffapp.app.InsultActivity$2 -> italo.vaffapp.app.b:
 italo.vaffapp.app.InsultActivity$PlaceholderFragment -> italo.vaffapp.app.c:
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
 italo.vaffapp.app.MainActivity -> italo.vaffapp.app.MainActivity:
-    int ITALIANO -> o
-    int ENGLISH -> p
+    int pref_language -> o
     void onCreate(android.os.Bundle) -> onCreate
-    void setLanguageOption() -> j
-    void change_lang() -> i
+    void setLanguage(boolean) -> b
     void onStart() -> onStart
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected

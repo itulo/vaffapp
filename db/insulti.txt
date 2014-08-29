@@ -49,6 +49,7 @@
 'Date cò un legno','Menati da solo con un pezzo di legno'
 'Ghe sboro','Ti getto il mio sperma contro'
 'Imatonìo','Sei un mattone (stupido)'
+'Imbecilon','Imbecille'
 'Increcoeà','Rincoglionito'
 'Magnasborae','Mangia sperma'
 'Ma ti gà e moròidi in testa?','Ma che hai gli emorroidi in testa? (faccia da culo)'

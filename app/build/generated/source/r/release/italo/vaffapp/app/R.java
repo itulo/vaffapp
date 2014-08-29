@@ -1751,9 +1751,10 @@ containing a value of this type.
         public static final int auth_client_using_bad_version_title=0x7f0a0046;
         public static final int button_insult_1=0x7f0a0049;
         public static final int button_insult_2=0x7f0a004a;
-        public static final int checkbox_text=0x7f0a004b;
-        public static final int choice1=0x7f0a004c;
-        public static final int choice2=0x7f0a004d;
+        public static final int button_manda=0x7f0a004b;
+        public static final int checkbox_text=0x7f0a004c;
+        public static final int choice1=0x7f0a004d;
+        public static final int choice2=0x7f0a004e;
         public static final int com_facebook_choose_friends=0x7f0a000d;
         public static final int com_facebook_dialogloginactivity_ok_button=0x7f0a000e;
         public static final int com_facebook_internet_permission_error_message=0x7f0a000f;
@@ -1780,6 +1781,7 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_log_in_button=0x7f0a0024;
         public static final int com_facebook_usersettingsfragment_logged_in=0x7f0a0025;
         public static final int com_facebook_usersettingsfragment_not_logged_in=0x7f0a0026;
+        public static final int commento=0x7f0a004f;
         public static final int common_google_play_services_enable_button=0x7f0a0027;
         public static final int common_google_play_services_enable_text=0x7f0a0028;
         public static final int common_google_play_services_enable_title=0x7f0a0029;
@@ -1805,22 +1807,26 @@ containing a value of this type.
         public static final int common_google_play_services_update_title=0x7f0a003d;
         public static final int common_signin_button_text=0x7f0a003e;
         public static final int common_signin_button_text_long=0x7f0a003f;
-        public static final int facebook_app_id=0x7f0a004e;
-        public static final int fb_warning_message=0x7f0a004f;
-        public static final int fb_warning_title=0x7f0a0050;
-        public static final int insult=0x7f0a0051;
-        public static final int insult_desc=0x7f0a0052;
-        public static final int insultaci_button=0x7f0a0053;
-        public static final int insultati_button=0x7f0a0054;
-        public static final int language_menu=0x7f0a0055;
-        public static final int ok=0x7f0a0056;
-        public static final int other=0x7f0a0057;
-        public static final int title_activity_insult=0x7f0a0058;
-        public static final int title_activity_insulto=0x7f0a0059;
-        public static final int title_activity_main2=0x7f0a005a;
-        public static final int title_activity_send_insult=0x7f0a005b;
+        public static final int descrizione=0x7f0a0050;
+        public static final int facebook_app_id=0x7f0a0051;
+        public static final int fb_warning_message=0x7f0a0052;
+        public static final int fb_warning_title=0x7f0a0053;
+        public static final int insult=0x7f0a0054;
+        public static final int insult_desc=0x7f0a0055;
+        public static final int insultaci_button=0x7f0a0056;
+        public static final int insultati_button=0x7f0a0057;
+        public static final int insulto=0x7f0a0058;
+        public static final int language_menu=0x7f0a0059;
+        public static final int ok=0x7f0a005a;
+        public static final int other=0x7f0a005b;
+        public static final int sardegna=0x7f0a005c;
+        public static final int sicilia=0x7f0a005d;
+        public static final int title_activity_insult=0x7f0a005e;
+        public static final int title_activity_insulto=0x7f0a005f;
+        public static final int title_activity_main2=0x7f0a0060;
+        public static final int title_activity_send_insult=0x7f0a0061;
         public static final int wallet_buy_button_place_holder=0x7f0a0040;
-        public static final int welcome=0x7f0a005c;
+        public static final int welcome=0x7f0a0062;
     }
     public static final class style {
         /**  Customize your theme here. 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VaffApp</string>
+    <string name="welcome">Hello, today is a crappy day!</string> <!-- first message -->
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_insult">InsultActivity</string>
+    <string name="title_activity_insulto">Get insulted!</string>
+    <string name="insult">Dammit</string>
+    <string name="insult_desc">Something went wrong... who cares, your trouble</string>
+    <string name="button_insult_1">Other insult</string>
+    <string name="button_insult_2">Share</string>
+    <string name="insultati_button">Get insulted</string>
+    <string name="insultaci_button">Insult us</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="facebook_app_id">1435530263364363</string>
+    <string name="title_activity_send_insult">Send feedback or an insult</string>
+    <string name="fb_warning_message">Facebook doesn\'t allow any app to edit one\'s status. Fortunately the insult was copied in the clipboard, you only need to paste it</string>
+    <string name="fb_warning_title">Uff!</string>
+    <string name="ok">OK</string>
+    <string name="other">Other</string>
+    <string name="choice1">Come on, choose</string>
+    <string name="choice2">Choose dammit!</string>
+    <string name="checkbox_text">Anonymous message</string>
+    <string name="language_menu">Cambia lingua (ITA)</string>
+    <string name="insulto">Insult:</string>
+    <string name="descrizione">Description:</string>
+    <string name="button_manda">Send</string>
+    <string name="commento">Feedback</string>
+    <string name="sicilia">Sicily</string>
+    <string name="sardegna">Sardinia</string>
+
+</resources>

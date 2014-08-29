@@ -6232,8 +6232,7 @@ com.google.android.gms.wearable.d
 com.google.android.gms.wearable.e
 com.google.android.gms.wearable.f
 italo.vaffapp.app.BuildConfig
-italo.vaffapp.app.MainActivity:
-    private static final java.lang.String TAG
+italo.vaffapp.app.LanguageOptions
 italo.vaffapp.app.R
 italo.vaffapp.app.R$anim
 italo.vaffapp.app.R$attr

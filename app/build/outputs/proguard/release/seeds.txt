@@ -4713,6 +4713,7 @@ italo.vaffapp.app.R$string: int auth_client_requested_by_msg
 italo.vaffapp.app.R$string: int auth_client_using_bad_version_title
 italo.vaffapp.app.R$string: int button_insult_1
 italo.vaffapp.app.R$string: int button_insult_2
+italo.vaffapp.app.R$string: int button_manda
 italo.vaffapp.app.R$string: int checkbox_text
 italo.vaffapp.app.R$string: int choice1
 italo.vaffapp.app.R$string: int choice2
@@ -4742,6 +4743,7 @@ italo.vaffapp.app.R$string: int com_facebook_tooltip_default
 italo.vaffapp.app.R$string: int com_facebook_usersettingsfragment_log_in_button
 italo.vaffapp.app.R$string: int com_facebook_usersettingsfragment_logged_in
 italo.vaffapp.app.R$string: int com_facebook_usersettingsfragment_not_logged_in
+italo.vaffapp.app.R$string: int commento
 italo.vaffapp.app.R$string: int common_google_play_services_enable_button
 italo.vaffapp.app.R$string: int common_google_play_services_enable_text
 italo.vaffapp.app.R$string: int common_google_play_services_enable_title
@@ -4767,6 +4769,7 @@ italo.vaffapp.app.R$string: int common_google_play_services_update_text
 italo.vaffapp.app.R$string: int common_google_play_services_update_title
 italo.vaffapp.app.R$string: int common_signin_button_text
 italo.vaffapp.app.R$string: int common_signin_button_text_long
+italo.vaffapp.app.R$string: int descrizione
 italo.vaffapp.app.R$string: int facebook_app_id
 italo.vaffapp.app.R$string: int fb_warning_message
 italo.vaffapp.app.R$string: int fb_warning_title
@@ -4774,9 +4777,12 @@ italo.vaffapp.app.R$string: int insult
 italo.vaffapp.app.R$string: int insult_desc
 italo.vaffapp.app.R$string: int insultaci_button
 italo.vaffapp.app.R$string: int insultati_button
+italo.vaffapp.app.R$string: int insulto
 italo.vaffapp.app.R$string: int language_menu
 italo.vaffapp.app.R$string: int ok
 italo.vaffapp.app.R$string: int other
+italo.vaffapp.app.R$string: int sardegna
+italo.vaffapp.app.R$string: int sicilia
 italo.vaffapp.app.R$string: int title_activity_insult
 italo.vaffapp.app.R$string: int title_activity_insulto
 italo.vaffapp.app.R$string: int title_activity_main2

@@ -16,10 +16,8 @@ import android.util.Log;
 import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Collection;
 
 import com.facebook.*;
 import com.facebook.widget.*;
@@ -27,17 +25,15 @@ import android.text.ClipboardManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import android.widget.LinearLayout;
-
 import java.util.List;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.text.TextUtils;
 import android.os.Parcelable;
 
 import com.appnext.appnextsdk.Appnext;
 
-import android.view.View.OnClickListener;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.ConnectionResult;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -91,6 +87,7 @@ public class InsultActivity extends ActionBarActivity {
         super.onResume();
         uiHelper.onResume();
         setRegionNameInTitle();
+        checkGooglePlayServicesVersion();
     }
 
     @Override
@@ -126,6 +123,14 @@ public class InsultActivity extends ActionBarActivity {
             getTextviews();
             setTextviews();
         }
+    }
+
+    public void checkGooglePlayServicesVersion(){
+        int REQUEST_CODE_RECOVER_PLAY_SERVICES = 1001;
+
+        int gps_ver = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if ( gps_ver != ConnectionResult.SUCCESS )
+            GooglePlayServicesUtil.getErrorDialog(gps_ver, this, REQUEST_CODE_RECOVER_PLAY_SERVICES).show();
     }
 
     public void getTextviews(){

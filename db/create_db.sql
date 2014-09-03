@@ -22,7 +22,7 @@ INSERT INTO regions VALUES (20, 'Sardegna');
 
 
 -- no PK, default PK is rowid, which is autoincremented
-CREATE TABLE insults (insult TEXT, desc TEXT, region INT,
+CREATE TABLE insults (insult TEXT, desc TEXT, end TEXT, region INT,
 FOREIGN KEY(region) REFERENCES regions(rowid));
 
 -- needed by Android

@@ -19,8 +19,8 @@
     <string name="fb_warning_title">Mamma, che coglioni</string>
     <string name="ok">OK</string>
     <string name="other">Altro</string>
-    <string name="choice1">Scegli cazzo!</string>
-    <string name="choice2">E scegli cazzo!</string>
+    <string name="choice1">Condividi: Scegli cazzo!</string>
+    <string name="choice2">Altro: E scegli cazzo!</string>
     <string name="checkbox_text">Messaggio anonimo</string>
     <string name="language_menu">Change language (EN)</string>
     <string name="insulto">Insulto:</string>

@@ -53,7 +53,11 @@ begin
       end
       insults_per_region+=1
       virgola = line.index(',')
-      ins_arr << [ line[0...virgola], line[virgola+1..-1].gsub("\n",''), id_region ]
+      punto_virgola = line.index(';')
+      #eng = line[punto_virgola+1..-1].empty? ? "' '" : line[punto_virgola+1..-1].gsub("\n",'')
+      eng = line[punto_virgola+1..-1].gsub("\n",'')
+      #ins_arr << [ line[0...virgola], line[virgola+1..-1].gsub("\n",''), id_region ]
+      ins_arr << [ line[0...virgola], line[virgola+1..punto_virgola-1], eng, id_region ]
     end
   end
 rescue Exception => e
@@ -64,7 +68,8 @@ end
 puts "#{insults_per_region} insulti" if insults_per_region > 0
 
 ins_arr.each do |a|
-  sql = "insert into #{TBL_NAME} values (#{a[0]},#{a[1]},#{a[2]})"
+  #sql = "insert into #{TBL_NAME} values (#{a[0]},#{a[1]},#{a[2]})"
+  sql = "insert into #{TBL_NAME} values (#{a[0]},#{a[1]},#{a[2]},#{a[3]})"
   %x( sqlite3 #{DBNAME} "#{sql}" )
   unless $?.exitstatus == 0
     puts sql

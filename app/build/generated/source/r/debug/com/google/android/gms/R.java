@@ -128,12 +128,12 @@ public final class R {
 		public static final int google_play_services_version = 0x7f090001;
 	}
 	public static final class string {
-		public static final int auth_client_needs_enabling_title = 0x7f0a005e;
-		public static final int auth_client_needs_installation_title = 0x7f0a005f;
-		public static final int auth_client_needs_update_title = 0x7f0a0060;
-		public static final int auth_client_play_services_err_notification_msg = 0x7f0a0061;
-		public static final int auth_client_requested_by_msg = 0x7f0a0062;
-		public static final int auth_client_using_bad_version_title = 0x7f0a0063;
+		public static final int auth_client_needs_enabling_title = 0x7f0a005d;
+		public static final int auth_client_needs_installation_title = 0x7f0a005e;
+		public static final int auth_client_needs_update_title = 0x7f0a005f;
+		public static final int auth_client_play_services_err_notification_msg = 0x7f0a0060;
+		public static final int auth_client_requested_by_msg = 0x7f0a0061;
+		public static final int auth_client_using_bad_version_title = 0x7f0a0062;
 		public static final int common_google_play_services_enable_button = 0x7f0a0030;
 		public static final int common_google_play_services_enable_text = 0x7f0a0031;
 		public static final int common_google_play_services_enable_title = 0x7f0a0032;
@@ -159,15 +159,13 @@ public final class R {
 		public static final int common_google_play_services_update_title = 0x7f0a0046;
 		public static final int common_signin_button_text = 0x7f0a0047;
 		public static final int common_signin_button_text_long = 0x7f0a0048;
-		public static final int pre_release_do_not_ship = 0x7f0a0055;
-		public static final int wallet_buy_button_place_holder = 0x7f0a005c;
+		public static final int wallet_buy_button_place_holder = 0x7f0a005b;
 	}
 	public static final class style {
-		public static final int Theme_IAPTheme = 0x7f0b003f;
-		public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f0b0040;
-		public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f0b0041;
-		public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f0b0042;
-		public static final int WalletFragmentDefaultStyle = 0x7f0b0043;
+		public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f0b003f;
+		public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f0b0040;
+		public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f0b0041;
+		public static final int WalletFragmentDefaultStyle = 0x7f0b0042;
 	}
 	public static final class styleable {
 		public static final int[] AdsAttrs = { 0x7f010059, 0x7f01005a, 0x7f01005b };

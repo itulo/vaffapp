@@ -797,7 +797,21 @@ android.support.v4.util.SparseArrayCompat -> android.support.v4.d.m:
     void clear() -> c
     java.lang.String toString() -> toString
     java.lang.Object clone() -> clone
-android.support.v4.view.ActionProvider -> android.support.v4.view.a:
+android.support.v4.view.AccessibilityDelegateCompat -> android.support.v4.view.a:
+    android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateImpl IMPL -> b
+    java.lang.Object DEFAULT_DELEGATE -> c
+    java.lang.Object mBridge -> a
+    java.lang.Object getBridge() -> a
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateIcsImpl -> android.support.v4.view.b:
+    java.lang.Object newAccessiblityDelegateDefaultImpl() -> a
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateImpl -> android.support.v4.view.c:
+    java.lang.Object newAccessiblityDelegateDefaultImpl() -> a
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateJellyBeanImpl -> android.support.v4.view.d:
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateStubImpl -> android.support.v4.view.e:
+    java.lang.Object newAccessiblityDelegateDefaultImpl() -> a
+android.support.v4.view.AccessibilityDelegateCompatIcs -> android.support.v4.view.f:
+    java.lang.Object newAccessibilityDelegateDefaultImpl() -> a
+android.support.v4.view.ActionProvider -> android.support.v4.view.g:
     android.content.Context mContext -> a
     android.support.v4.view.ActionProvider$SubUiVisibilityListener mSubUiVisibilityListener -> b
     android.support.v4.view.ActionProvider$VisibilityListener mVisibilityListener -> c
@@ -812,48 +826,48 @@ android.support.v4.view.ActionProvider -> android.support.v4.view.a:
     void onPrepareSubMenu(android.view.SubMenu) -> a
     void setSubUiVisibilityListener(android.support.v4.view.ActionProvider$SubUiVisibilityListener) -> a
     void setVisibilityListener(android.support.v4.view.ActionProvider$VisibilityListener) -> a
-android.support.v4.view.ActionProvider$SubUiVisibilityListener -> android.support.v4.view.b:
-android.support.v4.view.ActionProvider$VisibilityListener -> android.support.v4.view.c:
+android.support.v4.view.ActionProvider$SubUiVisibilityListener -> android.support.v4.view.h:
+android.support.v4.view.ActionProvider$VisibilityListener -> android.support.v4.view.i:
     void onActionProviderVisibilityChanged(boolean) -> a
-android.support.v4.view.GravityCompat -> android.support.v4.view.d:
+android.support.v4.view.GravityCompat -> android.support.v4.view.j:
     android.support.v4.view.GravityCompat$GravityCompatImpl IMPL -> a
     int getAbsoluteGravity(int,int) -> a
-android.support.v4.view.GravityCompat$GravityCompatImpl -> android.support.v4.view.e:
+android.support.v4.view.GravityCompat$GravityCompatImpl -> android.support.v4.view.k:
     int getAbsoluteGravity(int,int) -> a
-android.support.v4.view.GravityCompat$GravityCompatImplBase -> android.support.v4.view.f:
+android.support.v4.view.GravityCompat$GravityCompatImplBase -> android.support.v4.view.l:
     int getAbsoluteGravity(int,int) -> a
-android.support.v4.view.GravityCompat$GravityCompatImplJellybeanMr1 -> android.support.v4.view.g:
+android.support.v4.view.GravityCompat$GravityCompatImplJellybeanMr1 -> android.support.v4.view.m:
     int getAbsoluteGravity(int,int) -> a
-android.support.v4.view.GravityCompatJellybeanMr1 -> android.support.v4.view.h:
+android.support.v4.view.GravityCompatJellybeanMr1 -> android.support.v4.view.n:
     int getAbsoluteGravity(int,int) -> a
-android.support.v4.view.KeyEventCompat -> android.support.v4.view.i:
+android.support.v4.view.KeyEventCompat -> android.support.v4.view.o:
     android.support.v4.view.KeyEventCompat$KeyEventVersionImpl IMPL -> a
     boolean hasModifiers(android.view.KeyEvent,int) -> a
     boolean hasNoModifiers(android.view.KeyEvent) -> a
     void startTracking(android.view.KeyEvent) -> b
-android.support.v4.view.KeyEventCompat$BaseKeyEventVersionImpl -> android.support.v4.view.j:
+android.support.v4.view.KeyEventCompat$BaseKeyEventVersionImpl -> android.support.v4.view.p:
     int metaStateFilterDirectionalModifiers(int,int,int,int,int) -> a
     int normalizeMetaState(int) -> a
     boolean metaStateHasModifiers(int,int) -> a
     boolean metaStateHasNoModifiers(int) -> b
     void startTracking(android.view.KeyEvent) -> a
-android.support.v4.view.KeyEventCompat$EclairKeyEventVersionImpl -> android.support.v4.view.k:
+android.support.v4.view.KeyEventCompat$EclairKeyEventVersionImpl -> android.support.v4.view.q:
     void startTracking(android.view.KeyEvent) -> a
-android.support.v4.view.KeyEventCompat$HoneycombKeyEventVersionImpl -> android.support.v4.view.l:
+android.support.v4.view.KeyEventCompat$HoneycombKeyEventVersionImpl -> android.support.v4.view.r:
     int normalizeMetaState(int) -> a
     boolean metaStateHasModifiers(int,int) -> a
     boolean metaStateHasNoModifiers(int) -> b
-android.support.v4.view.KeyEventCompat$KeyEventVersionImpl -> android.support.v4.view.m:
+android.support.v4.view.KeyEventCompat$KeyEventVersionImpl -> android.support.v4.view.s:
     boolean metaStateHasModifiers(int,int) -> a
     boolean metaStateHasNoModifiers(int) -> b
     void startTracking(android.view.KeyEvent) -> a
-android.support.v4.view.KeyEventCompatEclair -> android.support.v4.view.n:
+android.support.v4.view.KeyEventCompatEclair -> android.support.v4.view.t:
     void startTracking(android.view.KeyEvent) -> a
-android.support.v4.view.KeyEventCompatHoneycomb -> android.support.v4.view.o:
+android.support.v4.view.KeyEventCompatHoneycomb -> android.support.v4.view.u:
     int normalizeMetaState(int) -> a
     boolean metaStateHasModifiers(int,int) -> a
     boolean metaStateHasNoModifiers(int) -> b
-android.support.v4.view.MenuItemCompat -> android.support.v4.view.p:
+android.support.v4.view.MenuItemCompat -> android.support.v4.view.v:
     android.support.v4.view.MenuItemCompat$MenuVersionImpl IMPL -> a
     void setShowAsAction(android.view.MenuItem,int) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,android.view.View) -> a
@@ -862,42 +876,42 @@ android.support.v4.view.MenuItemCompat -> android.support.v4.view.p:
     android.view.MenuItem setActionProvider(android.view.MenuItem,android.support.v4.view.ActionProvider) -> a
     boolean expandActionView(android.view.MenuItem) -> b
     boolean isActionViewExpanded(android.view.MenuItem) -> c
-android.support.v4.view.MenuItemCompat$BaseMenuVersionImpl -> android.support.v4.view.q:
+android.support.v4.view.MenuItemCompat$BaseMenuVersionImpl -> android.support.v4.view.w:
     void setShowAsAction(android.view.MenuItem,int) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,android.view.View) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,int) -> b
     android.view.View getActionView(android.view.MenuItem) -> a
     boolean expandActionView(android.view.MenuItem) -> b
     boolean isActionViewExpanded(android.view.MenuItem) -> c
-android.support.v4.view.MenuItemCompat$HoneycombMenuVersionImpl -> android.support.v4.view.r:
+android.support.v4.view.MenuItemCompat$HoneycombMenuVersionImpl -> android.support.v4.view.x:
     void setShowAsAction(android.view.MenuItem,int) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,android.view.View) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,int) -> b
     android.view.View getActionView(android.view.MenuItem) -> a
     boolean expandActionView(android.view.MenuItem) -> b
     boolean isActionViewExpanded(android.view.MenuItem) -> c
-android.support.v4.view.MenuItemCompat$IcsMenuVersionImpl -> android.support.v4.view.s:
+android.support.v4.view.MenuItemCompat$IcsMenuVersionImpl -> android.support.v4.view.y:
     boolean expandActionView(android.view.MenuItem) -> b
     boolean isActionViewExpanded(android.view.MenuItem) -> c
-android.support.v4.view.MenuItemCompat$MenuVersionImpl -> android.support.v4.view.t:
+android.support.v4.view.MenuItemCompat$MenuVersionImpl -> android.support.v4.view.z:
     void setShowAsAction(android.view.MenuItem,int) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,android.view.View) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,int) -> b
     android.view.View getActionView(android.view.MenuItem) -> a
     boolean expandActionView(android.view.MenuItem) -> b
     boolean isActionViewExpanded(android.view.MenuItem) -> c
-android.support.v4.view.MenuItemCompat$OnActionExpandListener -> android.support.v4.view.u:
+android.support.v4.view.MenuItemCompat$OnActionExpandListener -> android.support.v4.view.aa:
     boolean onMenuItemActionExpand(android.view.MenuItem) -> a
     boolean onMenuItemActionCollapse(android.view.MenuItem) -> b
-android.support.v4.view.MenuItemCompatHoneycomb -> android.support.v4.view.v:
+android.support.v4.view.MenuItemCompatHoneycomb -> android.support.v4.view.ab:
     void setShowAsAction(android.view.MenuItem,int) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,android.view.View) -> a
     android.view.MenuItem setActionView(android.view.MenuItem,int) -> b
     android.view.View getActionView(android.view.MenuItem) -> a
-android.support.v4.view.MenuItemCompatIcs -> android.support.v4.view.w:
+android.support.v4.view.MenuItemCompatIcs -> android.support.v4.view.ac:
     boolean expandActionView(android.view.MenuItem) -> a
     boolean isActionViewExpanded(android.view.MenuItem) -> b
-android.support.v4.view.MotionEventCompat -> android.support.v4.view.x:
+android.support.v4.view.MotionEventCompat -> android.support.v4.view.ad:
     android.support.v4.view.MotionEventCompat$MotionEventVersionImpl IMPL -> a
     int getActionMasked(android.view.MotionEvent) -> a
     int getActionIndex(android.view.MotionEvent) -> b
@@ -906,31 +920,31 @@ android.support.v4.view.MotionEventCompat -> android.support.v4.view.x:
     float getX(android.view.MotionEvent,int) -> c
     float getY(android.view.MotionEvent,int) -> d
     int getPointerCount(android.view.MotionEvent) -> c
-android.support.v4.view.MotionEventCompat$BaseMotionEventVersionImpl -> android.support.v4.view.y:
+android.support.v4.view.MotionEventCompat$BaseMotionEventVersionImpl -> android.support.v4.view.ae:
     int findPointerIndex(android.view.MotionEvent,int) -> a
     int getPointerId(android.view.MotionEvent,int) -> b
     float getX(android.view.MotionEvent,int) -> c
     float getY(android.view.MotionEvent,int) -> d
     int getPointerCount(android.view.MotionEvent) -> a
-android.support.v4.view.MotionEventCompat$EclairMotionEventVersionImpl -> android.support.v4.view.z:
+android.support.v4.view.MotionEventCompat$EclairMotionEventVersionImpl -> android.support.v4.view.af:
     int findPointerIndex(android.view.MotionEvent,int) -> a
     int getPointerId(android.view.MotionEvent,int) -> b
     float getX(android.view.MotionEvent,int) -> c
     float getY(android.view.MotionEvent,int) -> d
     int getPointerCount(android.view.MotionEvent) -> a
-android.support.v4.view.MotionEventCompat$MotionEventVersionImpl -> android.support.v4.view.aa:
+android.support.v4.view.MotionEventCompat$MotionEventVersionImpl -> android.support.v4.view.ag:
     int findPointerIndex(android.view.MotionEvent,int) -> a
     int getPointerId(android.view.MotionEvent,int) -> b
     float getX(android.view.MotionEvent,int) -> c
     float getY(android.view.MotionEvent,int) -> d
     int getPointerCount(android.view.MotionEvent) -> a
-android.support.v4.view.MotionEventCompatEclair -> android.support.v4.view.ab:
+android.support.v4.view.MotionEventCompatEclair -> android.support.v4.view.ah:
     int findPointerIndex(android.view.MotionEvent,int) -> a
     int getPointerId(android.view.MotionEvent,int) -> b
     float getX(android.view.MotionEvent,int) -> c
     float getY(android.view.MotionEvent,int) -> d
     int getPointerCount(android.view.MotionEvent) -> a
-android.support.v4.view.PagerAdapter -> android.support.v4.view.ac:
+android.support.v4.view.PagerAdapter -> android.support.v4.view.ai:
     android.database.DataSetObservable mObservable -> a
     int getCount() -> a
     void startUpdate(android.view.ViewGroup) -> a
@@ -950,91 +964,103 @@ android.support.v4.view.PagerAdapter -> android.support.v4.view.ac:
     void registerDataSetObserver(android.database.DataSetObserver) -> a
     void unregisterDataSetObserver(android.database.DataSetObserver) -> b
     float getPageWidth(int) -> a
-android.support.v4.view.VelocityTrackerCompat -> android.support.v4.view.ad:
+android.support.v4.view.VelocityTrackerCompat -> android.support.v4.view.aj:
     android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl IMPL -> a
     float getXVelocity(android.view.VelocityTracker,int) -> a
     float getYVelocity(android.view.VelocityTracker,int) -> b
-android.support.v4.view.VelocityTrackerCompat$BaseVelocityTrackerVersionImpl -> android.support.v4.view.ae:
+android.support.v4.view.VelocityTrackerCompat$BaseVelocityTrackerVersionImpl -> android.support.v4.view.ak:
     float getXVelocity(android.view.VelocityTracker,int) -> a
     float getYVelocity(android.view.VelocityTracker,int) -> b
-android.support.v4.view.VelocityTrackerCompat$HoneycombVelocityTrackerVersionImpl -> android.support.v4.view.af:
+android.support.v4.view.VelocityTrackerCompat$HoneycombVelocityTrackerVersionImpl -> android.support.v4.view.al:
     float getXVelocity(android.view.VelocityTracker,int) -> a
     float getYVelocity(android.view.VelocityTracker,int) -> b
-android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl -> android.support.v4.view.ag:
+android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl -> android.support.v4.view.am:
     float getXVelocity(android.view.VelocityTracker,int) -> a
     float getYVelocity(android.view.VelocityTracker,int) -> b
-android.support.v4.view.VelocityTrackerCompatHoneycomb -> android.support.v4.view.ah:
+android.support.v4.view.VelocityTrackerCompatHoneycomb -> android.support.v4.view.an:
     float getXVelocity(android.view.VelocityTracker,int) -> a
     float getYVelocity(android.view.VelocityTracker,int) -> b
-android.support.v4.view.ViewCompat -> android.support.v4.view.ai:
+android.support.v4.view.ViewCompat -> android.support.v4.view.ao:
     android.support.v4.view.ViewCompat$ViewCompatImpl IMPL -> a
     boolean canScrollHorizontally(android.view.View,int) -> a
     int getOverScrollMode(android.view.View) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
     void postInvalidateOnAnimation(android.view.View) -> b
     void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
     void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
     void setLayerType(android.view.View,int,android.graphics.Paint) -> a
     int getLayerType(android.view.View) -> c
     void setLayerPaint(android.view.View,android.graphics.Paint) -> a
     int getLayoutDirection(android.view.View) -> d
     boolean isOpaque(android.view.View) -> e
-android.support.v4.view.ViewCompat$BaseViewCompatImpl -> android.support.v4.view.aj:
+android.support.v4.view.ViewCompat$BaseViewCompatImpl -> android.support.v4.view.ap:
+    java.util.WeakHashMap mViewPropertyAnimatorCompatMap -> a
     boolean canScrollHorizontally(android.view.View,int) -> a
     int getOverScrollMode(android.view.View) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
     void postInvalidateOnAnimation(android.view.View) -> b
     void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
     void postOnAnimation(android.view.View,java.lang.Runnable) -> a
     long getFrameTime() -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
     void setLayerType(android.view.View,int,android.graphics.Paint) -> a
     int getLayerType(android.view.View) -> c
     void setLayerPaint(android.view.View,android.graphics.Paint) -> a
     int getLayoutDirection(android.view.View) -> d
     boolean isOpaque(android.view.View) -> e
-android.support.v4.view.ViewCompat$EclairMr1ViewCompatImpl -> android.support.v4.view.ak:
+android.support.v4.view.ViewCompat$EclairMr1ViewCompatImpl -> android.support.v4.view.aq:
     boolean isOpaque(android.view.View) -> e
-android.support.v4.view.ViewCompat$GBViewCompatImpl -> android.support.v4.view.al:
+android.support.v4.view.ViewCompat$GBViewCompatImpl -> android.support.v4.view.ar:
     int getOverScrollMode(android.view.View) -> a
-android.support.v4.view.ViewCompat$HCViewCompatImpl -> android.support.v4.view.am:
+android.support.v4.view.ViewCompat$HCViewCompatImpl -> android.support.v4.view.as:
     long getFrameTime() -> a
     void setLayerType(android.view.View,int,android.graphics.Paint) -> a
     int getLayerType(android.view.View) -> c
     void setLayerPaint(android.view.View,android.graphics.Paint) -> a
-android.support.v4.view.ViewCompat$ICSViewCompatImpl -> android.support.v4.view.an:
+android.support.v4.view.ViewCompat$ICSViewCompatImpl -> android.support.v4.view.at:
     boolean canScrollHorizontally(android.view.View,int) -> a
-android.support.v4.view.ViewCompat$JBViewCompatImpl -> android.support.v4.view.ao:
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
+android.support.v4.view.ViewCompat$JBViewCompatImpl -> android.support.v4.view.au:
     void postInvalidateOnAnimation(android.view.View) -> b
     void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
     void postOnAnimation(android.view.View,java.lang.Runnable) -> a
-android.support.v4.view.ViewCompat$JbMr1ViewCompatImpl -> android.support.v4.view.ap:
+    void setImportantForAccessibility(android.view.View,int) -> b
+android.support.v4.view.ViewCompat$JbMr1ViewCompatImpl -> android.support.v4.view.av:
     void setLayerPaint(android.view.View,android.graphics.Paint) -> a
     int getLayoutDirection(android.view.View) -> d
-android.support.v4.view.ViewCompat$KitKatViewCompatImpl -> android.support.v4.view.aq:
-android.support.v4.view.ViewCompat$ViewCompatImpl -> android.support.v4.view.ar:
+android.support.v4.view.ViewCompat$KitKatViewCompatImpl -> android.support.v4.view.aw:
+    void setImportantForAccessibility(android.view.View,int) -> b
+android.support.v4.view.ViewCompat$ViewCompatImpl -> android.support.v4.view.ax:
     boolean canScrollHorizontally(android.view.View,int) -> a
     int getOverScrollMode(android.view.View) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
     void postInvalidateOnAnimation(android.view.View) -> b
     void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
     void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
     void setLayerType(android.view.View,int,android.graphics.Paint) -> a
     int getLayerType(android.view.View) -> c
     void setLayerPaint(android.view.View,android.graphics.Paint) -> a
     int getLayoutDirection(android.view.View) -> d
     boolean isOpaque(android.view.View) -> e
-android.support.v4.view.ViewCompatEclairMr1 -> android.support.v4.view.as:
+android.support.v4.view.ViewCompatEclairMr1 -> android.support.v4.view.ay:
     boolean isOpaque(android.view.View) -> a
-android.support.v4.view.ViewCompatGingerbread -> android.support.v4.view.at:
+android.support.v4.view.ViewCompatGingerbread -> android.support.v4.view.az:
     int getOverScrollMode(android.view.View) -> a
-android.support.v4.view.ViewCompatHC -> android.support.v4.view.au:
+android.support.v4.view.ViewCompatHC -> android.support.v4.view.ba:
     long getFrameTime() -> a
     void setLayerType(android.view.View,int,android.graphics.Paint) -> a
     int getLayerType(android.view.View) -> a
-android.support.v4.view.ViewCompatICS -> android.support.v4.view.av:
+android.support.v4.view.ViewCompatICS -> android.support.v4.view.bb:
     boolean canScrollHorizontally(android.view.View,int) -> a
-android.support.v4.view.ViewCompatJB -> android.support.v4.view.aw:
+    void setAccessibilityDelegate(android.view.View,java.lang.Object) -> a
+android.support.v4.view.ViewCompatJB -> android.support.v4.view.bc:
     void postInvalidateOnAnimation(android.view.View) -> a
     void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
     void postOnAnimation(android.view.View,java.lang.Runnable) -> a
-android.support.v4.view.ViewCompatJellybeanMr1 -> android.support.v4.view.ax:
+    void setImportantForAccessibility(android.view.View,int) -> a
+android.support.v4.view.ViewCompatJellybeanMr1 -> android.support.v4.view.bd:
     void setLayerPaint(android.view.View,android.graphics.Paint) -> a
     int getLayoutDirection(android.view.View) -> a
 android.support.v4.view.ViewPager -> android.support.v4.view.ViewPager:
@@ -1174,34 +1200,34 @@ android.support.v4.view.ViewPager -> android.support.v4.view.ViewPager:
     boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
     android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     int[] access$400() -> e
-android.support.v4.view.ViewPager$1 -> android.support.v4.view.ay:
+android.support.v4.view.ViewPager$1 -> android.support.v4.view.be:
     int compare(android.support.v4.view.ViewPager$ItemInfo,android.support.v4.view.ViewPager$ItemInfo) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
-android.support.v4.view.ViewPager$2 -> android.support.v4.view.az:
+android.support.v4.view.ViewPager$2 -> android.support.v4.view.bf:
     float getInterpolation(float) -> getInterpolation
-android.support.v4.view.ViewPager$Decor -> android.support.v4.view.ba:
-android.support.v4.view.ViewPager$ItemInfo -> android.support.v4.view.bb:
+android.support.v4.view.ViewPager$Decor -> android.support.v4.view.bg:
+android.support.v4.view.ViewPager$ItemInfo -> android.support.v4.view.bh:
     java.lang.Object object -> a
     int position -> b
     boolean scrolling -> c
     float widthFactor -> d
     float offset -> e
-android.support.v4.view.ViewPager$LayoutParams -> android.support.v4.view.bc:
+android.support.v4.view.ViewPager$LayoutParams -> android.support.v4.view.bi:
     boolean isDecor -> a
     int gravity -> b
     float widthFactor -> c
     boolean needsMeasure -> d
     int position -> e
     int childIndex -> f
-android.support.v4.view.ViewPager$OnAdapterChangeListener -> android.support.v4.view.bd:
+android.support.v4.view.ViewPager$OnAdapterChangeListener -> android.support.v4.view.bj:
     void onAdapterChanged(android.support.v4.view.PagerAdapter,android.support.v4.view.PagerAdapter) -> a
-android.support.v4.view.ViewPager$OnPageChangeListener -> android.support.v4.view.be:
+android.support.v4.view.ViewPager$OnPageChangeListener -> android.support.v4.view.bk:
     void onPageScrolled(int,float,int) -> a
     void onPageSelected(int) -> a
     void onPageScrollStateChanged(int) -> b
-android.support.v4.view.ViewPager$PageTransformer -> android.support.v4.view.bf:
+android.support.v4.view.ViewPager$PageTransformer -> android.support.v4.view.bl:
     void transformPage(android.view.View,float) -> a
-android.support.v4.view.ViewPager$PagerObserver -> android.support.v4.view.bg:
+android.support.v4.view.ViewPager$PagerObserver -> android.support.v4.view.bm:
     android.support.v4.view.ViewPager this$0 -> a
     void onChanged() -> onChanged
     void onInvalidated() -> onInvalidated
@@ -1212,12 +1238,12 @@ android.support.v4.view.ViewPager$SavedState -> android.support.v4.view.ViewPage
     android.os.Parcelable$Creator CREATOR -> CREATOR
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
     java.lang.String toString() -> toString
-android.support.v4.view.ViewPager$SavedState$1 -> android.support.v4.view.bh:
+android.support.v4.view.ViewPager$SavedState$1 -> android.support.v4.view.bn:
     android.support.v4.view.ViewPager$SavedState createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> b
     android.support.v4.view.ViewPager$SavedState[] newArray(int) -> b
     java.lang.Object[] newArray(int) -> a
     java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> a
-android.support.v4.view.ViewPager$ViewPositionComparator -> android.support.v4.view.bi:
+android.support.v4.view.ViewPager$ViewPositionComparator -> android.support.v4.view.bo:
     int compare(android.view.View,android.view.View) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
 android.support.v4.widget.CursorAdapter -> android.support.v4.widget.a:
@@ -1268,26 +1294,27 @@ android.support.v4.widget.CursorFilter$CursorFilterClient -> android.support.v4.
     void changeCursor(android.database.Cursor) -> a
 android.support.v4.widget.DrawerLayout -> android.support.v4.widget.DrawerLayout:
     int[] LAYOUT_ATTRS -> a
-    int mMinDrawerMargin -> b
-    int mScrimColor -> c
-    float mScrimOpacity -> d
-    android.graphics.Paint mScrimPaint -> e
-    android.support.v4.widget.ViewDragHelper mLeftDragger -> f
-    android.support.v4.widget.ViewDragHelper mRightDragger -> g
-    android.support.v4.widget.DrawerLayout$ViewDragCallback mLeftCallback -> h
-    android.support.v4.widget.DrawerLayout$ViewDragCallback mRightCallback -> i
-    int mDrawerState -> j
-    boolean mInLayout -> k
-    boolean mFirstLayout -> l
-    int mLockModeLeft -> m
-    int mLockModeRight -> n
-    boolean mDisallowInterceptRequested -> o
-    boolean mChildrenCanceledTouch -> p
-    android.support.v4.widget.DrawerLayout$DrawerListener mListener -> q
-    float mInitialMotionX -> r
-    float mInitialMotionY -> s
-    android.graphics.drawable.Drawable mShadowLeft -> t
-    android.graphics.drawable.Drawable mShadowRight -> u
+    android.support.v4.widget.DrawerLayout$ChildAccessibilityDelegate mChildAccessibilityDelegate -> b
+    int mMinDrawerMargin -> c
+    int mScrimColor -> d
+    float mScrimOpacity -> e
+    android.graphics.Paint mScrimPaint -> f
+    android.support.v4.widget.ViewDragHelper mLeftDragger -> g
+    android.support.v4.widget.ViewDragHelper mRightDragger -> h
+    android.support.v4.widget.DrawerLayout$ViewDragCallback mLeftCallback -> i
+    android.support.v4.widget.DrawerLayout$ViewDragCallback mRightCallback -> j
+    int mDrawerState -> k
+    boolean mInLayout -> l
+    boolean mFirstLayout -> m
+    int mLockModeLeft -> n
+    int mLockModeRight -> o
+    boolean mDisallowInterceptRequested -> p
+    boolean mChildrenCanceledTouch -> q
+    android.support.v4.widget.DrawerLayout$DrawerListener mListener -> r
+    float mInitialMotionX -> s
+    float mInitialMotionY -> t
+    android.graphics.drawable.Drawable mShadowLeft -> u
+    android.graphics.drawable.Drawable mShadowRight -> v
     void setScrimColor(int) -> setScrimColor
     void setDrawerListener(android.support.v4.widget.DrawerLayout$DrawerListener) -> setDrawerListener
     void setDrawerLockMode(int) -> setDrawerLockMode
@@ -1333,13 +1360,15 @@ android.support.v4.widget.DrawerLayout -> android.support.v4.widget.DrawerLayout
     boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
     void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
     android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
     int[] access$100() -> c
-android.support.v4.widget.DrawerLayout$DrawerListener -> android.support.v4.widget.g:
+android.support.v4.widget.DrawerLayout$ChildAccessibilityDelegate -> android.support.v4.widget.g:
+android.support.v4.widget.DrawerLayout$DrawerListener -> android.support.v4.widget.h:
     void onDrawerSlide(android.view.View,float) -> a
     void onDrawerOpened(android.view.View) -> a
     void onDrawerClosed(android.view.View) -> b
     void onDrawerStateChanged(int) -> a
-android.support.v4.widget.DrawerLayout$LayoutParams -> android.support.v4.widget.h:
+android.support.v4.widget.DrawerLayout$LayoutParams -> android.support.v4.widget.i:
     int gravity -> a
     float onScreen -> b
     boolean isPeeking -> c
@@ -1350,12 +1379,12 @@ android.support.v4.widget.DrawerLayout$SavedState -> android.support.v4.widget.D
     int lockModeRight -> c
     android.os.Parcelable$Creator CREATOR -> CREATOR
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.widget.DrawerLayout$SavedState$1 -> android.support.v4.widget.i:
+android.support.v4.widget.DrawerLayout$SavedState$1 -> android.support.v4.widget.j:
     android.support.v4.widget.DrawerLayout$SavedState createFromParcel(android.os.Parcel) -> a
     android.support.v4.widget.DrawerLayout$SavedState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.widget.j:
+android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.widget.k:
     int mAbsGravity -> b
     android.support.v4.widget.ViewDragHelper mDragger -> c
     java.lang.Runnable mPeekRunnable -> d
@@ -1373,7 +1402,7 @@ android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.wi
     int getViewHorizontalDragRange(android.view.View) -> a
     int clampViewPositionHorizontal(android.view.View,int,int) -> a
     int clampViewPositionVertical(android.view.View,int,int) -> b
-android.support.v4.widget.EdgeEffectCompat -> android.support.v4.widget.k:
+android.support.v4.widget.EdgeEffectCompat -> android.support.v4.widget.l:
     java.lang.Object mEdgeEffect -> a
     android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl IMPL -> b
     void setSize(int,int) -> a
@@ -1382,43 +1411,43 @@ android.support.v4.widget.EdgeEffectCompat -> android.support.v4.widget.k:
     boolean onPull(float) -> a
     boolean onRelease() -> c
     boolean draw(android.graphics.Canvas) -> a
-android.support.v4.widget.EdgeEffectCompat$BaseEdgeEffectImpl -> android.support.v4.widget.l:
+android.support.v4.widget.EdgeEffectCompat$BaseEdgeEffectImpl -> android.support.v4.widget.m:
     void setSize(java.lang.Object,int,int) -> a
     boolean isFinished(java.lang.Object) -> a
     void finish(java.lang.Object) -> b
     boolean onPull(java.lang.Object,float) -> a
     boolean onRelease(java.lang.Object) -> c
     boolean draw(java.lang.Object,android.graphics.Canvas) -> a
-android.support.v4.widget.EdgeEffectCompat$EdgeEffectIcsImpl -> android.support.v4.widget.m:
+android.support.v4.widget.EdgeEffectCompat$EdgeEffectIcsImpl -> android.support.v4.widget.n:
     void setSize(java.lang.Object,int,int) -> a
     boolean isFinished(java.lang.Object) -> a
     void finish(java.lang.Object) -> b
     boolean onPull(java.lang.Object,float) -> a
     boolean onRelease(java.lang.Object) -> c
     boolean draw(java.lang.Object,android.graphics.Canvas) -> a
-android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl -> android.support.v4.widget.n:
+android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl -> android.support.v4.widget.o:
     void setSize(java.lang.Object,int,int) -> a
     boolean isFinished(java.lang.Object) -> a
     void finish(java.lang.Object) -> b
     boolean onPull(java.lang.Object,float) -> a
     boolean onRelease(java.lang.Object) -> c
     boolean draw(java.lang.Object,android.graphics.Canvas) -> a
-android.support.v4.widget.EdgeEffectCompatIcs -> android.support.v4.widget.o:
+android.support.v4.widget.EdgeEffectCompatIcs -> android.support.v4.widget.p:
     void setSize(java.lang.Object,int,int) -> a
     boolean isFinished(java.lang.Object) -> a
     void finish(java.lang.Object) -> b
     boolean onPull(java.lang.Object,float) -> a
     boolean onRelease(java.lang.Object) -> c
     boolean draw(java.lang.Object,android.graphics.Canvas) -> a
-android.support.v4.widget.ResourceCursorAdapter -> android.support.v4.widget.p:
+android.support.v4.widget.ResourceCursorAdapter -> android.support.v4.widget.q:
     int mLayout -> j
     int mDropDownLayout -> k
     android.view.LayoutInflater mInflater -> l
     android.view.View newView(android.content.Context,android.database.Cursor,android.view.ViewGroup) -> a
     android.view.View newDropDownView(android.content.Context,android.database.Cursor,android.view.ViewGroup) -> b
-android.support.v4.widget.ScrollerCompat -> android.support.v4.widget.q:
+android.support.v4.widget.ScrollerCompat -> android.support.v4.widget.r:
     java.lang.Object mScroller -> a
-    android.support.v4.widget.ScrollerCompat$ScrollerCompatImpl IMPL -> b
+    android.support.v4.widget.ScrollerCompat$ScrollerCompatImpl mImpl -> b
     boolean isFinished() -> a
     int getCurrX() -> b
     int getCurrY() -> c
@@ -1427,35 +1456,7 @@ android.support.v4.widget.ScrollerCompat -> android.support.v4.widget.q:
     boolean computeScrollOffset() -> f
     void startScroll(int,int,int,int,int) -> a
     void abortAnimation() -> g
-android.support.v4.widget.ScrollerCompat$ScrollerCompatImpl -> android.support.v4.widget.r:
-    boolean isFinished(java.lang.Object) -> a
-    int getCurrX(java.lang.Object) -> b
-    int getCurrY(java.lang.Object) -> c
-    boolean computeScrollOffset(java.lang.Object) -> d
-    void startScroll(java.lang.Object,int,int,int,int,int) -> a
-    void abortAnimation(java.lang.Object) -> e
-    int getFinalX(java.lang.Object) -> f
-    int getFinalY(java.lang.Object) -> g
-android.support.v4.widget.ScrollerCompat$ScrollerCompatImplBase -> android.support.v4.widget.s:
-    boolean isFinished(java.lang.Object) -> a
-    int getCurrX(java.lang.Object) -> b
-    int getCurrY(java.lang.Object) -> c
-    boolean computeScrollOffset(java.lang.Object) -> d
-    void startScroll(java.lang.Object,int,int,int,int,int) -> a
-    void abortAnimation(java.lang.Object) -> e
-    int getFinalX(java.lang.Object) -> f
-    int getFinalY(java.lang.Object) -> g
-android.support.v4.widget.ScrollerCompat$ScrollerCompatImplGingerbread -> android.support.v4.widget.t:
-    boolean isFinished(java.lang.Object) -> a
-    int getCurrX(java.lang.Object) -> b
-    int getCurrY(java.lang.Object) -> c
-    boolean computeScrollOffset(java.lang.Object) -> d
-    void startScroll(java.lang.Object,int,int,int,int,int) -> a
-    void abortAnimation(java.lang.Object) -> e
-    int getFinalX(java.lang.Object) -> f
-    int getFinalY(java.lang.Object) -> g
-android.support.v4.widget.ScrollerCompat$ScrollerCompatImplIcs -> android.support.v4.widget.u:
-android.support.v4.widget.ScrollerCompatGingerbread -> android.support.v4.widget.v:
+android.support.v4.widget.ScrollerCompat$ScrollerCompatImpl -> android.support.v4.widget.s:
     boolean isFinished(java.lang.Object) -> a
     int getCurrX(java.lang.Object) -> b
     int getCurrY(java.lang.Object) -> c
@@ -1467,23 +1468,24 @@ android.support.v4.widget.ScrollerCompatGingerbread -> android.support.v4.widget
 android.support.v4.widget.SlidingPaneLayout -> android.support.v4.widget.SlidingPaneLayout:
     int mSliderFadeColor -> b
     int mCoveredFadeColor -> c
-    android.graphics.drawable.Drawable mShadowDrawable -> d
-    int mOverhangSize -> e
-    boolean mCanSlide -> f
-    android.view.View mSlideableView -> g
-    float mSlideOffset -> h
-    float mParallaxOffset -> i
-    int mSlideRange -> j
-    boolean mIsUnableToDrag -> k
-    int mParallaxBy -> l
-    float mInitialMotionX -> m
-    float mInitialMotionY -> n
-    android.support.v4.widget.SlidingPaneLayout$PanelSlideListener mPanelSlideListener -> o
-    android.support.v4.widget.ViewDragHelper mDragHelper -> p
-    boolean mPreservedOpenState -> q
-    boolean mFirstLayout -> r
-    android.graphics.Rect mTmpRect -> s
-    java.util.ArrayList mPostedRunnables -> t
+    android.graphics.drawable.Drawable mShadowDrawableLeft -> d
+    android.graphics.drawable.Drawable mShadowDrawableRight -> e
+    int mOverhangSize -> f
+    boolean mCanSlide -> g
+    android.view.View mSlideableView -> h
+    float mSlideOffset -> i
+    float mParallaxOffset -> j
+    int mSlideRange -> k
+    boolean mIsUnableToDrag -> l
+    int mParallaxBy -> m
+    float mInitialMotionX -> n
+    float mInitialMotionY -> o
+    android.support.v4.widget.SlidingPaneLayout$PanelSlideListener mPanelSlideListener -> p
+    android.support.v4.widget.ViewDragHelper mDragHelper -> q
+    boolean mPreservedOpenState -> r
+    boolean mFirstLayout -> s
+    android.graphics.Rect mTmpRect -> t
+    java.util.ArrayList mPostedRunnables -> u
     android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImpl IMPL -> a
     void setParallaxDistance(int) -> setParallaxDistance
     int getParallaxDistance() -> getParallaxDistance
@@ -1515,7 +1517,11 @@ android.support.v4.widget.SlidingPaneLayout -> android.support.v4.widget.Sliding
     boolean smoothSlideTo(float,int) -> a
     void computeScroll() -> computeScroll
     void setShadowDrawable(android.graphics.drawable.Drawable) -> setShadowDrawable
+    void setShadowDrawableLeft(android.graphics.drawable.Drawable) -> setShadowDrawableLeft
+    void setShadowDrawableRight(android.graphics.drawable.Drawable) -> setShadowDrawableRight
     void setShadowResource(int) -> setShadowResource
+    void setShadowResourceLeft(int) -> setShadowResourceLeft
+    void setShadowResourceRight(int) -> setShadowResourceRight
     void draw(android.graphics.Canvas) -> draw
     void parallaxOtherViews(float) -> a
     boolean isDimmed(android.view.View) -> b
@@ -1525,40 +1531,41 @@ android.support.v4.widget.SlidingPaneLayout -> android.support.v4.widget.Sliding
     android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
     void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
-    void access$900(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
-    java.util.ArrayList access$1000(android.support.v4.widget.SlidingPaneLayout) -> a
-android.support.v4.widget.SlidingPaneLayout$1 -> android.support.v4.widget.w:
-android.support.v4.widget.SlidingPaneLayout$DisableLayerRunnable -> android.support.v4.widget.x:
+    boolean isLayoutRtlSupport() -> f
+    void access$1000(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
+    java.util.ArrayList access$1100(android.support.v4.widget.SlidingPaneLayout) -> a
+android.support.v4.widget.SlidingPaneLayout$1 -> android.support.v4.widget.t:
+android.support.v4.widget.SlidingPaneLayout$DisableLayerRunnable -> android.support.v4.widget.u:
     android.view.View mChildView -> a
     android.support.v4.widget.SlidingPaneLayout this$0 -> b
     void run() -> run
-android.support.v4.widget.SlidingPaneLayout$LayoutParams -> android.support.v4.widget.y:
+android.support.v4.widget.SlidingPaneLayout$LayoutParams -> android.support.v4.widget.v:
     int[] ATTRS -> e
     float weight -> a
     boolean slideable -> b
     boolean dimWhenOffset -> c
     android.graphics.Paint dimPaint -> d
-android.support.v4.widget.SlidingPaneLayout$PanelSlideListener -> android.support.v4.widget.z:
+android.support.v4.widget.SlidingPaneLayout$PanelSlideListener -> android.support.v4.widget.w:
 android.support.v4.widget.SlidingPaneLayout$SavedState -> android.support.v4.widget.SlidingPaneLayout$SavedState:
     boolean isOpen -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.widget.SlidingPaneLayout$SavedState$1 -> android.support.v4.widget.aa:
+android.support.v4.widget.SlidingPaneLayout$SavedState$1 -> android.support.v4.widget.x:
     android.support.v4.widget.SlidingPaneLayout$SavedState createFromParcel(android.os.Parcel) -> a
     android.support.v4.widget.SlidingPaneLayout$SavedState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImpl -> android.support.v4.widget.ab:
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImpl -> android.support.v4.widget.y:
     void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
-android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplBase -> android.support.v4.widget.ac:
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplBase -> android.support.v4.widget.z:
     void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
-android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplJB -> android.support.v4.widget.ad:
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplJB -> android.support.v4.widget.aa:
     java.lang.reflect.Method mGetDisplayList -> a
     java.lang.reflect.Field mRecreateDisplayList -> b
     void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
-android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplJBMR1 -> android.support.v4.widget.ae:
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplJBMR1 -> android.support.v4.widget.ab:
     void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
-android.support.v4.widget.ViewDragHelper -> android.support.v4.widget.af:
+android.support.v4.widget.ViewDragHelper -> android.support.v4.widget.ac:
     int mDragState -> a
     int mTouchSlop -> b
     int mActivePointerId -> c
@@ -1583,6 +1590,7 @@ android.support.v4.widget.ViewDragHelper -> android.support.v4.widget.af:
     android.view.animation.Interpolator sInterpolator -> v
     java.lang.Runnable mSetIdleRunnable -> w
     int getViewDragState() -> a
+    void setEdgeTrackingEnabled(int) -> a
     int getEdgeSize() -> b
     void captureChildView(android.view.View,int) -> a
     android.view.View getCapturedView() -> c
@@ -1600,19 +1608,19 @@ android.support.v4.widget.ViewDragHelper -> android.support.v4.widget.af:
     boolean continueSettling(boolean) -> a
     void dispatchViewReleased(float,float) -> a
     void clearMotionHistory() -> g
-    void clearMotionHistory(int) -> d
-    void ensureMotionHistorySizeForId(int) -> e
+    void clearMotionHistory(int) -> e
+    void ensureMotionHistorySizeForId(int) -> f
     void saveInitialMotion(float,float,int) -> a
     void saveLastMotion(android.view.MotionEvent) -> c
-    boolean isPointerDown(int) -> a
-    void setDragState(int) -> b
+    boolean isPointerDown(int) -> b
+    void setDragState(int) -> c
     boolean tryCaptureViewForDrag(android.view.View,int) -> b
     boolean shouldInterceptTouchEvent(android.view.MotionEvent) -> a
     void processTouchEvent(android.view.MotionEvent) -> b
     void reportNewEdgeDrags(float,float,int) -> b
     boolean checkNewEdgeDrag(float,float,int,int) -> a
     boolean checkTouchSlop(android.view.View,float,float) -> a
-    boolean checkTouchSlop(int) -> c
+    boolean checkTouchSlop(int) -> d
     boolean checkTouchSlop(int,int) -> b
     void releaseViewForPointerUp() -> h
     void dragTo(int,int,int,int) -> b
@@ -1620,9 +1628,9 @@ android.support.v4.widget.ViewDragHelper -> android.support.v4.widget.af:
     boolean isViewUnder(android.view.View,int,int) -> b
     android.view.View findTopChildUnder(int,int) -> d
     int getEdgesTouched(int,int) -> e
-android.support.v4.widget.ViewDragHelper$1 -> android.support.v4.widget.ag:
+android.support.v4.widget.ViewDragHelper$1 -> android.support.v4.widget.ad:
     float getInterpolation(float) -> getInterpolation
-android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.ah:
+android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.ae:
     void onViewDragStateChanged(int) -> a
     void onViewPositionChanged(android.view.View,int,int,int,int) -> a
     void onViewCaptured(android.view.View,int) -> b
@@ -1721,7 +1729,11 @@ android.support.v7.app.ActionBarActivityDelegate -> android.support.v7.a.g:
     void onContentChanged() -> h
     java.lang.String getUiOptionsFromMetadata() -> i
     android.content.Context getActionBarThemedContext() -> j
-android.support.v7.app.ActionBarActivityDelegateBase -> android.support.v7.a.h:
+android.support.v7.app.ActionBarActivityDelegateApi20 -> android.support.v7.a.h:
+    android.view.Window$Callback createWindowCallbackWrapper(android.view.Window$Callback) -> a
+android.support.v7.app.ActionBarActivityDelegateApi20$WindowCallbackWrapperApi20 -> android.support.v7.a.i:
+    android.support.v7.app.ActionBarActivityDelegateApi20 this$0 -> a
+android.support.v7.app.ActionBarActivityDelegateBase -> android.support.v7.a.j:
     int[] ACTION_BAR_DRAWABLE_TOGGLE_ATTRS -> d
     android.support.v7.internal.widget.ActionBarView mActionBarView -> e
     android.support.v7.internal.view.menu.ListMenuPresenter mListMenuPresenter -> f
@@ -1761,12 +1773,12 @@ android.support.v7.app.ActionBarActivityDelegateBase -> android.support.v7.a.h:
     boolean onBackPressed() -> g
     boolean initializePanelMenu() -> m
     boolean preparePanel() -> n
-android.support.v7.app.ActionBarActivityDelegateBase$1 -> android.support.v7.a.i:
+android.support.v7.app.ActionBarActivityDelegateBase$1 -> android.support.v7.a.k:
     android.support.v7.app.ActionBarActivityDelegateBase this$0 -> a
     void run() -> run
-android.support.v7.app.ActionBarActivityDelegateHC -> android.support.v7.a.j:
+android.support.v7.app.ActionBarActivityDelegateHC -> android.support.v7.a.l:
     android.support.v7.app.ActionBar createSupportActionBar() -> a
-android.support.v7.app.ActionBarActivityDelegateICS -> android.support.v7.a.k:
+android.support.v7.app.ActionBarActivityDelegateICS -> android.support.v7.a.m:
     android.view.Menu mMenu -> d
     android.support.v7.app.ActionBar createSupportActionBar() -> a
     void onCreate(android.os.Bundle) -> a
@@ -1789,9 +1801,9 @@ android.support.v7.app.ActionBarActivityDelegateICS -> android.support.v7.a.k:
     void supportInvalidateOptionsMenu() -> f
     boolean onBackPressed() -> g
     android.support.v7.internal.view.ActionModeWrapper createActionModeWrapper(android.content.Context,android.view.ActionMode) -> a
-android.support.v7.app.ActionBarActivityDelegateICS$WindowCallbackWrapper -> android.support.v7.a.l:
-    android.view.Window$Callback mWrapped -> a
-    android.support.v7.app.ActionBarActivityDelegateICS this$0 -> b
+android.support.v7.app.ActionBarActivityDelegateICS$WindowCallbackWrapper -> android.support.v7.a.n:
+    android.view.Window$Callback mWrapped -> b
+    android.support.v7.app.ActionBarActivityDelegateICS this$0 -> c
     boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
     boolean dispatchKeyShortcutEvent(android.view.KeyEvent) -> dispatchKeyShortcutEvent
     boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
@@ -1813,12 +1825,12 @@ android.support.v7.app.ActionBarActivityDelegateICS$WindowCallbackWrapper -> and
     android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode$Callback) -> onWindowStartingActionMode
     void onActionModeStarted(android.view.ActionMode) -> onActionModeStarted
     void onActionModeFinished(android.view.ActionMode) -> onActionModeFinished
-android.support.v7.app.ActionBarActivityDelegateJB -> android.support.v7.a.m:
+android.support.v7.app.ActionBarActivityDelegateJB -> android.support.v7.a.o:
     android.support.v7.app.ActionBar createSupportActionBar() -> a
     android.support.v7.internal.view.ActionModeWrapper createActionModeWrapper(android.content.Context,android.view.ActionMode) -> a
-android.support.v7.app.ActionBarActivityDelegateJBMR2 -> android.support.v7.a.n:
+android.support.v7.app.ActionBarActivityDelegateJBMR2 -> android.support.v7.a.p:
     android.support.v7.app.ActionBar createSupportActionBar() -> a
-android.support.v7.app.ActionBarImplBase -> android.support.v7.a.o:
+android.support.v7.app.ActionBarImplBase -> android.support.v7.a.q:
     android.content.Context mContext -> b
     android.content.Context mThemedContext -> c
     android.support.v7.app.ActionBarActivity mActivity -> d
@@ -1861,20 +1873,20 @@ android.support.v7.app.ActionBarImplBase -> android.support.v7.a.o:
     void doShow(boolean) -> d
     void doHide(boolean) -> e
     boolean isShowHideAnimationEnabled() -> f
-android.support.v7.app.ActionBarImplHC -> android.support.v7.a.p:
+android.support.v7.app.ActionBarImplHC -> android.support.v7.a.r:
     android.support.v7.internal.widget.NativeActionModeAwareLayout mNativeActionModeAwareLayout -> b
     android.view.ActionMode mCurActionMode -> c
     android.view.ActionMode$Callback onActionModeForChild(android.view.ActionMode$Callback) -> a
     boolean isShowHideAnimationEnabled() -> f
     android.view.ActionMode access$002(android.support.v7.app.ActionBarImplHC,android.view.ActionMode) -> a
-android.support.v7.app.ActionBarImplHC$CallbackWrapper -> android.support.v7.a.q:
+android.support.v7.app.ActionBarImplHC$CallbackWrapper -> android.support.v7.a.s:
     android.view.ActionMode$Callback mWrappedCallback -> b
     android.support.v7.app.ActionBarImplHC this$0 -> a
     boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
     boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
     boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
     void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
-android.support.v7.app.ActionBarImplICS -> android.support.v7.a.r:
+android.support.v7.app.ActionBarImplICS -> android.support.v7.a.t:
     android.app.Activity mActivity -> a
     android.support.v7.app.ActionBar$Callback mCallback -> b
     android.app.ActionBar mActionBar -> c
@@ -1884,13 +1896,13 @@ android.support.v7.app.ActionBarImplICS -> android.support.v7.a.r:
     int getDisplayOptions() -> a
     android.content.Context getThemedContext() -> b
     void setHomeButtonEnabled(boolean) -> b
-android.support.v7.app.ActionBarImplJB -> android.support.v7.a.s:
+android.support.v7.app.ActionBarImplJB -> android.support.v7.a.u:
     void setHomeButtonEnabled(boolean) -> b
     android.content.Context getThemedContext() -> b
     int getDisplayOptions() -> a
     void setDisplayHomeAsUpEnabled(boolean) -> a
     void setTitle(java.lang.CharSequence) -> a
-android.support.v7.app.ActionBarImplJBMR2 -> android.support.v7.a.t:
+android.support.v7.app.ActionBarImplJBMR2 -> android.support.v7.a.v:
 android.support.v7.appcompat.R -> android.support.v7.b.a:
 android.support.v7.appcompat.R$anim -> android.support.v7.b.b:
     int abc_fade_in -> abc_fade_in
@@ -4222,38 +4234,38 @@ com.appnext.appnextsdk.Appnext -> com.appnext.appnextsdk.Appnext:
     android.content.ServiceConnection mConnection -> ao
     java.lang.Runnable showBubbleRunnable -> ap
     java.lang.Runnable disableLock -> aq
-    boolean checkPermission(java.lang.String) -> b
-    void initPopup() -> h
-    void c() -> i
-    void updatePopup() -> j
+    boolean checkPermission(java.lang.String) -> a
+    void initPopup() -> g
+    void c() -> h
+    void updatePopup() -> i
     void showBubble() -> a
-    void showBubble1() -> k
+    void showBubble1() -> j
     void setAppID(java.lang.String) -> setAppID
     java.lang.String getAppID() -> getAppID
     void hideBubble() -> b
     void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
     boolean isBubbleVisible() -> c
-    void reload() -> l
+    void reload() -> k
     void onDetachedFromWindow() -> onDetachedFromWindow
-    void next() -> m
-    void back() -> n
-    void ck() -> o
-    void initPortraitFullscreen1() -> p
-    void initlandscapeFullscreen1() -> q
+    void next() -> l
+    void back() -> m
+    void ck() -> n
+    void initPortraitFullscreen1() -> o
+    void initlandscapeFullscreen1() -> p
     void hideClickMask() -> d
     void showClickmask() -> e
     void setButtonTouchListener(java.lang.String,java.lang.String,android.widget.Button) -> a
     void setFrameButton(android.widget.Button) -> setFrameButton
     void setFrameButton(android.widget.Button,int,int,int,int) -> a
     java.lang.String getAdsID() -> getAdsID
-    boolean isServiceAvailable() -> r
+    boolean isServiceAvailable() -> q
     java.lang.String getEmail() -> getEmail
     void setUserName(java.lang.String) -> setUserName
-    void openMarket(java.lang.String) -> c
-    android.graphics.drawable.Drawable getImageDrawable(java.lang.String) -> d
+    void openMarket(java.lang.String) -> b
+    android.graphics.drawable.Drawable getImageDrawable(java.lang.String) -> c
     com.appnext.appnextsdk.ImageDownloader getImageDownloader() -> getImageDownloader
     double getScreenSize() -> getScreenSize
-    android.graphics.drawable.BitmapDrawable getRepeat(java.lang.String) -> e
+    android.graphics.drawable.BitmapDrawable getRepeat(java.lang.String) -> d
     boolean onDown(android.view.MotionEvent) -> onDown
     boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
     void onLongPress(android.view.MotionEvent) -> onLongPress
@@ -4269,14 +4281,11 @@ com.appnext.appnextsdk.Appnext -> com.appnext.appnextsdk.Appnext:
     void setPopupClickedCallback(com.appnext.appnextsdk.PopupClickedInterface) -> setPopupClickedCallback
     void setAdLoadInterface(com.appnext.appnextsdk.OnAdLoadInterface) -> setAdLoadInterface
     void setPopupOpenedInterface(com.appnext.appnextsdk.PopupOpenedInterface) -> setPopupOpenedInterface
-    void addMoreAppsLeft(java.lang.String) -> a
     void setVisibility(int) -> setVisibility
     void setImagePath(java.lang.String) -> setImagePath
-    void ask() -> s
-    void log(java.lang.String) -> f
+    void ask() -> r
+    void log(java.lang.String) -> e
     java.lang.String getVersion() -> getVersion
-    void showWebView() -> f
-    void doDemoClick() -> t
     void access$0(com.appnext.appnextsdk.Appnext,com.appnext.appnextsdk.DownloadService) -> a
     void access$1(com.appnext.appnextsdk.Appnext) -> a
     android.widget.RelativeLayout access$2(com.appnext.appnextsdk.Appnext) -> b
@@ -4326,7 +4335,7 @@ com.appnext.appnextsdk.Appnext -> com.appnext.appnextsdk.Appnext:
     android.view.animation.AnimationSet access$46(com.appnext.appnextsdk.Appnext) -> I
     com.appnext.appnextsdk.NoAdsInterface access$47(com.appnext.appnextsdk.Appnext) -> J
     void access$48(com.appnext.appnextsdk.Appnext,boolean) -> d
-    com.appnext.appnextsdk.AdsManager access$49() -> g
+    com.appnext.appnextsdk.AdsManager access$49() -> f
     com.appnext.appnextsdk.OnAdLoadInterface access$50(com.appnext.appnextsdk.Appnext) -> K
     com.appnext.appnextsdk.Appnext$finishedLoad access$51(com.appnext.appnextsdk.Appnext) -> L
     boolean access$52(com.appnext.appnextsdk.Appnext) -> M
@@ -4337,8 +4346,6 @@ com.appnext.appnextsdk.Appnext -> com.appnext.appnextsdk.Appnext:
     void access$57(com.appnext.appnextsdk.Appnext,android.view.View) -> a
     android.view.GestureDetector access$58(com.appnext.appnextsdk.Appnext) -> Q
     com.appnext.appnextsdk.PopupClosedInterface access$59(com.appnext.appnextsdk.Appnext) -> R
-    void access$60(com.appnext.appnextsdk.Appnext,com.appnext.appnextsdk.Appnext$finishedLoad) -> a
-    void access$61(com.appnext.appnextsdk.Appnext) -> S
 com.appnext.appnextsdk.Appnext$1 -> com.appnext.appnextsdk.f:
     com.appnext.appnextsdk.Appnext this$0 -> a
     void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
@@ -4440,48 +4447,45 @@ com.appnext.appnextsdk.Appnext$34 -> com.appnext.appnextsdk.ag:
     com.appnext.appnextsdk.Ad val$ad -> c
     android.app.Dialog val$d -> d
     void onClick(android.view.View) -> onClick
-com.appnext.appnextsdk.Appnext$35 -> com.appnext.appnextsdk.ah:
-    com.appnext.appnextsdk.Appnext this$0 -> a
-    void loaded() -> a
-com.appnext.appnextsdk.Appnext$5 -> com.appnext.appnextsdk.ai:
+com.appnext.appnextsdk.Appnext$5 -> com.appnext.appnextsdk.ah:
     com.appnext.appnextsdk.Appnext this$0 -> a
     android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
     void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
     void onLoaderReset(android.content.Loader) -> onLoaderReset
     void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
-com.appnext.appnextsdk.Appnext$6 -> com.appnext.appnextsdk.aj:
+com.appnext.appnextsdk.Appnext$6 -> com.appnext.appnextsdk.ai:
     com.appnext.appnextsdk.Appnext this$0 -> a
     void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
     void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-com.appnext.appnextsdk.Appnext$7 -> com.appnext.appnextsdk.ak:
+com.appnext.appnextsdk.Appnext$7 -> com.appnext.appnextsdk.aj:
     com.appnext.appnextsdk.Appnext this$0 -> a
     void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
     void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-com.appnext.appnextsdk.Appnext$8 -> com.appnext.appnextsdk.al:
+com.appnext.appnextsdk.Appnext$8 -> com.appnext.appnextsdk.ak:
     com.appnext.appnextsdk.Appnext this$0 -> a
     void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
     void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-com.appnext.appnextsdk.Appnext$9 -> com.appnext.appnextsdk.am:
+com.appnext.appnextsdk.Appnext$9 -> com.appnext.appnextsdk.al:
     com.appnext.appnextsdk.Appnext this$0 -> a
     void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
     void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-com.appnext.appnextsdk.Appnext$Click -> com.appnext.appnextsdk.an:
+com.appnext.appnextsdk.Appnext$Click -> com.appnext.appnextsdk.am:
     com.appnext.appnextsdk.Ad ad -> b
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$Click1 -> com.appnext.appnextsdk.ao:
+com.appnext.appnextsdk.Appnext$Click1 -> com.appnext.appnextsdk.an:
     com.appnext.appnextsdk.Ad ad -> b
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.String doInBackground(java.lang.Void[]) -> a
     void onPostExecute(java.lang.String) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$CustomShapeDrawable -> com.appnext.appnextsdk.ap:
+com.appnext.appnextsdk.Appnext$CustomShapeDrawable -> com.appnext.appnextsdk.ao:
     android.graphics.Paint fillpaint -> b
     android.graphics.Paint strokepaint -> c
     int strokeWidth -> d
@@ -4490,20 +4494,20 @@ com.appnext.appnextsdk.Appnext$CustomShapeDrawable -> com.appnext.appnextsdk.ap:
 com.appnext.appnextsdk.Appnext$DownloadReceiver -> com.appnext.appnextsdk.Appnext$DownloadReceiver:
     com.appnext.appnextsdk.Appnext this$0 -> a
     void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
-com.appnext.appnextsdk.Appnext$Impression -> com.appnext.appnextsdk.aq:
+com.appnext.appnextsdk.Appnext$Impression -> com.appnext.appnextsdk.ap:
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$NewsletterRegister -> com.appnext.appnextsdk.ar:
+com.appnext.appnextsdk.Appnext$NewsletterRegister -> com.appnext.appnextsdk.aq:
     com.appnext.appnextsdk.Ad ad -> a
     com.appnext.appnextsdk.Appnext this$0 -> b
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$PermissionsNotify -> com.appnext.appnextsdk.as:
+com.appnext.appnextsdk.Appnext$PermissionsNotify -> com.appnext.appnextsdk.ar:
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.Void doInBackground(java.lang.String[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$PostErr -> com.appnext.appnextsdk.at:
+com.appnext.appnextsdk.Appnext$PostErr -> com.appnext.appnextsdk.as:
     java.lang.String e -> a
     java.lang.String r -> b
     java.lang.String y -> c
@@ -4511,43 +4515,43 @@ com.appnext.appnextsdk.Appnext$PostErr -> com.appnext.appnextsdk.at:
     com.appnext.appnextsdk.Appnext this$0 -> e
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$SendByEmail -> com.appnext.appnextsdk.au:
+com.appnext.appnextsdk.Appnext$SendByEmail -> com.appnext.appnextsdk.at:
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.Void doInBackground(com.appnext.appnextsdk.Ad[]) -> a
     void onPostExecute(java.lang.Void) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$ServerNotify -> com.appnext.appnextsdk.av:
+com.appnext.appnextsdk.Appnext$ServerNotify -> com.appnext.appnextsdk.au:
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.Void doInBackground(java.lang.String[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$SpecialOffers -> com.appnext.appnextsdk.aw:
+com.appnext.appnextsdk.Appnext$SpecialOffers -> com.appnext.appnextsdk.av:
     com.appnext.appnextsdk.Appnext this$0 -> a
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     void onPostExecute(java.lang.Void) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.appnext.appnextsdk.Appnext$finishedLoad -> com.appnext.appnextsdk.ax:
+com.appnext.appnextsdk.Appnext$finishedLoad -> com.appnext.appnextsdk.aw:
     void loaded() -> a
-com.appnext.appnextsdk.AppnextAdvertisingIdClient -> com.appnext.appnextsdk.ay:
+com.appnext.appnextsdk.AppnextAdvertisingIdClient -> com.appnext.appnextsdk.ax:
     com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdInfo getAdvertisingIdInfo(android.content.Context) -> a
-com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdInfo -> com.appnext.appnextsdk.az:
+com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdInfo -> com.appnext.appnextsdk.ay:
     java.lang.String advertisingId -> a
     boolean limitAdTrackingEnabled -> b
     java.lang.String getId() -> a
     boolean isLimitAdTrackingEnabled() -> b
-com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdvertisingConnection -> com.appnext.appnextsdk.ba:
+com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdvertisingConnection -> com.appnext.appnextsdk.az:
     boolean retrieved -> a
     java.util.concurrent.LinkedBlockingQueue queue -> b
     void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
     void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
     android.os.IBinder getBinder() -> a
-com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdvertisingInterface -> com.appnext.appnextsdk.bb:
+com.appnext.appnextsdk.AppnextAdvertisingIdClient$AdvertisingInterface -> com.appnext.appnextsdk.ba:
     android.os.IBinder binder -> a
     android.os.IBinder asBinder() -> asBinder
     java.lang.String getId() -> a
     boolean isLimitAdTrackingEnabled(boolean) -> a
-com.appnext.appnextsdk.AppnextGpsHelper -> com.appnext.appnextsdk.bc:
+com.appnext.appnextsdk.AppnextGpsHelper -> com.appnext.appnextsdk.bb:
     java.lang.String sPlayServicesUtilClassName -> a
     java.lang.String sAdvertisingIdClientClassName -> b
     boolean isGpsAvailable(android.content.Context) -> a
@@ -4555,39 +4559,27 @@ com.appnext.appnextsdk.AppnextGpsHelper -> com.appnext.appnextsdk.bc:
     boolean isLimitAdTrackingEnabled(android.content.Context) -> c
     java.lang.String reflectedGetAdvertisingId(java.lang.Object,java.lang.String) -> a
     boolean reflectedIsLimitAdTrackingEnabled(java.lang.Object,boolean) -> a
-com.appnext.appnextsdk.AppnextMoreApps -> com.appnext.appnextsdk.bd:
-    android.widget.ImageView image -> a
-    android.content.Context context -> b
-    com.appnext.appnextsdk.Appnext appnext -> c
-    java.lang.String mGravity -> d
-    java.lang.String placementID -> e
-    java.lang.String imagePath -> f
-    void init() -> d
-    void initLeft() -> a
-    void setAppext(com.appnext.appnextsdk.Appnext,java.lang.String) -> a
-    void setAppext(com.appnext.appnextsdk.Appnext) -> setAppext
-    android.graphics.drawable.Drawable getImageDrawable(java.lang.String) -> a
-    int convertDpToPixel(float) -> a
-    void show() -> b
-    void hide() -> c
-    double getScreenSize() -> getScreenSize
-    com.appnext.appnextsdk.Appnext access$0(com.appnext.appnextsdk.AppnextMoreApps) -> a
-    java.lang.String access$1(com.appnext.appnextsdk.AppnextMoreApps) -> b
-com.appnext.appnextsdk.AppnextMoreApps$1 -> com.appnext.appnextsdk.be:
-    com.appnext.appnextsdk.AppnextMoreApps this$0 -> a
-    void onClick(android.view.View) -> onClick
-com.appnext.appnextsdk.AppnextMoreGames -> com.appnext.appnextsdk.bf:
+com.appnext.appnextsdk.AppnextMoreApps -> com.appnext.appnextsdk.bc:
     android.widget.ImageView image -> a
     android.content.Context context -> b
     com.appnext.appnextsdk.Appnext appnext -> c
     java.lang.String placementID -> d
     void setAppext(com.appnext.appnextsdk.Appnext) -> setAppext
-    void show() -> b
-    void hide() -> c
+    void show() -> a
+    void hide() -> b
     double getScreenSize() -> getScreenSize
-com.appnext.appnextsdk.AppnextReflectionHelper -> com.appnext.appnextsdk.bg:
+com.appnext.appnextsdk.AppnextMoreGames -> com.appnext.appnextsdk.bd:
+    android.widget.ImageView image -> a
+    android.content.Context context -> b
+    com.appnext.appnextsdk.Appnext appnext -> c
+    java.lang.String placementID -> d
+    void setAppext(com.appnext.appnextsdk.Appnext) -> setAppext
+    void show() -> a
+    void hide() -> b
+    double getScreenSize() -> getScreenSize
+com.appnext.appnextsdk.AppnextReflectionHelper -> com.appnext.appnextsdk.be:
     java.lang.reflect.Method getDeclaredMethodWithTraversal(java.lang.Class,java.lang.String,java.lang.Class[]) -> a
-com.appnext.appnextsdk.AppnextReflectionHelper$MethodBuilder -> com.appnext.appnextsdk.bh:
+com.appnext.appnextsdk.AppnextReflectionHelper$MethodBuilder -> com.appnext.appnextsdk.bf:
     java.lang.Object mInstance -> a
     java.lang.String mMethodName -> b
     java.lang.Class mClass -> c
@@ -4598,7 +4590,7 @@ com.appnext.appnextsdk.AppnextReflectionHelper$MethodBuilder -> com.appnext.appn
     com.appnext.appnextsdk.AppnextReflectionHelper$MethodBuilder addParam(java.lang.Class,java.lang.Object) -> a
     com.appnext.appnextsdk.AppnextReflectionHelper$MethodBuilder setStatic(java.lang.Class) -> a
     java.lang.Object execute() -> a
-com.appnext.appnextsdk.Cap -> com.appnext.appnextsdk.bi:
+com.appnext.appnextsdk.Cap -> com.appnext.appnextsdk.bg:
     android.content.Context context -> a
     com.appnext.appnextsdk.Cap instance -> b
     com.appnext.appnextsdk.Cap getInstance(android.content.Context) -> a
@@ -4619,13 +4611,13 @@ com.appnext.appnextsdk.DownloadService -> com.appnext.appnextsdk.DownloadService
     boolean access$1(com.appnext.appnextsdk.DownloadService,java.lang.String) -> a
     android.os.Handler access$2(com.appnext.appnextsdk.DownloadService) -> b
     java.lang.Runnable access$3(com.appnext.appnextsdk.DownloadService) -> c
-com.appnext.appnextsdk.DownloadService$1 -> com.appnext.appnextsdk.bj:
+com.appnext.appnextsdk.DownloadService$1 -> com.appnext.appnextsdk.bh:
     com.appnext.appnextsdk.DownloadService this$0 -> a
     void run() -> run
-com.appnext.appnextsdk.DownloadService$LocalBinder -> com.appnext.appnextsdk.bk:
+com.appnext.appnextsdk.DownloadService$LocalBinder -> com.appnext.appnextsdk.bi:
     com.appnext.appnextsdk.DownloadService this$0 -> a
     com.appnext.appnextsdk.DownloadService getService() -> a
-com.appnext.appnextsdk.DownloadService$Pack -> com.appnext.appnextsdk.bl:
+com.appnext.appnextsdk.DownloadService$Pack -> com.appnext.appnextsdk.bj:
     java.lang.String pack -> a
     java.lang.String guid -> b
     android.os.ResultReceiver receiver -> c
@@ -4633,9 +4625,9 @@ com.appnext.appnextsdk.DownloadService$Pack -> com.appnext.appnextsdk.bl:
     java.lang.String isApk -> e
     java.lang.String zone -> f
     com.appnext.appnextsdk.DownloadService this$0 -> g
-com.appnext.appnextsdk.HCallback -> com.appnext.appnextsdk.bm:
-    void hide() -> c
-    void show() -> b
+com.appnext.appnextsdk.HCallback -> com.appnext.appnextsdk.bk:
+    void hide() -> b
+    void show() -> a
 com.appnext.appnextsdk.ImageDownloader -> com.appnext.appnextsdk.ImageDownloader:
     boolean shadow -> a
     com.appnext.appnextsdk.ImageDownloader$DMode mode -> b
@@ -4665,10 +4657,10 @@ com.appnext.appnextsdk.ImageDownloader$1 -> com.appnext.appnextsdk.ImageDownload
     long serialVersionUID -> serialVersionUID
     com.appnext.appnextsdk.ImageDownloader this$0 -> this$0
     boolean removeEldestEntry(java.util.Map$Entry) -> removeEldestEntry
-com.appnext.appnextsdk.ImageDownloader$2 -> com.appnext.appnextsdk.bn:
+com.appnext.appnextsdk.ImageDownloader$2 -> com.appnext.appnextsdk.bl:
     com.appnext.appnextsdk.ImageDownloader this$0 -> a
     void run() -> run
-com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask -> com.appnext.appnextsdk.bo:
+com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask -> com.appnext.appnextsdk.bm:
     java.lang.String url -> b
     java.lang.ref.WeakReference imageViewReference -> c
     com.appnext.appnextsdk.ImageDownloader this$0 -> a
@@ -4684,20 +4676,20 @@ com.appnext.appnextsdk.ImageDownloader$DMode -> com.appnext.appnextsdk.ImageDown
     com.appnext.appnextsdk.ImageDownloader$DMode[] ENUM$VALUES -> d
     com.appnext.appnextsdk.ImageDownloader$DMode[] values() -> values
     com.appnext.appnextsdk.ImageDownloader$DMode valueOf(java.lang.String) -> valueOf
-com.appnext.appnextsdk.ImageDownloader$DownloadedDrawable -> com.appnext.appnextsdk.bp:
+com.appnext.appnextsdk.ImageDownloader$DownloadedDrawable -> com.appnext.appnextsdk.bn:
     java.lang.ref.WeakReference bitmapDownloaderTaskReference -> a
     com.appnext.appnextsdk.ImageDownloader$BitmapDownloaderTask getBitmapDownloaderTask() -> a
-com.appnext.appnextsdk.ImageDownloader$FlushedInputStream -> com.appnext.appnextsdk.bq:
+com.appnext.appnextsdk.ImageDownloader$FlushedInputStream -> com.appnext.appnextsdk.bo:
     long skip(long) -> skip
-com.appnext.appnextsdk.NoAdsInterface -> com.appnext.appnextsdk.br:
+com.appnext.appnextsdk.NoAdsInterface -> com.appnext.appnextsdk.bp:
     void noAds() -> a
-com.appnext.appnextsdk.OnAdLoadInterface -> com.appnext.appnextsdk.bs:
+com.appnext.appnextsdk.OnAdLoadInterface -> com.appnext.appnextsdk.bq:
     void adLoaded() -> a
-com.appnext.appnextsdk.PopupClickedInterface -> com.appnext.appnextsdk.bt:
+com.appnext.appnextsdk.PopupClickedInterface -> com.appnext.appnextsdk.br:
     void popupClicked() -> a
-com.appnext.appnextsdk.PopupClosedInterface -> com.appnext.appnextsdk.bu:
+com.appnext.appnextsdk.PopupClosedInterface -> com.appnext.appnextsdk.bs:
     void popupClosed() -> a
-com.appnext.appnextsdk.PopupOpenedInterface -> com.appnext.appnextsdk.bv:
+com.appnext.appnextsdk.PopupOpenedInterface -> com.appnext.appnextsdk.bt:
     void popupOpened() -> a
 com.facebook.AccessToken -> com.facebook.AccessToken:
     long serialVersionUID -> serialVersionUID
@@ -6813,6 +6805,49 @@ com.facebook.widget.WebDialog$DialogWebViewClient -> com.facebook.widget.ab:
     void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
 com.facebook.widget.WebDialog$OnCompleteListener -> com.facebook.widget.ac:
     void onComplete(android.os.Bundle,com.facebook.FacebookException) -> a
+com.google.android.gms.R -> com.google.android.gms.a:
+com.google.android.gms.R$string -> com.google.android.gms.b:
+    int auth_client_needs_enabling_title -> auth_client_needs_enabling_title
+    int auth_client_needs_installation_title -> auth_client_needs_installation_title
+    int auth_client_needs_update_title -> auth_client_needs_update_title
+    int auth_client_play_services_err_notification_msg -> auth_client_play_services_err_notification_msg
+    int auth_client_requested_by_msg -> auth_client_requested_by_msg
+    int auth_client_using_bad_version_title -> auth_client_using_bad_version_title
+    int common_google_play_services_enable_button -> common_google_play_services_enable_button
+    int common_google_play_services_enable_text -> common_google_play_services_enable_text
+    int common_google_play_services_enable_title -> common_google_play_services_enable_title
+    int common_google_play_services_error_notification_requested_by_msg -> common_google_play_services_error_notification_requested_by_msg
+    int common_google_play_services_install_button -> common_google_play_services_install_button
+    int common_google_play_services_install_text_phone -> common_google_play_services_install_text_phone
+    int common_google_play_services_install_text_tablet -> common_google_play_services_install_text_tablet
+    int common_google_play_services_install_title -> common_google_play_services_install_title
+    int common_google_play_services_invalid_account_text -> common_google_play_services_invalid_account_text
+    int common_google_play_services_invalid_account_title -> common_google_play_services_invalid_account_title
+    int common_google_play_services_needs_enabling_title -> common_google_play_services_needs_enabling_title
+    int common_google_play_services_network_error_text -> common_google_play_services_network_error_text
+    int common_google_play_services_network_error_title -> common_google_play_services_network_error_title
+    int common_google_play_services_notification_needs_installation_title -> common_google_play_services_notification_needs_installation_title
+    int common_google_play_services_notification_needs_update_title -> common_google_play_services_notification_needs_update_title
+    int common_google_play_services_notification_ticker -> common_google_play_services_notification_ticker
+    int common_google_play_services_unknown_issue -> common_google_play_services_unknown_issue
+    int common_google_play_services_unsupported_date_text -> common_google_play_services_unsupported_date_text
+    int common_google_play_services_unsupported_text -> common_google_play_services_unsupported_text
+    int common_google_play_services_unsupported_title -> common_google_play_services_unsupported_title
+    int common_google_play_services_update_button -> common_google_play_services_update_button
+    int common_google_play_services_update_text -> common_google_play_services_update_text
+    int common_google_play_services_update_title -> common_google_play_services_update_title
+    int common_signin_button_text -> common_signin_button_text
+    int common_signin_button_text_long -> common_signin_button_text_long
+    int wallet_buy_button_place_holder -> wallet_buy_button_place_holder
+com.google.android.gms.ads.identifier.AdvertisingIdClient -> com.google.android.gms.a.a.a:
+    com.google.android.gms.common.a g(android.content.Context) -> a
+    com.google.android.gms.ads.identifier.AdvertisingIdClient$Info getAdvertisingIdInfo(android.content.Context) -> b
+    com.google.android.gms.ads.identifier.AdvertisingIdClient$Info a(android.content.Context,com.google.android.gms.common.a) -> a
+com.google.android.gms.ads.identifier.AdvertisingIdClient$Info -> com.google.android.gms.a.a.b:
+    java.lang.String kw -> a
+    boolean kx -> b
+    java.lang.String getId() -> a
+    boolean isLimitAdTrackingEnabled() -> b
 com.google.android.gms.cast.ApplicationMetadata -> com.google.android.gms.cast.ApplicationMetadata:
     android.os.Parcelable$Creator CREATOR -> CREATOR
     int xH -> g
@@ -6866,6 +6901,44 @@ com.google.android.gms.cast.b -> com.google.android.gms.cast.b:
     void a(com.google.android.gms.cast.CastDevice,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.google.android.gms.common.GooglePlayServicesNotAvailableException -> com.google.android.gms.common.GooglePlayServicesNotAvailableException:
+    int errorCode -> errorCode
+com.google.android.gms.common.GooglePlayServicesRepairableException -> com.google.android.gms.common.GooglePlayServicesRepairableException:
+    int wQ -> wQ
+com.google.android.gms.common.GooglePlayServicesUtil -> com.google.android.gms.common.a:
+    byte[][] Aj -> a
+    byte[][] Ak -> b
+    byte[][] Al -> c
+    byte[][] Am -> d
+    byte[][] An -> e
+    byte[][] Ao -> f
+    byte[][] Ap -> i
+    byte[][] Aq -> j
+    boolean Ar -> g
+    boolean As -> h
+    int At -> k
+    java.lang.Object Au -> l
+    int isGooglePlayServicesAvailable(android.content.Context) -> a
+    void s(android.content.Context) -> b
+    void t(android.content.Context) -> c
+    byte[] a(android.content.pm.PackageInfo,byte[][]) -> a
+    android.content.Intent b(android.content.Context,int) -> a
+    java.lang.String c(android.content.Context,int) -> b
+    java.lang.String d(android.content.Context,int) -> c
+    android.app.Dialog getErrorDialog(int,android.app.Activity,int) -> a
+    android.app.Dialog getErrorDialog(int,android.app.Activity,int,android.content.DialogInterface$OnCancelListener) -> a
+    boolean a(android.content.res.Resources) -> a
+    boolean b(android.content.res.Resources) -> b
+    byte[][] a(byte[][][]) -> a
+    byte[] ag(java.lang.String) -> a
+com.google.android.gms.common.UserRecoverableException -> com.google.android.gms.common.UserRecoverableException:
+    android.content.Intent mIntent -> mIntent
+com.google.android.gms.common.a -> com.google.android.gms.common.b:
+    boolean Ae -> a
+    java.util.concurrent.BlockingQueue Af -> b
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    android.os.IBinder dV() -> a
 com.google.android.gms.common.api.CommonStatusCodes -> com.google.android.gms.common.api.a:
     java.lang.String getStatusCodeString(int) -> a
 com.google.android.gms.common.api.Status -> com.google.android.gms.common.api.Status:
@@ -7713,15 +7786,15 @@ com.google.android.gms.drive.query.internal.j -> com.google.android.gms.drive.qu
     void a(com.google.android.gms.drive.query.internal.Operator,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.dynamic.d -> com.google.android.gms.a.a:
-com.google.android.gms.dynamic.d$a -> com.google.android.gms.a.b:
+com.google.android.gms.dynamic.d -> com.google.android.gms.b.a:
+com.google.android.gms.dynamic.d$a -> com.google.android.gms.b.b:
     com.google.android.gms.dynamic.d K(android.os.IBinder) -> a
     android.os.IBinder asBinder() -> asBinder
     boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
-com.google.android.gms.dynamic.d$a$a -> com.google.android.gms.a.c:
+com.google.android.gms.dynamic.d$a$a -> com.google.android.gms.b.c:
     android.os.IBinder kn -> a
     android.os.IBinder asBinder() -> asBinder
-com.google.android.gms.dynamic.e -> com.google.android.gms.a.d:
+com.google.android.gms.dynamic.e -> com.google.android.gms.b.d:
     java.lang.Object Hw -> a
     com.google.android.gms.dynamic.d h(java.lang.Object) -> a
     java.lang.Object d(com.google.android.gms.dynamic.d) -> a
@@ -8884,6 +8957,11 @@ com.google.android.gms.internal.fc$a -> com.google.android.gms.internal.fc$a:
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
     int getVersionCode() -> e
+com.google.android.gms.internal.fd -> com.google.android.gms.internal.v:
+    android.app.Activity nS -> a
+    android.content.Intent mIntent -> b
+    int CV -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
 com.google.android.gms.internal.fe -> com.google.android.gms.internal.fe:
     java.lang.Object CW -> a
     java.lang.ClassLoader CX -> b
@@ -8894,23 +8972,30 @@ com.google.android.gms.internal.fe -> com.google.android.gms.internal.fe:
     boolean eK() -> C
     boolean al(java.lang.String) -> b
     boolean a(java.lang.Class) -> a
-com.google.android.gms.internal.fo -> com.google.android.gms.internal.v:
+com.google.android.gms.internal.fi -> com.google.android.gms.internal.w:
+    android.net.Uri DF -> a
+    android.net.Uri DG -> b
+    android.content.Intent am(java.lang.String) -> a
+    android.content.Intent eS() -> a
+    android.net.Uri an(java.lang.String) -> c
+    android.content.Intent ao(java.lang.String) -> b
+com.google.android.gms.internal.fo -> com.google.android.gms.internal.x:
     boolean equal(java.lang.Object,java.lang.Object) -> a
     int hashCode(java.lang.Object[]) -> a
     com.google.android.gms.internal.fo$a e(java.lang.Object) -> a
-com.google.android.gms.internal.fo$1 -> com.google.android.gms.internal.w:
-com.google.android.gms.internal.fo$a -> com.google.android.gms.internal.x:
+com.google.android.gms.internal.fo$1 -> com.google.android.gms.internal.y:
+com.google.android.gms.internal.fo$a -> com.google.android.gms.internal.z:
     java.util.List DI -> a
     java.lang.Object DJ -> b
     com.google.android.gms.internal.fo$a a(java.lang.String,java.lang.Object) -> a
     java.lang.String toString() -> toString
-com.google.android.gms.internal.fp -> com.google.android.gms.internal.y:
+com.google.android.gms.internal.fp -> com.google.android.gms.internal.aa:
     com.google.android.gms.internal.fc$a m(android.os.Parcel) -> a
     com.google.android.gms.internal.fc$a[] Q(int) -> a
     void a(com.google.android.gms.internal.fc$a,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.fq -> com.google.android.gms.internal.z:
+com.google.android.gms.internal.fq -> com.google.android.gms.internal.ab:
     java.lang.Object f(java.lang.Object) -> a
     java.lang.String ap(java.lang.String) -> a
     java.lang.Object b(java.lang.Object,java.lang.Object) -> a
@@ -8919,7 +9004,8 @@ com.google.android.gms.internal.fq -> com.google.android.gms.internal.z:
     void b(boolean,java.lang.Object) -> b
     void a(boolean,java.lang.String,java.lang.Object[]) -> a
     void z(boolean) -> b
-com.google.android.gms.internal.fu -> com.google.android.gms.internal.aa:
+    void ak(java.lang.String) -> b
+com.google.android.gms.internal.fu -> com.google.android.gms.internal.ac:
     java.util.LinkedHashMap DL -> a
     int size -> b
     int DM -> c
@@ -8947,7 +9033,7 @@ com.google.android.gms.internal.fv -> com.google.android.gms.internal.fv:
     com.google.android.gms.internal.ga$b eU() -> c
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.fw -> com.google.android.gms.internal.ab:
+com.google.android.gms.internal.fw -> com.google.android.gms.internal.ad:
     com.google.android.gms.internal.fv q(android.os.Parcel) -> a
     com.google.android.gms.internal.fv[] S(int) -> a
     void a(com.google.android.gms.internal.fv,android.os.Parcel,int) -> a
@@ -8976,13 +9062,13 @@ com.google.android.gms.internal.fx$a -> com.google.android.gms.internal.fx$a:
     int DX -> c
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.fy -> com.google.android.gms.internal.ac:
+com.google.android.gms.internal.fy -> com.google.android.gms.internal.ae:
     com.google.android.gms.internal.fx r(android.os.Parcel) -> a
     com.google.android.gms.internal.fx[] T(int) -> a
     void a(com.google.android.gms.internal.fx,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.fz -> com.google.android.gms.internal.ad:
+com.google.android.gms.internal.fz -> com.google.android.gms.internal.af:
     com.google.android.gms.internal.fx$a s(android.os.Parcel) -> a
     com.google.android.gms.internal.fx$a[] U(int) -> a
     void a(com.google.android.gms.internal.fx$a,android.os.Parcel,int) -> a
@@ -9041,17 +9127,17 @@ com.google.android.gms.internal.ga$a -> com.google.android.gms.internal.ga$a:
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
     java.lang.String toString() -> toString
     com.google.android.gms.internal.ga$b c(com.google.android.gms.internal.ga$a) -> a
-com.google.android.gms.internal.ga$b -> com.google.android.gms.internal.ae:
+com.google.android.gms.internal.ga$b -> com.google.android.gms.internal.ag:
     int eW() -> c
     int eX() -> d
     java.lang.Object g(java.lang.Object) -> a
-com.google.android.gms.internal.gb -> com.google.android.gms.internal.af:
+com.google.android.gms.internal.gb -> com.google.android.gms.internal.ai:
     com.google.android.gms.internal.ga$a t(android.os.Parcel) -> a
     com.google.android.gms.internal.ga$a[] V(int) -> a
     void a(com.google.android.gms.internal.ga$a,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.gc -> com.google.android.gms.internal.ag:
+com.google.android.gms.internal.gc -> com.google.android.gms.internal.aj:
     com.google.android.gms.internal.gd$b u(android.os.Parcel) -> a
     com.google.android.gms.internal.gd$b[] W(int) -> a
     void a(com.google.android.gms.internal.gd$b,android.os.Parcel,int) -> a
@@ -9088,13 +9174,13 @@ com.google.android.gms.internal.gd$b -> com.google.android.gms.internal.gd$b:
     com.google.android.gms.internal.ga$a Em -> c
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.ge -> com.google.android.gms.internal.ai:
+com.google.android.gms.internal.ge -> com.google.android.gms.internal.al:
     com.google.android.gms.internal.gd v(android.os.Parcel) -> a
     com.google.android.gms.internal.gd[] X(int) -> a
     void a(com.google.android.gms.internal.gd,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.gf -> com.google.android.gms.internal.aj:
+com.google.android.gms.internal.gf -> com.google.android.gms.internal.am:
     com.google.android.gms.internal.gd$a w(android.os.Parcel) -> a
     com.google.android.gms.internal.gd$a[] Y(int) -> a
     void a(com.google.android.gms.internal.gd$a,android.os.Parcel,int) -> a
@@ -9127,13 +9213,13 @@ com.google.android.gms.internal.gg -> com.google.android.gms.internal.gg:
     void b(java.lang.StringBuilder,com.google.android.gms.internal.ga$a,java.util.ArrayList) -> a
     void a(java.lang.StringBuilder,int,java.lang.Object) -> a
     java.util.HashMap c(android.os.Bundle) -> a
-com.google.android.gms.internal.gh -> com.google.android.gms.internal.al:
+com.google.android.gms.internal.gh -> com.google.android.gms.internal.an:
     com.google.android.gms.internal.gg x(android.os.Parcel) -> a
     com.google.android.gms.internal.gg[] Z(int) -> a
     void a(com.google.android.gms.internal.gg,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.gi -> com.google.android.gms.internal.am:
+com.google.android.gms.internal.gi -> com.google.android.gms.internal.ao:
     void a(java.lang.StringBuilder,java.lang.Object[]) -> a
     void a(java.lang.StringBuilder,int[]) -> a
     void a(java.lang.StringBuilder,long[]) -> a
@@ -9142,18 +9228,24 @@ com.google.android.gms.internal.gi -> com.google.android.gms.internal.am:
     void a(java.lang.StringBuilder,boolean[]) -> a
     void a(java.lang.StringBuilder,java.lang.String[]) -> a
     java.util.ArrayList fs() -> a
-com.google.android.gms.internal.gj -> com.google.android.gms.internal.an:
+com.google.android.gms.internal.gj -> com.google.android.gms.internal.ap:
     java.lang.String d(byte[]) -> a
     java.lang.String e(byte[]) -> b
-com.google.android.gms.internal.go -> com.google.android.gms.internal.ao:
+com.google.android.gms.internal.gk -> com.google.android.gms.internal.aq:
+    boolean y(android.content.Context) -> a
+com.google.android.gms.internal.go -> com.google.android.gms.internal.ar:
     boolean aa(int) -> a
-com.google.android.gms.internal.gp -> com.google.android.gms.internal.ap:
+com.google.android.gms.internal.gp -> com.google.android.gms.internal.as:
     java.util.regex.Pattern Es -> a
     java.util.regex.Pattern Et -> b
     java.lang.String av(java.lang.String) -> a
-com.google.android.gms.internal.gq -> com.google.android.gms.internal.aq:
+com.google.android.gms.internal.gq -> com.google.android.gms.internal.at:
     void a(java.lang.StringBuilder,java.util.HashMap) -> a
-com.google.android.gms.internal.gs -> com.google.android.gms.internal.ar:
+com.google.android.gms.internal.gr -> com.google.android.gms.internal.au:
+    boolean fu() -> a
+    boolean fw() -> b
+    boolean ab(int) -> a
+com.google.android.gms.internal.gs -> com.google.android.gms.internal.aw:
     com.google.android.gms.drive.metadata.MetadataField FR -> a
     com.google.android.gms.drive.metadata.MetadataField FS -> b
     com.google.android.gms.drive.metadata.MetadataField FT -> c
@@ -9181,31 +9273,31 @@ com.google.android.gms.internal.gs -> com.google.android.gms.internal.ar:
     com.google.android.gms.internal.gs$g Gp -> y
     com.google.android.gms.drive.metadata.MetadataField Gq -> z
     com.google.android.gms.drive.metadata.MetadataField Gr -> A
-com.google.android.gms.internal.gs$1 -> com.google.android.gms.internal.as:
-com.google.android.gms.internal.gs$a -> com.google.android.gms.internal.at:
-com.google.android.gms.internal.gs$b -> com.google.android.gms.internal.au:
-com.google.android.gms.internal.gs$c -> com.google.android.gms.internal.aw:
-com.google.android.gms.internal.gs$d -> com.google.android.gms.internal.ax:
-com.google.android.gms.internal.gs$e -> com.google.android.gms.internal.ay:
-com.google.android.gms.internal.gs$f -> com.google.android.gms.internal.az:
-com.google.android.gms.internal.gs$g -> com.google.android.gms.internal.ba:
-com.google.android.gms.internal.gt -> com.google.android.gms.internal.bb:
+com.google.android.gms.internal.gs$1 -> com.google.android.gms.internal.ax:
+com.google.android.gms.internal.gs$a -> com.google.android.gms.internal.ay:
+com.google.android.gms.internal.gs$b -> com.google.android.gms.internal.az:
+com.google.android.gms.internal.gs$c -> com.google.android.gms.internal.ba:
+com.google.android.gms.internal.gs$d -> com.google.android.gms.internal.bb:
+com.google.android.gms.internal.gs$e -> com.google.android.gms.internal.bc:
+com.google.android.gms.internal.gs$f -> com.google.android.gms.internal.bd:
+com.google.android.gms.internal.gs$g -> com.google.android.gms.internal.be:
+com.google.android.gms.internal.gt -> com.google.android.gms.internal.bf:
     com.google.android.gms.internal.gt$a Gs -> a
     com.google.android.gms.internal.gt$b Gt -> b
     com.google.android.gms.internal.gt$d Gu -> c
     com.google.android.gms.internal.gt$c Gv -> d
     com.google.android.gms.internal.gt$e Gw -> e
-com.google.android.gms.internal.gt$a -> com.google.android.gms.internal.bc:
-com.google.android.gms.internal.gt$b -> com.google.android.gms.internal.bd:
-com.google.android.gms.internal.gt$c -> com.google.android.gms.internal.be:
-com.google.android.gms.internal.gt$d -> com.google.android.gms.internal.bf:
-com.google.android.gms.internal.gt$e -> com.google.android.gms.internal.bg:
-com.google.android.gms.internal.gu -> com.google.android.gms.internal.bh:
+com.google.android.gms.internal.gt$a -> com.google.android.gms.internal.bg:
+com.google.android.gms.internal.gt$b -> com.google.android.gms.internal.bh:
+com.google.android.gms.internal.gt$c -> com.google.android.gms.internal.bi:
+com.google.android.gms.internal.gt$d -> com.google.android.gms.internal.bj:
+com.google.android.gms.internal.gt$e -> com.google.android.gms.internal.bk:
+com.google.android.gms.internal.gu -> com.google.android.gms.internal.bl:
     com.google.android.gms.internal.gu Gx -> a
-com.google.android.gms.internal.gv -> com.google.android.gms.internal.bi:
+com.google.android.gms.internal.gv -> com.google.android.gms.internal.bm:
     com.google.android.gms.drive.metadata.MetadataField Gy -> a
     com.google.android.gms.drive.metadata.MetadataField Gz -> b
-com.google.android.gms.internal.h -> com.google.android.gms.internal.bj:
+com.google.android.gms.internal.h -> com.google.android.gms.internal.bn:
     void a(android.view.MotionEvent) -> a
 com.google.android.gms.internal.hd -> com.google.android.gms.internal.hd:
     int xH -> a
@@ -9239,7 +9331,7 @@ com.google.android.gms.internal.hd -> com.google.android.gms.internal.hd:
     java.lang.String toString() -> toString
     int hashCode() -> hashCode
     boolean equals(java.lang.Object) -> equals
-com.google.android.gms.internal.he -> com.google.android.gms.internal.bk:
+com.google.android.gms.internal.he -> com.google.android.gms.internal.bo:
     com.google.android.gms.internal.hd aC(android.os.Parcel) -> a
     com.google.android.gms.internal.hd[] bD(int) -> a
     void a(com.google.android.gms.internal.hd,android.os.Parcel,int) -> a
@@ -9259,7 +9351,7 @@ com.google.android.gms.internal.hg -> com.google.android.gms.internal.hg:
     boolean equals(java.lang.Object) -> equals
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.hh -> com.google.android.gms.internal.bl:
+com.google.android.gms.internal.hh -> com.google.android.gms.internal.bp:
     com.google.android.gms.internal.hg aD(android.os.Parcel) -> a
     com.google.android.gms.internal.hg[] bE(int) -> a
     void a(com.google.android.gms.internal.hg,android.os.Parcel,int) -> a
@@ -9277,7 +9369,7 @@ com.google.android.gms.internal.hi -> com.google.android.gms.internal.hi:
     int hashCode() -> hashCode
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.hj -> com.google.android.gms.internal.bm:
+com.google.android.gms.internal.hj -> com.google.android.gms.internal.bq:
     com.google.android.gms.internal.hi aE(android.os.Parcel) -> a
     com.google.android.gms.internal.hi[] bF(int) -> a
     void a(com.google.android.gms.internal.hi,android.os.Parcel,int) -> a
@@ -9298,7 +9390,7 @@ com.google.android.gms.internal.hk -> com.google.android.gms.internal.hk:
     boolean equals(java.lang.Object) -> equals
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.hl -> com.google.android.gms.internal.bn:
+com.google.android.gms.internal.hl -> com.google.android.gms.internal.br:
     com.google.android.gms.internal.hk aF(android.os.Parcel) -> a
     com.google.android.gms.internal.hk[] bG(int) -> a
     void a(com.google.android.gms.internal.hk,android.os.Parcel,int) -> a
@@ -9440,7 +9532,7 @@ com.google.android.gms.internal.hm -> com.google.android.gms.internal.hm:
     java.lang.String toString() -> toString
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.hn -> com.google.android.gms.internal.bo:
+com.google.android.gms.internal.hn -> com.google.android.gms.internal.bs:
     com.google.android.gms.internal.hm aG(android.os.Parcel) -> a
     com.google.android.gms.internal.hm[] bH(int) -> a
     void a(com.google.android.gms.internal.hm,android.os.Parcel,int) -> a
@@ -9463,7 +9555,7 @@ com.google.android.gms.internal.ho -> com.google.android.gms.internal.ho:
     java.util.List ib() -> d
     java.lang.String getPhoneNumber() -> e
     java.lang.String ic() -> f
-com.google.android.gms.internal.hp -> com.google.android.gms.internal.bp:
+com.google.android.gms.internal.hp -> com.google.android.gms.internal.bt:
     com.google.android.gms.internal.ho aH(android.os.Parcel) -> a
     com.google.android.gms.internal.ho[] bI(int) -> a
     void a(com.google.android.gms.internal.ho,android.os.Parcel,int) -> a
@@ -9479,7 +9571,7 @@ com.google.android.gms.internal.hs -> com.google.android.gms.internal.hs:
     boolean equals(java.lang.Object) -> equals
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.ht -> com.google.android.gms.internal.bq:
+com.google.android.gms.internal.ht -> com.google.android.gms.internal.bu:
     com.google.android.gms.internal.hs aI(android.os.Parcel) -> a
     com.google.android.gms.internal.hs[] bJ(int) -> a
     void a(com.google.android.gms.internal.hs,android.os.Parcel,int) -> a
@@ -9611,7 +9703,7 @@ com.google.android.gms.internal.ic -> com.google.android.gms.internal.ic:
     int hashCode() -> hashCode
     boolean equals(java.lang.Object) -> equals
     java.lang.Object freeze() -> a
-com.google.android.gms.internal.id -> com.google.android.gms.internal.br:
+com.google.android.gms.internal.id -> com.google.android.gms.internal.bv:
     com.google.android.gms.internal.ic aL(android.os.Parcel) -> a
     com.google.android.gms.internal.ic[] bO(int) -> a
     void a(com.google.android.gms.internal.ic,android.os.Parcel,int) -> a
@@ -9645,7 +9737,7 @@ com.google.android.gms.internal.ie -> com.google.android.gms.internal.ie:
     int hashCode() -> hashCode
     boolean equals(java.lang.Object) -> equals
     java.lang.Object freeze() -> a
-com.google.android.gms.internal.if -> com.google.android.gms.internal.bs:
+com.google.android.gms.internal.if -> com.google.android.gms.internal.bw:
     com.google.android.gms.internal.ie aM(android.os.Parcel) -> a
     com.google.android.gms.internal.ie[] bP(int) -> a
     void a(com.google.android.gms.internal.ie,android.os.Parcel,int) -> a
@@ -9943,61 +10035,61 @@ com.google.android.gms.internal.ih$h -> com.google.android.gms.internal.ih$h:
     int hashCode() -> hashCode
     boolean equals(java.lang.Object) -> equals
     java.lang.Object freeze() -> a
-com.google.android.gms.internal.ii -> com.google.android.gms.internal.bt:
+com.google.android.gms.internal.ii -> com.google.android.gms.internal.bx:
     com.google.android.gms.internal.ih aN(android.os.Parcel) -> a
     com.google.android.gms.internal.ih[] bQ(int) -> a
     void a(com.google.android.gms.internal.ih,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.ij -> com.google.android.gms.internal.bu:
+com.google.android.gms.internal.ij -> com.google.android.gms.internal.by:
     com.google.android.gms.internal.ih$a aO(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$a[] bR(int) -> a
     void a(com.google.android.gms.internal.ih$a,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.ik -> com.google.android.gms.internal.bv:
+com.google.android.gms.internal.ik -> com.google.android.gms.internal.bz:
     com.google.android.gms.internal.ih$b aP(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$b[] bS(int) -> a
     void a(com.google.android.gms.internal.ih$b,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.il -> com.google.android.gms.internal.bw:
+com.google.android.gms.internal.il -> com.google.android.gms.internal.ca:
     com.google.android.gms.internal.ih$b$a aQ(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$b$a[] bT(int) -> a
     void a(com.google.android.gms.internal.ih$b$a,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.im -> com.google.android.gms.internal.bx:
+com.google.android.gms.internal.im -> com.google.android.gms.internal.cc:
     com.google.android.gms.internal.ih$b$b aR(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$b$b[] bU(int) -> a
     void a(com.google.android.gms.internal.ih$b$b,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.in -> com.google.android.gms.internal.by:
+com.google.android.gms.internal.in -> com.google.android.gms.internal.cd:
     com.google.android.gms.internal.ih$c aS(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$c[] bV(int) -> a
     void a(com.google.android.gms.internal.ih$c,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.io -> com.google.android.gms.internal.bz:
+com.google.android.gms.internal.io -> com.google.android.gms.internal.cf:
     com.google.android.gms.internal.ih$d aT(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$d[] bW(int) -> a
     void a(com.google.android.gms.internal.ih$d,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.ip -> com.google.android.gms.internal.ca:
+com.google.android.gms.internal.ip -> com.google.android.gms.internal.cg:
     com.google.android.gms.internal.ih$f aU(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$f[] bX(int) -> a
     void a(com.google.android.gms.internal.ih$f,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.iq -> com.google.android.gms.internal.cc:
+com.google.android.gms.internal.iq -> com.google.android.gms.internal.ch:
     com.google.android.gms.internal.ih$g aV(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$g[] bY(int) -> a
     void a(com.google.android.gms.internal.ih$g,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.ir -> com.google.android.gms.internal.cd:
+com.google.android.gms.internal.ir -> com.google.android.gms.internal.ci:
     com.google.android.gms.internal.ih$h aW(android.os.Parcel) -> a
     com.google.android.gms.internal.ih$h[] bZ(int) -> a
     void a(com.google.android.gms.internal.ih$h,android.os.Parcel,int) -> a
@@ -10010,7 +10102,7 @@ com.google.android.gms.internal.iv -> com.google.android.gms.internal.iv:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.iw -> com.google.android.gms.internal.cf:
+com.google.android.gms.internal.iw -> com.google.android.gms.internal.cj:
     com.google.android.gms.internal.iv bl(android.os.Parcel) -> a
     com.google.android.gms.internal.iv[] cx(int) -> a
     void a(com.google.android.gms.internal.iv,android.os.Parcel,int) -> a
@@ -10024,7 +10116,7 @@ com.google.android.gms.internal.ix -> com.google.android.gms.internal.ix:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.iy -> com.google.android.gms.internal.cg:
+com.google.android.gms.internal.iy -> com.google.android.gms.internal.ck:
     com.google.android.gms.internal.ix bm(android.os.Parcel) -> a
     com.google.android.gms.internal.ix[] cy(int) -> a
     void a(com.google.android.gms.internal.ix,android.os.Parcel,int) -> a
@@ -10038,7 +10130,7 @@ com.google.android.gms.internal.jk -> com.google.android.gms.internal.jk:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jl -> com.google.android.gms.internal.ch:
+com.google.android.gms.internal.jl -> com.google.android.gms.internal.cl:
     com.google.android.gms.internal.jk bq(android.os.Parcel) -> a
     com.google.android.gms.internal.jk[] cE(int) -> a
     void a(com.google.android.gms.internal.jk,android.os.Parcel,int) -> a
@@ -10053,7 +10145,7 @@ com.google.android.gms.internal.jm -> com.google.android.gms.internal.jm:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jn -> com.google.android.gms.internal.ci:
+com.google.android.gms.internal.jn -> com.google.android.gms.internal.cm:
     com.google.android.gms.internal.jm br(android.os.Parcel) -> a
     com.google.android.gms.internal.jm[] cF(int) -> a
     void a(com.google.android.gms.internal.jm,android.os.Parcel,int) -> a
@@ -10081,13 +10173,13 @@ com.google.android.gms.internal.jp -> com.google.android.gms.internal.jp:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jq -> com.google.android.gms.internal.cj:
+com.google.android.gms.internal.jq -> com.google.android.gms.internal.cn:
     com.google.android.gms.internal.jp bs(android.os.Parcel) -> a
     com.google.android.gms.internal.jp[] cG(int) -> a
     void a(com.google.android.gms.internal.jp,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.google.android.gms.internal.jr -> com.google.android.gms.internal.ck:
+com.google.android.gms.internal.jr -> com.google.android.gms.internal.co:
     com.google.android.gms.internal.jo bt(android.os.Parcel) -> a
     com.google.android.gms.internal.jo[] cH(int) -> a
     void a(com.google.android.gms.internal.jo,android.os.Parcel,int) -> a
@@ -10101,7 +10193,7 @@ com.google.android.gms.internal.js -> com.google.android.gms.internal.js:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jt -> com.google.android.gms.internal.cl:
+com.google.android.gms.internal.jt -> com.google.android.gms.internal.cp:
     com.google.android.gms.internal.js bu(android.os.Parcel) -> a
     com.google.android.gms.internal.js[] cI(int) -> a
     void a(com.google.android.gms.internal.js,android.os.Parcel,int) -> a
@@ -10115,7 +10207,7 @@ com.google.android.gms.internal.ju -> com.google.android.gms.internal.ju:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jv -> com.google.android.gms.internal.cm:
+com.google.android.gms.internal.jv -> com.google.android.gms.internal.cq:
     com.google.android.gms.internal.ju bv(android.os.Parcel) -> a
     com.google.android.gms.internal.ju[] cJ(int) -> a
     void a(com.google.android.gms.internal.ju,android.os.Parcel,int) -> a
@@ -10129,7 +10221,7 @@ com.google.android.gms.internal.jw -> com.google.android.gms.internal.jw:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jx -> com.google.android.gms.internal.cn:
+com.google.android.gms.internal.jx -> com.google.android.gms.internal.cr:
     com.google.android.gms.internal.jw bw(android.os.Parcel) -> a
     com.google.android.gms.internal.jw[] cK(int) -> a
     void a(com.google.android.gms.internal.jw,android.os.Parcel,int) -> a
@@ -10146,7 +10238,7 @@ com.google.android.gms.internal.jy -> com.google.android.gms.internal.jy:
     int getVersionCode() -> a
     int describeContents() -> describeContents
     void writeToParcel(android.os.Parcel,int) -> writeToParcel
-com.google.android.gms.internal.jz -> com.google.android.gms.internal.co:
+com.google.android.gms.internal.jz -> com.google.android.gms.internal.cs:
     com.google.android.gms.internal.jy bx(android.os.Parcel) -> a
     com.google.android.gms.internal.jy[] cL(int) -> a
     void a(com.google.android.gms.internal.jy,android.os.Parcel,int) -> a
@@ -10166,7 +10258,7 @@ com.google.android.gms.internal.ki -> com.google.android.gms.internal.ki:
     java.lang.String getPath() -> b
     byte[] getData() -> c
     java.lang.String getSource() -> d
-com.google.android.gms.internal.kj -> com.google.android.gms.internal.cp:
+com.google.android.gms.internal.kj -> com.google.android.gms.internal.ct:
     com.google.android.gms.internal.ki by(android.os.Parcel) -> a
     com.google.android.gms.internal.ki[] cN(int) -> a
     void a(com.google.android.gms.internal.ki,android.os.Parcel,int) -> a
@@ -10184,7 +10276,7 @@ com.google.android.gms.internal.kk -> com.google.android.gms.internal.kk:
     java.lang.String toString() -> toString
     java.lang.String getId() -> a
     java.lang.String getDisplayName() -> b
-com.google.android.gms.internal.kl -> com.google.android.gms.internal.cq:
+com.google.android.gms.internal.kl -> com.google.android.gms.internal.cu:
     com.google.android.gms.internal.kk bz(android.os.Parcel) -> a
     com.google.android.gms.internal.kk[] cO(int) -> a
     void a(com.google.android.gms.internal.kk,android.os.Parcel,int) -> a
@@ -10221,11 +10313,11 @@ com.google.android.gms.internal.ko -> com.google.android.gms.internal.ko:
     int D(long) -> d
     long E(long) -> e
 com.google.android.gms.internal.ko$a -> com.google.android.gms.internal.ko$a:
-com.google.android.gms.internal.kp -> com.google.android.gms.internal.cr:
+com.google.android.gms.internal.kp -> com.google.android.gms.internal.cv:
     java.util.List adU -> e
     int mx() -> c
     void a(com.google.android.gms.internal.ko) -> a
-com.google.android.gms.internal.kt -> com.google.android.gms.internal.cs:
+com.google.android.gms.internal.kt -> com.google.android.gms.internal.cw:
     int adY -> f
     int c() -> b
     int mx() -> c
@@ -10233,19 +10325,19 @@ com.google.android.gms.internal.kt -> com.google.android.gms.internal.cs:
     byte[] d(com.google.android.gms.internal.kt) -> a
     void a(com.google.android.gms.internal.kt,byte[],int,int) -> a
     java.lang.String toString() -> toString
-com.google.android.gms.internal.ku -> com.google.android.gms.internal.ct:
+com.google.android.gms.internal.ku -> com.google.android.gms.internal.cy:
     java.lang.String e(com.google.android.gms.internal.kt) -> a
     void a(java.lang.String,java.lang.Object,java.lang.StringBuffer,java.lang.StringBuffer) -> a
     java.lang.String cg(java.lang.String) -> a
     java.lang.String ch(java.lang.String) -> b
     java.lang.String av(java.lang.String) -> c
     void a(byte[],java.lang.StringBuffer) -> a
-com.google.android.gms.internal.kv -> com.google.android.gms.internal.cu:
+com.google.android.gms.internal.kv -> com.google.android.gms.internal.da:
     int tag -> a
     byte[] adZ -> b
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
-com.google.android.gms.internal.kw -> com.google.android.gms.internal.cv:
+com.google.android.gms.internal.kw -> com.google.android.gms.internal.db:
     int[] aea -> a
     long[] aeb -> b
     float[] aec -> c
@@ -10255,10 +10347,25 @@ com.google.android.gms.internal.kw -> com.google.android.gms.internal.cv:
     byte[][] aeg -> g
     byte[] aeh -> h
     int l(int,int) -> a
-com.google.android.gms.internal.l -> com.google.android.gms.internal.cw:
+com.google.android.gms.internal.l -> com.google.android.gms.internal.dc:
     com.google.android.gms.internal.h kg -> a
     void a(android.view.MotionEvent) -> a
-com.google.android.gms.internal.u -> com.google.android.gms.internal.cy:
+com.google.android.gms.internal.t -> com.google.android.gms.internal.dd:
+    java.lang.String getId() -> a
+    boolean a(boolean) -> a
+    java.lang.String c(java.lang.String) -> a
+    void b(java.lang.String,boolean) -> a
+com.google.android.gms.internal.t$a -> com.google.android.gms.internal.de:
+    com.google.android.gms.internal.t b(android.os.IBinder) -> a
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+com.google.android.gms.internal.t$a$a -> com.google.android.gms.internal.df:
+    android.os.IBinder kn -> a
+    android.os.IBinder asBinder() -> asBinder
+    java.lang.String getId() -> a
+    boolean a(boolean) -> a
+    java.lang.String c(java.lang.String) -> a
+    void b(java.lang.String,boolean) -> a
+com.google.android.gms.internal.u -> com.google.android.gms.internal.dg:
 com.google.android.gms.location.ActivityRecognitionResult -> com.google.android.gms.location.ActivityRecognitionResult:
     com.google.android.gms.location.ActivityRecognitionResultCreator CREATOR -> CREATOR
     int xH -> d
@@ -11159,6 +11266,1728 @@ com.google.android.gms.wallet.o -> com.google.android.gms.wallet.o:
     void a(com.google.android.gms.wallet.ProxyCard,android.os.Parcel,int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.jirbo.adcolony.ADC -> com.jirbo.adcolony.a:
+    java.lang.String force_dec_url -> a
+    java.lang.String force_static_url -> b
+    com.jirbo.adcolony.ADCController controller -> c
+    boolean is_tablet -> d
+    int log_level -> e
+    boolean initialized -> f
+    boolean configured -> g
+    boolean user_disabled -> h
+    boolean active -> i
+    boolean finishing -> j
+    boolean dont_resume -> k
+    boolean show_post_popup -> l
+    boolean show -> m
+    int orientation -> n
+    double hud_scale -> o
+    boolean block -> p
+    boolean disable_block -> q
+    boolean mraid_block -> r
+    boolean layout_changed -> s
+    boolean connected -> t
+    boolean resume_from_ad -> u
+    android.app.Activity activity -> T
+    boolean fatal_error -> v
+    com.jirbo.adcolony.ADCDialog current_dialog -> w
+    com.jirbo.adcolony.AdColonyAd current_ad -> x
+    com.jirbo.adcolony.ADCVideo current_video -> y
+    com.jirbo.adcolony.ADCVideo latest_video -> z
+    com.jirbo.adcolony.ADC$EndCardFinished end_card_finished_handler -> A
+    com.jirbo.adcolony.ADC$V4VCResultsHandler v4vc_results_handler -> B
+    boolean end_card_is_html5 -> C
+    boolean companion_ad_disabled -> D
+    boolean video_disabled -> E
+    boolean graceful_fail -> F
+    int load_timeout -> G
+    java.lang.String end_card_url -> H
+    java.lang.String end_card_mraid_filepath -> I
+    java.lang.String os_version -> J
+    java.lang.String sdk_version -> K
+    boolean destroyed -> L
+    long last_config_ms -> M
+    int error_code -> N
+    java.util.ArrayList bitmaps -> O
+    java.util.ArrayList v4vc_listener_list -> P
+    java.util.ArrayList ad_availability_listener_list -> Q
+    java.util.ArrayList native_ad_view_list -> R
+    java.util.HashMap ad_availability_map -> S
+    void set_activity(android.app.Activity) -> a
+    void initialize(android.app.Activity) -> b
+    boolean is_activity_null() -> a
+    android.app.Activity activity() -> b
+    boolean disabled() -> c
+    boolean is_ready() -> d
+    void on_fatal_error(java.lang.String) -> a
+    void on_fatal_error(java.lang.RuntimeException) -> a
+    void ensure_configured() -> e
+    void set_log_level(int) -> a
+    void log(int,java.lang.String) -> a
+    void log_dev(java.lang.String) -> b
+    void log_debug(java.lang.String) -> c
+    void log_error(java.lang.String) -> d
+    int get_Integer(java.lang.String) -> e
+    boolean get_Logical(java.lang.String) -> f
+    java.lang.String get_String(java.lang.String) -> g
+    void track_ad_event(java.lang.String,com.jirbo.adcolony.AdColonyAd) -> a
+    void track_ad_event(java.lang.String,java.lang.String,com.jirbo.adcolony.AdColonyAd) -> a
+    void has_ad_availability_changed() -> f
+    void queue_event(com.jirbo.adcolony.ADCEvent) -> a
+com.jirbo.adcolony.ADC$EndCardFinished -> com.jirbo.adcolony.b:
+    com.jirbo.adcolony.AdColonyAd ad -> a
+    void notify_continuation(com.jirbo.adcolony.AdColonyAd) -> a
+    void notify_canceled(com.jirbo.adcolony.AdColonyAd) -> b
+    void handleMessage(android.os.Message) -> handleMessage
+com.jirbo.adcolony.ADC$V4VCResultsHandler -> com.jirbo.adcolony.c:
+    void handleMessage(android.os.Message) -> handleMessage
+    void notify_listeners(boolean,java.lang.String,int) -> a
+com.jirbo.adcolony.ADCAdManager -> com.jirbo.adcolony.d:
+    com.jirbo.adcolony.ADCController controller -> a
+    boolean is_configured -> b
+    boolean needs_refresh -> c
+    boolean attempted_load -> d
+    boolean do_refresh -> e
+    boolean try_refresh -> f
+    double next_refresh_time -> g
+    android.os.Handler h -> h
+    java.lang.Runnable r -> i
+    com.jirbo.adcolony.ADCManifest$App app -> j
+    void configure() -> a
+    void load() -> b
+    java.lang.String find_video_zone() -> c
+    java.lang.String find_v4vc_zone() -> d
+    boolean is_zone_v4vc(java.lang.String,boolean) -> a
+    boolean is_ad_available(java.lang.String,boolean) -> b
+    boolean is_ad_available_errorless(java.lang.String,boolean) -> c
+    void refresh() -> e
+    void update() -> f
+    void perform_refresh() -> g
+    void on_download_finished(com.jirbo.adcolony.ADCDownload) -> a
+    boolean parse_manifest(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCAdManager$1 -> com.jirbo.adcolony.e:
+    com.jirbo.adcolony.ADCAdManager this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.ADCConfiguration -> com.jirbo.adcolony.f:
+    com.jirbo.adcolony.ADCController controller -> a
+    java.lang.String sdk_version -> b
+    java.lang.String ad_manifest_url -> c
+    int session_timeout_seconds -> d
+    int sleep_count -> e
+    boolean fatal_error -> f
+    boolean configured -> g
+    java.lang.String info_string -> h
+    com.jirbo.adcolony.ADCData$Table properties -> i
+    java.lang.String app_id -> j
+    java.lang.String[] zone_ids -> k
+    com.jirbo.adcolony.ADCManifest$Zone current_zone -> l
+    com.jirbo.adcolony.ADCManifest$Ad current_ad -> m
+    double current_progress -> n
+    java.lang.String os_name -> o
+    java.lang.String sdk_type -> p
+    java.lang.String app_version -> q
+    java.lang.String origin_store -> r
+    boolean skippable -> s
+    java.lang.String android_id -> t
+    java.lang.String android_id_sha1 -> u
+    java.lang.String available_stores -> v
+    java.lang.String carrier_name -> w
+    java.lang.String custom_id -> x
+    java.lang.String device_id -> y
+    java.lang.String device_manufacturer -> z
+    java.lang.String device_model -> A
+    java.lang.String device_type -> B
+    java.lang.String imei -> C
+    java.lang.String imei_sha1 -> D
+    java.lang.String language -> E
+    java.lang.String open_udid -> F
+    java.lang.String os_version -> G
+    java.lang.String memory_class -> H
+    java.lang.String memory_used -> I
+    java.lang.String device_api -> J
+    java.lang.String advertising_id -> K
+    boolean limit_tracking -> L
+    void parse_client_options(java.lang.String) -> a
+    void configure() -> a
+    java.lang.String either_or(java.lang.String,java.lang.String) -> a
+    void prepare_video_ad(java.lang.String) -> b
+    void prepare_video_ad(java.lang.String,com.jirbo.adcolony.ADCManifest$Ad) -> a
+    void prepare_v4vc_ad(java.lang.String) -> c
+    void prepare_end_card() -> b
+com.jirbo.adcolony.ADCController -> com.jirbo.adcolony.g:
+    com.jirbo.adcolony.ADCConfiguration configuration -> a
+    com.jirbo.adcolony.ADCAdManager ad_manager -> b
+    com.jirbo.adcolony.ADCMediaManager media_manager -> c
+    com.jirbo.adcolony.ADCReportingManager reporting_manager -> d
+    com.jirbo.adcolony.ADCSessionManager session_manager -> e
+    com.jirbo.adcolony.ADCStorage storage -> f
+    com.jirbo.adcolony.ADCZoneStateManager zone_state_manager -> g
+    com.jirbo.adcolony.ADCPlayHistory play_history -> h
+    java.util.ArrayList event_queue -> i
+    java.util.ArrayList pending_events -> j
+    boolean monitor_thread_active -> k
+    boolean dispatching_events -> l
+    com.jirbo.adcolony.ADCUtil$Stopwatch time_waiting_for_open_udid -> m
+    void queue_event(com.jirbo.adcolony.ADCEvent) -> a
+    void dispatch_events() -> a
+    void on_resume() -> b
+    void on_suspend() -> c
+    void on_stop() -> d
+    void on_video_start(com.jirbo.adcolony.AdColonyAd) -> a
+    void on_video_progress(double,com.jirbo.adcolony.AdColonyAd) -> a
+    void on_v4vc_result(boolean,java.lang.String,int) -> a
+    void on_video_finish(boolean,com.jirbo.adcolony.AdColonyAd) -> a
+    void track_ad_event(java.lang.String,java.lang.String,com.jirbo.adcolony.AdColonyAd) -> a
+    int get_Integer(java.lang.String) -> a
+    boolean get_Logical(java.lang.String) -> b
+    java.lang.String get_String(java.lang.String) -> c
+    java.lang.String find_video_zone() -> e
+    java.lang.String find_v4vc_zone() -> f
+    int get_reward_credit(java.lang.String) -> d
+    boolean is_video_ad_available(java.lang.String) -> e
+    boolean is_video_ad_available(java.lang.String,boolean,boolean) -> a
+    boolean is_v4vc_ad_available(java.lang.String) -> f
+    boolean is_v4vc_ad_available(java.lang.String,boolean,boolean) -> b
+    void prepare_video_ad(com.jirbo.adcolony.AdColonyInterstitialAd) -> a
+    boolean show_video_ad(com.jirbo.adcolony.AdColonyInterstitialAd) -> b
+    com.jirbo.adcolony.ADCManifest$Zone get_zone_info(java.lang.String) -> g
+    void prepare_v4vc_ad(com.jirbo.adcolony.AdColonyV4VCAd) -> a
+    boolean show_v4vc_ad(com.jirbo.adcolony.AdColonyV4VCAd) -> b
+    boolean launch_video(com.jirbo.adcolony.AdColonyAd) -> b
+    void configure(java.lang.String,java.lang.String,java.lang.String[]) -> a
+    void update() -> g
+    void set_log_level(int) -> a
+com.jirbo.adcolony.ADCController$1 -> com.jirbo.adcolony.h:
+    com.jirbo.adcolony.ADCController this$0 -> a
+    void dispatch() -> a
+com.jirbo.adcolony.ADCController$2 -> com.jirbo.adcolony.i:
+    com.jirbo.adcolony.ADCController this$0 -> a
+    void dispatch() -> a
+com.jirbo.adcolony.ADCController$3 -> com.jirbo.adcolony.j:
+    com.jirbo.adcolony.ADCController this$0 -> a
+    void dispatch() -> a
+com.jirbo.adcolony.ADCController$4 -> com.jirbo.adcolony.k:
+    com.jirbo.adcolony.AdColonyAd val$ad -> a
+    com.jirbo.adcolony.ADCController this$0 -> b
+    void dispatch() -> a
+com.jirbo.adcolony.ADCController$5 -> com.jirbo.adcolony.l:
+    double val$p -> a
+    com.jirbo.adcolony.AdColonyAd val$ad -> b
+    com.jirbo.adcolony.ADCController this$0 -> c
+    void dispatch() -> a
+com.jirbo.adcolony.ADCController$6 -> com.jirbo.adcolony.m:
+    java.lang.String val$v4vc_name -> a
+    int val$v4vc_amount -> b
+    com.jirbo.adcolony.AdColonyAd val$ad -> c
+    com.jirbo.adcolony.ADCController this$0 -> d
+    void dispatch() -> a
+com.jirbo.adcolony.ADCController$8 -> com.jirbo.adcolony.n:
+    java.lang.String val$type -> a
+    java.lang.String val$json_payload -> b
+    com.jirbo.adcolony.AdColonyAd val$ad -> c
+    com.jirbo.adcolony.ADCController this$0 -> d
+    void dispatch() -> a
+com.jirbo.adcolony.ADCCustomVideoView -> com.jirbo.adcolony.o:
+    java.lang.String TAG -> a
+    android.net.Uri mUri -> b
+    java.io.FileDescriptor fd -> c
+    int mDuration -> d
+    int mCurrentState -> e
+    int mTargetState -> f
+    android.view.SurfaceHolder mSurfaceHolder -> g
+    android.media.MediaPlayer mMediaPlayer -> h
+    int mVideoWidth -> i
+    int mVideoHeight -> j
+    int mSurfaceWidth -> k
+    int mSurfaceHeight -> l
+    android.widget.MediaController mMediaController -> m
+    android.media.MediaPlayer$OnCompletionListener mOnCompletionListener -> n
+    android.media.MediaPlayer$OnPreparedListener mOnPreparedListener -> o
+    int mCurrentBufferPercentage -> p
+    android.media.MediaPlayer$OnErrorListener mOnErrorListener -> q
+    int mSeekWhenPrepared -> r
+    boolean mCanPause -> s
+    boolean mCanSeekBack -> t
+    boolean mCanSeekForward -> u
+    boolean focus -> v
+    int mStateWhenSuspended -> w
+    android.media.MediaPlayer$OnVideoSizeChangedListener mSizeChangedListener -> x
+    android.media.MediaPlayer$OnPreparedListener mPreparedListener -> y
+    android.media.MediaPlayer$OnCompletionListener mCompletionListener -> A
+    android.media.MediaPlayer$OnErrorListener mErrorListener -> B
+    android.media.MediaPlayer$OnBufferingUpdateListener mBufferingUpdateListener -> C
+    android.view.SurfaceHolder$Callback mSHCallback -> z
+    void onMeasure(int,int) -> onMeasure
+    void initVideoView() -> d
+    int getAudioSessionId() -> getAudioSessionId
+    void setVideoPath(java.io.FileDescriptor) -> a
+    void stopPlayback() -> a
+    android.app.Activity activity() -> b
+    void openVideo() -> e
+    void attachMediaController() -> f
+    void setOnCompletionListener(android.media.MediaPlayer$OnCompletionListener) -> a
+    void setOnErrorListener(android.media.MediaPlayer$OnErrorListener) -> a
+    void release(boolean) -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onTrackballEvent(android.view.MotionEvent) -> onTrackballEvent
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void toggleMediaControlsVisiblity() -> g
+    void start() -> start
+    void pause() -> pause
+    void resume() -> c
+    int getDuration() -> getDuration
+    int getCurrentPosition() -> getCurrentPosition
+    void seekTo(int) -> seekTo
+    boolean isPlaying() -> isPlaying
+    int getBufferPercentage() -> getBufferPercentage
+    boolean isInPlaybackState() -> h
+    boolean canPause() -> canPause
+    boolean canSeekBackward() -> canSeekBackward
+    boolean canSeekForward() -> canSeekForward
+    void access$000(com.jirbo.adcolony.ADCCustomVideoView) -> a
+    void access$100(com.jirbo.adcolony.ADCCustomVideoView,boolean) -> a
+com.jirbo.adcolony.ADCCustomVideoView$1 -> com.jirbo.adcolony.p:
+    com.jirbo.adcolony.ADCCustomVideoView this$0 -> a
+    void onVideoSizeChanged(android.media.MediaPlayer,int,int) -> onVideoSizeChanged
+com.jirbo.adcolony.ADCCustomVideoView$2 -> com.jirbo.adcolony.q:
+    com.jirbo.adcolony.ADCCustomVideoView this$0 -> a
+    void onPrepared(android.media.MediaPlayer) -> onPrepared
+com.jirbo.adcolony.ADCCustomVideoView$3 -> com.jirbo.adcolony.r:
+    com.jirbo.adcolony.ADCCustomVideoView this$0 -> a
+    void onCompletion(android.media.MediaPlayer) -> onCompletion
+com.jirbo.adcolony.ADCCustomVideoView$4 -> com.jirbo.adcolony.s:
+    com.jirbo.adcolony.ADCCustomVideoView this$0 -> a
+    boolean onError(android.media.MediaPlayer,int,int) -> onError
+com.jirbo.adcolony.ADCCustomVideoView$4$1 -> com.jirbo.adcolony.t:
+    com.jirbo.adcolony.ADCCustomVideoView$4 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.jirbo.adcolony.ADCCustomVideoView$5 -> com.jirbo.adcolony.u:
+    com.jirbo.adcolony.ADCCustomVideoView this$0 -> a
+    void onBufferingUpdate(android.media.MediaPlayer,int) -> onBufferingUpdate
+com.jirbo.adcolony.ADCCustomVideoView$6 -> com.jirbo.adcolony.v:
+    com.jirbo.adcolony.ADCCustomVideoView this$0 -> a
+    void surfaceChanged(android.view.SurfaceHolder,int,int,int) -> surfaceChanged
+    void surfaceCreated(android.view.SurfaceHolder) -> surfaceCreated
+    void surfaceDestroyed(android.view.SurfaceHolder) -> surfaceDestroyed
+com.jirbo.adcolony.ADCData -> com.jirbo.adcolony.ADCData:
+    com.jirbo.adcolony.ADCData$Value true_value -> a
+    com.jirbo.adcolony.ADCData$Value false_value -> b
+    com.jirbo.adcolony.ADCData$Value null_value -> c
+com.jirbo.adcolony.ADCData$FalseValue -> com.jirbo.adcolony.w:
+    boolean is_Logical() -> a
+    java.lang.String to_String() -> b
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+com.jirbo.adcolony.ADCData$IntegerValue -> com.jirbo.adcolony.x:
+    int value -> a
+    boolean is_Integer() -> c
+    double to_Real() -> d
+    int to_Integer() -> e
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+com.jirbo.adcolony.ADCData$List -> com.jirbo.adcolony.y:
+    java.util.ArrayList data -> a
+    boolean is_List() -> f
+    boolean is_compact() -> g
+    com.jirbo.adcolony.ADCData$List to_List() -> h
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+    int count() -> i
+    com.jirbo.adcolony.ADCData$List add(com.jirbo.adcolony.ADCData$Value) -> a
+    com.jirbo.adcolony.ADCData$Table get_Table(int,com.jirbo.adcolony.ADCData$Table) -> a
+    java.lang.String get_String(int,java.lang.String) -> a
+    com.jirbo.adcolony.ADCData$Table get_Table(int) -> a
+    java.lang.String get_String(int) -> b
+com.jirbo.adcolony.ADCData$NullValue -> com.jirbo.adcolony.z:
+    java.lang.String to_String() -> b
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+com.jirbo.adcolony.ADCData$RealValue -> com.jirbo.adcolony.aa:
+    double value -> a
+    boolean is_Real() -> b_
+    double to_Real() -> d
+    int to_Integer() -> e
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+com.jirbo.adcolony.ADCData$StringValue -> com.jirbo.adcolony.ADCData$StringValue:
+    java.lang.String value -> value
+    boolean is_String() -> j
+    java.lang.String to_String() -> b
+    double to_Real() -> d
+    int to_Integer() -> e
+    boolean to_Logical() -> k
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+com.jirbo.adcolony.ADCData$Table -> com.jirbo.adcolony.ADCData$Table:
+    java.util.HashMap data -> data
+    java.util.ArrayList keys -> keys
+    boolean is_Table() -> l
+    boolean is_compact() -> g
+    com.jirbo.adcolony.ADCData$Table to_Table() -> m
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+    int count() -> n
+    java.lang.String key_at(int) -> a
+    com.jirbo.adcolony.ADCData$Table get_Table(java.lang.String,com.jirbo.adcolony.ADCData$Table) -> a
+    com.jirbo.adcolony.ADCData$List get_List(java.lang.String,com.jirbo.adcolony.ADCData$List) -> a
+    java.util.ArrayList get_StringList(java.lang.String,java.util.ArrayList) -> a
+    java.lang.String get_String(java.lang.String,java.lang.String) -> a
+    double get_Real(java.lang.String,double) -> a
+    int get_Integer(java.lang.String,int) -> a
+    boolean get_Logical(java.lang.String,boolean) -> a
+    com.jirbo.adcolony.ADCData$Table get_Table(java.lang.String) -> a
+    com.jirbo.adcolony.ADCData$List get_List(java.lang.String) -> b
+    java.util.ArrayList get_StringList(java.lang.String) -> c
+    java.lang.String get_String(java.lang.String) -> d
+    double get_Real(java.lang.String) -> e
+    int get_Integer(java.lang.String) -> f
+    boolean get_Logical(java.lang.String) -> g
+    void set(java.lang.String,com.jirbo.adcolony.ADCData$Value) -> a
+    void set(java.lang.String,java.lang.String) -> b
+    void set(java.lang.String,double) -> b
+    void set(java.lang.String,int) -> b
+    void set(java.lang.String,boolean) -> b
+com.jirbo.adcolony.ADCData$TrueValue -> com.jirbo.adcolony.ab:
+    boolean is_Logical() -> a
+    java.lang.String to_String() -> b
+    double to_Real() -> d
+    int to_Integer() -> e
+    boolean to_Logical() -> k
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+com.jirbo.adcolony.ADCData$Value -> com.jirbo.adcolony.ac:
+    boolean is_Table() -> l
+    boolean is_List() -> f
+    boolean is_String() -> j
+    boolean is_Number() -> o
+    boolean is_Real() -> b_
+    boolean is_Integer() -> c
+    boolean is_Logical() -> a
+    boolean is_compact() -> g
+    com.jirbo.adcolony.ADCData$Table to_Table() -> m
+    com.jirbo.adcolony.ADCData$List to_List() -> h
+    java.lang.String to_String() -> b
+    double to_Real() -> d
+    int to_Integer() -> e
+    boolean to_Logical() -> k
+    java.lang.String toString() -> toString
+    java.lang.String to_json() -> p
+    void print_json(com.jirbo.adcolony.ADCWriter) -> a
+    void print_json(com.jirbo.adcolony.ADCWriter,java.lang.String) -> a
+com.jirbo.adcolony.ADCDataFile -> com.jirbo.adcolony.ad:
+    byte[] buffer -> a
+    java.lang.String filepath -> b
+    com.jirbo.adcolony.ADCStreamWriter create_writer() -> a
+    com.jirbo.adcolony.ADCParseReader create_reader() -> b
+    void save(java.lang.String) -> a
+    void delete() -> c
+com.jirbo.adcolony.ADCDevice -> com.jirbo.adcolony.ae:
+    java.lang.String advertising_id -> a
+    boolean limit_ad_tracking -> b
+    java.lang.String android_id() -> a
+    java.lang.String carrier_name() -> b
+    int memory_class() -> c
+    long memory_used() -> d
+    java.lang.String device_id() -> e
+    int display_width() -> f
+    int display_height() -> g
+    java.lang.String imei() -> h
+    boolean is_tablet() -> i
+    java.lang.String language() -> j
+    java.lang.String manufacturer() -> k
+    java.lang.String model() -> l
+    java.lang.String open_udid() -> m
+    java.lang.String os_version() -> n
+com.jirbo.adcolony.ADCDialog -> com.jirbo.adcolony.af:
+    com.jirbo.adcolony.ADCImage img_bg -> a
+    com.jirbo.adcolony.ADCImage img_logo -> b
+    com.jirbo.adcolony.ADCImage img_confirm_normal -> c
+    com.jirbo.adcolony.ADCImage img_confirm_down -> d
+    com.jirbo.adcolony.ADCImage img_cancel_normal -> e
+    com.jirbo.adcolony.ADCImage img_cancel_down -> f
+    com.jirbo.adcolony.ADCImage img_done_down -> g
+    com.jirbo.adcolony.ADCImage img_done_normal -> h
+    double scale -> i
+    java.lang.String amount_line_1 -> j
+    java.lang.String amount_line_2 -> k
+    boolean one_line -> l
+    android.graphics.Paint text_paint -> m
+    float[] widths -> n
+    long start_ms -> o
+    int left_x -> p
+    int top_y -> q
+    int center_x -> r
+    int center_y -> s
+    int button_x1 -> t
+    int button_x2 -> u
+    int button_y -> v
+    java.lang.String amount -> w
+    com.jirbo.adcolony.AdColonyV4VCAd listener -> x
+    boolean isReady() -> a
+    int textWidthOf(java.lang.String) -> a
+    int fontHeight() -> b
+    void drawEmbossedText(java.lang.String,int,int,android.graphics.Canvas) -> a
+    void drawShadowText(java.lang.String,int,int,android.graphics.Canvas) -> b
+    void drawButtonText(java.lang.String,int,int,android.graphics.Canvas) -> c
+    boolean buttonContains(int,int,int,int) -> a
+    void splitLine(java.lang.String,java.lang.String) -> a
+    void calculatePosition() -> c
+com.jirbo.adcolony.ADCDownload -> com.jirbo.adcolony.ag:
+    com.jirbo.adcolony.ADCController controller -> a
+    com.jirbo.adcolony.ADCDownload$Listener listener -> b
+    java.lang.String url -> c
+    java.io.File file -> d
+    java.lang.Object info -> e
+    java.lang.String post_content_type -> f
+    java.lang.String post_data -> g
+    boolean third_party_tracking -> h
+    boolean success -> i
+    boolean use_ssl -> j
+    int size -> k
+    java.lang.String data -> l
+    com.jirbo.adcolony.ADCDownload with_info(java.lang.Object) -> a
+    com.jirbo.adcolony.ADCDownload with_post_data(java.lang.String,java.lang.String) -> a
+    void start() -> b
+    void run() -> run
+    void dispatch() -> a
+com.jirbo.adcolony.ADCDownload$1 -> com.jirbo.adcolony.ah:
+    com.jirbo.adcolony.ADCDownload this$0 -> a
+    boolean verify(java.lang.String,javax.net.ssl.SSLSession) -> verify
+com.jirbo.adcolony.ADCDownload$DefaultTrustManager -> com.jirbo.adcolony.ai:
+    void checkClientTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkClientTrusted
+    void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkServerTrusted
+    java.security.cert.X509Certificate[] getAcceptedIssuers() -> getAcceptedIssuers
+com.jirbo.adcolony.ADCDownload$Listener -> com.jirbo.adcolony.aj:
+    void on_download_finished(com.jirbo.adcolony.ADCDownload) -> a
+com.jirbo.adcolony.ADCEvent -> com.jirbo.adcolony.ak:
+    com.jirbo.adcolony.ADCController controller -> m
+    void dispatch() -> a
+com.jirbo.adcolony.ADCImage -> com.jirbo.adcolony.al:
+    android.graphics.Bitmap bitmap -> a
+    android.graphics.Bitmap original_bitmap -> b
+    android.graphics.Paint paint -> c
+    android.graphics.Rect src_rect -> d
+    android.graphics.Rect dest_rect -> e
+    int width -> f
+    int height -> g
+    boolean loaded -> h
+    int original_width -> i
+    int original_height -> j
+    int mutable_w -> k
+    int mutable_h -> l
+    boolean error -> m
+    void ninePatch(int,int) -> a
+    void resize(int,int) -> b
+    void resize(double) -> a
+    void resize(double,boolean) -> a
+    void set_position(int,int) -> c
+    int x() -> a
+    int y() -> b
+    void center_within(int,int) -> d
+    void draw(android.graphics.Canvas,int,int) -> a
+    void draw(android.graphics.Canvas) -> a
+    android.graphics.Bitmap convertToMutable(android.graphics.Bitmap) -> a
+com.jirbo.adcolony.ADCJSON -> com.jirbo.adcolony.am:
+    com.jirbo.adcolony.ADCStringBuilder buffer -> a
+    void save(com.jirbo.adcolony.ADCDataFile,com.jirbo.adcolony.ADCData$Table) -> a
+    void save(com.jirbo.adcolony.ADCDataFile,com.jirbo.adcolony.ADCData$List) -> a
+    com.jirbo.adcolony.ADCData$Value load(com.jirbo.adcolony.ADCDataFile) -> a
+    com.jirbo.adcolony.ADCData$Table load_Table(com.jirbo.adcolony.ADCDataFile) -> b
+    com.jirbo.adcolony.ADCData$List load_List(com.jirbo.adcolony.ADCDataFile) -> c
+    com.jirbo.adcolony.ADCData$Value parse(java.lang.String) -> a
+    com.jirbo.adcolony.ADCData$Table parse_Table(java.lang.String) -> b
+    com.jirbo.adcolony.ADCData$Value parse_value(com.jirbo.adcolony.ADCParseReader) -> a
+    void discard_space(com.jirbo.adcolony.ADCParseReader) -> b
+    com.jirbo.adcolony.ADCData$Table parse_Table(com.jirbo.adcolony.ADCParseReader) -> c
+    com.jirbo.adcolony.ADCData$List parse_List(com.jirbo.adcolony.ADCParseReader) -> d
+    java.lang.String parse_String(com.jirbo.adcolony.ADCParseReader) -> e
+    int hex_character_to_value(int) -> a
+    char parse_hex_quad(com.jirbo.adcolony.ADCParseReader) -> f
+    java.lang.String parse_identifier(com.jirbo.adcolony.ADCParseReader) -> g
+    com.jirbo.adcolony.ADCData$Value parse_Number(com.jirbo.adcolony.ADCParseReader) -> h
+com.jirbo.adcolony.ADCLog -> com.jirbo.adcolony.an:
+    com.jirbo.adcolony.ADCLog dev -> a
+    com.jirbo.adcolony.ADCLog debug -> b
+    com.jirbo.adcolony.ADCLog info -> c
+    com.jirbo.adcolony.ADCLog error -> d
+    int log_level -> e
+    boolean enabled -> f
+    java.lang.StringBuilder buffer -> g
+    com.jirbo.adcolony.ADCLog print(char) -> a
+    com.jirbo.adcolony.ADCLog print(java.lang.String) -> a
+    com.jirbo.adcolony.ADCLog print(java.lang.Object) -> a
+    com.jirbo.adcolony.ADCLog print(double) -> a
+    com.jirbo.adcolony.ADCLog print(int) -> a
+    com.jirbo.adcolony.ADCLog print(boolean) -> a
+    com.jirbo.adcolony.ADCLog println(java.lang.Object) -> b
+    com.jirbo.adcolony.ADCLog println(double) -> b
+    com.jirbo.adcolony.ADCLog println(int) -> b
+    com.jirbo.adcolony.ADCLog println(boolean) -> b
+    boolean fail(java.lang.String) -> b
+    int int_fail(java.lang.String) -> c
+com.jirbo.adcolony.ADCMRAIDHandler -> com.jirbo.adcolony.ao:
+    android.webkit.WebView end_card_web_view -> a
+    android.app.Activity ctx -> b
+    com.jirbo.adcolony.ADCVideo video -> c
+    android.os.Handler h -> d
+    java.lang.Runnable r -> e
+    com.jirbo.adcolony.AdColonyAd ad -> f
+    java.lang.String play_order_index_json -> g
+    void handleMRAIDCommand(java.lang.String) -> a
+    void MRAIDCommandSocialPost(java.util.HashMap) -> a
+    void MRAIDCommandTakeScreenshot() -> a
+    void MRAIDCommandSendADCEvent(java.lang.String) -> b
+    void MRAIDCommandClose() -> b
+    void MRAIDCommandOpenStore(java.lang.String) -> c
+    void MRAIDCommandOpen(java.lang.String) -> d
+    void MRAIDCommandExpand(java.lang.String) -> e
+    void MRAIDCommandCreateCalendarEvent(java.util.HashMap) -> b
+    void MRAIDCommandMail(java.util.HashMap) -> c
+    void MRAIDCommandSMS(java.util.HashMap) -> d
+    void MRAIDCommandTel(java.util.HashMap) -> e
+    void MRAIDCommandSendCustomADCEvent(java.util.HashMap) -> f
+    void MRAIDCommandLaunchApp(java.util.HashMap) -> g
+    void MRAIDCommandCheckAppPresence(java.util.HashMap) -> h
+    void MRAIDCommandAutoPlay(java.util.HashMap) -> i
+    void execute_javascript(java.lang.String) -> f
+    java.lang.String decode(java.lang.String) -> g
+com.jirbo.adcolony.ADCMRAIDHandler$1 -> com.jirbo.adcolony.ap:
+    com.jirbo.adcolony.ADCMRAIDHandler this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.ADCMRAIDHandler$2 -> com.jirbo.adcolony.aq:
+    com.jirbo.adcolony.ADCMRAIDHandler this$0 -> a
+    void onScanCompleted(java.lang.String,android.net.Uri) -> onScanCompleted
+com.jirbo.adcolony.ADCManifest -> com.jirbo.adcolony.ar:
+com.jirbo.adcolony.ADCManifest$Ad -> com.jirbo.adcolony.as:
+    java.lang.String uuid -> a
+    java.lang.String title -> b
+    int ad_campaign_id -> c
+    int ad_id -> d
+    int ad_group_id -> e
+    int cpcv_bid -> f
+    int net_earnings -> g
+    int expires -> h
+    boolean enable_in_app_store -> i
+    boolean video_events_on_replays -> j
+    boolean test_ad -> k
+    boolean fullscreen -> l
+    boolean house_ad -> m
+    boolean contracted -> n
+    com.jirbo.adcolony.ADCManifest$Limits limits -> o
+    com.jirbo.adcolony.ADCManifest$ThirdPartyTracking third_party_tracking -> p
+    com.jirbo.adcolony.ADCManifest$InAppBrowser in_app_browser -> q
+    com.jirbo.adcolony.ADCManifest$AdV4VC v4vc -> r
+    com.jirbo.adcolony.ADCManifest$AdTracking ad_tracking -> s
+    com.jirbo.adcolony.ADCManifest$CompanionAd companion_ad -> t
+    com.jirbo.adcolony.ADCManifest$Video video -> u
+    com.jirbo.adcolony.ADCManifest$NativeAd native_ad -> v
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$AdTracking -> com.jirbo.adcolony.at:
+    java.lang.String replay -> a
+    java.lang.String card_shown -> b
+    java.lang.String html5_interaction -> c
+    java.lang.String cancel -> d
+    java.lang.String download -> e
+    java.lang.String skip -> f
+    java.lang.String info -> g
+    java.lang.String custom_event -> h
+    java.lang.String midpoint -> i
+    java.lang.String card_dissolved -> j
+    java.lang.String start -> k
+    java.lang.String third_quartile -> l
+    java.lang.String complete -> m
+    java.lang.String _continue -> n
+    java.lang.String in_video_engagement -> o
+    java.lang.String reward_v4vc -> p
+    java.lang.String first_quartile -> q
+    java.lang.String video_expanded -> r
+    java.lang.String sound_mute -> s
+    java.lang.String sound_unmute -> t
+    java.lang.String video_paused -> u
+    java.lang.String video_resumed -> v
+    java.lang.String native_start -> w
+    java.lang.String native_first_quartile -> x
+    java.lang.String native_midpoint -> y
+    java.lang.String native_third_quartile -> z
+    java.lang.String native_complete -> A
+    java.lang.String native_overlay_click -> B
+    com.jirbo.adcolony.ADCData$Table lookup -> C
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$AdV4VC -> com.jirbo.adcolony.au:
+    boolean enabled -> a
+    com.jirbo.adcolony.ADCManifest$PrePopupInfo pre_popup -> b
+    com.jirbo.adcolony.ADCManifest$PostPopupInfo post_popup -> c
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$Ads -> com.jirbo.adcolony.av:
+    java.util.ArrayList data -> a
+    boolean parse(com.jirbo.adcolony.ADCData$List) -> a
+    int count() -> a
+    com.jirbo.adcolony.ADCManifest$Ad get(int) -> a
+    com.jirbo.adcolony.ADCManifest$Ad first() -> b
+    com.jirbo.adcolony.ADCManifest$Ad find(java.lang.String) -> a
+    com.jirbo.adcolony.ADCManifest$Ad find_native_ad(int) -> b
+com.jirbo.adcolony.ADCManifest$App -> com.jirbo.adcolony.aw:
+    boolean enabled -> a
+    boolean log_screen_overlay -> b
+    java.lang.String last_country -> c
+    java.lang.String last_ip -> d
+    boolean hardware_acceleration_disabled -> e
+    boolean collect_iap_enabled -> f
+    double media_pool_size -> g
+    java.lang.String log_level -> h
+    java.lang.String view_network_pass_filter -> i
+    java.lang.String cache_network_pass_filter -> j
+    com.jirbo.adcolony.ADCManifest$AppTracking app_tracking -> k
+    com.jirbo.adcolony.ADCManifest$ThirdPartyAppTracking third_party_app_tracking -> l
+    java.util.ArrayList console_messages -> m
+    com.jirbo.adcolony.ADCManifest$Zones zones -> n
+    boolean is_ad_available(java.lang.String,boolean,boolean) -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> a
+com.jirbo.adcolony.ADCManifest$AppTracking -> com.jirbo.adcolony.ax:
+    java.lang.String update -> a
+    java.lang.String install -> b
+    java.lang.String dynamic_interests -> c
+    java.lang.String user_meta_data -> d
+    java.lang.String in_app_purchase -> e
+    java.lang.String session_start -> f
+    java.lang.String session_end -> g
+    com.jirbo.adcolony.ADCData$Table lookup -> h
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$ButtonInfo -> com.jirbo.adcolony.ay:
+    boolean enabled -> a
+    int width -> b
+    int height -> c
+    int scale -> d
+    int delay -> e
+    java.lang.String image_normal -> f
+    java.lang.String image_normal_last_modified -> g
+    java.lang.String image_down -> h
+    java.lang.String image_down_last_modified -> i
+    java.lang.String click_action -> j
+    java.lang.String click_action_type -> k
+    java.lang.String label -> l
+    java.lang.String label_rgba -> m
+    java.lang.String label_shadow_rgba -> n
+    java.lang.String label_html -> o
+    java.lang.String event -> p
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$CompanionAd -> com.jirbo.adcolony.az:
+    java.lang.String uuid -> a
+    int ad_id -> b
+    int ad_campaign_id -> c
+    boolean enabled -> d
+    boolean dissolve -> e
+    boolean enable_in_app_store -> f
+    double dissolve_delay -> g
+    com.jirbo.adcolony.ADCManifest$StaticCompanionAdInfo _static -> h
+    com.jirbo.adcolony.ADCManifest$HTML5CompanionAdInfo html5 -> i
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$HTML5CompanionAdInfo -> com.jirbo.adcolony.ba:
+    boolean enabled -> a
+    double load_timeout -> b
+    boolean load_timeout_enabled -> c
+    boolean load_spinner_enabled -> d
+    java.lang.String background_color -> e
+    com.jirbo.adcolony.ADCManifest$MRAIDJS mraid_js -> f
+    java.lang.String html5_tag -> g
+    com.jirbo.adcolony.ADCManifest$ImageInfo background_logo -> h
+    com.jirbo.adcolony.ADCManifest$ButtonInfo replay -> i
+    com.jirbo.adcolony.ADCManifest$ButtonInfo close -> j
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$ImageInfo -> com.jirbo.adcolony.bb:
+    int width -> a
+    int height -> b
+    int scale -> c
+    java.lang.String image -> d
+    java.lang.String image_last_modified -> e
+    boolean enabled -> f
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$InAppBrowser -> com.jirbo.adcolony.bc:
+    java.lang.String tiny_glow_image -> a
+    java.lang.String tiny_glow_image_last_modified -> b
+    java.lang.String background_bar_image -> c
+    java.lang.String background_bar_image_last_modified -> d
+    java.lang.String background_tile_image -> e
+    java.lang.String background_tile_image_last_modified -> f
+    java.lang.String background_color -> g
+    com.jirbo.adcolony.ADCManifest$ImageInfo logo -> h
+    com.jirbo.adcolony.ADCManifest$ButtonInfo stop -> i
+    com.jirbo.adcolony.ADCManifest$ButtonInfo back -> j
+    com.jirbo.adcolony.ADCManifest$ButtonInfo close -> k
+    com.jirbo.adcolony.ADCManifest$ButtonInfo forward -> l
+    com.jirbo.adcolony.ADCManifest$ButtonInfo reload -> m
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$Limits -> com.jirbo.adcolony.bd:
+    int daily_play_cap -> a
+    int custom_play_cap -> b
+    int custom_play_cap_period -> c
+    int total_play_cap -> d
+    int monthly_play_cap -> e
+    int weekly_play_cap -> f
+    int volatile_expiration -> g
+    int volatile_play_cap -> h
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$MRAIDJS -> com.jirbo.adcolony.be:
+    boolean enabled -> a
+    java.lang.String url -> b
+    java.lang.String last_modified -> c
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$NativeAd -> com.jirbo.adcolony.bf:
+    boolean enabled -> a
+    boolean mute_enabled -> b
+    java.lang.String poster_image -> c
+    java.lang.String advertiser_name -> d
+    java.lang.String description -> e
+    java.lang.String title -> f
+    java.lang.String thumb_image -> g
+    java.lang.String poster_image_last_modified -> h
+    java.lang.String thumb_image_last_modified -> i
+    com.jirbo.adcolony.ADCManifest$NativeOverlay native_overlay -> j
+    com.jirbo.adcolony.ADCManifest$ImageInfo mute -> k
+    com.jirbo.adcolony.ADCManifest$ImageInfo unmute -> l
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    boolean is_ready() -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$NativeOverlay -> com.jirbo.adcolony.bg:
+    boolean enabled -> a
+    boolean in_app -> b
+    java.lang.String click_action_type -> c
+    java.lang.String label -> d
+    java.lang.String click_action -> e
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$PostPopupDialogInfo -> com.jirbo.adcolony.bh:
+    int scale -> a
+    java.lang.String label_reward -> b
+    int width -> c
+    int height -> d
+    java.lang.String image -> e
+    java.lang.String image_last_modified -> f
+    java.lang.String label -> g
+    java.lang.String label_rgba -> h
+    java.lang.String label_shadow_rgba -> i
+    java.lang.String label_fraction -> j
+    java.lang.String label_html -> k
+    com.jirbo.adcolony.ADCManifest$ImageInfo logo -> l
+    com.jirbo.adcolony.ADCManifest$ButtonInfo option_done -> m
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$PostPopupInfo -> com.jirbo.adcolony.bi:
+    java.lang.String background_image -> a
+    java.lang.String background_image_last_modified -> b
+    com.jirbo.adcolony.ADCManifest$ImageInfo background_logo -> c
+    com.jirbo.adcolony.ADCManifest$PostPopupDialogInfo dialog -> d
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$PrePopupDialogInfo -> com.jirbo.adcolony.bj:
+    int scale -> a
+    java.lang.String label_reward -> b
+    int width -> c
+    int height -> d
+    java.lang.String image -> e
+    java.lang.String image_last_modified -> f
+    java.lang.String label -> g
+    java.lang.String label_rgba -> h
+    java.lang.String label_shadow_rgba -> i
+    java.lang.String label_fraction -> j
+    java.lang.String label_html -> k
+    com.jirbo.adcolony.ADCManifest$ImageInfo logo -> l
+    com.jirbo.adcolony.ADCManifest$ButtonInfo option_yes -> m
+    com.jirbo.adcolony.ADCManifest$ButtonInfo option_no -> n
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$PrePopupInfo -> com.jirbo.adcolony.bk:
+    java.lang.String background_image -> a
+    java.lang.String background_image_last_modified -> b
+    com.jirbo.adcolony.ADCManifest$ImageInfo background_logo -> c
+    com.jirbo.adcolony.ADCManifest$PrePopupDialogInfo dialog -> d
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$StaticCompanionAdInfo -> com.jirbo.adcolony.bl:
+    boolean enabled -> a
+    int width -> b
+    int height -> c
+    java.lang.String background_image -> d
+    java.lang.String background_image_last_modified -> e
+    com.jirbo.adcolony.ADCManifest$ButtonInfo info -> f
+    com.jirbo.adcolony.ADCManifest$ButtonInfo download -> g
+    com.jirbo.adcolony.ADCManifest$ButtonInfo replay -> h
+    com.jirbo.adcolony.ADCManifest$ButtonInfo _continue -> i
+    boolean is_ready() -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> b
+com.jirbo.adcolony.ADCManifest$ThirdPartyAppTracking -> com.jirbo.adcolony.bm:
+    java.util.ArrayList update -> a
+    java.util.ArrayList install -> b
+    java.util.ArrayList session_start -> c
+    java.util.HashMap lookup -> d
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$ThirdPartyTracking -> com.jirbo.adcolony.bn:
+    java.util.ArrayList replay -> a
+    java.util.ArrayList card_shown -> b
+    java.util.ArrayList html5_interaction -> c
+    java.util.ArrayList cancel -> d
+    java.util.ArrayList download -> e
+    java.util.ArrayList skip -> f
+    java.util.ArrayList info -> g
+    java.util.ArrayList midpoint -> h
+    java.util.ArrayList card_dissolved -> i
+    java.util.ArrayList start -> j
+    java.util.ArrayList third_quartile -> k
+    java.util.ArrayList complete -> l
+    java.util.ArrayList _continue -> m
+    java.util.ArrayList in_video_engagement -> n
+    java.util.ArrayList reward_v4vc -> o
+    java.util.ArrayList first_quartile -> p
+    java.util.ArrayList video_expanded -> q
+    java.util.ArrayList sound_mute -> r
+    java.util.ArrayList sound_unmute -> s
+    java.util.ArrayList video_paused -> t
+    java.util.ArrayList video_resumed -> u
+    java.util.ArrayList native_start -> v
+    java.util.ArrayList native_first_quartile -> w
+    java.util.ArrayList native_midpoint -> x
+    java.util.ArrayList native_third_quartile -> y
+    java.util.ArrayList native_complete -> z
+    java.util.ArrayList native_overlay_click -> A
+    java.util.HashMap lookup -> B
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$V4VCLimits -> com.jirbo.adcolony.bo:
+    int daily_play_cap -> a
+    int custom_play_cap -> b
+    int custom_play_cap_period -> c
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$Video -> com.jirbo.adcolony.bp:
+    boolean enabled -> a
+    int width -> b
+    int height -> c
+    java.lang.String url -> d
+    java.lang.String last_modified -> e
+    java.lang.String video_frame_rate -> f
+    java.lang.String audio_channels -> g
+    java.lang.String audio_codec -> h
+    java.lang.String audio_sample_rate -> i
+    java.lang.String video_codec -> j
+    double duration -> k
+    com.jirbo.adcolony.ADCManifest$ButtonInfo skip_video -> l
+    com.jirbo.adcolony.ADCManifest$ButtonInfo in_video_engagement -> m
+    boolean is_ready() -> a
+    java.lang.String filepath() -> b
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> c
+com.jirbo.adcolony.ADCManifest$Zone -> com.jirbo.adcolony.bq:
+    java.lang.String uuid -> a
+    int play_interval -> b
+    int daily_play_cap -> c
+    int session_play_cap -> d
+    boolean enabled -> e
+    boolean active -> f
+    java.util.ArrayList play_order -> g
+    com.jirbo.adcolony.ADCManifest$ZoneTracking zone_tracking -> h
+    com.jirbo.adcolony.ADCManifest$Ads ads -> i
+    com.jirbo.adcolony.ADCManifest$ZoneV4VC v4vc -> j
+    com.jirbo.adcolony.ADCZoneState state -> k
+    boolean is_ad_available() -> a
+    boolean is_ad_available(boolean,boolean) -> a
+    boolean is_ad_available_errorless(boolean) -> a
+    boolean check_for_skip_due_to_interval() -> b
+    int combine_results(int,int) -> a
+    void try_refresh() -> c
+    int get_available_plays(com.jirbo.adcolony.ADCManifest$Ad) -> a
+    boolean is_video_zone() -> d
+    boolean is_video_zone(boolean) -> b
+    boolean is_video_zone_errorless() -> e
+    boolean is_v4vc_zone() -> f
+    boolean is_v4vc_zone(boolean) -> c
+    boolean is_v4vc_zone_errorless() -> g
+    com.jirbo.adcolony.ADCManifest$Ad current_ad() -> h
+    com.jirbo.adcolony.ADCManifest$Ad current_native_ad() -> i
+    void advance_play_index() -> j
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    void cache_media() -> k
+com.jirbo.adcolony.ADCManifest$ZoneTracking -> com.jirbo.adcolony.br:
+    java.lang.String request -> a
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$ZoneV4VC -> com.jirbo.adcolony.bs:
+    boolean enabled -> a
+    com.jirbo.adcolony.ADCManifest$V4VCLimits limits -> b
+    int reward_amount -> c
+    java.lang.String reward_name -> d
+    boolean client_side -> e
+    int videos_per_reward -> f
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+com.jirbo.adcolony.ADCManifest$Zones -> com.jirbo.adcolony.bt:
+    java.util.ArrayList data -> a
+    boolean parse(com.jirbo.adcolony.ADCData$List) -> a
+    int count() -> a
+    com.jirbo.adcolony.ADCManifest$Zone get(int) -> a
+    com.jirbo.adcolony.ADCManifest$Zone find(java.lang.String) -> a
+com.jirbo.adcolony.ADCMediaManager -> com.jirbo.adcolony.bu:
+    com.jirbo.adcolony.ADCController controller -> a
+    java.util.ArrayList assets -> b
+    java.util.HashMap lookup -> c
+    int next_file_number -> d
+    com.jirbo.adcolony.ADCUtil$Timer save_timer -> e
+    int active_downloads -> f
+    java.util.ArrayList pending_downloads -> g
+    boolean configured -> h
+    boolean modified -> i
+    double total_media_bytes -> j
+    void configure() -> a
+    void load() -> b
+    void refresh() -> c
+    void save() -> d
+    boolean is_cached(java.lang.String) -> a
+    java.lang.String local_filepath(java.lang.String) -> b
+    void cache(java.lang.String,java.lang.String) -> a
+    void update() -> e
+    void start_next_download() -> f
+    void on_download_finished(com.jirbo.adcolony.ADCDownload) -> a
+    void purge_old_assets() -> g
+    int get_next_file_number() -> h
+    java.lang.String url_to_filename(java.lang.String,int) -> a
+com.jirbo.adcolony.ADCMediaManager$Asset -> com.jirbo.adcolony.bv:
+    java.lang.String url -> a
+    java.lang.String filepath -> b
+    java.lang.String last_modified -> c
+    boolean downloading -> d
+    boolean ready -> e
+    int file_number -> f
+    int size -> g
+    double last_accessed -> h
+com.jirbo.adcolony.ADCMonitor -> com.jirbo.adcolony.bw:
+    java.lang.String monitor_mutex -> a
+    com.jirbo.adcolony.ADCMonitor singleton -> b
+    long last_ping_ms -> c
+    void ping() -> a
+    void run() -> run
+    void sleep(long) -> a
+com.jirbo.adcolony.ADCMonitor$Pinger -> com.jirbo.adcolony.bx:
+    void handleMessage(android.os.Message) -> handleMessage
+com.jirbo.adcolony.ADCNetwork -> com.jirbo.adcolony.by:
+    java.lang.String url_encoding_map -> a
+    java.lang.String uppercase_hex_digits -> b
+    java.lang.String lowercase_hex_digits -> c
+    boolean using_wifi() -> a
+    boolean using_mobile() -> b
+    boolean connected() -> c
+    java.lang.String url_encoded(java.lang.String) -> a
+com.jirbo.adcolony.ADCParseReader -> com.jirbo.adcolony.bz:
+    char[] data -> a
+    int position -> b
+    int count -> c
+    boolean has_another() -> a
+    char peek() -> b
+    char read() -> c
+    boolean consume(char) -> a
+com.jirbo.adcolony.ADCPlayHistory -> com.jirbo.adcolony.ca:
+    com.jirbo.adcolony.ADCController controller -> a
+    java.util.ArrayList play_events -> b
+    java.util.HashMap play_counts -> c
+    java.util.HashMap reward_credit -> d
+    boolean modified -> e
+    boolean loaded -> f
+    void configure() -> a
+    void add_play_event(java.lang.String,int) -> a
+    int zone_session_play_count(java.lang.String) -> a
+    int zone_interval_play_count(java.lang.String,double) -> a
+    int zone_daily_play_count(java.lang.String) -> b
+    int ad_interval_play_count(int,double) -> a
+    int get_reward_credit(java.lang.String) -> c
+    void set_reward_credit(java.lang.String,int) -> b
+    int ad_daily_play_count(int) -> a
+    int ad_weekly_play_count(int) -> b
+    int ad_monthly_play_count(int) -> c
+    int ad_half_year_play_count(int) -> d
+    void load() -> b
+    void save() -> c
+    void update() -> d
+com.jirbo.adcolony.ADCPlayHistory$PlayEvent -> com.jirbo.adcolony.cb:
+    java.lang.String zone_id -> a
+    int ad_id -> b
+    java.lang.String session_id -> c
+    double timestamp -> d
+com.jirbo.adcolony.ADCReportingManager -> com.jirbo.adcolony.cc:
+    com.jirbo.adcolony.ADCController controller -> a
+    java.util.ArrayList pending_events -> b
+    java.util.ArrayList culling_list -> c
+    int active_submissions -> d
+    boolean modified -> e
+    void track_ad_request(java.lang.String,com.jirbo.adcolony.AdColonyAd) -> a
+    void track_app_event(java.lang.String,com.jirbo.adcolony.ADCData$Table) -> a
+    void track_ad_event(java.lang.String,com.jirbo.adcolony.AdColonyAd) -> b
+    void track_ad_event(java.lang.String,com.jirbo.adcolony.ADCData$Table,com.jirbo.adcolony.AdColonyAd) -> a
+    void track_adcolony_event(java.lang.String,java.lang.String,com.jirbo.adcolony.ADCData$Table) -> a
+    void track_adcolony_event(java.lang.String,java.lang.String,com.jirbo.adcolony.ADCData$Table,com.jirbo.adcolony.AdColonyAd) -> a
+    void track_third_party_event(java.lang.String,java.util.ArrayList) -> a
+    void track_video_progress(double,com.jirbo.adcolony.AdColonyAd) -> a
+    void configure() -> a
+    void load() -> b
+    void save() -> c
+    void update() -> d
+    void dispatch_events() -> e
+    void on_download_finished(com.jirbo.adcolony.ADCDownload) -> a
+com.jirbo.adcolony.ADCReportingManager$Event -> com.jirbo.adcolony.cd:
+    java.lang.String type -> a
+    java.lang.String url -> b
+    java.lang.String payload -> c
+    java.lang.String v4vc_name -> d
+    double next_attempt_time -> e
+    int attempts -> f
+    int next_attempt_delay -> g
+    int v4vc_amount -> h
+    boolean discard -> i
+    boolean submitting -> j
+    boolean third_party -> k
+com.jirbo.adcolony.ADCSessionManager -> com.jirbo.adcolony.ce:
+    com.jirbo.adcolony.ADCController controller -> a
+    boolean active -> b
+    boolean allow_resume -> c
+    boolean should_submit_app_install_event -> d
+    boolean should_submit_session_start_event -> e
+    double start_time -> f
+    double finish_time -> g
+    double session_time -> h
+    java.lang.String current_session_id -> i
+    void configure() -> a
+    void update() -> b
+    void on_resume() -> c
+    void on_suspend() -> d
+    void on_stop() -> e
+    void save() -> f
+    void load() -> g
+    void on_new_session() -> h
+    void submit_session_duration(double) -> a
+com.jirbo.adcolony.ADCSkipVideoDialog -> com.jirbo.adcolony.cf:
+    boolean skip_dialog -> y
+    com.jirbo.adcolony.ADCSkipVideoDialog current -> z
+    boolean confirm_down -> A
+    boolean cancel_down -> B
+    com.jirbo.adcolony.ADCVideo video -> C
+    void onDraw(android.graphics.Canvas) -> onDraw
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void calculatePosition() -> c
+com.jirbo.adcolony.ADCStorage -> com.jirbo.adcolony.cg:
+    com.jirbo.adcolony.ADCController controller -> a
+    java.lang.String adcolony_path -> b
+    java.lang.String media_path -> c
+    java.lang.String data_path -> d
+    java.io.File media_file -> e
+    java.io.File data_file -> f
+    void configure() -> a
+    void validate_storage_paths() -> b
+    java.lang.String internal_storage_path() -> c
+    java.lang.String external_storage_path() -> d
+    double available_space(java.lang.String) -> a
+com.jirbo.adcolony.ADCStreamReader -> com.jirbo.adcolony.ch:
+    java.io.InputStream input -> a
+    byte[] buffer -> b
+    int size -> c
+    int position -> d
+    int buffer_count -> e
+    int buffer_position -> f
+    int x -> g
+    int dx -> h
+    int available() -> available
+    void close() -> close
+    void mark(int) -> mark
+    boolean markSupported() -> markSupported
+    int read() -> read
+    int read(byte[]) -> read
+    int read(byte[],int,int) -> read
+    void reset() -> reset
+    long skip(long) -> skip
+    void fillBuffer() -> a
+com.jirbo.adcolony.ADCStreamWriter -> com.jirbo.adcolony.ci:
+    java.lang.String filepath -> a
+    java.io.OutputStream out -> b
+    byte[] buffer -> c
+    int position -> d
+    int x -> e
+    int dx -> f
+    void write(char) -> a
+    void flush() -> a
+    void close() -> b
+    void on_error(java.io.IOException) -> a
+com.jirbo.adcolony.ADCStringBuilder -> com.jirbo.adcolony.cj:
+    java.lang.StringBuilder buffer -> a
+    void clear() -> a
+    void write(char) -> a
+    java.lang.String toString() -> toString
+com.jirbo.adcolony.ADCThreadPool -> com.jirbo.adcolony.ck:
+    java.lang.String mutex -> a
+    java.util.ArrayList idle_threads -> b
+    java.util.ArrayList all_threads -> c
+    java.util.ArrayList pending_runnables -> d
+    java.util.ArrayList working_runnables -> e
+    boolean shutting_down -> f
+    void reset() -> a
+    void run(java.lang.Runnable) -> a
+    void start() -> b
+    void stop() -> c
+com.jirbo.adcolony.ADCThreadPool$ReusableThread -> com.jirbo.adcolony.cl:
+    java.lang.Runnable target -> a
+    void run() -> run
+com.jirbo.adcolony.ADCUtil -> com.jirbo.adcolony.cm:
+    byte[] byte_buffer -> a
+    java.lang.StringBuilder string_buffer -> b
+    boolean application_exists(java.lang.String) -> a
+    java.lang.String calculate_sha1(java.lang.String) -> b
+    java.lang.String create_uuid() -> a
+    double current_time() -> b
+    java.lang.String format(double,int) -> a
+    void format(double,int,java.lang.StringBuilder) -> a
+    java.lang.String load_file(java.lang.String,java.lang.String) -> a
+    java.lang.String package_name() -> c
+com.jirbo.adcolony.ADCUtil$Stopwatch -> com.jirbo.adcolony.cn:
+    long start_ms -> a
+    void restart() -> a
+    double elapsed_seconds() -> b
+    java.lang.String toString() -> toString
+com.jirbo.adcolony.ADCUtil$Timer -> com.jirbo.adcolony.co:
+    double target_time -> a
+    void restart(double) -> a
+    boolean expired() -> a
+    double remaining_seconds() -> b
+    java.lang.String toString() -> toString
+com.jirbo.adcolony.ADCV4VCConfirmationDialog -> com.jirbo.adcolony.cp:
+    boolean cancel_down -> y
+    boolean confirm_down -> z
+    void onDraw(android.graphics.Canvas) -> onDraw
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.jirbo.adcolony.ADCV4VCResultsDialog -> com.jirbo.adcolony.cq:
+    boolean done_down -> y
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void calculatePosition() -> c
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.jirbo.adcolony.ADCVideo -> com.jirbo.adcolony.cr:
+    int video_seek_to_ms -> a
+    int html5_video_seek_to_ms -> b
+    int video_start -> c
+    boolean video_finished -> d
+    boolean is_replay -> e
+    boolean html5_video_playing -> f
+    android.app.Activity ctx -> g
+    boolean visible -> h
+    boolean unfocused -> i
+    boolean html5_endcard_loading_started -> j
+    boolean html5_endcard_loading_finished -> k
+    boolean html5_endcard_loading_timeout -> l
+    boolean endcard_dissolved -> m
+    boolean rewarded -> n
+    double html5_endcard_loading_time -> o
+    double endcard_time_spent -> p
+    long endcard_time_resume -> q
+    long endcard_time_pause -> r
+    int display_width -> s
+    int display_height -> t
+    int view_width -> u
+    int view_height -> v
+    int bg_color -> w
+    java.lang.String video_url -> x
+    boolean first_resume -> y
+    boolean first_play -> z
+    com.jirbo.adcolony.ADCCustomVideoView video_view -> A
+    com.jirbo.adcolony.ADCVideoHUD hud -> B
+    com.jirbo.adcolony.AdColonyAd ad -> C
+    android.widget.VideoView html5_video_view -> D
+    android.widget.FrameLayout layout -> E
+    android.widget.FrameLayout web_layout -> F
+    android.widget.FrameLayout html5_video_layout -> G
+    android.graphics.Rect bounds -> H
+    com.jirbo.adcolony.ADCImage browser_icon -> I
+    com.jirbo.adcolony.ADCVideo$LoadingView loading_view -> J
+    java.io.FileInputStream infile -> K
+    void reset() -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void onDestroy() -> onDestroy
+    boolean calculate_layout() -> b
+    void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    void onPause() -> onPause
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void playVideo(java.lang.String) -> a
+com.jirbo.adcolony.ADCVideo$1 -> com.jirbo.adcolony.cs:
+    com.jirbo.adcolony.ADCVideo this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.ADCVideo$2 -> com.jirbo.adcolony.ct:
+    com.jirbo.adcolony.ADCVideo this$0 -> a
+    void onCompletion(android.media.MediaPlayer) -> onCompletion
+com.jirbo.adcolony.ADCVideo$3 -> com.jirbo.adcolony.cu:
+    com.jirbo.adcolony.ADCVideo this$0 -> a
+    void onPrepared(android.media.MediaPlayer) -> onPrepared
+com.jirbo.adcolony.ADCVideo$LoadingView -> com.jirbo.adcolony.cv:
+    android.graphics.Rect bounds -> a
+    com.jirbo.adcolony.ADCVideo this$0 -> b
+    void onDraw(android.graphics.Canvas) -> onDraw
+com.jirbo.adcolony.ADCVideoHUD -> com.jirbo.adcolony.cw:
+    android.webkit.WebView end_card_web_view -> a
+    android.view.View loading_view -> b
+    com.jirbo.adcolony.ADCVideo activity -> c
+    double image_scale -> d
+    double hud_scale -> e
+    int left_margin -> f
+    int keyboard_offset -> g
+    int close_xpos -> h
+    int close_ypos -> i
+    int reload_xpos -> j
+    int reload_ypos -> k
+    int offset -> l
+    int original_bg_width -> m
+    int original_bg_height -> n
+    int skip_delay_ms -> o
+    int engagement_delay_ms -> p
+    int video_duration_ms -> q
+    int selected_button -> r
+    int recent_selected_button -> s
+    long end_card_loading_start -> t
+    long end_card_loading_finish -> u
+    boolean resize_images -> v
+    boolean first_resize -> w
+    boolean up_state -> x
+    boolean first_update -> y
+    boolean can_press -> z
+    boolean graceful_fail -> A
+    boolean web_layout_offset -> B
+    boolean error -> C
+    boolean close_pressed -> D
+    boolean reload_pressed -> E
+    boolean engagement_pressed -> F
+    boolean engagement -> G
+    boolean skippable -> H
+    boolean is_static -> I
+    boolean skip_delay_met -> J
+    boolean engagement_delay_met -> K
+    boolean is_html5 -> L
+    boolean stay_at_zero -> M
+    android.graphics.Canvas canvas -> N
+    java.lang.String version_number -> O
+    java.lang.String engagement_text -> P
+    java.lang.String engagement_url -> Q
+    com.jirbo.adcolony.ADCUtil$Timer dissolve_timer -> R
+    android.graphics.Paint paint -> S
+    android.graphics.Paint text_paint -> T
+    android.graphics.Paint button_text_paint -> U
+    android.graphics.Paint version_paint -> V
+    android.graphics.Rect bounds -> W
+    com.jirbo.adcolony.ADCImage background -> Z
+    com.jirbo.adcolony.ADCImage img_skip_button -> aa
+    com.jirbo.adcolony.ADCImage img_skip_button_down -> ab
+    com.jirbo.adcolony.ADCImage img_close_button -> ac
+    com.jirbo.adcolony.ADCImage img_close_button_down -> ad
+    com.jirbo.adcolony.ADCImage img_reload_button -> ae
+    com.jirbo.adcolony.ADCImage img_reload_button_down -> af
+    com.jirbo.adcolony.ADCImage img_engagement_button_normal -> ag
+    com.jirbo.adcolony.ADCImage img_engagement_button_down -> ah
+    com.jirbo.adcolony.ADCImage browser_icon -> ai
+    com.jirbo.adcolony.ADCImage[] normal_buttons -> aj
+    com.jirbo.adcolony.ADCImage[] active_buttons -> ak
+    com.jirbo.adcolony.ADCMRAIDHandler mraid_handler -> al
+    java.lang.String[] button_labels -> am
+    float[] widths -> an
+    float cur_angle -> ao
+    float angle_per_sec -> ap
+    float width -> aq
+    float height -> ar
+    float radius -> as
+    float center_x -> at
+    float center_y -> au
+    android.graphics.Paint circle_paint -> av
+    android.graphics.RectF oval -> aw
+    com.jirbo.adcolony.ADCVideoHUD$UpdateHandler update_handler -> ax
+    android.os.Handler on_button_press_handler -> ay
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void onButton(int) -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    int get_button_index(int,int) -> a
+    boolean clicked(com.jirbo.adcolony.ADCImage,int,int) -> a
+    void adjust_size() -> a
+    void set_up_web_view() -> b
+    void onCompletion(android.media.MediaPlayer) -> onCompletion
+    void complete() -> c
+    void execute_javascript(java.lang.String) -> a
+    void dec_fire_viewable_change(boolean) -> a
+    void dec_fire_keyboard_viewable_change(boolean) -> b
+    boolean onError(android.media.MediaPlayer,int,int) -> onError
+    void on_video_finish() -> d
+    void handle_continue() -> e
+    void handle_cancel() -> f
+    void handle_replay() -> g
+    int textWidthOf(java.lang.String) -> b
+    void keyboardCheck() -> h
+    void open_or_closed() -> i
+    void set_offset(int) -> b
+com.jirbo.adcolony.ADCVideoHUD$1 -> com.jirbo.adcolony.cx:
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.ADCVideoHUD$1JsObject -> com.jirbo.adcolony.cy:
+    boolean val$visible -> a
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> b
+    java.lang.String toString() -> toString
+com.jirbo.adcolony.ADCVideoHUD$2 -> com.jirbo.adcolony.cz:
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.jirbo.adcolony.ADCVideoHUD$3 -> com.jirbo.adcolony.da:
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> a
+    boolean onConsoleMessage(android.webkit.ConsoleMessage) -> onConsoleMessage
+    void onGeolocationPermissionsShowPrompt(java.lang.String,android.webkit.GeolocationPermissions$Callback) -> onGeolocationPermissionsShowPrompt
+com.jirbo.adcolony.ADCVideoHUD$4 -> com.jirbo.adcolony.db:
+    java.lang.String end_card_url -> a
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> b
+    boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+    void onLoadResource(android.webkit.WebView,java.lang.String) -> onLoadResource
+    void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap) -> onPageStarted
+    void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
+com.jirbo.adcolony.ADCVideoHUD$5 -> com.jirbo.adcolony.dc:
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.ADCVideoHUD$6 -> com.jirbo.adcolony.dd:
+    android.view.View val$black_view -> a
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> b
+    void run() -> run
+com.jirbo.adcolony.ADCVideoHUD$7 -> com.jirbo.adcolony.de:
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.ADCVideoHUD$8 -> com.jirbo.adcolony.df:
+    android.view.View val$black_view -> a
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> b
+    void run() -> run
+com.jirbo.adcolony.ADCVideoHUD$9 -> com.jirbo.adcolony.dg:
+    android.view.View val$root_view -> a
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> b
+    void onGlobalLayout() -> onGlobalLayout
+com.jirbo.adcolony.ADCVideoHUD$LoadingView -> com.jirbo.adcolony.dh:
+    android.graphics.Rect bounds -> a
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> b
+    void onDraw(android.graphics.Canvas) -> onDraw
+com.jirbo.adcolony.ADCVideoHUD$UpdateHandler -> com.jirbo.adcolony.di:
+    com.jirbo.adcolony.ADCVideoHUD this$0 -> a
+    void check_back_later() -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.jirbo.adcolony.ADCWriter -> com.jirbo.adcolony.dj:
+    boolean beginning_of_line -> g
+    int indent -> h
+    void write(char) -> a
+    void indent_if_necessary() -> c
+    void print(char) -> b
+    void print(java.lang.String) -> a
+    void print(double) -> a
+    void print(long) -> a
+    void print_recursive(long) -> b
+    void print(boolean) -> a
+    void println(char) -> c
+    void println(java.lang.String) -> b
+    void println() -> d
+com.jirbo.adcolony.ADCZoneState -> com.jirbo.adcolony.ADCZoneState:
+    java.lang.String uuid -> uuid
+    int skipped_plays -> skipped_plays
+    int play_order_index -> play_order_index
+    int session_play_count -> session_play_count
+    boolean parse(com.jirbo.adcolony.ADCData$Table) -> a
+    com.jirbo.adcolony.ADCData$Table to_Table() -> a
+com.jirbo.adcolony.ADCZoneStateManager -> com.jirbo.adcolony.dk:
+    com.jirbo.adcolony.ADCController controller -> a
+    boolean modified -> b
+    java.util.ArrayList data -> c
+    void load() -> a
+    void save() -> b
+    com.jirbo.adcolony.ADCZoneState find(java.lang.String) -> a
+    void update() -> c
+com.jirbo.adcolony.AdColony -> com.jirbo.adcolony.dl:
+    boolean advertising_id_ready -> a
+    void disable() -> a
+    void configure(android.app.Activity,java.lang.String,java.lang.String,java.lang.String[]) -> a
+    void resume(android.app.Activity) -> a
+    void pause() -> b
+    android.app.Activity activity() -> c
+    boolean isZoneV4VC(java.lang.String) -> a
+    boolean isZoneNative(java.lang.String) -> b
+com.jirbo.adcolony.AdColony$1 -> com.jirbo.adcolony.dm:
+    void run() -> run
+com.jirbo.adcolony.AdColony$2 -> com.jirbo.adcolony.dn:
+    android.app.Activity val$a -> a
+    void run() -> run
+com.jirbo.adcolony.AdColony$2$1 -> com.jirbo.adcolony.do:
+    com.jirbo.adcolony.AdColony$2 this$0 -> a
+    void run() -> run
+com.jirbo.adcolony.AdColony$AdvertisingIdTask -> com.jirbo.adcolony.dp:
+    android.app.Activity activity -> a
+    java.lang.String advertising_id -> b
+    boolean limit_ad_tracking -> c
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPostExecute(java.lang.Void) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.jirbo.adcolony.AdColonyAd -> com.jirbo.adcolony.AdColonyAd:
+    int status -> status
+    java.lang.String zone_id -> zone_id
+    com.jirbo.adcolony.ADCManifest$Zone zone_info -> zone_info
+    com.jirbo.adcolony.ADCManifest$Ad ad_info -> ad_info
+    java.lang.String ad_unit -> ad_unit
+    java.lang.String view_format -> view_format
+    java.lang.String asi -> asi
+    double current_progress -> current_progress
+    double force_current_progress -> force_current_progress
+    int global_seek_to_ms -> global_seek_to_ms
+    boolean is_native -> is_native
+    boolean is_native_expanded -> is_native_expanded
+    boolean replay -> replay
+    boolean isReady() -> a
+    boolean isReady(boolean) -> a
+    void on_video_finished() -> b
+    boolean is_v4vc() -> c
+    boolean set_up_info() -> d
+    boolean set_up_info(boolean) -> b
+com.jirbo.adcolony.AdColonyAdAvailabilityListener -> com.jirbo.adcolony.dq:
+    void onAdColonyAdAvailabilityChange(boolean,java.lang.String) -> a
+com.jirbo.adcolony.AdColonyAdListener -> com.jirbo.adcolony.dr:
+    void onAdColonyAdAttemptFinished(com.jirbo.adcolony.AdColonyAd) -> a
+    void onAdColonyAdStarted(com.jirbo.adcolony.AdColonyAd) -> b
+com.jirbo.adcolony.AdColonyBrowser -> com.jirbo.adcolony.AdColonyBrowser:
+    java.lang.String url -> a
+    boolean lock -> b
+    android.webkit.WebView web_view -> c
+    com.jirbo.adcolony.ADCImage back_button -> d
+    com.jirbo.adcolony.ADCImage stop_button -> e
+    com.jirbo.adcolony.ADCImage reload_button -> f
+    com.jirbo.adcolony.ADCImage forward_button -> g
+    com.jirbo.adcolony.ADCImage close_button -> h
+    com.jirbo.adcolony.ADCImage glow_button -> i
+    com.jirbo.adcolony.ADCImage browser_icon -> j
+    com.jirbo.adcolony.ADCImage back_button_enabled -> k
+    com.jirbo.adcolony.ADCImage forward_button_enabled -> l
+    android.widget.RelativeLayout bar_layout -> m
+    android.widget.RelativeLayout web_view_layout -> n
+    boolean back_button_down -> o
+    boolean forward_button_down -> p
+    boolean reload_button_down -> q
+    boolean close_button_down -> r
+    android.widget.ProgressBar pb -> s
+    android.util.DisplayMetrics dm -> t
+    com.jirbo.adcolony.AdColonyBrowser$ButtonOverlay overlay -> u
+    com.jirbo.adcolony.AdColonyBrowser$ShadowOverlay shadow_overlay -> v
+    boolean enable_back_button -> w
+    boolean enable_forward_button -> x
+    boolean loading -> y
+    boolean page_loaded -> z
+    boolean first_draw -> A
+    boolean should_recycle -> B
+    boolean is_open -> C
+    boolean finishing -> D
+    void onCreate(android.os.Bundle) -> onCreate
+    void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    void onPause() -> onPause
+    void onResume() -> onResume
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    void onDestroy() -> onDestroy
+com.jirbo.adcolony.AdColonyBrowser$1 -> com.jirbo.adcolony.ds:
+    com.jirbo.adcolony.AdColonyBrowser this$0 -> a
+    void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
+    void onGeolocationPermissionsShowPrompt(java.lang.String,android.webkit.GeolocationPermissions$Callback) -> onGeolocationPermissionsShowPrompt
+com.jirbo.adcolony.AdColonyBrowser$2 -> com.jirbo.adcolony.dt:
+    com.jirbo.adcolony.AdColonyBrowser this$0 -> a
+    boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+    void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap) -> onPageStarted
+    void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
+    void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
+com.jirbo.adcolony.AdColonyBrowser$ButtonOverlay -> com.jirbo.adcolony.du:
+    android.graphics.Rect bounds -> a
+    android.graphics.Paint paint -> b
+    com.jirbo.adcolony.AdColonyBrowser this$0 -> c
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void addProgress() -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void draw_upstates() -> b
+    boolean clicked(com.jirbo.adcolony.ADCImage,int,int) -> a
+com.jirbo.adcolony.AdColonyBrowser$LoadingView -> com.jirbo.adcolony.dv:
+    android.graphics.Rect bounds -> a
+    com.jirbo.adcolony.AdColonyBrowser this$0 -> b
+    void onDraw(android.graphics.Canvas) -> onDraw
+com.jirbo.adcolony.AdColonyBrowser$ShadowOverlay -> com.jirbo.adcolony.dw:
+    android.graphics.Paint paint -> a
+    com.jirbo.adcolony.ADCImage img_close_button -> b
+    com.jirbo.adcolony.ADCImage img_close_button_down -> c
+    com.jirbo.adcolony.AdColonyBrowser this$0 -> d
+    void onDraw(android.graphics.Canvas) -> onDraw
+com.jirbo.adcolony.AdColonyException -> com.jirbo.adcolony.AdColonyException:
+com.jirbo.adcolony.AdColonyFullscreen -> com.jirbo.adcolony.AdColonyFullscreen:
+com.jirbo.adcolony.AdColonyInterstitialAd -> com.jirbo.adcolony.AdColonyInterstitialAd:
+    com.jirbo.adcolony.AdColonyAdListener listener -> listener
+    com.jirbo.adcolony.AdColonyNativeAdListener native_listener -> native_listener
+    com.jirbo.adcolony.AdColonyNativeAdView native_ad -> native_ad
+    boolean is_v4vc() -> c
+    boolean isReady(boolean) -> a
+    boolean isReady() -> a
+    void show() -> e
+    void on_video_finished() -> b
+com.jirbo.adcolony.AdColonyInterstitialAd$1 -> com.jirbo.adcolony.dx:
+    com.jirbo.adcolony.AdColonyInterstitialAd this$0 -> a
+    void dispatch() -> a
+com.jirbo.adcolony.AdColonyInterstitialAd$2 -> com.jirbo.adcolony.dy:
+    com.jirbo.adcolony.AdColonyInterstitialAd this$0 -> a
+    void dispatch() -> a
+com.jirbo.adcolony.AdColonyNativeAdListener -> com.jirbo.adcolony.dz:
+    void onAdColonyNativeAdStarted(boolean,com.jirbo.adcolony.AdColonyNativeAdView) -> a
+    void onAdColonyNativeAdFinished(boolean,com.jirbo.adcolony.AdColonyNativeAdView) -> b
+com.jirbo.adcolony.AdColonyNativeAdMutedListener -> com.jirbo.adcolony.ea:
+    void onAdColonyNativeAdMuted(com.jirbo.adcolony.AdColonyNativeAdView,boolean) -> a
+com.jirbo.adcolony.AdColonyNativeAdView -> com.jirbo.adcolony.eb:
+    android.app.Activity context -> a
+    java.lang.String zone_id -> b
+    java.lang.String video_filepath -> c
+    android.view.ViewGroup parent_view -> d
+    android.graphics.SurfaceTexture global_texture -> e
+    int video_player_width -> f
+    int video_player_height -> g
+    boolean list_view -> h
+    boolean initialized -> i
+    boolean volume -> j
+    boolean zone_is_native -> k
+    boolean played -> l
+    boolean finished -> m
+    boolean manually_paused -> n
+    boolean actual_user_mute -> o
+    boolean mute_enabled -> p
+    boolean surface_ready -> q
+    boolean paused -> r
+    boolean first_initialize -> s
+    boolean replay -> t
+    boolean volume_button_enabled -> u
+    boolean is_private -> v
+    com.jirbo.adcolony.AdColonyInterstitialAd ad -> w
+    com.jirbo.adcolony.AdColonyNativeAdListener listener -> x
+    com.jirbo.adcolony.AdColonyNativeAdMutedListener mute_listener -> y
+    com.jirbo.adcolony.ADCImage static_image -> z
+    com.jirbo.adcolony.ADCImage volume_button_normal -> A
+    com.jirbo.adcolony.ADCImage volume_button_down -> B
+    android.widget.ImageView volume_button -> C
+    com.jirbo.adcolony.AdColonyNativeAdView$StaticImageView static_image_view -> D
+    android.view.View texture_view -> E
+    android.graphics.Bitmap current_volume_bitmap -> F
+    com.jirbo.adcolony.ADCImage thumb_image -> G
+    android.widget.ImageView thumb_image_view -> H
+    boolean engagement_enabled -> I
+    android.widget.Button engagement_button -> J
+    java.lang.String engagement_text -> K
+    java.lang.String engagement_command -> L
+    java.lang.String engagement_type -> M
+    android.media.MediaPlayer mp -> N
+    android.view.Surface s -> O
+    java.lang.String advertiser_name -> P
+    java.lang.String description -> Q
+    java.lang.String title -> R
+    java.lang.String poster_image_filepath -> S
+    java.lang.String unmute_filepath -> T
+    java.lang.String mute_filepath -> U
+    java.lang.String thumb_image_filepath -> V
+    int original_width -> W
+    int original_height -> Z
+    int width -> aa
+    int height -> ab
+    int seek_to_ms -> ac
+    int current_button_color -> ad
+    int current_button_text_color -> ae
+    int screen_width -> af
+    com.jirbo.adcolony.ADCManifest$Zone zone_info -> ag
+    float set_volume -> ah
+    float pub_defined_volume -> ai
+    float dpi -> aj
+    java.io.FileInputStream infile -> ak
+    void initialize() -> a
+    boolean isReady(boolean) -> a
+    int getNativeAdWidth() -> getNativeAdWidth
+    int getNativeAdHeight() -> getNativeAdHeight
+    void setOverlayButtonColor(int) -> setOverlayButtonColor
+    void setOverlayButtonTextColor(int) -> setOverlayButtonTextColor
+    void setMuted(boolean) -> setMuted
+    android.widget.ImageView getAdvertiserImage() -> getAdvertiserImage
+    java.lang.String getTitle() -> getTitle
+    java.lang.String getAdvertiserName() -> getAdvertiserName
+    java.lang.String getDescription() -> getDescription
+    void mute(boolean) -> b
+    void setVolume(float) -> setVolume
+    void play() -> b
+    void system_pause() -> c
+    void onPrepared(android.media.MediaPlayer) -> onPrepared
+    void onCompletion(android.media.MediaPlayer) -> onCompletion
+    boolean onError(android.media.MediaPlayer,int,int) -> onError
+    void onDraw(android.graphics.Canvas) -> onDraw
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.jirbo.adcolony.AdColonyNativeAdView$1 -> com.jirbo.adcolony.ec:
+    com.jirbo.adcolony.AdColonyNativeAdView this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.jirbo.adcolony.AdColonyNativeAdView$2 -> com.jirbo.adcolony.ed:
+    com.jirbo.adcolony.AdColonyNativeAdView this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.jirbo.adcolony.AdColonyNativeAdView$NativeVideoView -> com.jirbo.adcolony.ee:
+    boolean fin -> a
+    boolean running -> b
+    com.jirbo.adcolony.AdColonyNativeAdView this$0 -> c
+    void onSurfaceTextureAvailable(android.graphics.SurfaceTexture,int,int) -> onSurfaceTextureAvailable
+    void onSurfaceTextureSizeChanged(android.graphics.SurfaceTexture,int,int) -> onSurfaceTextureSizeChanged
+    boolean onSurfaceTextureDestroyed(android.graphics.SurfaceTexture) -> onSurfaceTextureDestroyed
+    void onSurfaceTextureUpdated(android.graphics.SurfaceTexture) -> onSurfaceTextureUpdated
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.jirbo.adcolony.AdColonyNativeAdView$NativeVideoView$1 -> com.jirbo.adcolony.ef:
+    com.jirbo.adcolony.AdColonyNativeAdView$NativeVideoView this$1 -> a
+    void run() -> run
+com.jirbo.adcolony.AdColonyNativeAdView$StaticImageView -> com.jirbo.adcolony.eg:
+    boolean visible -> a
+    com.jirbo.adcolony.AdColonyNativeAdView this$0 -> b
+    void onDraw(android.graphics.Canvas) -> onDraw
+com.jirbo.adcolony.AdColonyOverlay -> com.jirbo.adcolony.AdColonyOverlay:
+    android.graphics.Rect bounds -> L
+    int old_seek -> M
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+com.jirbo.adcolony.AdColonyOverlay$1 -> com.jirbo.adcolony.eh:
+    android.view.View val$black -> a
+    com.jirbo.adcolony.AdColonyOverlay this$0 -> b
+    void run() -> run
+com.jirbo.adcolony.AdColonyV4VCAd -> com.jirbo.adcolony.AdColonyV4VCAd:
+    com.jirbo.adcolony.AdColonyAdListener listener -> listener
+    boolean show_pre_popup -> show_pre_popup
+    boolean show_post_popup -> show_post_popup
+    boolean is_v4vc() -> c
+    boolean isReady(boolean) -> a
+    boolean isReady() -> a
+    java.lang.String getRewardName() -> e
+    int getRewardAmount() -> f
+    int getViewsPerReward() -> g
+    int getRemainingViewsUntilReward() -> h
+    void on_dialog_finished(boolean) -> c
+    void on_video_finished() -> b
+    void setDialog(java.lang.String) -> a
+com.jirbo.adcolony.AdColonyV4VCListener -> com.jirbo.adcolony.ei:
+    void onAdColonyV4VCReward(com.jirbo.adcolony.AdColonyV4VCReward) -> a
+com.jirbo.adcolony.AdColonyV4VCReward -> com.jirbo.adcolony.ej:
+    boolean success -> a
+    java.lang.String name -> b
+    int amount -> c
+    java.lang.String toString() -> toString
+com.jirbo.adcolony.AdColonyVideoAd -> com.jirbo.adcolony.AdColonyVideoAd:
+com.jirbo.adcolony.AeSimpleSHA1 -> com.jirbo.adcolony.ek:
+    java.lang.String convertToHex(byte[]) -> a
+    java.lang.String sha1(java.lang.String) -> a
+com.jirbo.adcolony.Installation -> com.jirbo.adcolony.el:
+    java.lang.String sID -> a
+    java.lang.String id(android.content.Context) -> a
+    java.lang.String readInstallationFile(java.io.File) -> a
+    void writeInstallationFile(java.io.File) -> b
 com.sun.activation.registries.LineTokenizer -> com.sun.activation.registries.LineTokenizer:
     int currentPosition -> currentPosition
     int maxPosition -> maxPosition
@@ -12803,6 +14632,9 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     android.content.Intent sharingIntent -> A
     com.appnext.appnextsdk.Appnext appnext -> B
     italo.vaffapp.app.Speaker speaker -> C
+    com.jirbo.adcolony.AdColonyVideoAd adcolonyad -> D
+    short time_for_ad_1 -> E
+    short time_for_ad_2 -> F
     void onCreate(android.os.Bundle) -> onCreate
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void onResume() -> onResume
@@ -12810,18 +14642,19 @@ italo.vaffapp.app.InsultActivity -> italo.vaffapp.app.InsultActivity:
     void onPause() -> onPause
     void onDestroy() -> onDestroy
     void onStart() -> onStart
-    void getTextviews() -> i
-    void setTextviews() -> j
+    void checkGooglePlayServicesVersion() -> i
+    void getTextviews() -> j
+    void setTextviews() -> k
     void speakInsult(android.view.View) -> speakInsult
     void speakDesc(android.view.View) -> speakDesc
     void showInsult(android.view.View) -> showInsult
-    void setRegionNameInTitle() -> k
-    void loadInsults() -> l
+    void setRegionNameInTitle() -> l
+    void loadInsults() -> m
     java.lang.String getRegionFromId(int) -> b
-    void postToFB() -> m
-    void insultFriendOnFB() -> n
+    void postToFB() -> n
+    void insultFriendOnFB() -> o
     void checkPresenceOfApps(android.view.View) -> checkPresenceOfApps
-    void twoChoiceMenu() -> o
+    void twoChoiceMenu() -> p
     void condividi(android.view.View) -> condividi
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected

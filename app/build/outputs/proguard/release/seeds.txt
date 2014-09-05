@@ -63,7 +63,11 @@ android.support.v4.widget.SlidingPaneLayout: void setCoveredFadeColor(int)
 android.support.v4.widget.SlidingPaneLayout: int getCoveredFadeColor()
 android.support.v4.widget.SlidingPaneLayout: void setPanelSlideListener(android.support.v4.widget.SlidingPaneLayout$PanelSlideListener)
 android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableLeft(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableRight(android.graphics.drawable.Drawable)
 android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceLeft(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceRight(int)
 android.support.v4.widget.SlidingPaneLayout$SavedState
 android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.widget.SwipeRefreshLayout: void setOnRefreshListener(android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener)
@@ -2223,6 +2227,60 @@ com.google.android.gms.wallet.fragment.WalletFragmentOptions
 com.google.android.gms.wallet.fragment.WalletFragmentOptions: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.wallet.fragment.WalletFragmentStyle
 com.google.android.gms.wallet.fragment.WalletFragmentStyle: android.os.Parcelable$Creator CREATOR
+com.jirbo.adcolony.ADCData$StringValue
+com.jirbo.adcolony.ADCData$StringValue: java.lang.String value
+com.jirbo.adcolony.ADCData$Table
+com.jirbo.adcolony.ADCData$Table: java.util.HashMap data
+com.jirbo.adcolony.ADCData$Table: java.util.ArrayList keys
+com.jirbo.adcolony.ADCVideo: ADCVideo()
+com.jirbo.adcolony.ADCZoneState
+com.jirbo.adcolony.ADCZoneState: java.lang.String uuid
+com.jirbo.adcolony.ADCZoneState: int skipped_plays
+com.jirbo.adcolony.ADCZoneState: int play_order_index
+com.jirbo.adcolony.ADCZoneState: int session_play_count
+com.jirbo.adcolony.AdColonyAd
+com.jirbo.adcolony.AdColonyAd: int status
+com.jirbo.adcolony.AdColonyAd: java.lang.String zone_id
+com.jirbo.adcolony.AdColonyAd: com.jirbo.adcolony.ADCManifest$Zone zone_info
+com.jirbo.adcolony.AdColonyAd: com.jirbo.adcolony.ADCManifest$Ad ad_info
+com.jirbo.adcolony.AdColonyAd: java.lang.String ad_unit
+com.jirbo.adcolony.AdColonyAd: java.lang.String view_format
+com.jirbo.adcolony.AdColonyAd: java.lang.String asi
+com.jirbo.adcolony.AdColonyAd: double current_progress
+com.jirbo.adcolony.AdColonyAd: double force_current_progress
+com.jirbo.adcolony.AdColonyAd: int global_seek_to_ms
+com.jirbo.adcolony.AdColonyAd: boolean is_native
+com.jirbo.adcolony.AdColonyAd: boolean is_native_expanded
+com.jirbo.adcolony.AdColonyAd: boolean replay
+com.jirbo.adcolony.AdColonyBrowser
+com.jirbo.adcolony.AdColonyBrowser: AdColonyBrowser()
+com.jirbo.adcolony.AdColonyException
+com.jirbo.adcolony.AdColonyFullscreen
+com.jirbo.adcolony.AdColonyFullscreen: AdColonyFullscreen()
+com.jirbo.adcolony.AdColonyInterstitialAd
+com.jirbo.adcolony.AdColonyInterstitialAd: com.jirbo.adcolony.AdColonyAdListener listener
+com.jirbo.adcolony.AdColonyInterstitialAd: com.jirbo.adcolony.AdColonyNativeAdListener native_listener
+com.jirbo.adcolony.AdColonyInterstitialAd: com.jirbo.adcolony.AdColonyNativeAdView native_ad
+com.jirbo.adcolony.AdColonyNativeAdView: int getNativeAdWidth()
+com.jirbo.adcolony.AdColonyNativeAdView: int getNativeAdHeight()
+com.jirbo.adcolony.AdColonyNativeAdView: void setOverlayButtonColor(int)
+com.jirbo.adcolony.AdColonyNativeAdView: void setOverlayButtonTextColor(int)
+com.jirbo.adcolony.AdColonyNativeAdView: void setMuted(boolean)
+com.jirbo.adcolony.AdColonyNativeAdView: android.widget.ImageView getAdvertiserImage()
+com.jirbo.adcolony.AdColonyNativeAdView: java.lang.String getTitle()
+com.jirbo.adcolony.AdColonyNativeAdView: java.lang.String getAdvertiserName()
+com.jirbo.adcolony.AdColonyNativeAdView: java.lang.String getDescription()
+com.jirbo.adcolony.AdColonyNativeAdView: void setVolume(float)
+com.jirbo.adcolony.AdColonyOverlay
+com.jirbo.adcolony.AdColonyOverlay: AdColonyOverlay()
+com.jirbo.adcolony.AdColonyV4VCAd
+com.jirbo.adcolony.AdColonyV4VCAd: com.jirbo.adcolony.AdColonyAdListener listener
+com.jirbo.adcolony.AdColonyV4VCAd: boolean show_pre_popup
+com.jirbo.adcolony.AdColonyV4VCAd: boolean show_post_popup
+com.jirbo.adcolony.AdColonyVideoAd
+com.jirbo.adcolony.R$anim: int fade
+com.jirbo.adcolony.R$layout: int main
+com.jirbo.adcolony.R$string: int app_name
 com.sun.activation.registries.LineTokenizer
 com.sun.activation.registries.LineTokenizer: int currentPosition
 com.sun.activation.registries.LineTokenizer: int maxPosition

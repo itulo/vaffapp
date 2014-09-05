@@ -8,10 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
-import android.util.Log;
 
 import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
@@ -21,7 +19,8 @@ import java.util.Random;
 
 import com.facebook.*;
 import com.facebook.widget.*;
-import android.text.ClipboardManager;
+import android.content.ClipboardManager;
+import 	android.content.ClipData;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
@@ -280,7 +279,9 @@ public class InsultActivity extends ActionBarActivity {
             return;
         } else {
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            clipb.setText(insult.getText()+" -\n"+insult_desc.getText()+"\n"+region);
+            //clipb.setText(insult.getText()+" -\n"+insult_desc.getText()+"\n"+region);
+            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
+                    insult.getText()+" -\n"+insult_desc.getText()+"\n"+region));
         }
 
         // Create Dialog to warn user
@@ -310,13 +311,14 @@ public class InsultActivity extends ActionBarActivity {
 
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
+            // facebook.katana is FB app, facebook.orca (?) is the messenger
             if ( packageName.contains("facebook.katana") || packageName.contains("twitter") ){
                 diff_app.add(packageName);
                 continue;
             }
             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
             targetedShareIntent.setType("text/plain");
-            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
             targetedShareIntent.setPackage(packageName);
             targetedShareIntents.add(targetedShareIntent);
         }

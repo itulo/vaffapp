@@ -14744,9 +14744,11 @@ italo.vaffapp.app.databases.DatabaseHandler -> italo.vaffapp.app.a.a:
 italo.vaffapp.app.databases.Insult -> italo.vaffapp.app.a.b:
     java.lang.String _insult -> a
     java.lang.String _desc -> b
-    int _region_id -> c
+    java.lang.String _english -> c
+    int _region_id -> d
     void setInsult(java.lang.String) -> a
     void setDesc(java.lang.String) -> b
+    void setEnglish(java.lang.String) -> c
     void setRegionId(int) -> a
     java.lang.String getInsult() -> a
     java.lang.String getDesc() -> b

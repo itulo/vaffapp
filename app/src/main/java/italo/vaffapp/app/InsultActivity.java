@@ -58,8 +58,8 @@ public class InsultActivity extends ActionBarActivity {
     private Speaker speaker;
 
     private AdColonyVideoAd adcolonyad;
-    private short time_for_ad_1 = 20;
-    private short time_for_ad_2 = 50;
+    private short time_for_ad_1 = 30;
+    private short time_for_ad_2 = 90;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6819,11 +6819,12 @@ italo.vaffapp.app.databases.DatabaseHandler:
     private static final java.lang.String KEY_INSULT
     private static final java.lang.String KEY_DESC
     private static final java.lang.String TAG
-    194:210:public java.util.ArrayList getAllRegions()
+    195:211:public java.util.ArrayList getAllRegions()
 italo.vaffapp.app.databases.Insult:
     int _id
-    14:18:public Insult(int,java.lang.String,java.lang.String)
-    19:22:public Insult(java.lang.String,java.lang.String)
+    15:19:public Insult(int,java.lang.String,java.lang.String)
+    20:23:public Insult(java.lang.String,java.lang.String)
+    37:37:public java.lang.String getEnglish()
 italo.vaffapp.app.databases.Region
 italo.vaffapp.app.mail.GMailSender$ByteArrayDataSource:
     79:82:public GMailSender$ByteArrayDataSource(italo.vaffapp.app.mail.GMailSender,byte[])

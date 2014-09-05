@@ -18,16 +18,16 @@
 'Gratacù','Antipatico';'Unpleasant'
 'Logia!','Puttana!';'Whore!'
 'Ma va a ciapal in del lisca!','Ma vai a prenderlo in culo!';'Go get it in your ass'
-'Mena no el turun!','Non parlare a vanvera!';'Don't say stupid things'
+'Mena no el turun!','Non parlare a vanvera!';'Don''t say stupid things'
 'Pastrügnùn','Pasticcione';'Blunderer'
 'Pelabrocch','Pulisci rami (buono a nulla)';'Tree branch cleaner (good for nothing)'
 'Pulentatt','Polentone (lento)';'Polentone (slow)'
-'Te ghè ciapà la vaca per i ball','Hai acchiappato la vacca per i testicoli (stai facendo un lavoro sbagliato)';'You grabbed the cow by the balls (you're doing it wrong)'
+'Te ghè ciapà la vaca per i ball','Hai acchiappato la vacca per i testicoli (stai facendo un lavoro sbagliato)';'You grabbed the cow by the balls (you''re doing it wrong)'
 'Te se propri un pirla!','Sei proprio un cretino';'You are so nitwit'
 'Te se'' curiuus ''me ''l ma'' de ventar','Sei curioso come il mal di pancia';'You are curious like bellyache'
-'Te se'' malà in duè te se'' petenat','Sei malato dove ti pettini (sei pazzo)';'You are sick where you comb yourself (you're crazy)'
+'Te se'' malà in duè te se'' petenat','Sei malato dove ti pettini (sei pazzo)';'You are sick where you comb yourself (you''re crazy)'
 'Te se'' püsè föra d''un vas da gerani','Sei più fuori di un vaso di gerani (sei fuori come un balcone)';'You are more out of it than a flower jar (more out of it than a balcony)'
-'Và a Bagg a sonà l''orghen','Vai alla chiesa di San Baggio a suonare l''organo (non c''è organo nella chiesa)';'Go to Baggio's church and play the organ (there is no organ there)'
+'Và a Bagg a sonà l''orghen','Vai alla chiesa di San Baggio a suonare l''organo (non c''è organo nella chiesa)';'Go to Baggio''s church and play the organ (there is no organ there)'
 'Và a cà a fa rustì el lacc!','Vai a casa ad arrostire il latte!';'Go home and roast some milk!'
 'Và a cà a petenà i gaenn!','Vai a casa a pettinare le galline!';'Go home and comb chickens!'
 'Va a ciapà i ratt!','Vai ad acchiappare i topi! (vaffanculo)';'Go hunt rats'
@@ -225,6 +225,7 @@
 
 ## CALABRIA
 'nd''hai chiù corna i nu panaru i bucalaci','Hai più corna di un cesto di lumache';''
+'piazz i merda','pezzo di merda';'pieace of shit'
 'sì propriu na ciota','sei proprio scemo';''
 
 ## SICILIA

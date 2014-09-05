@@ -181,7 +181,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 Insult insult = new Insult();
                 insult.setInsult(cursor.getString(0)); // 0 is insult
                 insult.setDesc(cursor.getString(1)); // 1 is desc
-                insult.setRegionId(cursor.getInt(2)); // 2 is region id
+                insult.setEnglish(cursor.getString(2)); //2 is english
+                insult.setRegionId(cursor.getInt(3)); // 3 is region id
                 insultList.add(insult);
             } while (cursor.moveToNext());
         }

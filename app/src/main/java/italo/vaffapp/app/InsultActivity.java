@@ -8,36 +8,32 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
-import android.util.Log;
 
 import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Collection;
 
 import com.facebook.*;
 import com.facebook.widget.*;
-import android.text.ClipboardManager;
+import android.content.ClipboardManager;
+import 	android.content.ClipData;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-
-import android.widget.LinearLayout;
 
 import java.util.List;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.text.TextUtils;
 import android.os.Parcelable;
 
 import com.appnext.appnextsdk.Appnext;
 
-import android.view.View.OnClickListener;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.ConnectionResult;
+import com.jirbo.adcolony.*;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -61,6 +57,10 @@ public class InsultActivity extends ActionBarActivity {
 
     private Speaker speaker;
 
+    private AdColonyVideoAd adcolonyad;
+    private short time_for_ad_1 = 20;
+    private short time_for_ad_2 = 50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +76,9 @@ public class InsultActivity extends ActionBarActivity {
         // 1. configure the UiLifecycleHelper in onCreate
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
+
+        // https://github.com/AdColony/AdColony-Android-SDK/wiki/API-Details#configure-activity-activity-string-client_options-string-app_id-string-zone_ids-
+        AdColony.configure(this, "version:3.0,store:google", "app916d076c2a05451fb5", "vzad48f059dc8d48b8af");
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -90,7 +93,10 @@ public class InsultActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         uiHelper.onResume();
+        AdColony.resume(this);
+        adcolonyad = new AdColonyVideoAd();
         setRegionNameInTitle();
+        checkGooglePlayServicesVersion();
     }
 
     @Override
@@ -103,6 +109,7 @@ public class InsultActivity extends ActionBarActivity {
     public void onPause() {
         super.onPause();
         uiHelper.onPause();
+        AdColony.pause();
     }
 
     @Override
@@ -126,6 +133,14 @@ public class InsultActivity extends ActionBarActivity {
             getTextviews();
             setTextviews();
         }
+    }
+
+    public void checkGooglePlayServicesVersion(){
+        int REQUEST_CODE_RECOVER_PLAY_SERVICES = 1001;
+
+        int gps_ver = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if ( gps_ver != ConnectionResult.SUCCESS )
+            GooglePlayServicesUtil.getErrorDialog(gps_ver, this, REQUEST_CODE_RECOVER_PLAY_SERVICES).show();
     }
 
     public void getTextviews(){
@@ -195,9 +210,15 @@ public class InsultActivity extends ActionBarActivity {
             generated_n = 0;
         }
 
-        if ( generated_n % 10 == 0 ){
-            appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
-            appnext.showBubble();
+        if ( generated_n == time_for_ad_1 || generated_n == time_for_ad_2 ){
+            //appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
+            //appnext.showBubble();
+            if ( adcolonyad.isReady() )
+                adcolonyad.show();
+            else {
+                time_for_ad_1++;
+                time_for_ad_2++;
+            }
         }
     }
 
@@ -258,7 +279,9 @@ public class InsultActivity extends ActionBarActivity {
             return;
         } else {
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            clipb.setText(insult.getText()+" -\n"+insult_desc.getText()+"\n"+region);
+            //clipb.setText(insult.getText()+" -\n"+insult_desc.getText()+"\n"+region);
+            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
+                    insult.getText()+" -\n"+insult_desc.getText()+"\n"+region));
         }
 
         // Create Dialog to warn user
@@ -288,13 +311,14 @@ public class InsultActivity extends ActionBarActivity {
 
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
+            // facebook.katana is FB app, facebook.orca (?) is the messenger
             if ( packageName.contains("facebook.katana") || packageName.contains("twitter") ){
                 diff_app.add(packageName);
                 continue;
             }
             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
             targetedShareIntent.setType("text/plain");
-            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
             targetedShareIntent.setPackage(packageName);
             targetedShareIntents.add(targetedShareIntent);
         }

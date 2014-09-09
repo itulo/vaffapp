@@ -415,11 +415,13 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void setupNotification(){
+        generateRandomIdx();
+
         NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(this)
             .setSmallIcon(R.drawable.ic_launcher)
             .setContentTitle("")
-            .setContentText("Hello World!");
+            .setContentText(insults.get(rand_index).getInsult());
         // Creates an explicit intent for an Activity in your app
         Intent resultIntent = new Intent(this, InsultActivity.class);
 

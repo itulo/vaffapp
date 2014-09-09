@@ -46,14 +46,13 @@ public class InsultActivity extends ActionBarActivity {
     private static int rand_index;
     private static byte[] occurrences;
     private static short generated_n = 0;
-    private final short MAX_RETRIES = 10;
 
     // for condividi
     private List<Intent> targetedShareIntents;
     private List<String> diff_app;
     private Intent sharingIntent;
 
-    private Appnext appnext;
+    //private Appnext appnext;
 
     private Speaker speaker;
 
@@ -124,8 +123,8 @@ public class InsultActivity extends ActionBarActivity {
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(getApplicationContext());
 
-        appnext = new Appnext(this);
-        appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
+        //appnext = new Appnext(this);
+        //appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
 
         if ( insults == null ) {
             showInsult(null);
@@ -177,6 +176,7 @@ public class InsultActivity extends ActionBarActivity {
      */
     public void showInsult(View view){
         short retry = 0;
+        short MAX_RETRIES = 10;
 
         if (insults == null)
             loadInsults();
@@ -279,7 +279,6 @@ public class InsultActivity extends ActionBarActivity {
             return;
         } else {
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            //clipb.setText(insult.getText()+" -\n"+insult_desc.getText()+"\n"+region);
             clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
                     insult.getText()+" -\n"+insult_desc.getText()+"\n"+region));
         }

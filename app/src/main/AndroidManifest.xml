@@ -40,7 +40,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="italo.vaffapp.app.MainActivity" />
         </activity>
-        <activity android:name="com.facebook.LoginActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -49,6 +48,7 @@
         <activity
             android:name=".SendInsultActivity"
             android:label="@string/title_activity_send_insult"
+            android:parentActivityName=".MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustPan" >
@@ -57,7 +57,7 @@
                 android:value="italo.vaffapp.app.MainActivity" />
         </activity>
 
-        <service android:name="com.appnext.appnextsdk.DownloadService"/>
+        <!-- <service android:name="com.appnext.appnextsdk.DownloadService"/> -->
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

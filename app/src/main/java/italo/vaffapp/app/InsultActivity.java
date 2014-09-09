@@ -29,11 +29,18 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Parcelable;
 
-import com.appnext.appnextsdk.Appnext;
+//import com.appnext.appnextsdk.Appnext;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
 import com.jirbo.adcolony.*;
+
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
+import android.support.v4.app.TaskStackBuilder;
+import android.app.PendingIntent;
+import android.app.NotificationManager;
+import android.content.Context;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -96,6 +103,8 @@ public class InsultActivity extends ActionBarActivity {
         adcolonyad = new AdColonyVideoAd();
         setRegionNameInTitle();
         checkGooglePlayServicesVersion();
+
+        setupNotification();
     }
 
     @Override
@@ -175,13 +184,13 @@ public class InsultActivity extends ActionBarActivity {
     5. if 10 insults have been showed, show interstitial ad
      */
     public void showInsult(View view){
-        short retry = 0;
-        short MAX_RETRIES = 10;
+        //short retry = 0;
+        //short MAX_RETRIES = 10;
 
         if (insults == null)
             loadInsults();
 
-        Random rand = new Random();
+        /*Random rand = new Random();
         rand_index = rand.nextInt(insults.size());
         while ( occurrences[rand_index] == 1 || retry == MAX_RETRIES) {
             rand_index = rand.nextInt(insults.size());
@@ -195,7 +204,9 @@ public class InsultActivity extends ActionBarActivity {
                     break;
                 }
             }
-        }
+        }*/
+
+        generateRandomIdx();
 
         getTextviews();
         setTextviews();
@@ -218,6 +229,30 @@ public class InsultActivity extends ActionBarActivity {
             else {
                 time_for_ad_1++;
                 time_for_ad_2++;
+            }
+        }
+    }
+
+    // generate a random index that hasn't been generated recently
+    // writes the idx in the global variable rand_index
+    // this is used to get an insult from insults (the ArrayList)
+    public void generateRandomIdx(){
+        short retry = 0;
+        short MAX_RETRIES = 10;
+
+        Random rand = new Random();
+        rand_index = rand.nextInt(insults.size());
+        while ( occurrences[rand_index] == 1 || retry == MAX_RETRIES) {
+            rand_index = rand.nextInt(insults.size());
+            retry++;
+        }
+
+        if (retry == MAX_RETRIES){
+            for(int i=0;i<occurrences.length;i++){
+                if (occurrences[i]==0){
+                    rand_index = i;
+                    break;
+                }
             }
         }
     }
@@ -374,9 +409,35 @@ public class InsultActivity extends ActionBarActivity {
             twoChoiceMenu();
         }
         else {
-            sharingIntent.putExtra(Intent.EXTRA_TEXT, insult.getText());
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
             startActivity(Intent.createChooser(sharingIntent, getString(R.string.choice1)));
         }
+    }
+
+    public void setupNotification(){
+        NotificationCompat.Builder mBuilder =
+            new NotificationCompat.Builder(this)
+            .setSmallIcon(R.drawable.ic_launcher)
+            .setContentTitle("")
+            .setContentText("Hello World!");
+        // Creates an explicit intent for an Activity in your app
+        Intent resultIntent = new Intent(this, InsultActivity.class);
+
+        // The stack builder object will contain an artificial back stack for the
+        // started Activity.
+        // This ensures that navigating backward from the Activity leads out of
+        // your application to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        // Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(InsultActivity.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        // mId allows you to update the notification later on.
+        // set mId = 1 because it's the only notification
+        mNotificationManager.notify(1, mBuilder.build());
     }
 
 

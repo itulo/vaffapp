@@ -21,7 +21,7 @@ import java.util.Random;
 import com.facebook.*;
 import com.facebook.widget.*;
 import android.content.ClipboardManager;
-import 	android.content.ClipData;
+import android.content.ClipData;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
@@ -182,7 +182,6 @@ public class InsultActivity extends ActionBarActivity {
     3. set insult in the view
     4. checks if array of generated numbers is full (all possible numbers have been generated)
        if yes reinitialize and start from scratch
-    5. if 10 insults have been showed, show interstitial ad
      */
     public void showInsult(View view){
         //short retry = 0;

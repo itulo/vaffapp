@@ -1,5 +1,6 @@
 package italo.vaffapp.app;
 
+import android.app.AlarmManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -425,6 +426,10 @@ public class InsultActivity extends ActionBarActivity {
         // Creates an explicit intent for an Activity in your app
         Intent resultIntent = new Intent(this, InsultActivity.class);
 
+        //schedules the intent
+        //resultIntent.putExtra("EVENT_ALERT_DAYS", );
+        resultIntent.putExtra("EVENT_ALERT_TIME", "2:28");
+
         // The stack builder object will contain an artificial back stack for the
         // started Activity.
         // This ensures that navigating backward from the Activity leads out of
@@ -440,6 +445,10 @@ public class InsultActivity extends ActionBarActivity {
         // mId allows you to update the notification later on.
         // set mId = 1 because it's the only notification
         mNotificationManager.notify(1, mBuilder.build());
+
+        // schedule with AlarmManager
+        AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
     }
 
 

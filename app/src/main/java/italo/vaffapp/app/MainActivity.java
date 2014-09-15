@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
             if ( new_lang != LanguageOptions.ITALIANO || new_lang != LanguageOptions.ENGLISH ) {
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putInt("language", new_lang);
-                editor.commit();
+                editor.apply();
             }
 
             //restart app

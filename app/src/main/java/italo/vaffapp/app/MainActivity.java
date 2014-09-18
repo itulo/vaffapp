@@ -66,12 +66,9 @@ public class MainActivity extends ActionBarActivity {
                 case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
                 case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
             }
-            // save language in shared preferences
-            if ( new_lang != LanguageOptions.ITALIANO || new_lang != LanguageOptions.ENGLISH ) {
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putInt("language", new_lang);
-                editor.commit();
-            }
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("language", new_lang);
+            editor.apply();
 
             //restart app
             Intent mStartActivity = new Intent(this, MainActivity.class);

@@ -66,6 +66,7 @@ public class InsultActivity extends ActionBarActivity {
     private short time_for_ad_2 = 90;
 
     private boolean REPORT_TO_FLURRY = false;
+    private static short pronunciated_n = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +130,7 @@ public class InsultActivity extends ActionBarActivity {
         // Flurry send how many insults generated
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
+        flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
         if ( REPORT_TO_FLURRY )
             FlurryAgent.logEvent("onStop()", flurry_stats);
 
@@ -177,10 +179,12 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void speakInsult(View v){
+        pronunciated_n++;
         speaker.speakInsult(insult.getText().toString());
     }
 
     public void speakDesc(View v){
+        pronunciated_n++;
         speaker.speakDesc(insult_desc.getText().toString());
     }
 
@@ -389,7 +393,7 @@ public class InsultActivity extends ActionBarActivity {
                             flurry_stats.put("Share on", "Facebook");
                             flurry_stats.put("Insult", insult.getText().toString());
 
-                            insultFriendOnFB(); 
+                            insultFriendOnFB();
                         }
 
                         Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);

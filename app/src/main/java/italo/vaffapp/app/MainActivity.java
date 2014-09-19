@@ -1,7 +1,6 @@
 package italo.vaffapp.app;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -68,7 +67,9 @@ public class MainActivity extends ActionBarActivity {
             }
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("language", new_lang);
-            editor.apply();
+            // this has to be 'commit' NOT 'apply'
+            // commit writes the preference back in memory soon and we need it soon after we restart the app
+            editor.commit();
 
             //restart app
             Intent mStartActivity = new Intent(this, MainActivity.class);

@@ -65,7 +65,7 @@ public class InsultActivity extends ActionBarActivity {
     private short time_for_ad_1 = 30;
     private short time_for_ad_2 = 90;
 
-    private boolean REPORT_TO_FLURRY = false;
+    private boolean SEND_STATS_FLURRY = true;
     private static short pronunciated_n = 0;
 
     @Override
@@ -131,7 +131,7 @@ public class InsultActivity extends ActionBarActivity {
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
         flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
-        if ( REPORT_TO_FLURRY )
+        if ( SEND_STATS_FLURRY && (generated_n%10 == 0 || pronunciated_n%10 == 0) )
             FlurryAgent.logEvent("onStop()", flurry_stats);
 
         FlurryAgent.onEndSession(this);
@@ -429,7 +429,7 @@ public class InsultActivity extends ActionBarActivity {
                             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                             startActivity(chooserIntent);
                         }
-                        if ( REPORT_TO_FLURRY )
+                        if ( SEND_STATS_FLURRY )
                             FlurryAgent.logEvent("Sharing", flurry_stats);
                     }
                 }).create().show();

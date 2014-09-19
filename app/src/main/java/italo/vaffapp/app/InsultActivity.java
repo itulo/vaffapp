@@ -16,6 +16,8 @@ import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import com.facebook.*;
@@ -36,12 +38,16 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
 import com.jirbo.adcolony.*;
 
+
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.app.TaskStackBuilder;
 import android.app.PendingIntent;
 import android.app.NotificationManager;
 import android.content.Context;
+
+import com.flurry.android.FlurryAgent;
+
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -67,6 +73,9 @@ public class InsultActivity extends ActionBarActivity {
     private AdColonyVideoAd adcolonyad;
     private short time_for_ad_1 = 30;
     private short time_for_ad_2 = 90;
+
+    private boolean SEND_STATS_FLURRY = true;
+    private static short pronunciated_n = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,11 +136,25 @@ public class InsultActivity extends ActionBarActivity {
         uiHelper.onDestroy();
     }
 
+    public void onStop(){
+        super.onStop();
+        // Flurry send how many insults generated
+        Map<String, String> flurry_stats = new HashMap<String, String>();
+        flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
+        flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
+        if ( SEND_STATS_FLURRY && (generated_n%10 == 0 || pronunciated_n%10 == 0) )
+            FlurryAgent.logEvent("onStop()", flurry_stats);
+
+        FlurryAgent.onEndSession(this);
+    }
+
     public void onStart(){
         super.onStart();
 
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(getApplicationContext());
+
+        FlurryAgent.onStartSession(this, "CTMK9MZJN48KNVB3JH5V");
 
         //appnext = new Appnext(this);
         //appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
@@ -167,10 +190,12 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void speakInsult(View v){
+        pronunciated_n++;
         speaker.speakInsult(insult.getText().toString());
     }
 
     public void speakDesc(View v){
+        pronunciated_n++;
         speaker.speakDesc(insult_desc.getText().toString());
     }
 
@@ -224,8 +249,9 @@ public class InsultActivity extends ActionBarActivity {
         if ( generated_n == time_for_ad_1 || generated_n == time_for_ad_2 ){
             //appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
             //appnext.showBubble();
-            if ( adcolonyad.isReady() )
+            if ( adcolonyad.isReady() ) {
                 adcolonyad.show();
+            }
             else {
                 time_for_ad_1++;
                 time_for_ad_2++;
@@ -309,7 +335,6 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void insultFriendOnFB() {
-        // place text in clipboard
         if (insult == null ) {
             return;
         } else {
@@ -333,7 +358,7 @@ public class InsultActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    // check for presence of Facebook and Twitter apps (these will be treated differently)
+    // check for presence of Facebook, Messenger, Twitter and WhatsApp apps (these will be treated differently)
     public void checkPresenceOfApps(View view){
         targetedShareIntents = new ArrayList<Intent>();
         diff_app = new ArrayList<String>();
@@ -345,9 +370,15 @@ public class InsultActivity extends ActionBarActivity {
 
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
-            // facebook.katana is FB app, facebook.orca (?) is the messenger
-            if ( packageName.contains("facebook.katana") || packageName.contains("twitter") ){
+            // facebook.katana is FB app, facebook.orca is the messenger
+            if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
+                    || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp") ){
                 diff_app.add(packageName);
+                continue;
+            }
+            // skip these
+            if ( packageName.contains("com.android.bluetooth") || packageName.contains("flipboard.app")
+                    || packageName.contains("com.sec.android.widgetapp.diotek.smemo") || packageName.contains("com.google.android.apps.docs") ){
                 continue;
             }
             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
@@ -360,16 +391,28 @@ public class InsultActivity extends ActionBarActivity {
 
     // 1. show a first choice dialog to choose between Twitter, Facebook and Other
     // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
-    public void twoChoiceMenu(){
+    public void preChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
-        final String[] twitterPackageName = { "twitter" };
+        final String[] packageNames = {
+                "twitter",
+                "messenger",
+                "whatsapp"
+        };
         final CharSequence[] items = new CharSequence[diff_app.size()+1];
         for (int i=0; i<diff_app.size();i++) {
-            if (diff_app.get(i).contains("facebook"))
+            if (diff_app.get(i).contains("com.facebook.katana"))
                 items[i] = "Facebook";
-            if (diff_app.get(i).contains("twitter")) {
+            if (diff_app.get(i).contains("com.twitter.android")) {
                 items[i] = "Twitter";
-                twitterPackageName[0] = diff_app.get(i);
+                packageNames[0] = diff_app.get(i);
+            }
+            if (diff_app.get(i).contains("com.facebook.orca")) {
+                items[i] = "Messenger";
+                packageNames[1] = diff_app.get(i);
+            }
+            if (diff_app.get(i).contains("com.whatsapp")) {
+                items[i] = "WhatsApp";
+                packageNames[2] = diff_app.get(i);
             }
         }
         items[diff_app.size()] = getString(R.string.other);
@@ -381,21 +424,51 @@ public class InsultActivity extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int which)
                     {
                         String choice = items[which].toString();
+                        // Flurry analytics
+                        Map<String, String> flurry_stats = new HashMap<String, String>();
+
                         if ( choice.equals("Facebook") ){
+                            flurry_stats.put("Share on", "Facebook");
+                            flurry_stats.put("Insult", insult.getText().toString());
+
                             insultFriendOnFB();
                         }
+
+                        Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                        targetedShareIntent.setType("text/plain");
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
                         if ( choice.equals("Twitter") ){
-                            Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-                            targetedShareIntent.setType("text/plain");
-                            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-                            targetedShareIntent.setPackage(twitterPackageName[0]);
+                            flurry_stats.put("Share on", "Twitter");
+                            flurry_stats.put("Insult", insult.getText().toString());
+
+                            targetedShareIntent.setPackage(packageNames[0]);
                             startActivity(targetedShareIntent);
                         }
+                        if ( choice.equals("Messenger") ){
+                            flurry_stats.put("Share on", "Messenger");
+                            flurry_stats.put("Insult", insult.getText().toString());
+
+                            targetedShareIntent.setPackage(packageNames[1]);
+                            startActivity(targetedShareIntent);
+                        }
+                        if ( choice.equals("WhatsApp") ){
+                            flurry_stats.put("Share on", "WhatsApp");
+                            flurry_stats.put("Insult", insult.getText().toString());
+
+                            targetedShareIntent.setPackage(packageNames[2]);
+                            startActivity(targetedShareIntent);
+                        }
+
                         if (choice.equals(getString(R.string.other)) ) {
+                            flurry_stats.put("Share on", "Other");
+                            flurry_stats.put("Insult", insult.getText().toString());
+
                             Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.choice2));
                             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                             startActivity(chooserIntent);
                         }
+                        if ( SEND_STATS_FLURRY )
+                            FlurryAgent.logEvent("Sharing", flurry_stats);
                     }
                 }).create().show();
     }
@@ -406,7 +479,7 @@ public class InsultActivity extends ActionBarActivity {
         checkPresenceOfApps(view);
 
         if ( diff_app.size() > 0 ){
-            twoChoiceMenu();
+            preChoiceMenu();
         }
         else {
             sharingIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");

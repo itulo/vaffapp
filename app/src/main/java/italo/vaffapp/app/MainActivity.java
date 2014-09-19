@@ -1,7 +1,6 @@
 package italo.vaffapp.app;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -66,12 +65,11 @@ public class MainActivity extends ActionBarActivity {
                 case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
                 case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
             }
-            // save language in shared preferences
-            if ( new_lang != LanguageOptions.ITALIANO || new_lang != LanguageOptions.ENGLISH ) {
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putInt("language", new_lang);
-                editor.apply();
-            }
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("language", new_lang);
+            // this has to be 'commit' NOT 'apply'
+            // commit writes the preference back in memory soon and we need it soon after we restart the app
+            editor.commit();
 
             //restart app
             Intent mStartActivity = new Intent(this, MainActivity.class);

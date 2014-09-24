@@ -1,6 +1,8 @@
 package italo.vaffapp.app;
 
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -74,7 +76,7 @@ public class InsultActivity extends ActionBarActivity {
     private short time_for_ad_1 = 30;
     private short time_for_ad_2 = 90;
 
-    private boolean SEND_STATS_FLURRY = true;
+    private boolean SEND_STATS_FLURRY = false;
     private static short pronunciated_n = 0;
 
     @Override
@@ -114,7 +116,7 @@ public class InsultActivity extends ActionBarActivity {
         setRegionNameInTitle();
         checkGooglePlayServicesVersion();
 
-        setupNotification();
+        scheduleNotification();
     }
 
     @Override
@@ -487,20 +489,21 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
-    public void setupNotification(){
+    /*public void setupNotification(){
         generateRandomIdx();
 
         NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(this)
             .setSmallIcon(R.drawable.ic_launcher)
             .setContentTitle("")
-            .setContentText(insults.get(rand_index).getInsult());
+            .setContentText(insults.get(rand_index).getInsult())
+            .setAutoCancel(true);           // cancel when user clicks on notification
         // Creates an explicit intent for an Activity in your app
         Intent resultIntent = new Intent(this, InsultActivity.class);
 
         //schedules the intent
         //resultIntent.putExtra("EVENT_ALERT_DAYS", );
-        resultIntent.putExtra("EVENT_ALERT_TIME", "2:28");
+        //resultIntent.putExtra("EVENT_ALERT_TIME", "2:28");
 
         // The stack builder object will contain an artificial back stack for the
         // started Activity.
@@ -516,11 +519,35 @@ public class InsultActivity extends ActionBarActivity {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // mId allows you to update the notification later on.
         // set mId = 1 because it's the only notification
-        mNotificationManager.notify(1, mBuilder.build());
+        //mNotificationManager.notify(1, mBuilder.build());
 
         // schedule with AlarmManager
         AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
+        PendingIntent nPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+    }*/
+
+    // Notification stuff
+    // solution by https://gist.github.com/BrandonSmith/6679223
+    private void scheduleNotification(){
+        short DELAY = 5000;
+        generateRandomIdx();
+        System.out.println("scheduled");
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentTitle("");
+        builder.setContentText(insults.get(rand_index).getInsult());
+        builder.setSmallIcon(R.drawable.ic_launcher);
+        builder.setAutoCancel(true);
+
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, builder.build());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long futureInMillis = SystemClock.elapsedRealtime() + DELAY;
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
     }
 
 

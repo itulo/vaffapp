@@ -74,6 +74,8 @@
         <activity android:name="com.jirbo.adcolony.AdColonyBrowser"
             android:configChanges="keyboardHidden|orientation"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+        <receiver android:name=".NotificationPublisher" />
     </application>
 
 </manifest>

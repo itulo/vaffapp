@@ -42,11 +42,10 @@ import com.jirbo.adcolony.*;
 
 
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.app.TaskStackBuilder;
 import android.app.PendingIntent;
-import android.app.NotificationManager;
 import android.content.Context;
+import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 
@@ -489,56 +488,30 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
-    /*public void setupNotification(){
-        generateRandomIdx();
-
-        NotificationCompat.Builder mBuilder =
-            new NotificationCompat.Builder(this)
-            .setSmallIcon(R.drawable.ic_launcher)
-            .setContentTitle("")
-            .setContentText(insults.get(rand_index).getInsult())
-            .setAutoCancel(true);           // cancel when user clicks on notification
-        // Creates an explicit intent for an Activity in your app
-        Intent resultIntent = new Intent(this, InsultActivity.class);
-
-        //schedules the intent
-        //resultIntent.putExtra("EVENT_ALERT_DAYS", );
-        //resultIntent.putExtra("EVENT_ALERT_TIME", "2:28");
-
-        // The stack builder object will contain an artificial back stack for the
-        // started Activity.
-        // This ensures that navigating backward from the Activity leads out of
-        // your application to the Home screen.
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        // Adds the back stack for the Intent (but not the Intent itself)
-        stackBuilder.addParentStack(InsultActivity.class);
-        // Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-        mBuilder.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        // mId allows you to update the notification later on.
-        // set mId = 1 because it's the only notification
-        //mNotificationManager.notify(1, mBuilder.build());
-
-        // schedule with AlarmManager
-        AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-
-        PendingIntent nPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-    }*/
-
     // Notification stuff
     // solution by https://gist.github.com/BrandonSmith/6679223
     private void scheduleNotification(){
-        short DELAY = 5000;
+        // notification in two days time
+        int DELAY = 2*24*60*60*1000;
+        //int DELAY = 5*1000;
         generateRandomIdx();
-        System.out.println("scheduled");
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle("");
         builder.setContentText(insults.get(rand_index).getInsult());
         builder.setSmallIcon(R.drawable.ic_launcher);
         builder.setAutoCancel(true);
+
+        // what the notification has to do when clicked upon (open insult activity)
+        Intent resultIntent = new Intent(this, InsultActivity.class);
+        // The stack builder object will contain an artificial back stack for the started Activity.
+        // This ensures that navigating backward from the Activity leads out of
+        // your application to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(InsultActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(resultPendingIntent);
 
         Intent notificationIntent = new Intent(this, NotificationPublisher.class);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
@@ -548,6 +521,9 @@ public class InsultActivity extends ActionBarActivity {
         long futureInMillis = SystemClock.elapsedRealtime() + DELAY;
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+
+        Toast toast = Toast.makeText(getApplicationContext(), insults.get(rand_index).getInsult() + " scheduled!", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
 

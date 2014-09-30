@@ -131,7 +131,8 @@ public class InsultActivity extends ActionBarActivity {
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
         flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
-        if ( SEND_STATS_FLURRY && (generated_n%10 == 0 || pronunciated_n%10 == 0) )
+        // send stats if number of generated insults or number of pronunciated insults is multiple of 10 and they are not 0
+        if ( SEND_STATS_FLURRY && ( (generated_n%10 == 0 && generated_n > 0) || (pronunciated_n%10 == 0 && pronunciated_n > 0)) )
             FlurryAgent.logEvent("onStop()", flurry_stats);
 
         FlurryAgent.onEndSession(this);

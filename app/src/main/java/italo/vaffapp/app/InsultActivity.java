@@ -84,8 +84,8 @@ public class InsultActivity extends ActionBarActivity {
         setContentView(R.layout.activity_insult);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+                .add(R.id.container, new PlaceholderFragment())
+                .commit();
         }
 
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
@@ -114,8 +114,6 @@ public class InsultActivity extends ActionBarActivity {
         adcolonyad = new AdColonyVideoAd();
         setRegionNameInTitle();
         checkGooglePlayServicesVersion();
-
-        scheduleNotification();
     }
 
     @Override
@@ -129,6 +127,7 @@ public class InsultActivity extends ActionBarActivity {
         super.onPause();
         uiHelper.onPause();
         AdColony.pause();
+        scheduleNotification();
     }
 
     @Override
@@ -216,23 +215,7 @@ public class InsultActivity extends ActionBarActivity {
         if (insults == null)
             loadInsults();
 
-        /*Random rand = new Random();
-        rand_index = rand.nextInt(insults.size());
-        while ( occurrences[rand_index] == 1 || retry == MAX_RETRIES) {
-            rand_index = rand.nextInt(insults.size());
-            retry++;
-        }
-
-        if (retry == MAX_RETRIES){
-            for(int i=0;i<occurrences.length;i++){
-                if (occurrences[i]==0){
-                    rand_index = i;
-                    break;
-                }
-            }
-        }*/
-
-        generateRandomIdx();
+        rand_index = generateRandomIdx();
 
         getTextviews();
         setTextviews();
@@ -263,25 +246,27 @@ public class InsultActivity extends ActionBarActivity {
     // generate a random index that hasn't been generated recently
     // writes the idx in the global variable rand_index
     // this is used to get an insult from insults (the ArrayList)
-    public void generateRandomIdx(){
+    public int generateRandomIdx(){
+        int tmp_ind = 0;
         short retry = 0;
         short MAX_RETRIES = 10;
 
         Random rand = new Random();
-        rand_index = rand.nextInt(insults.size());
-        while ( occurrences[rand_index] == 1 || retry == MAX_RETRIES) {
-            rand_index = rand.nextInt(insults.size());
+        tmp_ind = rand.nextInt(insults.size());
+        while ( occurrences[tmp_ind] == 1 || retry == MAX_RETRIES) {
+            tmp_ind = rand.nextInt(insults.size());
             retry++;
         }
 
         if (retry == MAX_RETRIES){
             for(int i=0;i<occurrences.length;i++){
                 if (occurrences[i]==0){
-                    rand_index = i;
+                    tmp_ind = i;
                     break;
                 }
             }
         }
+        return tmp_ind;
     }
 
     public void setRegionNameInTitle(){
@@ -395,9 +380,9 @@ public class InsultActivity extends ActionBarActivity {
     public void preChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] packageNames = {
-                "twitter",
-                "messenger",
-                "whatsapp"
+            "twitter",
+            "messenger",
+            "whatsapp"
         };
         final CharSequence[] items = new CharSequence[diff_app.size()+1];
         for (int i=0; i<diff_app.size();i++) {
@@ -418,60 +403,60 @@ public class InsultActivity extends ActionBarActivity {
         }
         items[diff_app.size()] = getString(R.string.other);
         new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.choice1))
-                .setItems(items, new DialogInterface.OnClickListener()
+            .setTitle(getString(R.string.choice1))
+            .setItems(items, new DialogInterface.OnClickListener()
                 {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        String choice = items[which].toString();
-                        // Flurry analytics
-                        Map<String, String> flurry_stats = new HashMap<String, String>();
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    String choice = items[which].toString();
+                    // Flurry analytics
+                    Map<String, String> flurry_stats = new HashMap<String, String>();
 
-                        if ( choice.equals("Facebook") ){
-                            flurry_stats.put("Share on", "Facebook");
-                            flurry_stats.put("Insult", insult.getText().toString());
+                    if ( choice.equals("Facebook") ){
+                        flurry_stats.put("Share on", "Facebook");
+                        flurry_stats.put("Insult", insult.getText().toString());
 
-                            insultFriendOnFB();
-                        }
-
-                        Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-                        targetedShareIntent.setType("text/plain");
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-                        if ( choice.equals("Twitter") ){
-                            flurry_stats.put("Share on", "Twitter");
-                            flurry_stats.put("Insult", insult.getText().toString());
-
-                            targetedShareIntent.setPackage(packageNames[0]);
-                            startActivity(targetedShareIntent);
-                        }
-                        if ( choice.equals("Messenger") ){
-                            flurry_stats.put("Share on", "Messenger");
-                            flurry_stats.put("Insult", insult.getText().toString());
-
-                            targetedShareIntent.setPackage(packageNames[1]);
-                            startActivity(targetedShareIntent);
-                        }
-                        if ( choice.equals("WhatsApp") ){
-                            flurry_stats.put("Share on", "WhatsApp");
-                            flurry_stats.put("Insult", insult.getText().toString());
-
-                            targetedShareIntent.setPackage(packageNames[2]);
-                            startActivity(targetedShareIntent);
-                        }
-
-                        if (choice.equals(getString(R.string.other)) ) {
-                            flurry_stats.put("Share on", "Other");
-                            flurry_stats.put("Insult", insult.getText().toString());
-
-                            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.choice2));
-                            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
-                            startActivity(chooserIntent);
-                        }
-                        if ( SEND_STATS_FLURRY )
-                            FlurryAgent.logEvent("Sharing", flurry_stats);
+                        insultFriendOnFB();
                     }
-                }).create().show();
+
+                    Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                    targetedShareIntent.setType("text/plain");
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
+                    if ( choice.equals("Twitter") ){
+                        flurry_stats.put("Share on", "Twitter");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[0]);
+                        startActivity(targetedShareIntent);
+                    }
+                    if ( choice.equals("Messenger") ){
+                        flurry_stats.put("Share on", "Messenger");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[1]);
+                        startActivity(targetedShareIntent);
+                    }
+                    if ( choice.equals("WhatsApp") ){
+                        flurry_stats.put("Share on", "WhatsApp");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[2]);
+                        startActivity(targetedShareIntent);
+                    }
+
+                    if (choice.equals(getString(R.string.other)) ) {
+                        flurry_stats.put("Share on", "Other");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.choice2));
+                        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+                        startActivity(chooserIntent);
+                    }
+                    if ( SEND_STATS_FLURRY )
+                        FlurryAgent.logEvent("Sharing", flurry_stats);
+                }
+            }).create().show();
     }
 
     // Checks presence of apps Facebook and Twitter
@@ -490,15 +475,16 @@ public class InsultActivity extends ActionBarActivity {
 
     // Notification stuff
     // solution by https://gist.github.com/BrandonSmith/6679223
+    // this will show a notification after 2 days (notification is deleted if the phone is rebooted)
     private void scheduleNotification(){
         // notification in two days time
         int DELAY = 2*24*60*60*1000;
-        //int DELAY = 5*1000;
-        generateRandomIdx();
+        int insult_idx = 0;
+        insult_idx = generateRandomIdx();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle("");
-        builder.setContentText(insults.get(rand_index).getInsult());
+        builder.setContentText(insults.get(insult_idx).getInsult());
         builder.setSmallIcon(R.drawable.ic_launcher);
         builder.setAutoCancel(true);
 
@@ -521,9 +507,6 @@ public class InsultActivity extends ActionBarActivity {
         long futureInMillis = SystemClock.elapsedRealtime() + DELAY;
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
-
-        Toast toast = Toast.makeText(getApplicationContext(), insults.get(rand_index).getInsult() + " scheduled!", Toast.LENGTH_SHORT);
-        toast.show();
     }
 
 

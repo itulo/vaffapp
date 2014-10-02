@@ -45,18 +45,6 @@
 'Tupin','Sei un contenitore di piscio';'Piss container'
 
 ## VENETO
-<<<<<<< HEAD
-'Bàsime i durèi','Baciami i testicoli';''
-'Date cò un legno','Picchiati con un pezzo di legno';'Beat yourself with a wooden stick'
-'Ghe sboro','Ti getto il mio sperma contro';''
-'Imatonìo','Sei un mattone (stupido)';''
-'Imbecilon','Imbecille';''
-'Increcoeà','Rincoglionito';''
-'Magnasborae','Mangia sperma';''
-'Ma ti gà e moròidi in testa?','Ma che hai gli emorroidi in testa? (faccia da culo)';''
-'Ma ti ghe gà magnà ea merda al mago?','Che hai mangiato la merda del mago (hai detto una cosa scontata)';''
-'Ma ti se sbregà','Che sei rotto? (qualcosa non va in te)';''
-=======
 'Bàsime i durèi','Baciami i testicoli';'Kiss my testicles'
 'Date cò un legno','Menati da solo con un pezzo di legno';'Beat yourself with a wooden stick'
 'Ghe sboro','Ti getto il mio sperma contro';'I ejaculate towards you'
@@ -67,7 +55,6 @@
 'Ma ti gà e moròidi in testa?','Ma che hai gli emorroidi in testa? (faccia da culo)';'Do you have hemorrhoids on your head? (ass face)'
 'Ma ti ghe gà magnà ea merda al mago?','Che hai mangiato la merda del mago (hai detto una cosa scontata)';'You ate the magician''s shit (you said something obvious)'
 'Ma ti se sbregà','Che sei rotto? (qualcosa non va in te)';'Are you broken? (something is wrong with you)'
->>>>>>> master
 'Mòngoeo','Mongoloide';''
 'Muso da mona','Faccia da vagina';'Pussy face'
 'Om de boassa','Uomo di merda';'Crappy man'

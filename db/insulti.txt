@@ -35,14 +35,37 @@
 'Và a scuà ''l mar!','Vai a pulire il mare!';'Go clean the sea'
 'Va bèn a fèr dal pugnàt!','Vai a masturbarti';'Go wank yourself'
 
+## TRENTINO-ALTO-ADIGE
+'Caora','Troia';'Whore'
+'Chegambraghe!','Smidollato!';'Shitty pants!'
+'Coion','Coglione';'Jerk'
+'Manz!','Scemo!';'Silly!'
+
+## FRIULI-VENEZIA-GIULIA
+'là a cagà te vergis','Vai a defecare tra le verze';'Fuck off'
+'ma te sòn bruzà?','ma sei bruciato?';'Did you get burnt? (something is wrong with you)'
+'te sòn fora come un pergolo','sei fuori come un balcone';''
+'te sòn perso come l''austria','sei perso come l''austria (che crollò dopo la I guerra mondiale)';''
+'te sòn tuto fulminado','sei completamente fulminato';''
+
 ## PIEMONTE
 'Ancutí','Ottuso';'Dull'
+'Bagasa','Troia';'Whore'
 'Balengu','Cretino';'Nitwit'
+'barlafus','persona inutile';'good for nothing'
 'Betè','Idiota';'Idiot'
+'Chabrabuc','Capra';'Goat'
 'Gadan','Stupido';'Stupid'
+'Fafiuchè','Deficiente';'Idiot'
 'Fòl','Stupido';'Stupid'
+'iturdí','rincoglionito';'Stoned'
+'ligera','idiota';'Idiot'
 'Piciu','Testa di cazzo';'Dickhead'
+'Scraciun','Sporco';'Dirty'
 'Tupin','Sei un contenitore di piscio';'Piss container'
+'Turtu','Imbranato';'Clod'
+'Va a pietlu in tel cul','Vai a quel paese';'Fuck off'
+'Vei te scià','Vai a quel paese';'Fuck off'
 
 ## VENETO
 'Bàsime i durèi','Baciami i testicoli';'Kiss my testicles'
@@ -84,11 +107,14 @@
 'Cì pez che ne la merda in te lét','Sei peggio della merda nel letto';'You''re worse than having shit in bed'
 'Ci propri un cucalon','Sei proprio un credulone';'You''re such a sucker'
 'Ci zonz c''me e baston de pulèr','Sei sporco come il bastone del pollaio';'You''re dirty like a stick in a hen-house'
+'cuajoun','coglione';'jerk'
 'Cu t''aves magnè la troia da znein','Che ti avesse mangiato la troia da piccolo';''
 'Cu''t casches l''usel matera e u''t rimbalzes in the cul','Che ti caschi l''uccello in terra e ti rimbalzi in culo';'May your dick drop on the ground and bounce into your ass'
 'Cut s''ciupes una roda in curva','Che ti scoppi una ruota in curva';'May one of your tires burst while you''re making a turn'
 'Faza da cul da chèn da caza l''è piò bel e mi cul che la tu faza','Faccia da culo da cane da caccia è più bello il mio culo che la tua faccia';''
 'Fis-ciaza','Spione';'Spy'
+'invurnid','imbranato';'Clod'
+'Pataca','Stupido';'Stupid'
 'Sat ciap a t''un dag cu ne sa nisoun','Se ti acchiappo te ne do che non lo sa nessuno';'If I catch you I''ll beat you so much that nobody knows'
 'Sat ciàp at scòurg da veiv','Se ti acchiappo ti scortico vivo';'If I catch you I''ll skin you alive'
 'Sat ciàp at stac un braz e at mèin sa quèl','Se ti acchiappo ti stacco un braccio e ti meno con quello';'If I catch you I''ll rip off one of your arms and beat you up with it'
@@ -101,10 +127,11 @@
 'Te ona testa che sù la ià una mazola la s''afoga','Hai una testa che se ce l''ha una mazzola affoga';'You have a head that if a fish has it, it''ll drown'
 'Te ona testa che sù la ià un sardòn e và in muntagna','Hai una testa che se ce l''ha un sardone va in montagna';''
 'Tul in te sàc','Vai a prenderlo in culo';'Go get it in the ass'
-#'Va a fè al pugnetti valà','Vai a masturbarti';'Go wank'
-#'Va a fè di buchein mi chèn','Vai a fare i bocchini ai cani';'Go blow a dog'
+'Va a fè al pugnetti valà','Vai a masturbarti';'Go wank'
+'Va a fè di buchein mi chèn','Vai a fare i bocchini ai cani';'Go blow a dog'
 'Va a scurzé en’te remal','Va a scoreggiare sulla crusca (vai via)';'Go fart on some bran (go away)'
 'Va'' bèn a fèr dal pugnàt!','Vai a masturbarti';'Go wank'
+'Vat fe dè in te cul','Vai a quel paese';'Fuck off'
 
 ## LIGURIA
 'Bagassa','Troia';'Whore'
@@ -158,12 +185,12 @@
 'Te spojasse ''n trono e t''arvestisse n'' furmine','Che ti spogli un tuono e ti rivesta un fulmine';'May a thunder take your clothes off and lightning put them back'
 
 ## MARCHE
-'C''hai le fregne ''ntela testa','Hai vagine nella testa (te la tiri troppo)';'You got pussies in your head (you're showing off too much)'
+'C''hai le fregne ''ntela testa','Hai vagine nella testa (te la tiri troppo)';'You got pussies in your head (you''re showing off too much)'
 'Che Dio ti abbia in cielo poi ti lasci!','Che Dio ti abbia in cielo e poi ti lasci cadere';'May God have you in heaven then drop you'
 'Che te pozza scomponne e ''rcomponnete malamente!','Che tu possa scomporti e ricomporti malamente';'May you decompose in pieces and recompose badly'
 'Che tu non pozza nè morì nè campà','Che tu non possa morire nè vivere';'May you never die and never live'
 'Lota!','Merda!';'Piece of shit!'
-'M'' par'' na mutand'' staj siemp'' annanz'' o'' cazz''','Mi sembri una mutanda stai sempre tra le scatole';'You are like underwear, you're always on my dick''s way'
+'M'' par'' na mutand'' staj siemp'' annanz'' o'' cazz''','Mi sembri una mutanda stai sempre tra le scatole';'You are like underwear, you''re always on my dick''s way'
 'Ma nun te vai a fa da ''ntel culo!?','Ma non vai a prenderlo in culo!?';'But go get it in your ass!?'
 'Sciacquate dai cojoni','Vai via dai coglioni';'Wash yourself away from here'
 'Se te pio t''intreccio','Se ti prendo ti intreccio';'If I catch you I''ll weave you'
@@ -194,10 +221,10 @@
 'Quanno veco a te, capisco è nu munno ''e merda','Quando ti vedo capisco che è un mondo di merda';'When I see you I realize the world sucks'
 'Si a scumma rimasta n''coppo ''o penniello doppo che ''o nonno s''è fatta ''a barba','Sei la schiuma rimasta sul pennello dopo che il nonno si è fatto la barba';'You''re the foam left on the shave brush after that grandpa shaved'
 'Si accussí bello ca si faciss nu pireto m''o zucass!','Sei cosí bello che se facessi una scorreggia me la risucchierei!';'You are so handsome that if I farted I would smell it all'
-'Si accussí curnute, che ''o cervo se vò suicidà!','Sei cosí cornuto che il cervo si vuole suicidare';'' -- IMPOSSIBILE DA TRADURRE
+'Si accussí curnute, che ''o cervo se vò suicidà!','Sei cosí cornuto che il cervo si vuole suicidare';''
 'Si comme a nu criature annanze all''albero e natale, rumpe e palle in continuazione','Sei come un bambino di fronte ad un albero di natale, rompi sempre le palle';'You are like a child in front of a christmas tree, you always break balls'
 'Si comme a nu pertuso int''a sacca do calzon, sierv sul pe me fa ''na rattata ''e palle','Sei come il buco nella tasca dei pantaloni, che serve solo a farmi grattare le palle';'You''re just like the hole in my pants, which is good only to scratch my balls'
-'Si comme a raccolta differenziata, nu bidone e munnezza','Sei come la raccolta differenziata, un bidone di immondizia';'You're like recycling, a bin of trash'
+'Si comme a raccolta differenziata, nu bidone e munnezza','Sei come la raccolta differenziata, un bidone di immondizia';'You''re like recycling, a bin of trash'
 'Si talmente sfurtunate che si se ne care ''o cazzo ti rimbalza into ''o culo','Sei cosí sfortunato che se se ne cade il cazzo ti rimbalza nel culo';''
 'Te giro e corne ca tieni e te porto comme a na lambretta','Ti giro le corna che hai e ti guido come una Lambretta';''
 'Te manno a fa n''culo cu nu biglietto di sola andata','Ti mando a quel paese con un biglietto di sola andata';''
@@ -209,14 +236,14 @@
 'Tu si comme a nu cane da neve n''husky-fezza','Sei come un cane da neve un husky-fezza';''
 
 ## PUGLIA
-'Cagammèrd','Cacasotto/Sfaticato';'' --LAZY NON E' UN INSULTO
+'Cagammèrd','Cacasotto/Sfaticato';''
 'Calandron','Tontolone';'Gullible'
 'Calascion','Tontolone';'Gullible'
 'Capacchion','Testardo/ingenuo';'Stubborn/gullible'
 'Chèp d chiumm','Testa di piombo (testardo o sciocco)';'Head full of lead (stubborn or gullible)'
 'Chin d serchje','Testa di luridume (incompetente o sciocco)';'Head full of dirt (failure)'
 'Chin d siv','Testa piena di grasso (non sei affidabile)';'Head full of fats (untrustable)'
-'Ciò-Ciò','Parli molto ma concludi poco';'You speak a lot but don't do anything'
+'Ciò-Ciò','Parli molto ma concludi poco';'You speak a lot but don''t do anything'
 'Faccje d ciol','Faccia da cazzo';'Dickface'
 'Faccje du trè d baston','Faccia da tre di bastoni (brutto)';''
 'Maladesegrazjedegghiavè','Che tu possa avere una disgrazia';'May something bad happen to you'
@@ -244,7 +271,7 @@
 ## SARDEGNA
 'Coddaproccusu!','Hai rapporti sessuali con i suini';'You are one who has sex with pigs'
 'Cravadinci in su cunnu!','Infilati con forza in una vagina';'Go inside a pussy'
-'Minc''e cuaddu ti coddidi!','Che un pene equino ti forzi ad avere rapporti sessuali!';'May a horse's penis force you to have sex'
+'Minc''e cuaddu ti coddidi!','Che un pene equino ti forzi ad avere rapporti sessuali!';'May a horse''s penis force you to have sex'
 'Taccappiu i spius de concas ai spius de cullu','Ti lego i capelli della testa ai peli del culo';'I''m gonna tie your head hair to your ass hair'
 
 

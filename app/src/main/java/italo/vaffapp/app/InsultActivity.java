@@ -157,9 +157,6 @@ public class InsultActivity extends ActionBarActivity {
 
         FlurryAgent.onStartSession(this, "CTMK9MZJN48KNVB3JH5V");
 
-        //appnext = new Appnext(this);
-        //appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
-
         if ( insults == null ) {
             showInsult(null);
         } else{
@@ -210,8 +207,6 @@ public class InsultActivity extends ActionBarActivity {
        if yes reinitialize and start from scratch
      */
     public void showInsult(View view){
-        //short retry = 0;
-        //short MAX_RETRIES = 10;
 
         if (insults == null)
             loadInsults();
@@ -232,8 +227,6 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n == time_for_ad_1 || generated_n == time_for_ad_2 ){
-            //appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
-            //appnext.showBubble();
             if ( adcolonyad.isReady() ) {
                 adcolonyad.show();
             }
@@ -248,13 +241,13 @@ public class InsultActivity extends ActionBarActivity {
     // writes the idx in the global variable rand_index
     // this is used to get an insult from insults (the ArrayList)
     public int generateRandomIdx(){
-        int tmp_ind = 0;
+        int tmp_ind;
         short retry = 0;
         short MAX_RETRIES = 10;
 
         Random rand = new Random();
         tmp_ind = rand.nextInt(insults.size());
-        while ( occurrences[tmp_ind] == 1 || retry == MAX_RETRIES) {
+        while ( occurrences[tmp_ind] == 1 && retry < MAX_RETRIES) {
             tmp_ind = rand.nextInt(insults.size());
             retry++;
         }
@@ -262,6 +255,7 @@ public class InsultActivity extends ActionBarActivity {
         if (retry == MAX_RETRIES){
             for(int i=0;i<occurrences.length;i++){
                 if (occurrences[i]==0){
+                    // don't set occurrences[i]=1 here, it occurs in showInsult()
                     tmp_ind = i;
                     break;
                 }

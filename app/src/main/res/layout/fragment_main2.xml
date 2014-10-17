@@ -18,7 +18,7 @@
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.7"
+        android:layout_weight="0.5"
         android:background="@drawable/box_around_textviews"
         android:layout_marginBottom="5dp"
         android:clickable="true"
@@ -34,7 +34,20 @@
         android:layout_weight="0.3"
         android:background="@drawable/box_around_textviews"
         android:clickable="true"
-        android:onClick="speakDesc"/>
+        android:onClick="speakDesc"
+        android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:id="@+id/insult_eng"
+        android:text="@string/insult_eng"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hello_world"
+        android:gravity="center"
+        android:layout_weight="0.2"
+        android:background="@drawable/box_around_textviews"
+        android:clickable="true"
+        android:onClick="speakEng"/>
 
     <LinearLayout
         android:layout_width="fill_parent"

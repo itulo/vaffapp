@@ -134,13 +134,13 @@ public class MainActivity extends ActionBarActivity {
     /* Go to InsultActivity */
     public void startInsultActivity(View view){
         Intent intent = new Intent(this, InsultActivity.class);
+        intent.putExtra("pref_language", pref_language);
         startActivity(intent);
     }
 
     /* Go to SendInsultActivity */
     public void startSendInsultActivity(View view){
         Intent intent = new Intent(this, SendInsultActivity.class);
-        intent.putExtra("pref_language", pref_language);
         startActivity(intent);
     }
 }

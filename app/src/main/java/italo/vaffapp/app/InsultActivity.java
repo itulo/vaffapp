@@ -3,6 +3,7 @@ package italo.vaffapp.app;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import italo.vaffapp.app.databases.Insult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -57,6 +59,7 @@ public class InsultActivity extends ActionBarActivity {
     private Session.StatusCallback callback = null;
     private TextView insult;
     private TextView insult_desc;
+    private TextView insult_eng;
     private String region;
 
     private static int rand_index;
@@ -89,12 +92,6 @@ public class InsultActivity extends ActionBarActivity {
                 .commit();
         }
 
-        // get language prefs
-        // get language from shared preferences
-        SharedPreferences settings = getPreferences(MODE_PRIVATE);
-        // 0 = Italian (default), 1 = English
-        pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
-
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
         // 1. configure the UiLifecycleHelper in onCreate
@@ -103,6 +100,9 @@ public class InsultActivity extends ActionBarActivity {
 
         // https://github.com/AdColony/AdColony-Android-SDK/wiki/API-Details#configure-activity-activity-string-client_options-string-app_id-string-zone_ids-
         AdColony.configure(this, "version:3.0,store:google", "app916d076c2a05451fb5", "vzad48f059dc8d48b8af");
+
+        Intent mIntent = getIntent();
+        pref_language = mIntent.getIntExtra("pref_language", 0);
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -170,6 +170,13 @@ public class InsultActivity extends ActionBarActivity {
             getTextviews();
             setTextviews();
         }
+        if ( pref_language == LanguageOptions.ITALIANO )
+            hideEngTextView();
+    }
+
+    // if the UI is in italian, don't show the TextView for the english translation of an insult
+    public void hideEngTextView(){
+        insult_eng.setVisibility(View.GONE);
     }
 
     public void checkGooglePlayServicesVersion(){
@@ -185,12 +192,24 @@ public class InsultActivity extends ActionBarActivity {
             insult = (TextView)findViewById(R.id.insult);
         if( insult_desc == null )
             insult_desc = (TextView)findViewById(R.id.insult_desc);
+        if ( insult_eng == null)
+            insult_eng = (TextView)findViewById(R.id.insult_eng);
     }
 
     public void setTextviews(){
-        if ( insult!=null && insult_desc!=null ) {
+        if ( insult!=null && insult_desc!=null && insult_eng!=null) {
             insult.setText(insults.get(rand_index).getInsult());
             insult_desc.setText(insults.get(rand_index).getDesc());
+
+            if ( pref_language == LanguageOptions.ENGLISH ) {
+                String eng = insults.get(rand_index).getEnglish();
+                if (eng.equals("")) {
+                    eng = "Not translatable";
+                    insult_eng.setTypeface(null, Typeface.ITALIC);
+                } else
+                    insult_eng.setTypeface(null, Typeface.NORMAL);
+                insult_eng.setText(eng);
+            }
         }
     }
 
@@ -202,6 +221,11 @@ public class InsultActivity extends ActionBarActivity {
     public void speakDesc(View v){
         pronunciated_n++;
         speaker.speakDesc(insult_desc.getText().toString());
+    }
+
+    public void speakEng(View v){
+        pronunciated_n++;
+        speaker.speakDesc(insult_eng.getText().toString());
     }
 
     /* showInsults

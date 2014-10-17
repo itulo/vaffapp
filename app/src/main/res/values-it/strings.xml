@@ -7,7 +7,8 @@
     <string name="title_activity_insult">InsultActivity</string>
     <string name="title_activity_insulto">Ti insulto!</string>
     <string name="insult">Vaffanculo, cazzo</string>
-    <string name="insult_desc">Qualcosa è andato storto... chissenefrega, cazzi tuoi</string>
+    <string name="insult_desc">Qualcosa è andato storto… chissenefrega, cazzi tuoi</string>
+    <string name="insult_eng">…</string>
     <string name="button_insult_1">Insultati ancora</string>
     <string name="button_insult_2">Condividi</string>
     <string name="insultati_button">Insultati</string>

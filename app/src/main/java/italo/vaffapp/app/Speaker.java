@@ -7,52 +7,38 @@ import java.util.Locale;
  * Created by iarmenti on 8/7/14.
  */
 public class Speaker {
-    private static TextToSpeech insult;
-    private static TextToSpeech desc;
+    private static TextToSpeech speaker;
 
     public Speaker(Context context){
-        insult = new TextToSpeech(context,
+        speaker = new TextToSpeech(context,
                 new TextToSpeech.OnInitListener() {
                     @Override
                     public void onInit(int status) {
                         if(status != TextToSpeech.ERROR){
-                            insult.setLanguage(Locale.ITALY);
-                        }
-                    }
-                }
-        );
-
-        desc = new TextToSpeech(context,
-                new TextToSpeech.OnInitListener() {
-                    @Override
-                    public void onInit(int status) {
-                        if(status != TextToSpeech.ERROR){
-                            desc.setLanguage(Locale.ITALY);
+                            speaker.setLanguage(Locale.ITALY);
                         }
                     }
                 }
         );
     }
 
-    public static void speakInsult(String insult_){
-        if ( insult != null )
-            insult.speak(insult_, TextToSpeech.QUEUE_FLUSH, null);
+    public void speakInsult(String insult_){
+        if ( speaker != null )
+            speaker.speak(insult_, TextToSpeech.QUEUE_FLUSH, null);
     }
 
-    public static void speakDesc(String desc_){
-        if ( desc != null )
-            desc.speak(desc_, TextToSpeech.QUEUE_FLUSH, null);
-    }
-
-    public void onPause(){
-        if(insult != null){
-            insult.stop();
-            insult.shutdown();
+    public void speakEnglish(String desc_){
+        if ( speaker != null ) {
+            speaker.setLanguage(Locale.ENGLISH);
+            speaker.speak(desc_, TextToSpeech.QUEUE_FLUSH, null);
+            speaker.setLanguage(Locale.ITALY);
         }
+    }
 
-        if(desc != null){
-            desc.stop();
-            desc.shutdown();
+    public static void onPause(){
+        if(speaker != null){
+            speaker.stop();
+            speaker.shutdown();
         }
     }
 }

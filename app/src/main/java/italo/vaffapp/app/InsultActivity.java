@@ -77,7 +77,7 @@ public class InsultActivity extends ActionBarActivity {
     private short time_for_ad_1 = 30;
     private short time_for_ad_2 = 90;
 
-    private boolean SEND_STATS_FLURRY = true;
+    private boolean SEND_STATS_FLURRY = false;
     private static short pronunciated_n = 0;
 
     private int pref_language;
@@ -134,6 +134,7 @@ public class InsultActivity extends ActionBarActivity {
         super.onPause();
         uiHelper.onPause();
         AdColony.pause();
+        speaker.onPause();
         scheduleNotification();
     }
 
@@ -220,12 +221,12 @@ public class InsultActivity extends ActionBarActivity {
 
     public void speakDesc(View v){
         pronunciated_n++;
-        speaker.speakDesc(insult_desc.getText().toString());
+        speaker.speakInsult(insult_desc.getText().toString());
     }
 
     public void speakEng(View v){
         pronunciated_n++;
-        speaker.speakDesc(insult_eng.getText().toString());
+        speaker.speakEnglish(insult_eng.getText().toString());
     }
 
     /* showInsults

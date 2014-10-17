@@ -2,6 +2,7 @@ package italo.vaffapp.app;
 
 import android.app.AlarmManager;
 import android.app.Notification;
+import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -67,8 +68,6 @@ public class InsultActivity extends ActionBarActivity {
     private List<String> diff_app;
     private Intent sharingIntent;
 
-    //private Appnext appnext;
-
     private Speaker speaker;
 
     private AdColonyVideoAd adcolonyad;
@@ -77,6 +76,8 @@ public class InsultActivity extends ActionBarActivity {
 
     private boolean SEND_STATS_FLURRY = true;
     private static short pronunciated_n = 0;
+
+    private int pref_language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,12 @@ public class InsultActivity extends ActionBarActivity {
                 .add(R.id.container, new PlaceholderFragment())
                 .commit();
         }
+
+        // get language prefs
+        // get language from shared preferences
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        // 0 = Italian (default), 1 = English
+        pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
 
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
@@ -143,7 +150,7 @@ public class InsultActivity extends ActionBarActivity {
         flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
         flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
         // send stats if number of generated insults or number of pronunciated insults is multiple of 10 and they are not 0
-        if ( SEND_STATS_FLURRY && ( (generated_n%10 == 0 && generated_n > 0) || (pronunciated_n%10 == 0 && pronunciated_n > 0)) )
+        if ( SEND_STATS_FLURRY && generated_n >= 30 )
             FlurryAgent.logEvent("onStop()", flurry_stats);
 
         FlurryAgent.onEndSession(this);

@@ -8,6 +8,7 @@
     <string name="title_activity_insulto">Get insulted!</string>
     <string name="insult">Dammit</string>
     <string name="insult_desc">Something went wrong, try restarting the app</string>
+    <string name="insult_eng">…</string>
     <string name="button_insult_1">Other insult</string>
     <string name="button_insult_2">Share</string>
     <string name="insultati_button">Get insulted</string>

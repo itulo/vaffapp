@@ -2,6 +2,8 @@ package italo.vaffapp.app;
 
 import android.app.AlarmManager;
 import android.app.Notification;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -19,6 +21,7 @@ import italo.vaffapp.app.databases.Insult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -56,6 +59,7 @@ public class InsultActivity extends ActionBarActivity {
     private Session.StatusCallback callback = null;
     private TextView insult;
     private TextView insult_desc;
+    private TextView insult_eng;
     private String region;
 
     private static int rand_index;
@@ -67,8 +71,6 @@ public class InsultActivity extends ActionBarActivity {
     private List<String> diff_app;
     private Intent sharingIntent;
 
-    //private Appnext appnext;
-
     private Speaker speaker;
 
     private AdColonyVideoAd adcolonyad;
@@ -77,6 +79,8 @@ public class InsultActivity extends ActionBarActivity {
 
     private boolean SEND_STATS_FLURRY = true;
     private static short pronunciated_n = 0;
+
+    private int pref_language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +100,9 @@ public class InsultActivity extends ActionBarActivity {
 
         // https://github.com/AdColony/AdColony-Android-SDK/wiki/API-Details#configure-activity-activity-string-client_options-string-app_id-string-zone_ids-
         AdColony.configure(this, "version:3.0,store:google", "app916d076c2a05451fb5", "vzad48f059dc8d48b8af");
+
+        Intent mIntent = getIntent();
+        pref_language = mIntent.getIntExtra("pref_language", 0);
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -127,6 +134,7 @@ public class InsultActivity extends ActionBarActivity {
         super.onPause();
         uiHelper.onPause();
         AdColony.pause();
+        speaker.onPause();
         scheduleNotification();
     }
 
@@ -142,8 +150,8 @@ public class InsultActivity extends ActionBarActivity {
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
         flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
-        // send stats if number of generated insults or number of pronunciated insults is multiple of 10 and they are not 0
-        if ( SEND_STATS_FLURRY && generated_n > 30 )
+        // send stats if number of generated insults is >= 30
+        if ( SEND_STATS_FLURRY && generated_n >= 30 )
             FlurryAgent.logEvent("onStop()", flurry_stats);
 
         FlurryAgent.onEndSession(this);
@@ -157,15 +165,19 @@ public class InsultActivity extends ActionBarActivity {
 
         FlurryAgent.onStartSession(this, "CTMK9MZJN48KNVB3JH5V");
 
-        //appnext = new Appnext(this);
-        //appnext.setAppID("a813fa77-433c-4b51-87bb-d6f7b34b4246");
-
         if ( insults == null ) {
             showInsult(null);
         } else{
             getTextviews();
             setTextviews();
         }
+        if ( pref_language == LanguageOptions.ITALIANO )
+            hideEngTextView();
+    }
+
+    // if the UI is in italian, don't show the TextView for the english translation of an insult
+    public void hideEngTextView(){
+        insult_eng.setVisibility(View.GONE);
     }
 
     public void checkGooglePlayServicesVersion(){
@@ -181,12 +193,24 @@ public class InsultActivity extends ActionBarActivity {
             insult = (TextView)findViewById(R.id.insult);
         if( insult_desc == null )
             insult_desc = (TextView)findViewById(R.id.insult_desc);
+        if ( insult_eng == null)
+            insult_eng = (TextView)findViewById(R.id.insult_eng);
     }
 
     public void setTextviews(){
-        if ( insult!=null && insult_desc!=null ) {
+        if ( insult!=null && insult_desc!=null && insult_eng!=null) {
             insult.setText(insults.get(rand_index).getInsult());
             insult_desc.setText(insults.get(rand_index).getDesc());
+
+            if ( pref_language == LanguageOptions.ENGLISH ) {
+                String eng = insults.get(rand_index).getEnglish();
+                if (eng.equals("")) {
+                    eng = "Not translatable";
+                    insult_eng.setTypeface(null, Typeface.ITALIC);
+                } else
+                    insult_eng.setTypeface(null, Typeface.NORMAL);
+                insult_eng.setText(eng);
+            }
         }
     }
 
@@ -197,7 +221,12 @@ public class InsultActivity extends ActionBarActivity {
 
     public void speakDesc(View v){
         pronunciated_n++;
-        speaker.speakDesc(insult_desc.getText().toString());
+        speaker.speakInsult(insult_desc.getText().toString());
+    }
+
+    public void speakEng(View v){
+        pronunciated_n++;
+        speaker.speakEnglish(insult_eng.getText().toString());
     }
 
     /* showInsults
@@ -210,8 +239,6 @@ public class InsultActivity extends ActionBarActivity {
        if yes reinitialize and start from scratch
      */
     public void showInsult(View view){
-        //short retry = 0;
-        //short MAX_RETRIES = 10;
 
         if (insults == null)
             loadInsults();
@@ -232,8 +259,6 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n == time_for_ad_1 || generated_n == time_for_ad_2 ){
-            //appnext.addMoreAppsLeft("961d922f-d94d-4d08-a060-ea2d78dd6d20");
-            //appnext.showBubble();
             if ( adcolonyad.isReady() ) {
                 adcolonyad.show();
             }
@@ -248,13 +273,13 @@ public class InsultActivity extends ActionBarActivity {
     // writes the idx in the global variable rand_index
     // this is used to get an insult from insults (the ArrayList)
     public int generateRandomIdx(){
-        int tmp_ind = 0;
+        int tmp_ind;
         short retry = 0;
         short MAX_RETRIES = 10;
 
         Random rand = new Random();
         tmp_ind = rand.nextInt(insults.size());
-        while ( occurrences[tmp_ind] == 1 || retry == MAX_RETRIES) {
+        while ( occurrences[tmp_ind] == 1 && retry < MAX_RETRIES) {
             tmp_ind = rand.nextInt(insults.size());
             retry++;
         }
@@ -262,6 +287,7 @@ public class InsultActivity extends ActionBarActivity {
         if (retry == MAX_RETRIES){
             for(int i=0;i<occurrences.length;i++){
                 if (occurrences[i]==0){
+                    // don't set occurrences[i]=1 here, it occurs in showInsult()
                     tmp_ind = i;
                     break;
                 }

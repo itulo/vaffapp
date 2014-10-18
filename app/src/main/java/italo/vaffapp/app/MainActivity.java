@@ -18,6 +18,7 @@ import android.content.res.Configuration;
 import android.app.PendingIntent;
 import android.app.AlarmManager;
 import android.content.Context;
+import android.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -83,6 +84,13 @@ public class MainActivity extends ActionBarActivity {
 
     public void onStart() {
         super.onStart();
+
+        // hide 'Insultaci' button if english UI
+        // disable button, thank user
+        if ( pref_language == LanguageOptions.ENGLISH ) {
+            Button button_insultaci = (Button) findViewById(R.id.button_insultaci);
+            button_insultaci.setVisibility(View.GONE);
+        }
     }
 
 
@@ -126,13 +134,13 @@ public class MainActivity extends ActionBarActivity {
     /* Go to InsultActivity */
     public void startInsultActivity(View view){
         Intent intent = new Intent(this, InsultActivity.class);
+        intent.putExtra("pref_language", pref_language);
         startActivity(intent);
     }
 
     /* Go to SendInsultActivity */
     public void startSendInsultActivity(View view){
         Intent intent = new Intent(this, SendInsultActivity.class);
-        intent.putExtra("pref_language", pref_language);
         startActivity(intent);
     }
 }

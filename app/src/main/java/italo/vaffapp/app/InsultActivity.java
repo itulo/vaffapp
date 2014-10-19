@@ -1,5 +1,8 @@
 package italo.vaffapp.app;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ArgbEvaluator;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.content.SharedPreferences;
@@ -21,7 +24,6 @@ import italo.vaffapp.app.databases.Insult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -37,8 +39,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Parcelable;
 
-//import com.appnext.appnextsdk.Appnext;
-
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
 import com.jirbo.adcolony.*;
@@ -51,6 +51,9 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
+
+import android.animation.ObjectAnimator;
+import android.graphics.Color;
 
 
 public class InsultActivity extends ActionBarActivity {
@@ -166,7 +169,7 @@ public class InsultActivity extends ActionBarActivity {
         FlurryAgent.onStartSession(this, "CTMK9MZJN48KNVB3JH5V");
 
         if ( insults == null ) {
-            showInsult(null);
+            showInsult();
         } else{
             getTextviews();
             setTextviews();
@@ -229,6 +232,21 @@ public class InsultActivity extends ActionBarActivity {
         speaker.speakEnglish(insult_eng.getText().toString());
     }
 
+    public void fadeaway_insult(View v){
+        if (insult != null && insult_desc != null && insult_eng != null){
+            ObjectAnimator anim = ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE);
+            anim.setDuration(100);
+            anim.addListener(new AnimatorListenerAdapter() {
+                                 public void onAnimationEnd(Animator animation) {
+                                     showInsult();
+                                     ObjectAnimator anim = ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK);
+                                     anim.start();
+                                 }
+                             });
+            anim.start();
+            }
+        }
+
     /* showInsults
     1. load insults if not loaded yet
     2. generate a random number to show the insult
@@ -238,7 +256,8 @@ public class InsultActivity extends ActionBarActivity {
     4. checks if array of generated numbers is full (all possible numbers have been generated)
        if yes reinitialize and start from scratch
      */
-    public void showInsult(View view){
+    public void showInsult(/*View view*/){
+        //fadeaway_insult();
 
         if (insults == null)
             loadInsults();
@@ -506,8 +525,7 @@ public class InsultActivity extends ActionBarActivity {
     private void scheduleNotification(){
         // notification in two days time
         int DELAY = 2*24*60*60*1000;
-        int insult_idx = 0;
-        insult_idx = generateRandomIdx();
+        int insult_idx = generateRandomIdx();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle("");

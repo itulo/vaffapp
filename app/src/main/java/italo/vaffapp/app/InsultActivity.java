@@ -2,6 +2,7 @@ package italo.vaffapp.app;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -169,7 +170,7 @@ public class InsultActivity extends ActionBarActivity {
         FlurryAgent.onStartSession(this, "CTMK9MZJN48KNVB3JH5V");
 
         if ( insults == null ) {
-            showInsult();
+            nextInsult();
         } else{
             getTextviews();
             setTextviews();
@@ -232,22 +233,31 @@ public class InsultActivity extends ActionBarActivity {
         speaker.speakEnglish(insult_eng.getText().toString());
     }
 
-    public void fadeaway_insult(View v){
+    /* fade away text, get new insult, fade in text*/
+    public void showInsult(View v){
         if (insult != null && insult_desc != null && insult_eng != null){
-            ObjectAnimator anim = ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE);
-            anim.setDuration(100);
-            anim.addListener(new AnimatorListenerAdapter() {
+            AnimatorSet fadeaway = new AnimatorSet();
+            fadeaway.playTogether(ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE),
+                            ObjectAnimator.ofObject(insult_desc, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE),
+                            ObjectAnimator.ofObject(insult_eng, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE));
+            fadeaway.setDuration(100);
+            fadeaway.addListener(new AnimatorListenerAdapter() {
                                  public void onAnimationEnd(Animator animation) {
-                                     showInsult();
-                                     ObjectAnimator anim = ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK);
-                                     anim.start();
+                                     nextInsult();
+
+                                     AnimatorSet fadein = new AnimatorSet();
+                                     fadein.playTogether(ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK),
+                                             ObjectAnimator.ofObject(insult_desc, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK),
+                                             ObjectAnimator.ofObject(insult_eng, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK));
+                                     fadein.setDuration(100);
+                                     fadein.start();
                                  }
                              });
-            anim.start();
+            fadeaway.start();
             }
         }
 
-    /* showInsults
+    /* nextInsult
     1. load insults if not loaded yet
     2. generate a random number to show the insult
        there is an array that keeps all generated numbers so far
@@ -256,8 +266,7 @@ public class InsultActivity extends ActionBarActivity {
     4. checks if array of generated numbers is full (all possible numbers have been generated)
        if yes reinitialize and start from scratch
      */
-    public void showInsult(/*View view*/){
-        //fadeaway_insult();
+    public void nextInsult(){
 
         if (insults == null)
             loadInsults();

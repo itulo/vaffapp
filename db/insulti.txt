@@ -8,7 +8,7 @@
 'Mo sigg''','Adesso riscuoti (ti meno)';'Now you get beaten'
 'Muss ''r puorc','Muso di porco (brutto)';'Pig face (ugly)'
 'Puozza ittà ru sang','Che tu possa sputare sangue';'May you spit blood'
-'Vatt a r''pon','Vai via';'Go away'
+'Vatt a r''pon','Vai a riporti (vai via)';'Go away'
 
 ## LOMBARDIA
 'Balabiott','Nullafacente';'Lazy'
@@ -69,11 +69,13 @@
 
 ## VENETO
 'Bàsime i durèi','Baciami i testicoli';'Kiss my testicles'
+'Baucco!','Sciocco!';'Silly!'
 'Date cò un legno','Menati da solo con un pezzo di legno';'Beat yourself with a wooden stick'
 'Ghe sboro','Ti getto il mio sperma contro';'I ejaculate towards you'
 'Imatonìo','Sei un mattone (stupido)';'You''re a brick (stupid)'
 'Imbecilon','Imbecille';'Imbecile'
 'Increcoeà','Rincoglionito';'Stoned'
+'Magnamerda','Mangia merda (traditore)';'Poop eater (traitor)'
 'Magnasborae','Mangia sperma';'Sperm eater'
 'Ma ti gà e moròidi in testa?','Ma che hai gli emorroidi in testa? (faccia da culo)';'Do you have hemorrhoids on your head? (ass face)'
 'Ma ti ghe gà magnà ea merda al mago?','Che hai mangiato la merda del mago (hai detto una cosa scontata)';'You ate the magician''s shit (you said something obvious)'
@@ -113,7 +115,7 @@
 'Cut s''ciupes una roda in curva','Che ti scoppi una ruota in curva';'May one of your tires burst while you''re making a turn'
 'Faza da cul da chèn da caza l''è piò bel e mi cul che la tu faza','Faccia da culo da cane da caccia è più bello il mio culo che la tua faccia';''
 'Fis-ciaza','Spione';'Spy'
-'invurnid','imbranato';'Clod'
+'invurnid','imbranato';'clod'
 'Pataca','Stupido';'Stupid'
 'Sat ciap a t''un dag cu ne sa nisoun','Se ti acchiappo te ne do che non lo sa nessuno';'If I catch you I''ll beat you so much that nobody knows'
 'Sat ciàp at scòurg da veiv','Se ti acchiappo ti scortico vivo';'If I catch you I''ll skin you alive'
@@ -199,11 +201,14 @@
 'Broccolò','Stupido';'Stupid'
 'Dondolò','Fesso';'Fool'
 'Fatti ''ngulo','Vaffanculo';'Fuck off'
+'Magnamerda','Mangia merda (traditore)';'Poop eater (traitor)'
 'Puzzi fà la fine deju cutturu, cò j''uncino ''ncanna e ju focu ''nculo','Che tu possa fare la fine della pecora alla cottora, con un uncino in gola e il fuoco in culo';'May you end up like the cutturu sheep (a dish), with a hook in your mouth and fire on your ass'
 'Puzza fà nu sbruff d sangh aal punt d lu cor!','Ti possa uscire il sangue dalla punta del cuore!';'May you bleed from the tip of your heart'
 'Stordolò','Stupido';'Stupid'
+'Te faccio miagolà come na jatta ''n calore','Ti faccio miagolare come una gatta in calore';'I''ll make you mew like a horny cat'
 'Turdacò','Tonto';'Silly'
 'Va a vedè se stengo ''npiazza','Vai a vedere se sono in piazza (vaffanculo)';'Go check whether I am outside (fuck off)'
+'Vatte a reponne','Vai a riporti (vai via)';'Go away'
 'Vattela a pijà ''nsaccoccia','Vai a prendertelo in tasca (vaffanculo)';'Go get it in your pocket (fuck off)'
 
 ## CAMPANIA
@@ -262,11 +267,16 @@
 
 ## SICILIA
 'Animale eggebbia','Animale che beve dall''abbeveratorio (sempliciotto)';'Animal who drinks from a trough (gullible)'
+'Cataprasimo/a','Imbranato';'Clod'
+'chi ti manciassiru i canimannara!','Che ti sbranino i canilupo';'May you be teared in pieces by wolf-dogs'
 'Maccarrune','Deficiente';'Idiot'
 '''nchiappafico','stupido';'Stupid'
 'Rusica ossa','Insensibile';'Insensitive'
+'Sì chiù curnutu di na cascia di babbaluci!','Sei più cornuto di una cassa di lumache!';'You have more horns than a busket of snails'
+'Sì mortu ''ntra l''ovu','Sei morto nell''uovo (stupido)';'You''re dead in the egg (gullible)'
 'si te pigghju te stroppiu','se ti prendo ti rompo';'If I grab you I''ll break you'
 'Spennagalletti','spenna galli (nullafacente)';'Rooster plucker'
+'un ti cafuddo picchì a merda schizza!','Non ti picchio perchè la merda schizza';'I don''t hit you because shit squirts'
 
 ## SARDEGNA
 'Coddaproccusu!','Hai rapporti sessuali con i suini';'You are one who has sex with pigs'

@@ -81,7 +81,7 @@ public class InsultActivity extends ActionBarActivity {
     private short time_for_ad_1 = 30;
     private short time_for_ad_2 = 90;
 
-    private boolean SEND_STATS_FLURRY = true;
+    private boolean SEND_STATS_FLURRY = false;
     private static short pronunciated_n = 0;
 
     private int pref_language;

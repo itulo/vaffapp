@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.Button;
 
 import italo.vaffapp.app.mail.GMailSender;
+import italo.vaffapp.app.util.SharedMethods;
 
 import android.os.AsyncTask;
 
@@ -38,6 +39,8 @@ public class SendInsultActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_insult);
+
+        SharedMethods.setIconInActionBar(this);
     }
 
 

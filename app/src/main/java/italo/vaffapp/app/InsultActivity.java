@@ -22,6 +22,7 @@ import android.content.Intent;
 
 import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
+import italo.vaffapp.app.util.SharedMethods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,6 +97,7 @@ public class InsultActivity extends ActionBarActivity {
                 .commit();
         }
 
+        SharedMethods.setIconInActionBar(this);
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
         // 1. configure the UiLifecycleHelper in onCreate

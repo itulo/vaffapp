@@ -20,6 +20,8 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
 
+import italo.vaffapp.app.util.SharedMethods;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -35,6 +37,7 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
 
+        SharedMethods.setIconInActionBar(this);
         new SimpleEula(this).show();
         setLanguage(false);
     }

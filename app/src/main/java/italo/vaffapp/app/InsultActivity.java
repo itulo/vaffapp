@@ -173,6 +173,7 @@ public class InsultActivity extends ActionBarActivity {
 
         if ( insults == null ) {
             nextInsult();
+            Toast.makeText(this, insults.size()+" "+getString(R.string.n_insulti), Toast.LENGTH_SHORT).show();
         } else{
             getTextviews();
             setTextviews();

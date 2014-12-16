@@ -30,5 +30,6 @@
     <string name="commento">Commento/Richiesta</string>
     <string name="sicilia">Sicilia</string>
     <string name="sardegna">Sardegna</string>
+    <string name="n_insulti">insulti caricati</string>
 
 </resources>

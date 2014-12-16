@@ -31,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // my db version - increase anytime db content changes
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
-    private static int DB_VER = 11;
+    private static int DB_VER = 12;
 
     // Insults Table Columns names
     private static final String KEY_ID = "rowid";
@@ -158,13 +158,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             myDataBase.close();
         super.close();
     }
-
-    /* CRUD METHODS */
-    // Adding new insult - not needed
-    //public void addInsult(Insult insult) {}
-
-    // Getting single insult - maybe
-    //public Contact getContact(int rowid) {}
 
     // Getting All Insults
     public ArrayList<Insult> getAllInsults() {

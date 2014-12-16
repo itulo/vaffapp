@@ -536,7 +536,7 @@ public class InsultActivity extends ActionBarActivity {
     // this will show a notification after 2 days (notification is deleted if the phone is rebooted)
     private void scheduleNotification(){
         // notification in two days time
-        int DELAY = 2*24*60*60*1000;
+        int DELAY = 24*60*60*1000;
         int insult_idx = generateRandomIdx();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);

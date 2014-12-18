@@ -66,6 +66,7 @@ public class InsultActivity extends ActionBarActivity {
     private TextView insult_desc;
     private TextView insult_eng;
     private String region;
+    private String DEFAULT_ENG = "Not translatable";
 
     private static int rand_index;
     private static byte[] occurrences;
@@ -82,7 +83,7 @@ public class InsultActivity extends ActionBarActivity {
     private short time_for_ad_1 = 30;
     private short time_for_ad_2 = 90;
 
-    private boolean SEND_STATS_FLURRY = true;
+    private boolean SEND_STATS_FLURRY = false;
     private static short pronunciated_n = 0;
 
     private int pref_language;
@@ -211,7 +212,7 @@ public class InsultActivity extends ActionBarActivity {
             if ( pref_language == LanguageOptions.ENGLISH ) {
                 String eng = insults.get(rand_index).getEnglish();
                 if (eng.equals("")) {
-                    eng = "Not translatable";
+                    eng = DEFAULT_ENG;
                     insult_eng.setTypeface(null, Typeface.ITALIC);
                 } else
                     insult_eng.setTypeface(null, Typeface.NORMAL);
@@ -327,8 +328,6 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void setRegionNameInTitle(){
-        //region = "("+getRegionFromId(insults.get(rand_index).getRegionId())+")";
-        //getSupportActionBar().setTitle(getString(R.string.title_activity_insulto)+" "+region);
         region = getRegionFromId(insults.get(rand_index).getRegionId());
         getSupportActionBar().setTitle(region);
     }
@@ -383,9 +382,14 @@ public class InsultActivity extends ActionBarActivity {
         if (insult == null ) {
             return;
         } else {
+            String share;
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
-                    insult.getText()+" -\n"+insult_desc.getText()+"\n"+region));
+            share = insult.getText()+"\n"+insult_desc.getText()+"\n";
+            if (pref_language == LanguageOptions.ENGLISH)
+                share += insult_eng.getText()+"\n";
+            share += "("+region+")";
+            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto), share));
+                    //insult.getText()+" -\n"+insult_desc.getText()+"\n"+region));
         }
 
         // Create Dialog to warn user

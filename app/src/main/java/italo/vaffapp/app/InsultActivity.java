@@ -5,8 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.app.AlarmManager;
-import android.app.Notification;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
@@ -31,6 +29,7 @@ import java.util.Random;
 
 import com.facebook.*;
 import com.facebook.widget.*;
+import com.facebook.AppEventsLogger;
 import android.content.ClipboardManager;
 import android.content.ClipData;
 import android.app.AlertDialog;
@@ -127,6 +126,8 @@ public class InsultActivity extends ActionBarActivity {
         adcolonyad = new AdColonyVideoAd();
         setRegionNameInTitle();
         checkGooglePlayServicesVersion();
+        // to track in FB
+        AppEventsLogger.activateApp(this);
     }
 
     @Override
@@ -142,6 +143,8 @@ public class InsultActivity extends ActionBarActivity {
         AdColony.pause();
         speaker.onPause();
         scheduleNotification();
+        // to track in FB - doesn't work with old sdk version
+        //AppEventsLogger.deactivateApp(this);
     }
 
     @Override

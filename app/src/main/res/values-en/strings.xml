@@ -30,6 +30,6 @@
     <string name="commento">Feedback</string>
     <string name="sicilia">Sicily</string>
     <string name="sardegna">Sardinia</string>
-    <string name="n_insulti">loaded insults</string>
+    <string name="n_insulti">insults loaded</string>
 
 </resources>

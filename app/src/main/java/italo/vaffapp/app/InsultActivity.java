@@ -372,7 +372,7 @@ public class InsultActivity extends ActionBarActivity {
 
     public void postToFB() {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
-            .setApplicationName("VaffApp")
+            .setApplicationName(getString(R.string.app_name))
             .setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
             .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());

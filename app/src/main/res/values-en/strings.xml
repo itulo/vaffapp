@@ -21,7 +21,6 @@
     <string name="ok">OK</string>
     <string name="other">Other</string>
     <string name="choice1">Share</string>
-    <string name="choice2">Share - other</string>
     <string name="checkbox_text">Anonymous message</string>
     <string name="language_menu">Cambia lingua (ITA)</string>
     <string name="insulto">Insult:</string>
@@ -31,5 +30,8 @@
     <string name="sicilia">Sicily</string>
     <string name="sardegna">Sardinia</string>
     <string name="n_insulti">insults loaded</string>
+    <!-- title e message when no apps for sharing are found -->
+    <string name="noapp_warning_message">VaffApp looks for Facebook and Twitter apps in your device\nIf you want to share on other apps (like Whatsapp) download the VaffApp Pro!</string>
+    <string name="noapp_warning_title">Apps not found</string>
 
 </resources>

@@ -392,7 +392,6 @@ public class InsultActivity extends ActionBarActivity {
                 share += insult_eng.getText()+"\n";
             share += "("+region+")";
             clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto), share));
-                    //insult.getText()+" -\n"+insult_desc.getText()+"\n"+region));
         }
 
         // Create Dialog to warn user
@@ -423,34 +422,30 @@ public class InsultActivity extends ActionBarActivity {
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
             // facebook.katana is FB app, facebook.orca is the messenger
-            if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
-                    || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp") ){
+            if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android") ){
                 diff_app.add(packageName);
+
+                Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                targetedShareIntent.setType("text/plain");
+                targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
+                targetedShareIntent.setPackage(packageName);
+                targetedShareIntents.add(targetedShareIntent);
+
                 continue;
             }
-            // skip these
-            if ( packageName.contains("com.android.bluetooth") || packageName.contains("flipboard.app")
-                    || packageName.contains("com.sec.android.widgetapp.diotek.smemo") || packageName.contains("com.google.android.apps.docs") ){
+            // skip all others
+            else
                 continue;
-            }
-            Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-            targetedShareIntent.setType("text/plain");
-            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-            targetedShareIntent.setPackage(packageName);
-            targetedShareIntents.add(targetedShareIntent);
         }
     }
 
-    // 1. show a first choice dialog to choose between Twitter, Facebook and Other
-    // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
+    // 1. show a choice dialog to choose between Twitter, Facebook
     public void preChoiceMenu(){
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] packageNames = {
             "twitter",
-            "messenger",
-            "whatsapp"
         };
-        final CharSequence[] items = new CharSequence[diff_app.size()+1];
+        final CharSequence[] items = new CharSequence[diff_app.size()];
         for (int i=0; i<diff_app.size();i++) {
             if (diff_app.get(i).contains("com.facebook.katana"))
                 items[i] = "Facebook";
@@ -458,16 +453,7 @@ public class InsultActivity extends ActionBarActivity {
                 items[i] = "Twitter";
                 packageNames[0] = diff_app.get(i);
             }
-            if (diff_app.get(i).contains("com.facebook.orca")) {
-                items[i] = "Messenger";
-                packageNames[1] = diff_app.get(i);
-            }
-            if (diff_app.get(i).contains("com.whatsapp")) {
-                items[i] = "WhatsApp";
-                packageNames[2] = diff_app.get(i);
-            }
         }
-        items[diff_app.size()] = getString(R.string.other);
         new AlertDialog.Builder(this)
             .setTitle(getString(R.string.choice1))
             .setItems(items, new DialogInterface.OnClickListener()
@@ -496,29 +482,7 @@ public class InsultActivity extends ActionBarActivity {
                         targetedShareIntent.setPackage(packageNames[0]);
                         startActivity(targetedShareIntent);
                     }
-                    if ( choice.equals("Messenger") ){
-                        flurry_stats.put("Share on", "Messenger");
-                        flurry_stats.put("Insult", insult.getText().toString());
 
-                        targetedShareIntent.setPackage(packageNames[1]);
-                        startActivity(targetedShareIntent);
-                    }
-                    if ( choice.equals("WhatsApp") ){
-                        flurry_stats.put("Share on", "WhatsApp");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        targetedShareIntent.setPackage(packageNames[2]);
-                        startActivity(targetedShareIntent);
-                    }
-
-                    if (choice.equals(getString(R.string.other)) ) {
-                        flurry_stats.put("Share on", "Other");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.choice2));
-                        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
-                        startActivity(chooserIntent);
-                    }
                     if ( SEND_STATS_FLURRY )
                         FlurryAgent.logEvent("Sharing", flurry_stats);
                 }
@@ -534,8 +498,16 @@ public class InsultActivity extends ActionBarActivity {
             preChoiceMenu();
         }
         else {
-            sharingIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-            startActivity(Intent.createChooser(sharingIntent, getString(R.string.choice1)));
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getString(R.string.noapp_warning_message))
+                    .setTitle(getString(R.string.noapp_warning_title))
+                    .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //do nothing
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            builder.create().show();
         }
     }
 

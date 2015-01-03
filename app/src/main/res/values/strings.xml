@@ -20,8 +20,7 @@
     <string name="fb_warning_title">Mamma, che coglioni</string>
     <string name="ok">OK</string>
     <string name="other">Altro</string>
-    <string name="choice1">Condividi: Scegli cazzo!</string>
-    <string name="choice2">Altro: E scegli cazzo!</string>
+    <string name="choice1">Condividi su...</string>
     <string name="checkbox_text">Messaggio anonimo</string>
     <string name="language_menu">Change language (EN)</string>
     <string name="insulto">Insulto:</string>
@@ -31,5 +30,8 @@
     <string name="sicilia">Sicilia</string>
     <string name="sardegna">Sardegna</string>
     <string name="n_insulti">insulti caricati</string>
+    <!-- title e message when no apps for sharing are found -->
+    <string name="noapp_warning_message">La VaffApp non ha trovato le app Facebook e Twitter sul tuo dispositivo\nSe vuoi condividere su altre app (come Whatsapp), scarica la VaffApp Pro!</string>
+    <string name="noapp_warning_title">App non trovate</string>
 
 </resources>

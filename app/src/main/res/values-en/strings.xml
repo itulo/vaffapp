@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">VaffApp</string>
-    <string name="welcome">Hello, please press the button below to start reading italian insults!</string> <!-- first message -->
+    <string name="welcome">Hello, please press the button below to start learning italian insults!</string> <!-- first message -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_insult">InsultActivity</string>
     <string name="title_activity_insulto">Get insulted!</string>

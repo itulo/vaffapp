@@ -227,6 +227,16 @@ public class InsultActivity extends ActionBarActivity {
     public void speakInsult(View v){
         pronunciated_n++;
         speaker.speakInsult(insult.getText().toString());
+
+        /* This is a trick: copy the insult with description, translation and region)
+           to keep sharing on Facebook as before */
+        String share;
+        ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        share = insult.getText()+"\n"+insult_desc.getText()+"\n";
+        if (pref_language == LanguageOptions.ENGLISH && !insult_eng.getText().toString().equals(DEFAULT_ENG))
+            share += insult_eng.getText()+"\n";
+        share += "("+region+")";
+        clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto), share));
     }
 
     public void speakDesc(View v){
@@ -376,7 +386,7 @@ public class InsultActivity extends ActionBarActivity {
     public void postToFB() {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
             .setApplicationName(getString(R.string.app_name))
-            .setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
+            //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
             .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
     }
@@ -385,13 +395,6 @@ public class InsultActivity extends ActionBarActivity {
         if (insult == null ) {
             return;
         } else {
-            /*String share;
-            ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            share = insult.getText()+"\n"+insult_desc.getText()+"\n";
-            if (pref_language == LanguageOptions.ENGLISH && !insult_eng.getText().toString().equals(DEFAULT_ENG))
-                share += insult_eng.getText()+"\n";
-            share += "("+region+")";
-            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto), share));*/
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
             clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
                     insult.getText()+" #vaffapp"));

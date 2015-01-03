@@ -385,13 +385,16 @@ public class InsultActivity extends ActionBarActivity {
         if (insult == null ) {
             return;
         } else {
-            String share;
+            /*String share;
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
             share = insult.getText()+"\n"+insult_desc.getText()+"\n";
             if (pref_language == LanguageOptions.ENGLISH && !insult_eng.getText().toString().equals(DEFAULT_ENG))
                 share += insult_eng.getText()+"\n";
             share += "("+region+")";
-            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto), share));
+            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto), share));*/
+            ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
+                    insult.getText()+" #vaffapp"));
         }
 
         // Create Dialog to warn user

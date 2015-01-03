@@ -6,7 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.view.View;
 import android.widget.TextView;
@@ -26,6 +28,8 @@ import android.util.Log;
 
 import android.accounts.AccountManager;
 import android.accounts.Account;
+
+import com.flurry.android.FlurryAgent;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import android.text.TextUtils;
 
@@ -54,6 +58,12 @@ public class SendInsultActivity extends ActionBarActivity {
 
     public void onStart(){
         super.onStart();
+        FlurryAgent.onStartSession(this, getString(R.string.flurry_id));
+    }
+
+    public void onStop(){
+        super.onStop();
+        FlurryAgent.onEndSession(this);
     }
 
     @Override
@@ -73,6 +83,7 @@ public class SendInsultActivity extends ActionBarActivity {
 
         if ( checkForm() ) {
             final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
+            Map<String, String> flurry_stats = new HashMap<String, String>();
 
             new AsyncTask<Void, Void, Void>() {
                 @Override public Void doInBackground(Void... params) {
@@ -88,6 +99,10 @@ public class SendInsultActivity extends ActionBarActivity {
                     return null;
                 }
             }.execute();
+
+            // Flurry send how many insults generated
+            flurry_stats.put("Email", "By "+identity+" "+email_msg);
+            FlurryAgent.logEvent("sendFeedback()", flurry_stats);
 
             // disable button, thank user
             button_manda = (Button)findViewById(R.id.button_manda);

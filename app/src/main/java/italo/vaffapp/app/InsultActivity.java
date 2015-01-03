@@ -171,7 +171,7 @@ public class InsultActivity extends ActionBarActivity {
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(getApplicationContext());
 
-        FlurryAgent.onStartSession(this, "CTMK9MZJN48KNVB3JH5V");
+        FlurryAgent.onStartSession(this, getString(R.string.flurry_id));
 
         if ( insults == null ) {
             nextInsult();

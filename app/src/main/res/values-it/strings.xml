@@ -13,8 +13,6 @@
     <string name="button_insult_2">Condividi</string>
     <string name="insultati_button">Insultati</string>
     <string name="insultaci_button">Insultaci</string>
-    <string name="title_activity_main2">MainActivity</string>
-    <string name="facebook_app_id">1435530263364363</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
     <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
     <string name="fb_warning_title">Mamma, che coglioni</string>
@@ -33,5 +31,8 @@
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">La VaffApp non ha trovato le app Facebook e Twitter sul tuo dispositivo\nSe vuoi condividere su altre app (come Whatsapp), scarica la VaffApp Pro!</string>
     <string name="noapp_warning_title">App non trovate</string>
+    <!-- ids and numbers -->
+    <string name="facebook_app_id">1435530263364363</string>
+    <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
 
 </resources>

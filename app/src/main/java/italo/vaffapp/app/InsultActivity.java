@@ -79,8 +79,7 @@ public class InsultActivity extends ActionBarActivity {
     private Speaker speaker;
 
     private AdColonyVideoAd adcolonyad;
-    private short time_for_ad_1 = 30;
-    private short time_for_ad_2 = 90;
+    private short time_for_ad_1 = 20;
 
     private boolean SEND_STATS_FLURRY = false;
     private static short pronunciated_n = 0;
@@ -302,13 +301,13 @@ public class InsultActivity extends ActionBarActivity {
             generated_n = 0;
         }
 
-        if ( generated_n == time_for_ad_1 || generated_n == time_for_ad_2 ){
+        if ( generated_n == time_for_ad_1 ){
             if ( adcolonyad.isReady() ) {
                 adcolonyad.show();
+                time_for_ad_1+=20;
             }
             else {
                 time_for_ad_1++;
-                time_for_ad_2++;
             }
         }
     }

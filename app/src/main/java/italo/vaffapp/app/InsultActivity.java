@@ -42,7 +42,7 @@ import android.os.Parcelable;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
-import com.jirbo.adcolony.*;
+//import com.jirbo.adcolony.*;
 
 
 import android.support.v4.app.NotificationCompat;
@@ -78,7 +78,7 @@ public class InsultActivity extends ActionBarActivity {
 
     private Speaker speaker;
 
-    private AdColonyVideoAd adcolonyad;
+    //private AdColonyVideoAd adcolonyad;
     private short time_for_ad_1 = 20;
 
     private boolean SEND_STATS_FLURRY = false;
@@ -103,7 +103,8 @@ public class InsultActivity extends ActionBarActivity {
         uiHelper.onCreate(savedInstanceState);
 
         // https://github.com/AdColony/AdColony-Android-SDK/wiki/API-Details#configure-activity-activity-string-client_options-string-app_id-string-zone_ids-
-        AdColony.configure(this, "version:3.0,store:google", "app916d076c2a05451fb5", "vzad48f059dc8d48b8af");
+        //AdColony.configure(this, "version:3.0,store:google", "app916d076c2a05451fb5", "vzad48f059dc8d48b8af");
+        //VunglePub.init("italo.vaffapp.app");
 
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
@@ -121,8 +122,8 @@ public class InsultActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         uiHelper.onResume();
-        AdColony.resume(this);
-        adcolonyad = new AdColonyVideoAd();
+        //AdColony.resume(this);
+        //adcolonyad = new AdColonyVideoAd();
         setRegionNameInTitle();
         checkGooglePlayServicesVersion();
         // to track in FB
@@ -139,7 +140,7 @@ public class InsultActivity extends ActionBarActivity {
     public void onPause() {
         super.onPause();
         uiHelper.onPause();
-        AdColony.pause();
+        //AdColony.pause();
         speaker.onPause();
         scheduleNotification();
         // to track in FB - doesn't work with old sdk version
@@ -252,18 +253,18 @@ public class InsultActivity extends ActionBarActivity {
     public void showInsult(View v){
         if (insult != null && insult_desc != null && insult_eng != null){
             AnimatorSet fadeaway = new AnimatorSet();
-            fadeaway.playTogether(ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE),
-                            ObjectAnimator.ofObject(insult_desc, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE),
-                            ObjectAnimator.ofObject(insult_eng, "textColor", new ArgbEvaluator(), Color.BLACK, Color.WHITE));
+            fadeaway.playTogether(ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.GRAY, Color.WHITE),
+                            ObjectAnimator.ofObject(insult_desc, "textColor", new ArgbEvaluator(), Color.GRAY, Color.WHITE),
+                            ObjectAnimator.ofObject(insult_eng, "textColor", new ArgbEvaluator(), Color.GRAY, Color.WHITE));
             fadeaway.setDuration(100);
             fadeaway.addListener(new AnimatorListenerAdapter() {
                                  public void onAnimationEnd(Animator animation) {
                                      nextInsult();
 
                                      AnimatorSet fadein = new AnimatorSet();
-                                     fadein.playTogether(ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK),
-                                             ObjectAnimator.ofObject(insult_desc, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK),
-                                             ObjectAnimator.ofObject(insult_eng, "textColor", new ArgbEvaluator(), Color.WHITE, Color.BLACK));
+                                     fadein.playTogether(ObjectAnimator.ofObject(insult, "textColor", new ArgbEvaluator(), Color.WHITE, Color.GRAY),
+                                             ObjectAnimator.ofObject(insult_desc, "textColor", new ArgbEvaluator(), Color.WHITE, Color.GRAY),
+                                             ObjectAnimator.ofObject(insult_eng, "textColor", new ArgbEvaluator(), Color.WHITE, Color.GRAY));
                                      fadein.setDuration(100);
                                      fadein.start();
                                  }
@@ -302,13 +303,13 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n == time_for_ad_1 ){
-            if ( adcolonyad.isReady() ) {
-                adcolonyad.show();
-                time_for_ad_1+=20;
-            }
-            else {
-                time_for_ad_1++;
-            }
+            //if ( adcolonyad.isReady() ) {
+                //adcolonyad.show();
+            //    time_for_ad_1+=20;
+            //}
+            //else {
+            //    time_for_ad_1++;
+            //}
         }
     }
 

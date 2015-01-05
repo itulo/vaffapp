@@ -42,8 +42,9 @@ import android.os.Parcelable;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
-//import com.jirbo.adcolony.*;
-
+import com.vungle.publisher.VunglePub;
+import com.vungle.publisher.AdConfig;
+import com.vungle.publisher.Orientation;
 
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -78,7 +79,7 @@ public class InsultActivity extends ActionBarActivity {
 
     private Speaker speaker;
 
-    //private AdColonyVideoAd adcolonyad;
+    final VunglePub vunglePub = VunglePub.getInstance();
     private short time_for_ad_1 = 20;
 
     private boolean SEND_STATS_FLURRY = false;
@@ -102,9 +103,8 @@ public class InsultActivity extends ActionBarActivity {
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
 
-        // https://github.com/AdColony/AdColony-Android-SDK/wiki/API-Details#configure-activity-activity-string-client_options-string-app_id-string-zone_ids-
-        //AdColony.configure(this, "version:3.0,store:google", "app916d076c2a05451fb5", "vzad48f059dc8d48b8af");
-        //VunglePub.init("italo.vaffapp.app");
+        // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
+        vunglePub.init(this, "italo.vaffapp.app");
 
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
@@ -122,8 +122,7 @@ public class InsultActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         uiHelper.onResume();
-        //AdColony.resume(this);
-        //adcolonyad = new AdColonyVideoAd();
+        vunglePub.onResume();
         setRegionNameInTitle();
         checkGooglePlayServicesVersion();
         // to track in FB
@@ -140,7 +139,7 @@ public class InsultActivity extends ActionBarActivity {
     public void onPause() {
         super.onPause();
         uiHelper.onPause();
-        //AdColony.pause();
+        vunglePub.onPause();
         speaker.onPause();
         scheduleNotification();
         // to track in FB - doesn't work with old sdk version
@@ -303,13 +302,16 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n == time_for_ad_1 ){
-            //if ( adcolonyad.isReady() ) {
-                //adcolonyad.show();
-            //    time_for_ad_1+=20;
-            //}
-            //else {
-            //    time_for_ad_1++;
-            //}
+            if ( vunglePub.isCachedAdAvailable() ) {
+                final AdConfig overrideConfig = new AdConfig();
+                overrideConfig.setOrientation(Orientation.autoRotate);
+                overrideConfig.setSoundEnabled(false);
+                vunglePub.playAd(overrideConfig);
+                time_for_ad_1+=20;
+            }
+            else {
+                time_for_ad_1++;
+            }
         }
     }
 

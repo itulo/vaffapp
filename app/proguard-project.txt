@@ -57,9 +57,6 @@
     public static final ** CREATOR;
 }
 
-# AdColony
--dontwarn android.webkit.**
-
 # Flurry
 -keep class com.flurry.** { *; }
 -dontwarn com.flurry.**
@@ -67,4 +64,9 @@
 -keepclasseswithmembers class * {
     public <init>(android.content.Context, android.util.AttributeSet, int);
 }
+
+# Vungle
+-keep class com.vungle.** { public *; }
+-keep class javax.inject.*
+-keepattributes *Annotation*
 

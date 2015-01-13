@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import android.view.View;
@@ -36,6 +34,7 @@ import android.text.TextUtils;
 import android.widget.CheckBox;
 
 public class SendInsultActivity extends ActionBarActivity {
+    final String vaffapp_email = "vaffapp@gmail.com";
     private String email_msg = "";
     private boolean anonymous = false;
 
@@ -83,16 +82,17 @@ public class SendInsultActivity extends ActionBarActivity {
 
         if ( checkForm() ) {
             final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
+            email_msg += "\n\nBy " + identity;
             Map<String, String> flurry_stats = new HashMap<String, String>();
 
             new AsyncTask<Void, Void, Void>() {
                 @Override public Void doInBackground(Void... params) {
                     try {
-                        GMailSender sender = new GMailSender("vaffapp@gmail.com", "kuukausi");
-                        sender.sendMail(identity,
+                        GMailSender sender = new GMailSender(vaffapp_email, "kuukausi");
+                        sender.sendMail(vaffapp_email,
                                 email_msg,
-                                identity,
-                                "vaffapp@gmail.com");
+                                vaffapp_email,
+                                vaffapp_email);
                     } catch (Exception e) {
                         Log.e("SendInsultActivity","SendMail\n" + e.getMessage());
                     }

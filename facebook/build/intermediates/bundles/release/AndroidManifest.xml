@@ -18,8 +18,8 @@
     package="com.facebook.android" >
 
     <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
 
     <application />
 

@@ -124,9 +124,8 @@ public class InsultActivity extends ActionBarActivity {
         uiHelper.onResume();
         vunglePub.onResume();
         setRegionNameInTitle();
+        AppEventsLogger.activateApp(this);  // to track in FB
         checkGooglePlayServicesVersion();
-        // to track in FB
-        AppEventsLogger.activateApp(this);
     }
 
     @Override
@@ -142,8 +141,7 @@ public class InsultActivity extends ActionBarActivity {
         vunglePub.onPause();
         speaker.onPause();
         scheduleNotification();
-        // to track in FB - doesn't work with old sdk version
-        //AppEventsLogger.deactivateApp(this);
+        AppEventsLogger.deactivateApp(this);    // to track in FB
     }
 
     @Override

@@ -82,7 +82,7 @@ public class InsultActivity extends ActionBarActivity {
     final VunglePub vunglePub = VunglePub.getInstance();
     private short time_for_ad_1 = 20;
 
-    private boolean SEND_STATS_FLURRY = false;
+    private boolean SEND_STATS_FLURRY = true;
     private static short pronunciated_n = 0;
 
     private int pref_language;

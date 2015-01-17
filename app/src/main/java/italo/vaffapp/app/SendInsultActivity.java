@@ -101,7 +101,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }.execute();
 
             // Flurry send how many insults generated
-            flurry_stats.put("Email", "By "+identity+" "+email_msg);
+            flurry_stats.put("Email", email_msg);
             FlurryAgent.logEvent("sendFeedback()", flurry_stats);
 
             // disable button, thank user
@@ -132,7 +132,7 @@ public class SendInsultActivity extends ActionBarActivity {
         TextView tmp_textview;
         RadioButton tmp_radiobutt;
         String str = null;
-        email_msg = "";
+        email_msg = "Nuovo insulto suggerito tramite la VaffApp:\n\n";
 
         // Check anonymous checkbox is selected
         cb = (CheckBox) findViewById(R.id.checkBox1);
@@ -147,7 +147,7 @@ public class SendInsultActivity extends ActionBarActivity {
             return false;
         }
         tmp_radiobutt = (RadioButton) findViewById(choice);
-        email_msg += "regione: " + tmp_radiobutt.getText() + "\n";
+        email_msg += "Regione: " + tmp_radiobutt.getText() + "\n";
 
         // check edittext(s)
         tmp_edittext = (EditText) findViewById(R.id.edittext_insulto);
@@ -160,7 +160,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
-            email_msg += "'" + str + "',";
+            email_msg += "Insulto: '" + str + "',";
 
         tmp_edittext = (EditText) findViewById(R.id.edittext_descrizione);
         if ( tmp_edittext != null ) {
@@ -172,7 +172,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
-            email_msg += "'" + str + "'";
+            email_msg += "Descrizione: '" + str + "'";
 
         return true;
     }

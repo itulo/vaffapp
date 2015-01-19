@@ -160,7 +160,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
-            email_msg += "Insulto: '" + str + "',";
+            email_msg += "Insulto: '" + str + "'\n";
 
         tmp_edittext = (EditText) findViewById(R.id.edittext_descrizione);
         if ( tmp_edittext != null ) {

@@ -358,25 +358,25 @@ public class InsultActivity extends ActionBarActivity {
         String region;
         switch(region_id){
             case 1: region = "Molise"; break;
-            case 2: region = "Valle d'Aosta"; break;
-            case 3: region = "Piemonte"; break;
-            case 4: region = "Lombardia"; break;
-            case 5: region = "Trentino Alto Adige"; break;
-            case 6: region = "Friuli Venezia Giulia"; break;
-            case 7: region = "Veneto"; break;
-            case 8: region = "Emilia-Romagna"; break;
+            case 19: region = "Valle d'Aosta"; break;
+            case 12: region = "Piemonte"; break;
+            case 10: region = "Lombardia"; break;
+            case 17: region = "Trentino Alto Adige"; break;
+            case 7: region = "Friuli Venezia Giulia"; break;
+            case 20: region = "Veneto"; break;
+            case 6: region = "Emilia-Romagna"; break;
             case 9: region = "Liguria"; break;
-            case 10: region = "Toscana"; break;
-            case 11: region = "Lazio"; break;
-            case 12: region = "Umbria"; break;
-            case 13: region = "Marche"; break;
-            case 14: region = "Abruzzo"; break;
-            case 15: region = "Campania"; break;
-            case 16: region = "Puglia"; break;
-            case 17: region = "Basilicata"; break;
-            case 18: region = "Calabria"; break;
-            case 19: region = "Sicilia"; break;
-            case 20: region = "Sardegna"; break;
+            case 16: region = "Toscana"; break;
+            case 8: region = "Lazio"; break;
+            case 18: region = "Umbria"; break;
+            case 11: region = "Marche"; break;
+            case 2: region = "Abruzzo"; break;
+            case 5: region = "Campania"; break;
+            case 13: region = "Puglia"; break;
+            case 3: region = "Basilicata"; break;
+            case 4: region = "Calabria"; break;
+            case 15: region = "Sicilia"; break;
+            case 14: region = "Sardegna"; break;
             default: region = ""; break;
         }
 

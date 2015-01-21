@@ -357,6 +357,8 @@ public class InsultActivity extends ActionBarActivity {
     public String getRegionFromId(int region_id){
         String region;
         switch(region_id){
+            /* Edit 15-01-2015: In db I organized regions in alphabetic order so their ids changed
+              (before they were in order-ish from north to south) */
             case 1: region = "Molise"; break;
             case 19: region = "Valle d'Aosta"; break;
             case 12: region = "Piemonte"; break;

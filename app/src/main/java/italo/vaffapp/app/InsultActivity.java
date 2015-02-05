@@ -87,6 +87,8 @@ public class InsultActivity extends ActionBarActivity {
 
     private int pref_language;
 
+    private static String link = "http://adf.ly/ssss4";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -430,7 +432,9 @@ public class InsultActivity extends ActionBarActivity {
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
             // facebook.katana is FB app, facebook.orca is the messenger
-            if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android") ){
+            if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
+                    || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
+                    || packageName.contains("google.android.talk") || packageName.contains("com.viber") ){
                 diff_app.add(packageName);
 
                 Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
@@ -452,6 +456,10 @@ public class InsultActivity extends ActionBarActivity {
         // I have to declare this an array, only this way I can modify it later (final statement is necessary)
         final String[] packageNames = {
             "twitter",
+            "messenger",
+            "whatsapp",
+            "hangout",
+            "viber"
         };
         final CharSequence[] items = new CharSequence[diff_app.size()];
         for (int i=0; i<diff_app.size();i++) {
@@ -460,6 +468,22 @@ public class InsultActivity extends ActionBarActivity {
             if (diff_app.get(i).contains("com.twitter.android")) {
                 items[i] = "Twitter";
                 packageNames[0] = diff_app.get(i);
+            }
+            if (diff_app.get(i).contains("com.facebook.orca")) {
+                items[i] = "Messenger";
+                packageNames[1] = diff_app.get(i);
+            }
+            if (diff_app.get(i).contains("com.whatsapp")) {
+                items[i] = "WhatsApp";
+                packageNames[2] = diff_app.get(i);
+            }
+            if (diff_app.get(i).contains("hangout")) {
+                items[i] = "Hangout";
+                packageNames[3] = diff_app.get(i);
+            }
+            if (diff_app.get(i).contains("viber")) {
+                items[i] = "Viber";
+                packageNames[4] = diff_app.get(i);
             }
         }
         new AlertDialog.Builder(this)
@@ -482,12 +506,41 @@ public class InsultActivity extends ActionBarActivity {
 
                     Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                     targetedShareIntent.setType("text/plain");
-                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp\n\n--"+link);
                     if ( choice.equals("Twitter") ){
                         flurry_stats.put("Share on", "Twitter");
                         flurry_stats.put("Insult", insult.getText().toString());
-
+                        // can't share a link on twitter
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
                         targetedShareIntent.setPackage(packageNames[0]);
+                        startActivity(targetedShareIntent);
+                    }
+                    if (choice.equals("Messenger")) {
+                        flurry_stats.put("Share on", "Messenger");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[1]);
+                        startActivity(targetedShareIntent);
+                    }
+                    if (choice.equals("WhatsApp")) {
+                        flurry_stats.put("Share on", "WhatsApp");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[2]);
+                        startActivity(targetedShareIntent);
+                    }
+                    if (choice.equals("Hangout")) {
+                        flurry_stats.put("Share on", "Hangout");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[3]);
+                        startActivity(targetedShareIntent);
+                    }
+                    if (choice.equals("Viber")) {
+                        flurry_stats.put("Share on", "Viber");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(packageNames[4]);
                         startActivity(targetedShareIntent);
                     }
 

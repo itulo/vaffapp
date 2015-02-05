@@ -80,7 +80,7 @@ public class InsultActivity extends ActionBarActivity {
     private Speaker speaker;
 
     final VunglePub vunglePub = VunglePub.getInstance();
-    private short time_for_ad_1 = 20;
+    private short time_for_ad_1 = 30;
 
     private boolean SEND_STATS_FLURRY = true;
     private static short pronunciated_n = 0;
@@ -307,7 +307,6 @@ public class InsultActivity extends ActionBarActivity {
                 overrideConfig.setOrientation(Orientation.autoRotate);
                 overrideConfig.setSoundEnabled(false);
                 vunglePub.playAd(overrideConfig);
-                time_for_ad_1+=20;
             }
             else {
                 time_for_ad_1++;

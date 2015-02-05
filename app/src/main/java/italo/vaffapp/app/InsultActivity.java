@@ -476,11 +476,11 @@ public class InsultActivity extends ActionBarActivity {
                 items[i] = "WhatsApp";
                 packageNames[2] = diff_app.get(i);
             }
-            if (diff_app.get(i).contains("hangout")) {
+            if (diff_app.get(i).contains("google.android.talk")) {
                 items[i] = "Hangout";
                 packageNames[3] = diff_app.get(i);
             }
-            if (diff_app.get(i).contains("viber")) {
+            if (diff_app.get(i).contains("com.viber")) {
                 items[i] = "Viber";
                 packageNames[4] = diff_app.get(i);
             }

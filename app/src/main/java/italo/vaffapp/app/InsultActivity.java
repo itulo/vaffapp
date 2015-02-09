@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.app.AlarmManager;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.content.Intent;
 
@@ -74,7 +77,7 @@ public class InsultActivity extends ActionBarActivity {
 
     // for condividi
     private List<Intent> targetedShareIntents;
-    private List<String> diff_app;
+    private ArrayList<ResolveInfo> diff_app;
     private Intent sharingIntent;
 
     private Speaker speaker;
@@ -421,7 +424,7 @@ public class InsultActivity extends ActionBarActivity {
     // check for presence of Facebook, Messenger, Twitter and WhatsApp apps (these will be treated differently)
     public void checkPresenceOfApps(View view){
         targetedShareIntents = new ArrayList<Intent>();
-        diff_app = new ArrayList<String>();
+        diff_app = new ArrayList<ResolveInfo>();
         sharingIntent = new Intent(Intent.ACTION_SEND);
 
         sharingIntent.setType("text/plain");
@@ -434,7 +437,7 @@ public class InsultActivity extends ActionBarActivity {
             if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
                     || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
                     || packageName.contains("google.android.talk") || packageName.contains("com.viber") ){
-                diff_app.add(packageName);
+                diff_app.add(app);
 
                 Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                 targetedShareIntent.setType("text/plain");
@@ -450,53 +453,77 @@ public class InsultActivity extends ActionBarActivity {
         }
     }
 
-    // 1. show a choice dialog to choose between Twitter, Facebook
+    // 1. show a choice dialog to choose between Twitter, Facebook, Messenger, WhatsApp, Hangout and Viber
     public void preChoiceMenu(){
-        // I have to declare this an array, only this way I can modify it later (final statement is necessary)
-        final String[] packageNames = {
-            "twitter",
-            "messenger",
-            "whatsapp",
-            "hangout",
-            "viber"
-        };
-        final CharSequence[] items = new CharSequence[diff_app.size()];
+        String package_name;
+        Drawable icon;
+        App app;
+        final App[] apps = new App[diff_app.size()];
+        PackageManager pm = this.getPackageManager();
+
         for (int i=0; i<diff_app.size();i++) {
-            if (diff_app.get(i).contains("com.facebook.katana"))
-                items[i] = "Facebook";
-            if (diff_app.get(i).contains("com.twitter.android")) {
-                items[i] = "Twitter";
-                packageNames[0] = diff_app.get(i);
+            package_name = diff_app.get(i).activityInfo.packageName;
+            icon = diff_app.get(i).loadIcon(pm);
+            System.out.println("icon is "+icon);
+            if (package_name.contains("com.facebook.katana")) {
+                app = new App("Facebook", package_name, icon);
+                apps[i] = app;
             }
-            if (diff_app.get(i).contains("com.facebook.orca")) {
-                items[i] = "Messenger";
-                packageNames[1] = diff_app.get(i);
+            if (package_name.contains("com.twitter.android")) {
+                app = new App("Twitter", package_name, icon);
+                apps[i] = app;
             }
-            if (diff_app.get(i).contains("com.whatsapp")) {
-                items[i] = "WhatsApp";
-                packageNames[2] = diff_app.get(i);
+            if (package_name.contains("com.facebook.orca")) {
+                app = new App("Messenger", package_name, icon);
+                apps[i] = app;
             }
-            if (diff_app.get(i).contains("google.android.talk")) {
-                items[i] = "Hangout";
-                packageNames[3] = diff_app.get(i);
+            if (package_name.contains("com.whatsapp")) {
+                app = new App("WhatsApp", package_name, icon);
+                apps[i] = app;
             }
-            if (diff_app.get(i).contains("com.viber")) {
-                items[i] = "Viber";
-                packageNames[4] = diff_app.get(i);
+            if (package_name.contains("google.android.talk")) {
+                app = new App("Hangout", package_name, icon);
+                apps[i] = app;
+            }
+            if (package_name.contains("com.viber")) {
+                app = new App("Viber", package_name, icon);
+                apps[i] = app;
             }
         }
+
+        /* show icons of apps */
+        // http://stackoverflow.com/questions/3920640/how-to-add-icon-in-alert-dialog-before-each-item
+        ListAdapter adapter = new ArrayAdapter<App>(
+                this,
+                android.R.layout.select_dialog_item,
+                android.R.id.text1,
+                apps){
+            public View getView(int position, View convertView, ViewGroup parent) {
+                //User super class to create the View
+                View v = super.getView(position, convertView, parent);
+                TextView tv = (TextView)v.findViewById(android.R.id.text1);
+
+                //Put the image on the TextView
+                tv.setCompoundDrawablesWithIntrinsicBounds(apps[position].icon, null, null, null);
+
+                //Add margin between image and text (support various screen densities)
+                int dp5 = (int) (5 * getResources().getDisplayMetrics().density + 0.5f);
+                tv.setCompoundDrawablePadding(dp5);
+
+                return v;
+            }
+        };
+
         new AlertDialog.Builder(this)
             .setTitle(getString(R.string.choice1))
-            .setItems(items, new DialogInterface.OnClickListener()
-                {
+            .setAdapter(adapter, new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    String choice = items[which].toString();
+                public void onClick(DialogInterface dialog, int which) {
+                    String choice = apps[which].toString();
                     // Flurry analytics
                     Map<String, String> flurry_stats = new HashMap<String, String>();
 
-                    if ( choice.equals("Facebook") ){
+                    if (choice.equals("Facebook")) {
                         flurry_stats.put("Share on", "Facebook");
                         flurry_stats.put("Insult", insult.getText().toString());
 
@@ -505,45 +532,45 @@ public class InsultActivity extends ActionBarActivity {
 
                     Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                     targetedShareIntent.setType("text/plain");
-                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp\n\n--"+link);
-                    if ( choice.equals("Twitter") ){
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + " #vaffapp\n\n--" + link);
+                    if (choice.equals("Twitter")) {
                         flurry_stats.put("Share on", "Twitter");
                         flurry_stats.put("Insult", insult.getText().toString());
                         // can't share a link on twitter
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-                        targetedShareIntent.setPackage(packageNames[0]);
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + " #vaffapp");
+                        targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivity(targetedShareIntent);
                     }
                     if (choice.equals("Messenger")) {
                         flurry_stats.put("Share on", "Messenger");
                         flurry_stats.put("Insult", insult.getText().toString());
 
-                        targetedShareIntent.setPackage(packageNames[1]);
+                        targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivity(targetedShareIntent);
                     }
                     if (choice.equals("WhatsApp")) {
                         flurry_stats.put("Share on", "WhatsApp");
                         flurry_stats.put("Insult", insult.getText().toString());
 
-                        targetedShareIntent.setPackage(packageNames[2]);
+                        targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivity(targetedShareIntent);
                     }
                     if (choice.equals("Hangout")) {
                         flurry_stats.put("Share on", "Hangout");
                         flurry_stats.put("Insult", insult.getText().toString());
 
-                        targetedShareIntent.setPackage(packageNames[3]);
+                        targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivity(targetedShareIntent);
                     }
                     if (choice.equals("Viber")) {
                         flurry_stats.put("Share on", "Viber");
                         flurry_stats.put("Insult", insult.getText().toString());
 
-                        targetedShareIntent.setPackage(packageNames[4]);
+                        targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivity(targetedShareIntent);
                     }
 
-                    if ( SEND_STATS_FLURRY )
+                    if (SEND_STATS_FLURRY)
                         FlurryAgent.logEvent("Sharing", flurry_stats);
                 }
             }).create().show();

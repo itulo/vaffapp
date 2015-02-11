@@ -84,6 +84,9 @@ public class SendInsultActivity extends ActionBarActivity {
             final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
             email_msg += "\n\nBy " + identity;
             Map<String, String> flurry_stats = new HashMap<String, String>();
+            // Flurry send how many insults generated
+            flurry_stats.put("Email", email_msg);
+            FlurryAgent.logEvent("sendFeedback()", flurry_stats);
 
             new AsyncTask<Void, Void, Void>() {
                 @Override public Void doInBackground(Void... params) {
@@ -99,10 +102,6 @@ public class SendInsultActivity extends ActionBarActivity {
                     return null;
                 }
             }.execute();
-
-            // Flurry send how many insults generated
-            flurry_stats.put("Email", email_msg);
-            FlurryAgent.logEvent("sendFeedback()", flurry_stats);
 
             // disable button, thank user
             button_manda = (Button)findViewById(R.id.button_manda);

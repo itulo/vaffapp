@@ -2,7 +2,9 @@ package italo.vaffapp.app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -102,34 +104,42 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onStop() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getString(R.string.ad_message))
-            .setTitle(getString(R.string.ad_title))
-            .setNegativeButton(getString(R.string.ad_no_button), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    //do nothing
-                }
-            })
-            .setPositiveButton(getString(R.string.ad_ok_button), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    String appPackageName = "italo.vaffapp.prop.app";
-                    try {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                    } catch (android.content.ActivityNotFoundException anfe) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                    }
-                }
-            });
-        // Create the AlertDialog object and return it
-        builder.create().show();
-
+        showAdDialogIfNewAppVersion();
         super.onStop();
     }
 
     /* show the ad for VaffAppPro if it is the first time running a new version of the VaffApp*/
-    public void showAdDialogIfNewVersion(){
+    public void showAdDialogIfNewAppVersion(){
+        PackageInfo versionInfo = SharedMethods.getPackageInfo(this);
+        final String current_app_ver = "app"+versionInfo.versionCode;
+        String ad_app_ver = settings.getString("ad_app_ver", "");
 
+        if ( !ad_app_ver.equals(current_app_ver) ){
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("ad_app_ver", current_app_ver);
+            editor.commit();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getString(R.string.ad_message))
+                    .setTitle(getString(R.string.ad_title))
+                    .setNegativeButton(getString(R.string.ad_no_button), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //do nothing
+                        }
+                    })
+                    .setPositiveButton(getString(R.string.ad_ok_button), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            String appPackageName = "italo.vaffapp.prop.app";
+                            try {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                            } catch (android.content.ActivityNotFoundException anfe) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+                            }
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            builder.create().show();
+        }
     }
 
 

@@ -9,6 +9,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 
+import italo.vaffapp.app.util.SharedMethods;
+
 // from: http://www.donnfelker.com/android-a-simple-eula-for-your-android-apps/
 
 public class SimpleEula {
@@ -44,18 +46,8 @@ public class SimpleEula {
         mActivity = context;
     }
 
-    private PackageInfo getPackageInfo() {
-        PackageInfo pi = null;
-        try {
-            pi = mActivity.getPackageManager().getPackageInfo(mActivity.getPackageName(), PackageManager.GET_ACTIVITIES);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return pi;
-    }
-
     public void show() {
-        PackageInfo versionInfo = getPackageInfo();
+        PackageInfo versionInfo = SharedMethods.getPackageInfo(mActivity);
 
         // the eulaKey changes every time you increment the version number in the AndroidManifest.xml
         final String eulaKey = EULA_PREFIX + versionInfo.versionCode;

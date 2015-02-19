@@ -29,10 +29,15 @@
     <string name="sardegna">Sardinia</string>
     <string name="n_insulti">insults loaded</string>
     <!-- title e message when no apps for sharing are found -->
-    <string name="noapp_warning_message">VaffApp looks for Facebook and Twitter apps in your device\nIf you want to share on other apps (like Whatsapp) download the VaffApp Pro!</string>
+    <string name="noapp_warning_message">VaffApp looks for Facebook, Twitter, Whatsapp, Viber, or Hangout apps in your device\nIf you want to share on other apps download the VaffApp Pro!</string>
     <string name="noapp_warning_title">Apps not found</string>
     <!-- ids and numbers -->
     <string name="facebook_app_id">1435530263364363</string>
     <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
+    <!-- message for VaffappPro - when exiting from application -->
+    <string name="ad_title">Did you like the VaffApp?</string>
+    <string name="ad_message">Download the VaffApp Pro, costs less than a coffee\nIt has more insults, no commercial and sharing on more apps!</string>
+    <string name="ad_ok_button">Sure, I want to support you!</string>
+    <string name="ad_no_button">Nah, I am stingy</string>
 
 </resources>

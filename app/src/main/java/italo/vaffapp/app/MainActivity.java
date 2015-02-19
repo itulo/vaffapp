@@ -1,5 +1,8 @@
 package italo.vaffapp.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -26,6 +29,7 @@ import italo.vaffapp.app.util.SharedMethods;
 public class MainActivity extends ActionBarActivity {
 
     private int pref_language;
+    private SharedPreferences settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,9 @@ public class MainActivity extends ActionBarActivity {
 
         SharedMethods.setIconInActionBar(this);
         new SimpleEula(this).show();
+
+        // get shared preferences for the language
+        settings = getPreferences(MODE_PRIVATE);
         setLanguage(false);
     }
 
@@ -50,8 +57,6 @@ public class MainActivity extends ActionBarActivity {
         int new_lang = -1;
         Configuration config = new Configuration();
 
-        // get language from shared preferences
-        SharedPreferences settings = getPreferences(MODE_PRIVATE);
         // 0 = Italian (default), 1 = English
         pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
 
@@ -94,6 +99,37 @@ public class MainActivity extends ActionBarActivity {
             Button button_insultaci = (Button) findViewById(R.id.button_insultaci);
             button_insultaci.setVisibility(View.GONE);
         }
+    }
+
+    public void onStop() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.ad_message))
+            .setTitle(getString(R.string.ad_title))
+            .setNegativeButton(getString(R.string.ad_no_button), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    //do nothing
+                }
+            })
+            .setPositiveButton(getString(R.string.ad_ok_button), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    String appPackageName = "italo.vaffapp.prop.app";
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+                    }
+                }
+            });
+        // Create the AlertDialog object and return it
+        builder.create().show();
+
+        super.onStop();
+    }
+
+    /* show the ad for VaffAppPro if it is the first time running a new version of the VaffApp*/
+    public void showAdDialogIfNewVersion(){
+
     }
 
 

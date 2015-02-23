@@ -35,9 +35,9 @@
     <string name="facebook_app_id">1435530263364363</string>
     <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
     <!-- message for VaffappPro - when exiting from application -->
-    <string name="ad_title">Piaciuta la VaffApp?</string>
-    <string name="ad_message">Scarica la VaffApp Pro, costa meno di un caffè\nHa più insulti, nessuna pubblicità e condivisione su più app!</string>
-    <string name="ad_ok_button">Certo, vi voglio supportare!</string>
-    <string name="ad_no_button">Nah, ho le braccine corte</string>
+    <string name="ad_title">Piaciuta la VaffApp? Offrimi un caffè!</string>
+    <string name="ad_message">Scarica la VaffApp Pro!\nHa più insulti, nessuna pubblicità e condivisione su più app!</string>
+    <string name="ad_ok_button">Sí, ti voglio sostenere!</string>
+    <string name="ad_no_button">Nah, ho le braccine corte/mamma e papà non mi danno i soldi</string>
 
 </resources>

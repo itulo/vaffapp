@@ -38,6 +38,6 @@
     <string name="ad_title">Did you like the VaffApp? Buy me a coffee!</string>
     <string name="ad_message">Download the VaffApp Pro\nIt has more insults, no commercial and sharing on more apps!</string>
     <string name="ad_ok_button">Yes, I want to support you!</string>
-    <string name="ad_no_button">Nah, I am stingy/mom and daddy won't give me the money</string>
+    <string name="ad_no_button">Nah, I am stingy/mom and daddy won\'t give me the money</string>
 
 </resources>

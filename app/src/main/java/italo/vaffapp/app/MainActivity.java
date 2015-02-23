@@ -108,7 +108,7 @@ public class MainActivity extends ActionBarActivity {
         super.onStop();
     }
 
-    /* show the ad for VaffAppPro if it is the first time running a new version of the VaffApp*/
+    /* show the ad for VaffAppPro if it is the first time running a new version of the VaffApp */
     public void showAdDialogIfNewAppVersion(){
         PackageInfo versionInfo = SharedMethods.getPackageInfo(this);
         final String current_app_ver = "app"+versionInfo.versionCode;

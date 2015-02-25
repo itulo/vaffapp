@@ -18,12 +18,18 @@ import android.content.Intent;
 import android.util.Log;
 
 import android.content.SharedPreferences;
+
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+
 import android.content.res.Configuration;
 import android.app.PendingIntent;
 import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
+
+import com.flurry.android.FlurryAgent;
 
 import italo.vaffapp.app.util.SharedMethods;
 
@@ -135,6 +141,8 @@ public class MainActivity extends ActionBarActivity {
                             } catch (android.content.ActivityNotFoundException anfe) {
                                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                             }
+                            // send to Flurry!
+                            FlurryAgent.logEvent("show VaffAppPro");
                         }
                     });
             // Create the AlertDialog object and return it

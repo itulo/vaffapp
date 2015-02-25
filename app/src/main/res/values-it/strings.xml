@@ -37,7 +37,7 @@
     <!-- message for VaffappPro - when exiting from application -->
     <string name="ad_title">Piaciuta la VaffApp? Offrimi un caffè!</string>
     <string name="ad_message">Scarica la VaffApp Pro!\nHa più insulti, nessuna pubblicità e condivisione su più app!</string>
-    <string name="ad_ok_button">Sí, ti voglio sostenere!</string>
+    <string name="ad_ok_button">Sì, ti voglio sostenere!</string>
     <string name="ad_no_button">Nah, ho le braccine corte/mamma e papà non mi danno i soldi</string>
 
 </resources>

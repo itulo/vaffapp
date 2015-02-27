@@ -35,7 +35,7 @@
     <string name="facebook_app_id">1435530263364363</string>
     <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
     <!-- message for VaffappPro - when exiting from application -->
-    <string name="ad_title">Did you like the VaffApp? Buy me a coffee!</string>
+    <string name="ad_title">Did you like the VaffApp?</string>
     <string name="ad_message">Download the VaffApp Pro\nIt has more insults, no commercial and sharing on more apps!</string>
     <string name="ad_ok_button">Yes, I want to support you!</string>
     <string name="ad_no_button">Nah, I am stingy/mom and daddy won\'t give me the money</string>

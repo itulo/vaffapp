@@ -31,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // my db version - increase anytime db content changes
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
-    private static int DB_VER = 16;
+    private static int DB_VER = 17;
 
     // Insults Table Columns names
     private static final String KEY_ID = "rowid";
@@ -159,11 +159,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super.close();
     }
 
-    // Getting All Insults
+    // Getting All Insults whose column visible = true
     public ArrayList<Insult> getAllInsults() {
         ArrayList<Insult> insultList = new ArrayList<Insult>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_INSULTS;
+        String selectQuery = "SELECT * FROM " + TABLE_INSULTS + " where visible = 1";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

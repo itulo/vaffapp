@@ -153,7 +153,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
     }
 
-    public synchronized void close() {
+    public void close() {
         if(myDataBase != null)
             myDataBase.close();
         super.close();

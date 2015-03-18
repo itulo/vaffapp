@@ -117,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onStop() {
-        showAdDialogIfNewAppVersion();
+        //showAdDialogIfNewAppVersion();
         super.onStop();
     }
 

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
  * Created by iarmenti on 3/18/15.
  *
  * Preferences within an Activity
+ * Used in: SimpleEula, MainActivity
  */
 public class SharedPrefsMethods {
     private static SharedPreferences prefs;

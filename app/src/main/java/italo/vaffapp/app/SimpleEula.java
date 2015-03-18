@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 
 import italo.vaffapp.app.util.SharedMethods;
+import italo.vaffapp.app.util.SharedPrefsMethods;
 
 // from: http://www.donnfelker.com/android-a-simple-eula-for-your-android-apps/
 
@@ -51,8 +52,7 @@ public class SimpleEula {
 
         // the eulaKey changes every time you increment the version number in the AndroidManifest.xml
         final String eulaKey = EULA_PREFIX + versionInfo.versionCode;
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity);
-        final String app_ver = prefs.getString("app_ver", "");
+        final String app_ver = SharedPrefsMethods.getString("app_ver","");
         if ( !app_ver.equals(eulaKey) ){
 
             // Show the Eula
@@ -69,9 +69,7 @@ public class SimpleEula {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             // Mark this version as read.
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("app_ver", eulaKey);
-                            editor.commit();
+                            SharedPrefsMethods.putString("app_ver", eulaKey);
                             dialogInterface.dismiss();
                         }
                     })

@@ -32,12 +32,12 @@ import android.widget.Button;
 import com.flurry.android.FlurryAgent;
 
 import italo.vaffapp.app.util.SharedMethods;
+import italo.vaffapp.app.util.SharedPrefsMethods;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private int pref_language;
-    private SharedPreferences settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,57 +45,64 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+                .add(R.id.container, new PlaceholderFragment())
+                .commit();
         }
 
         SharedMethods.setIconInActionBar(this);
+        SharedPrefsMethods.setupSharedPrefsMethods(this);
         new SimpleEula(this).show();
 
-        // get shared preferences for the language
-        settings = getPreferences(MODE_PRIVATE);
-        setLanguage(false);
+        setLanguage();
     }
 
-    /* change the UI's language: Italiano <-> English
-     @params
-      savelanguage: set to true to save the new language
-    */
-    private void setLanguage(boolean savelanguage){
-        int new_lang = -1;
+    /* change the UI's language: Italiano <-> English */
+    private void setLanguage() {
+        int no_lang = -1;
         Configuration config = new Configuration();
 
         // 0 = Italian (default), 1 = English
-        pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
+        pref_language = SharedPrefsMethods.getInt("language", no_lang);
+
+        // this 'if' is executed only the first time the app is executed
+        if (pref_language == no_lang) {
+            Locale current = getResources().getConfiguration().locale;
+            if (current == Locale.ITALIAN)
+                pref_language = LanguageOptions.ENGLISH;    //switchLanguage() is going to switch before saving
+            else
+                pref_language = LanguageOptions.ITALIANO;   //switchLanguage() is going to switch before saving
+
+            switchLanguage();
+        } else {
+            switch (pref_language) {
+                case LanguageOptions.ENGLISH:
+                    config.locale = Locale.ENGLISH;
+                    break;
+                case LanguageOptions.ITALIANO:
+                default:
+                    config.locale = Locale.ITALIAN;
+                    break;
+            }
+            getResources().updateConfiguration(config, null);
+        }
+    }
+
+    private void switchLanguage(){
+        int new_lang = -1;
 
         switch( pref_language ) {
-            case LanguageOptions.ENGLISH: config.locale = Locale.ENGLISH; break;
-            case LanguageOptions.ITALIANO:
-            default: config.locale = Locale.ITALIAN; break;
+            case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
+            case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
         }
+        SharedPrefsMethods.putInt("language", new_lang);
 
-        getResources().updateConfiguration(config, null);
-
-        if (savelanguage){
-
-            switch( pref_language ) {
-                case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
-                case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
-            }
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("language", new_lang);
-            // this has to be 'commit' NOT 'apply'
-            // commit writes the preference back in memory soon and we need it soon after we restart the app
-            editor.commit();
-
-            //restart app
-            Intent mStartActivity = new Intent(this, MainActivity.class);
-            int mPendingIntentId = 123456;
-            PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
-            AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-            mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
-            System.exit(0);
-        }
+        //restart app
+        Intent mStartActivity = new Intent(this, MainActivity.class);
+        int mPendingIntentId = 123456;
+        PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+        System.exit(0);
     }
 
     public void onStart() {
@@ -118,12 +125,10 @@ public class MainActivity extends ActionBarActivity {
     public void showAdDialogIfNewAppVersion(){
         PackageInfo versionInfo = SharedMethods.getPackageInfo(this);
         final String current_app_ver = "app"+versionInfo.versionCode;
-        String ad_app_ver = settings.getString("ad_app_ver", "");
+        String ad_app_ver = SharedPrefsMethods.getString("ad_app_ver", "");
 
         if ( !ad_app_ver.equals(current_app_ver) ){
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString("ad_app_ver", current_app_ver);
-            editor.commit();
+            SharedPrefsMethods.putString("ad_app_ver", current_app_ver);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(getString(R.string.ad_message))
@@ -166,7 +171,8 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.language_menu) {
-            setLanguage(true);
+            setLanguage();
+            switchLanguage();
             return true;
         }
         return super.onOptionsItemSelected(item);

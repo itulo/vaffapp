@@ -444,12 +444,7 @@ public class InsultActivity extends ActionBarActivity {
                 targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
                 targetedShareIntent.setPackage(packageName);
                 targetedShareIntents.add(targetedShareIntent);
-
-                continue;
             }
-            // skip all others
-            else
-                continue;
         }
     }
 

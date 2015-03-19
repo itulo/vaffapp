@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -17,26 +16,27 @@ import android.content.Intent;
 
 import android.util.Log;
 
-import android.content.SharedPreferences;
-
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import android.content.res.Configuration;
 import android.app.PendingIntent;
 import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 
+import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private final int UNBLOCK_INSULTS = 10;
     private int pref_language;
 
     @Override
@@ -52,8 +52,9 @@ public class MainActivity extends ActionBarActivity {
         SharedMethods.setIconInActionBar(this);
         SharedPrefsMethods.setupSharedPrefsMethods(this);
         new SimpleEula(this).show();
-
         setLanguage();
+
+        RewardIfReturn();
     }
 
     /* change the UI's language: Italiano <-> English */
@@ -153,6 +154,29 @@ public class MainActivity extends ActionBarActivity {
             // Create the AlertDialog object and return it
             builder.create().show();
         }
+    }
+
+    /* If the user comes back a day after, unblock as many insults as UNBLOCK_INSULTS */
+    private void RewardIfReturn(){
+        int def_val = -1;
+        int unblock_ins = 0;
+        int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
+
+        // get shared prefs
+        int last_use = SharedPrefsMethods.getInt("last_day_use", def_val);
+        int unblock_insults_tot = SharedPrefsMethods.getInt("unblock_insults_tot", 0);
+
+        // if not null and different from today
+        if ( last_use != def_val && last_use != today ) {
+            DatabaseHandler db = new DatabaseHandler(this);
+            db.openDataBase();
+            unblock_ins = db.unblockInsults(UNBLOCK_INSULTS);
+            Toast.makeText(this, "Thanks for coming back! " + unblock_ins + " more insults unblocked", Toast.LENGTH_LONG).show();
+            db.close();
+        }
+        // save shared prefs
+        SharedPrefsMethods.putInt("last_day_use", today);
+        SharedPrefsMethods.putInt("unblocked_insults_tot", unblock_insults_tot+unblock_ins);
     }
 
 

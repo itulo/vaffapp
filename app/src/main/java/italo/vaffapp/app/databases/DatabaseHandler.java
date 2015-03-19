@@ -9,6 +9,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.sql.SQLException;
 import java.io.File;
@@ -31,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // my db version - increase anytime db content changes
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
-    private static int DB_VER = 17;
+    private static int DB_VER = 18;
 
     // Insults Table Columns names
     private static final String KEY_ID = "rowid";
@@ -217,6 +218,34 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String query = "UPDATE " + TABLE_VERSION + " SET ver='" + DB_VER + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(query);
+    }
+
+    public int unblockInsults(int insults){
+        if ( insults < 0 )
+            return -1;
+
+        ArrayList<String> unblocked_insults = new ArrayList<String>();
+        String unblocked_ids = "";
+
+        String selectQuery = "SELECT rowid,* FROM " + TABLE_INSULTS + " where visible = 0 limit " + insults;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                unblocked_ids += cursor.getString(0) + ",";
+                unblocked_insults.add(cursor.getString(1)); // 1 is insult
+            } while (cursor.moveToNext());
+        }
+
+        if ( unblocked_insults.size() > 0 ){
+            unblocked_ids = unblocked_ids.substring(0, unblocked_ids.length()-1);
+            String query = "UPDATE " + TABLE_INSULTS + " SET visible = 1 where rowid in (" + unblocked_ids + ")";
+            System.out.println(query);
+            db.execSQL(query);
+        }
+
+        return unblocked_insults.size();
     }
 
     // Updating single contact - not needed

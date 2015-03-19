@@ -55,7 +55,7 @@ public class SimpleEula {
         final String app_ver = SharedPrefsMethods.getString("app_ver","");
         if ( !app_ver.equals(eulaKey) ){
 
-            // Show the Eula
+            // Show the Eula                                        // it's in the title, 'v' is needed
             String title = mActivity.getString(R.string.app_name) + " v" + versionInfo.versionName;
 
             //Includes the updates as well so users know what changed.

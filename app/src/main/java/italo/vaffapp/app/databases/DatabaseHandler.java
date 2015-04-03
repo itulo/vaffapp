@@ -31,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // my db version - increase anytime db content changes
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
-    private static int DB_VER = 16;
+    private static int DB_VER = 17;
 
     // Insults Table Columns names
     private static final String KEY_ID = "rowid";

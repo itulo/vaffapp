@@ -36,26 +36,27 @@
             android:orientation="vertical"
             android:id="@+id/radio_group_choice">
             <RadioButton android:id="@+id/radio1" android:text="@string/commento" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio2" android:text="Molise" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio3" android:text="Valle d'Aosta" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio4" android:text="Piemonte" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio5" android:text="Lombardia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio6" android:text="Trentino Alto Adige" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio7" android:text="Friuli Venezia Giulia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio8" android:text="Veneto" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio9" android:text="Emilia Romagna" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio10" android:text="Liguria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio11" android:text="Toscana" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio12" android:text="Lazio" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio13" android:text="Umbria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio14" android:text="Marche" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio15" android:text="Abruzzo" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio16" android:text="Campania" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio17" android:text="Puglia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio18" android:text="Basilicata" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio19" android:text="Calabria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio20" android:text="@string/sicilia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <RadioButton android:id="@+id/radio21" android:text="@string/sardegna" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio2" android:text="Nazionale" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio3" android:text="Molise" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio4" android:text="Valle d'Aosta" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio5" android:text="Piemonte" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio6" android:text="Lombardia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio7" android:text="Trentino Alto Adige" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio8" android:text="Friuli Venezia Giulia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio9" android:text="Veneto" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio10" android:text="Emilia Romagna" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio11" android:text="Liguria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio12" android:text="Toscana" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio13" android:text="Lazio" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio14" android:text="Umbria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio15" android:text="Marche" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio16" android:text="Abruzzo" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio17" android:text="Campania" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio18" android:text="Puglia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio19" android:text="Basilicata" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio20" android:text="Calabria" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio21" android:text="@string/sicilia" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@+id/radio22" android:text="@string/sardegna" android:layout_width="wrap_content" android:layout_height="wrap_content" />
         </RadioGroup>
     </ScrollView>
 

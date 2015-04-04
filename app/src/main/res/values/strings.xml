@@ -12,7 +12,7 @@
     <string name="button_insult_1">Insultati ancora</string>
     <string name="button_insult_2">Condividi</string>
     <string name="insultati_button">Insultati</string>
-    <string name="insultaci_button">Insultaci</string>
+    <string name="insultaci_button">Manda un insulto</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
     <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
     <string name="fb_warning_title">Mamma, che coglioni</string>

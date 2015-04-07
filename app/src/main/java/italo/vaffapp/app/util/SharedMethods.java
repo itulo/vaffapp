@@ -8,7 +8,11 @@ import android.content.pm.PackageManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
+import java.util.ArrayList;
+
 import italo.vaffapp.app.R;
+import italo.vaffapp.app.databases.DatabaseHandler;
+import italo.vaffapp.app.databases.Insult;
 
 /**
  * Created by iarmenti on 11/27/14.
@@ -69,6 +73,27 @@ public class SharedMethods {
         }
 
         return region;
+    }
+
+    /* Logic around unblocking insults */
+    public static void unblockInsults(Activity a, String title, int size){
+        ArrayList<Insult> unblocked = null;
+
+        DatabaseHandler db = new DatabaseHandler(a);
+        db.openDataBase();
+        unblocked = db.unblockInsults(size);
+        db.close();
+
+        if ( unblocked != null && unblocked.size() > 0) {
+            String text =
+                    a.getString(R.string.unblocked) + " " + unblocked.size() + " " + a.getString(R.string.insults) + "\n\n";
+
+            for (Insult temp : unblocked) {
+                text += SharedMethods.getRegionFromId(temp.getRegionId()).toUpperCase() + ": " + temp.getInsult() + "\n";
+            }
+
+            showDialog(a, title, text);
+        }
     }
 
     public static void showDialog(Activity a, String title, String text){

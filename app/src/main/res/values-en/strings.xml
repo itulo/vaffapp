@@ -43,5 +43,6 @@
     <string name="comeback_reward_title">Thanks for coming back!</string>
     <string name="unblocked">Unblocked</string>
     <string name="insults">insults</string>
+    <string name="share_reward">You shared 3 insults!</string>
 
 </resources>

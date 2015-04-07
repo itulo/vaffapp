@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -24,7 +22,6 @@ import android.app.PendingIntent;
 import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 
@@ -34,12 +31,11 @@ import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
 
 import java.util.Calendar;
-import java.util.Iterator;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private final int UNBLOCK_INSULTS = 10;
+    private final int UNBLOCK_INSULTS = 10; // insults to unblock when returning user
     private int pref_language;
 
     @Override
@@ -56,7 +52,6 @@ public class MainActivity extends ActionBarActivity {
         SharedPrefsMethods.setupSharedPrefsMethods(this);
         new SimpleEula(this).show();
         setLanguage();
-
         RewardIfReturn();
     }
 
@@ -170,28 +165,10 @@ public class MainActivity extends ActionBarActivity {
 
         // if not null and different from today
         if ( last_use != def_val && last_use != today ) {
-            DatabaseHandler db = new DatabaseHandler(this);
-            db.openDataBase();
-            unblocked = db.unblockInsults(UNBLOCK_INSULTS);
-            db.close();
+            SharedMethods.unblockInsults(this, getString(R.string.comeback_reward_title), UNBLOCK_INSULTS);
         }
         // save shared prefs
         SharedPrefsMethods.putInt("last_day_use", today);
-
-        if ( unblocked != null && unblocked.size() > 0 ){
-            showDialogUnblockedInsults(getString(R.string.comeback_reward_title), unblocked);
-        }
-    }
-
-    private void showDialogUnblockedInsults(String title, ArrayList<Insult> unblocked){
-        String text =
-                getString(R.string.unblocked) + " " + unblocked.size() + " " + getString(R.string.insults) + "\n\n";
-
-        for (Insult temp : unblocked) {
-            text += SharedMethods.getRegionFromId(temp.getRegionId()).toUpperCase() + ": " + temp.getInsult() + "\n";
-        }
-
-        SharedMethods.showDialog(this, title, text);
     }
 
 

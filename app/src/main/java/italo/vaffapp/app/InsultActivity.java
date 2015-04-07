@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -24,6 +25,7 @@ import android.content.Intent;
 import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
 import italo.vaffapp.app.util.SharedMethods;
+import italo.vaffapp.app.util.SharedPrefsMethods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,11 +77,6 @@ public class InsultActivity extends ActionBarActivity {
     private static byte[] occurrences;
     private static short generated_n = 0;
 
-    // for condividi
-    private List<Intent> targetedShareIntents;
-    private ArrayList<ResolveInfo> diff_app;
-    private Intent sharingIntent;
-
     private Speaker speaker;
 
     final VunglePub vunglePub = VunglePub.getInstance();
@@ -91,6 +88,9 @@ public class InsultActivity extends ActionBarActivity {
     private int pref_language;
 
     private static String link = "http://adf.ly/ssss4";
+
+    private int shared_insults; // # of times a person shares an insult
+    private final int UNBLOCK_INSULTS = 50; // insults to unblock everytime sharing is done 3 times
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +113,9 @@ public class InsultActivity extends ActionBarActivity {
 
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
+
+        SharedPrefsMethods.setupSharedPrefsMethods(this);
+        shared_insults = SharedPrefsMethods.getInt("shared_insults", 0);
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -390,11 +393,12 @@ public class InsultActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    // check for presence of Facebook, Messenger, Twitter and WhatsApp apps (these will be treated differently)
-    public void checkPresenceOfApps(View view){
-        targetedShareIntents = new ArrayList<Intent>();
+    // check for presence of Facebook, Messenger, Twitter, Viber and WhatsApp apps (these will be treated differently)
+    public ArrayList<ResolveInfo> checkPresenceOfApps(View view){
+        ArrayList<ResolveInfo> diff_app;
+
         diff_app = new ArrayList<ResolveInfo>();
-        sharingIntent = new Intent(Intent.ACTION_SEND);
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 
         sharingIntent.setType("text/plain");
         PackageManager pm = view.getContext().getPackageManager();
@@ -407,18 +411,14 @@ public class InsultActivity extends ActionBarActivity {
                     || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
                     || packageName.contains("google.android.talk") || packageName.contains("com.viber") ){
                 diff_app.add(app);
-
-                Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-                targetedShareIntent.setType("text/plain");
-                targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText()+" #vaffapp");
-                targetedShareIntent.setPackage(packageName);
-                targetedShareIntents.add(targetedShareIntent);
             }
         }
+
+        return diff_app;
     }
 
     // 1. show a choice dialog to choose between Twitter, Facebook, Messenger, WhatsApp, Hangout and Viber
-    public void preChoiceMenu(){
+    public void preChoiceMenu(ArrayList<ResolveInfo> diff_app){
         String package_name;
         Drawable icon;
         App app;
@@ -428,7 +428,6 @@ public class InsultActivity extends ActionBarActivity {
         for (int i=0; i<diff_app.size();i++) {
             package_name = diff_app.get(i).activityInfo.packageName;
             icon = diff_app.get(i).loadIcon(pm);
-            System.out.println("icon is "+icon);
             if (package_name.contains("com.facebook.katana")) {
                 app = new App("Facebook", package_name, icon);
                 apps[i] = app;
@@ -536,17 +535,19 @@ public class InsultActivity extends ActionBarActivity {
 
                     if (SEND_STATS_FLURRY)
                         FlurryAgent.logEvent("Sharing", flurry_stats);
+
+                    increaseSharedInsult();
                 }
             }).create().show();
     }
 
     // Checks presence of apps Facebook and Twitter
     // if not, shows a dialog box with all apps able to receive the insult
-    public void condividi(View view){
-        checkPresenceOfApps(view);
+    public void share(View view){
+        ArrayList<ResolveInfo> diff_app = checkPresenceOfApps(view);
 
         if ( diff_app.size() > 0 ){
-            preChoiceMenu();
+            preChoiceMenu(diff_app);
         }
         else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -560,6 +561,16 @@ public class InsultActivity extends ActionBarActivity {
             // Create the AlertDialog object and return it
             builder.create().show();
         }
+    }
+
+    public void increaseSharedInsult(){
+        shared_insults++;
+
+        if ( shared_insults%3 == 0 ){
+            SharedMethods.unblockInsults(this, getString(R.string.share_reward), UNBLOCK_INSULTS);
+        }
+
+        SharedPrefsMethods.putInt("shared_insults", shared_insults);
     }
 
     // Notification stuff

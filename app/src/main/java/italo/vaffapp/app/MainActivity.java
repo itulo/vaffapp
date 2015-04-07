@@ -16,6 +16,7 @@ import android.content.Intent;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import android.content.res.Configuration;
@@ -28,10 +29,12 @@ import android.widget.Toast;
 import com.flurry.android.FlurryAgent;
 
 import italo.vaffapp.app.databases.DatabaseHandler;
+import italo.vaffapp.app.databases.Insult;
 import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
 
 import java.util.Calendar;
+import java.util.Iterator;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -159,24 +162,36 @@ public class MainActivity extends ActionBarActivity {
     /* If the user comes back a day after, unblock as many insults as UNBLOCK_INSULTS */
     private void RewardIfReturn(){
         int def_val = -1;
-        int unblock_ins = 0;
+        ArrayList<Insult> unblocked = null;
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
-        // get shared prefs
         int last_use = SharedPrefsMethods.getInt("last_day_use", def_val);
-        int unblock_insults_tot = SharedPrefsMethods.getInt("unblock_insults_tot", 0);
+        // last_use = 4; // for debug, uncomment and device will unblock insults
 
         // if not null and different from today
         if ( last_use != def_val && last_use != today ) {
             DatabaseHandler db = new DatabaseHandler(this);
             db.openDataBase();
-            unblock_ins = db.unblockInsults(UNBLOCK_INSULTS);
-            Toast.makeText(this, "Thanks for coming back! " + unblock_ins + " more insults unblocked", Toast.LENGTH_LONG).show();
+            unblocked = db.unblockInsults(UNBLOCK_INSULTS);
             db.close();
         }
         // save shared prefs
         SharedPrefsMethods.putInt("last_day_use", today);
-        SharedPrefsMethods.putInt("unblocked_insults_tot", unblock_insults_tot+unblock_ins);
+
+        if ( unblocked != null && unblocked.size() > 0 ){
+            showDialogUnblockedInsults(getString(R.string.comeback_reward_title), unblocked);
+        }
+    }
+
+    private void showDialogUnblockedInsults(String title, ArrayList<Insult> unblocked){
+        String text =
+                getString(R.string.unblocked) + " " + unblocked.size() + " " + getString(R.string.insults) + "\n\n";
+
+        for (Insult temp : unblocked) {
+            text += SharedMethods.getRegionFromId(temp.getRegionId()).toUpperCase() + ": " + temp.getInsult() + "\n";
+        }
+
+        SharedMethods.showDialog(this, title, text);
     }
 
 

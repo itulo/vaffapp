@@ -177,7 +177,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 insult.setDesc(cursor.getString(1)); // 1 is desc
                 insult.setEnglish(cursor.getString(2)); //2 is english
                 // 3 is visible - not needed
-                insult.setRegionId(cursor.getInt(4)); // 3 is region id
+                insult.setRegionId(cursor.getInt(4)); // 4 is region id
                 insultList.add(insult);
             } while (cursor.moveToNext());
         }
@@ -222,31 +222,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public int unblockInsults(int insults){
-        if ( insults < 0 )
-            return -1;
+    public ArrayList<Insult> unblockInsults(int insults){
+        if ( insults <= 0 )
+            return null;
 
-        ArrayList<String> unblocked_insults = new ArrayList<String>();
+        ArrayList<Insult> unblocked = new ArrayList<Insult>();
         String unblocked_ids = "";
 
-        String selectQuery = "SELECT rowid,* FROM " + TABLE_INSULTS + " where visible = 0 limit " + insults;
+        String selectQuery = "SELECT rowid,insult,region FROM " + TABLE_INSULTS + " where visible = 0 limit " + insults;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
                 unblocked_ids += cursor.getString(0) + ",";
-                unblocked_insults.add(cursor.getString(1)); // 1 is insult
+                Insult insult = new Insult();
+                insult.setInsult(cursor.getString(1));
+                insult.setRegionId(cursor.getInt(2));
+                unblocked.add(insult);
             } while (cursor.moveToNext());
         }
 
-        if ( unblocked_insults.size() > 0 ){
-            unblocked_ids = unblocked_ids.substring(0, unblocked_ids.length()-1);
+        if ( unblocked.size() > 0 ){
+            unblocked_ids = unblocked_ids.substring(0, unblocked_ids.length()-1); // delete last character, a ','
             String query = "UPDATE " + TABLE_INSULTS + " SET visible = 1 where rowid in (" + unblocked_ids + ")";
-            System.out.println(query);
             db.execSQL(query);
         }
 
-        return unblocked_insults.size();
+        return unblocked;
     }
 }

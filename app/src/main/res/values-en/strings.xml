@@ -39,5 +39,9 @@
     <string name="ad_message">Download the VaffApp Pro\nIt has more insults, no commercial and sharing on more apps!</string>
     <string name="ad_ok_button">Yes, I want to support you!</string>
     <string name="ad_no_button">Nah, I am stingy/mom and daddy won\'t give me the money</string>
+    <!-- reward messages -->
+    <string name="comeback_reward_title">Thanks for coming back!</string>
+    <string name="unblocked">Unblocked</string>
+    <string name="insults">insults</string>
 
 </resources>

@@ -383,6 +383,7 @@ public class InsultActivity extends ActionBarActivity {
             case 4: region = "Calabria"; break;
             case 15: region = "Sicilia"; break;
             case 14: region = "Sardegna"; break;
+            case 21: region = "Nazionale"; break;
             default: region = ""; break;
         }
 

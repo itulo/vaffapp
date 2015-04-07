@@ -32,6 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // my db version - increase anytime db content changes
     // if different from "version" table, it copies again the db from the assets folder
     // and writes in the same table the new version number
+
     private static int DB_VER = 18;
 
     // Insults Table Columns names
@@ -175,7 +176,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 insult.setInsult(cursor.getString(0)); // 0 is insult
                 insult.setDesc(cursor.getString(1)); // 1 is desc
                 insult.setEnglish(cursor.getString(2)); //2 is english
-                insult.setRegionId(cursor.getInt(3)); // 3 is region id
+                // 3 is visible - not needed
+                insult.setRegionId(cursor.getInt(4)); // 3 is region id
                 insultList.add(insult);
             } while (cursor.moveToNext());
         }
@@ -247,10 +249,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return unblocked_insults.size();
     }
-
-    // Updating single contact - not needed
-    //public int updateContact(Contact contact) {}
-
-    // Deleting single contact - not needed
-    //public void deleteContact(Contact contact) {}
 }

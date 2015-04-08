@@ -129,10 +129,10 @@ public class InsultActivity extends ActionBarActivity {
 
         // when a user shares and then the program returns to the VaffApp
         if (requestCode == SHARE_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                // for FB it's always going to be RESULT_OK even if user did not post
-                increaseSharedInsult();
-            }
+            // I have to comment the following line, it works only for Twitter
+            // all the others app return always RESULT_OK -1 (Facebook) or RESULT_CANCELLED 0
+            //if (resultCode == RESULT_OK) {
+            increaseSharedInsult();
         }
     }
 

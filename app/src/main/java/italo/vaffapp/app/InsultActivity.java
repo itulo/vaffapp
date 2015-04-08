@@ -90,7 +90,8 @@ public class InsultActivity extends ActionBarActivity {
     private static String link = "http://adf.ly/ssss4";
 
     private int shared_insults; // # of times a person shares an insult
-    private final int UNBLOCK_INSULTS = 50; // insults to unblock everytime sharing is done 3 times
+    private final int UNBLOCK_INSULTS = 30; // insults to unblock everytime sharing is done 3 times
+    static final int SHARE_REQUEST = 1; // to be used in onActivityResult
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +124,14 @@ public class InsultActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         uiHelper.onActivityResult(requestCode, resultCode, data);
+
+        // when a user shares and then the program returns to the VaffApp
+        if (requestCode == SHARE_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                // for FB it's always going to be RESULT_OK even if user did not post
+                increaseSharedInsult();
+            }
+        }
     }
 
     // 3. configure other methods on uiHelper to handle Activity lifecycle callbacks correctly
@@ -364,6 +373,7 @@ public class InsultActivity extends ActionBarActivity {
     public void postToFB() {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
             .setApplicationName(getString(R.string.app_name))
+            .setRequestCode(SHARE_REQUEST)  // request code to pass to onActivityResult when it returns to VaffApp
             //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
             .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
@@ -502,41 +512,40 @@ public class InsultActivity extends ActionBarActivity {
                         // can't share a link on twitter
                         targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + " #vaffapp");
                         targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivity(targetedShareIntent);
+                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }
                     if (choice.equals("Messenger")) {
                         flurry_stats.put("Share on", "Messenger");
                         flurry_stats.put("Insult", insult.getText().toString());
 
                         targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivity(targetedShareIntent);
+                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }
                     if (choice.equals("WhatsApp")) {
                         flurry_stats.put("Share on", "WhatsApp");
                         flurry_stats.put("Insult", insult.getText().toString());
 
                         targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivity(targetedShareIntent);
+                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }
                     if (choice.equals("Hangout")) {
                         flurry_stats.put("Share on", "Hangout");
                         flurry_stats.put("Insult", insult.getText().toString());
 
                         targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivity(targetedShareIntent);
+                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }
                     if (choice.equals("Viber")) {
                         flurry_stats.put("Share on", "Viber");
                         flurry_stats.put("Insult", insult.getText().toString());
 
                         targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivity(targetedShareIntent);
+                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }
 
                     if (SEND_STATS_FLURRY)
                         FlurryAgent.logEvent("Sharing", flurry_stats);
 
-                    increaseSharedInsult();
                 }
             }).create().show();
     }

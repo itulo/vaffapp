@@ -44,5 +44,7 @@
     <string name="unblocked">Unblocked</string>
     <string name="insults">insults</string>
     <string name="share_reward">You shared 3 insults!</string>
+    <string name="share_instructions_title">Instructions!</string>
+    <string name="share_instructions_msg">Anytime you share insults 3 times, you will unblock 30 new insults</string>
 
 </resources>

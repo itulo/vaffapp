@@ -117,6 +117,8 @@ public class InsultActivity extends ActionBarActivity {
 
         SharedPrefsMethods.setupSharedPrefsMethods(this);
         shared_insults = SharedPrefsMethods.getInt("shared_insults", 0);
+
+        showInstructionsIfFirstTime();
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -615,6 +617,16 @@ public class InsultActivity extends ActionBarActivity {
         long futureInMillis = SystemClock.elapsedRealtime() + DELAY;
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+    }
+
+    private void showInstructionsIfFirstTime(){
+        SharedPrefsMethods.setupSharedPrefsMethods(this);
+        int instructions_showed = SharedPrefsMethods.getInt("instruction_showed", 0);
+
+        if ( instructions_showed == 0 ){
+            SharedMethods.showDialog(this, getString(R.string.share_instructions_title), getString(R.string.share_instructions_msg));
+            SharedPrefsMethods.putInt("instruction_showed", 1);
+        }
     }
 
 

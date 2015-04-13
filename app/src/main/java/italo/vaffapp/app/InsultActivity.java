@@ -93,6 +93,8 @@ public class InsultActivity extends ActionBarActivity {
     private final int UNBLOCK_INSULTS = 30; // insults to unblock everytime sharing is done 3 times
     static final int SHARE_REQUEST = 1; // to be used in onActivityResult
 
+    static ArrayList<String> notification_titles = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -588,12 +590,20 @@ public class InsultActivity extends ActionBarActivity {
     // solution by https://gist.github.com/BrandonSmith/6679223
     // this will show a notification after 2 days (notification is deleted if the phone is rebooted)
     private void scheduleNotification(){
+        if ( notification_titles == null ) {
+            notification_titles = new ArrayList<String>();
+            notification_titles.add(getString(R.string.notif_title_1));
+            notification_titles.add(getString(R.string.notif_title_2));
+            notification_titles.add(getString(R.string.notif_title_3));
+        }
         // notification in two days time
         int DELAY = 24*60*60*1000;
         int insult_idx = generateRandomIdx();
+        Random rand = new Random();
+        String title = notification_titles.get(rand.nextInt(notification_titles.size()));
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setContentTitle("");
+        builder.setContentTitle(title);
         builder.setContentText(insults.get(insult_idx).getInsult());
         builder.setSmallIcon(R.drawable.ic_launcher);
         builder.setAutoCancel(true);

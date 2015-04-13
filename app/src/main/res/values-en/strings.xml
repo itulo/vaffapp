@@ -46,5 +46,9 @@
     <string name="share_reward">You shared 3 insults!</string>
     <string name="share_instructions_title">Instructions!</string>
     <string name="share_instructions_msg">Anytime you share insults 3 times, you will unblock 30 new insults</string>
+    <!-- notification strings -->
+    <string name="notif_title_1">Having a bad day?</string>
+    <string name="notif_title_2">Insult more!</string>
+    <string name="notif_title_3">Get it out!</string>
 
 </resources>

@@ -32,11 +32,17 @@ import italo.vaffapp.app.util.SharedPrefsMethods;
 
 import java.util.Calendar;
 
+import italo.vaffapp.app.util.IabHelper;
+import italo.vaffapp.app.util.IabResult;
+import android.widget.Toast;
+
 
 public class MainActivity extends ActionBarActivity {
 
     private final int UNBLOCK_INSULTS = 10; // insults to unblock when returning user
     private int pref_language;
+    // in app billing
+    IabHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,25 @@ public class MainActivity extends ActionBarActivity {
         new SimpleEula(this).show();
         setLanguage();
         RewardIfReturn();
+
+        /* in app billing */
+        String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuVoijs7LeeIM18nmYa2gX6iqFGRtzbPJxlsqVJFYjwceyK729qQcNRW0lZQKlvNSO2B5leFqwb86nB3LT57COBjpDvoKUHYDAKdM7RBqCxI2WyD47R+dHROokVwjHJlmo/H3gDCkdZF2idV4HAInWYUC8WwVgG5xv6jqVRp01hRuiSdadtjK+oUAIJPYsm690I+lzJcQTmcdXisC6k/yKXw+OsTRrwhudXeHFAVlBZxS/YteaI7rjgJjPCkheRA5iBdgK75925K4g1w/jNOuuZwkGoxCQjUxmFGSc8EwaKbLrfuJlg715RSQuQT6v/xs+/rDDMvifgFSsxJGO+Sd9QIDAQAB";
+        // compute your public key and store it in base64EncodedPublicKey
+        mHelper = new IabHelper(this, base64EncodedPublicKey);
+        try {
+            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+                public void onIabSetupFinished(IabResult result) {
+                    if (!result.isSuccess()) {
+                        // Oh noes, there was a problem.
+                        //Toast.makeText(getSupportActionBar().getThemedContext(), "Problem setting up In-app Billing: " + result.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                    // Hooray, IAB is fully set up!
+                    //Toast.makeText(getSupportActionBar().getThemedContext(), "Ole'", Toast.LENGTH_SHORT);
+                }
+            });
+        } catch (NullPointerException e) {
+            //Toast.makeText(getSupportActionBar().getThemedContext(), "NullPointerException configuring In-app billing", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /* change the UI's language: Italiano <-> English */
@@ -118,6 +143,12 @@ public class MainActivity extends ActionBarActivity {
     public void onStop() {
         //showAdDialogIfNewAppVersion();
         super.onStop();
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        if (mHelper != null) mHelper.dispose();
+        mHelper = null;
     }
 
     /* show the ad for VaffAppPro if it is the first time running a new version of the VaffApp */

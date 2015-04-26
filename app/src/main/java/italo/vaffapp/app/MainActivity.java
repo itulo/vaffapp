@@ -200,7 +200,7 @@ public class MainActivity extends ActionBarActivity {
     void setCountBlockedInsultsInButton(){
         if ( added_count_insults == false ) {
             blocked_insults = SharedMethods.getAmountBlockedInsults(this);
-            Button b = (Button) findViewById(R.id.button_buy_insults);
+            Button b = (Button)findViewById(R.id.button_buy_insults);
             if (blocked_insults <= 0) {
                 hideButton(b);
             } else {
@@ -231,7 +231,7 @@ public class MainActivity extends ActionBarActivity {
         Inventory inv = null;
 
         mHelper = new IabHelper(this, base64EncodedPublicKey);
-        mHelper.enableDebugLogging(true);
+        //mHelper.enableDebugLogging(true);
         try {
             mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
                 public void onIabSetupFinished(IabResult result) {
@@ -247,7 +247,6 @@ public class MainActivity extends ActionBarActivity {
         }catch (NullPointerException e) { }
     }
 
-
     // Listener that's called when we finish querying the items and subscriptions we own
     IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
@@ -260,12 +259,23 @@ public class MainActivity extends ActionBarActivity {
                 complain("Failed to query inventory: " + result);
                 return;
             }
-            inventory.print_content();
-            System.out.println(inventory.hasPurchase(SKU_ALL_INSULTS_ID));
+            //inventory.print_content();
             inv = inventory;
             checkInventory();
         }
     };
+
+    void checkInventory(){
+        if ( inv.hasPurchase(SKU_ALL_INSULTS_ID) )
+            unblockAllInsults();
+    }
+
+    public void buyAllInsults(View v){
+        if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
+            // We will be notified of completion via mPurchaseFinishedListener
+            mHelper.launchPurchaseFlow(this, SKU_ALL_INSULTS_ID, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
+        }
+    }
 
     // Callback for when a purchase is finished
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
@@ -310,18 +320,6 @@ public class MainActivity extends ActionBarActivity {
                 complain("Error while consuming: " + result);
         }
     };
-
-    void checkInventory(){
-        if ( inv.hasPurchase(SKU_ALL_INSULTS_ID) )
-            unblockAllInsults();
-    }
-
-    public void buyAllInsults(View v){
-        if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
-            // We will be notified of completion via mPurchaseFinishedListener
-            mHelper.launchPurchaseFlow(this, SKU_ALL_INSULTS_ID, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
-        }
-    }
 
     void complain(String message) {
         AlertDialog.Builder bld = new AlertDialog.Builder(this);

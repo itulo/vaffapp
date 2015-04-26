@@ -30,6 +30,12 @@ public class Inventory {
 
     Inventory() { }
 
+    public void print_content(){
+        for (Map.Entry<String, SkuDetails> entry : mSkuMap.entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.toString());
+        }
+    }
+
     /** Returns the listing details for an in-app product. */
     public SkuDetails getSkuDetails(String sku) {
         return mSkuMap.get(sku);

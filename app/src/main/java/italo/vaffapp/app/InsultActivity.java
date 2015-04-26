@@ -90,7 +90,7 @@ public class InsultActivity extends ActionBarActivity {
     private static String link = "http://adf.ly/ssss4";
 
     private int shared_insults; // # of times a person shares an insult
-    private final int UNBLOCK_INSULTS = 30; // insults to unblock everytime sharing is done 3 times
+    private final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
     static final int SHARE_REQUEST = 1; // to be used in onActivityResult
 
     static ArrayList<String> notification_titles = null;

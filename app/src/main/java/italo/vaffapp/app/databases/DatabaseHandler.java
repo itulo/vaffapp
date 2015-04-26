@@ -229,7 +229,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<Insult> unblocked = new ArrayList<Insult>();
         String unblocked_ids = "";
 
-        String selectQuery = "SELECT rowid,insult,region FROM " + TABLE_INSULTS + " where visible = 0 limit " + insults;
+        String selectQuery = "SELECT rowid,insult,region FROM " + TABLE_INSULTS + " where visible = 0 order by insult limit " + insults;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -250,5 +250,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         return unblocked;
+    }
+
+    public int countBlockedInsults(){
+        int blocked = 0;
+
+        String selectQuery = "select count(*) FROM " + TABLE_INSULTS + " where visible = 0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);if (cursor.moveToFirst()) {
+            do {
+                blocked = cursor.getInt(0);
+            } while (cursor.moveToNext());
+        }
+
+        return blocked;
     }
 }

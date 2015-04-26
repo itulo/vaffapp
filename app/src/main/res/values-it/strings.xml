@@ -13,6 +13,7 @@
     <string name="button_insult_2">Condividi</string>
     <string name="insultati_button">Insultati</string>
     <string name="insultaci_button">Manda un insulto</string>
+    <string name="buy_insults">Sblocca tutti gli insulti</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
     <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
     <string name="fb_warning_title">Mamma, che coglioni</string>
@@ -28,6 +29,7 @@
     <string name="sicilia">Sicilia</string>
     <string name="sardegna">Sardegna</string>
     <string name="n_insulti">insulti caricati</string>
+    <string name="n_block_insults">in più</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">La VaffApp non ha trovato le app Facebook, Twitter, Whatsapp, Viber, o Hangout sul tuo dispositivo.\nSe vuoi condividere su altre app, scarica la VaffAppPro!</string>
     <string name="noapp_warning_title">App non trovate</string>
@@ -45,10 +47,12 @@
     <string name="insults">insulti</string>
     <string name="share_reward">Hai condiviso 3 insulti!</string>
     <string name="share_instructions_title">Istruzioni!</string>
-    <string name="share_instructions_msg">Ogni volta che condividi 3 insulti, ne sbloccherai 30 nuovi</string>
+    <string name="share_instructions_msg">Ogni volta che condividi 3 insulti, ne sbloccherai 10 nuovi</string>
     <!-- notification strings -->
     <string name="notif_title_1">Giornata storta?</string>
     <string name="notif_title_2">Insulta di più!</string>
     <string name="notif_title_3">Sfogati!</string>
+    <!-- in app billing -->
+    <string name="bought_insults_title">Sbloccati tutti gli insulti</string>
 
 </resources>

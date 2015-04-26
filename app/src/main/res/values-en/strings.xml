@@ -13,6 +13,7 @@
     <string name="button_insult_2">Share</string>
     <string name="insultati_button">Get insulted</string>
     <string name="insultaci_button">Insult us</string>
+    <string name="buy_insults">Sblock all insults</string>
     <string name="title_activity_send_insult">Send feedback or an insult</string>
     <string name="fb_warning_message">Facebook doesn\'t allow any app to edit one\'s status. Fortunately the insult was copied in the clipboard, you only need to paste it</string>
     <string name="fb_warning_title">Uff!</string>
@@ -28,6 +29,7 @@
     <string name="sicilia">Sicily</string>
     <string name="sardegna">Sardinia</string>
     <string name="n_insulti">insults loaded</string>
+    <string name="n_block_insults">more</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">VaffApp looks for Facebook, Twitter, Whatsapp, Viber, or Hangout apps in your device\nIf you want to share on other apps download the VaffApp Pro!</string>
     <string name="noapp_warning_title">Apps not found</string>
@@ -45,10 +47,12 @@
     <string name="insults">insults</string>
     <string name="share_reward">You shared 3 insults!</string>
     <string name="share_instructions_title">Instructions!</string>
-    <string name="share_instructions_msg">Anytime you share insults 3 times, you will unblock 30 new insults</string>
+    <string name="share_instructions_msg">Whenever you share insults 3 times, you will unblock 10 new insults</string>
     <!-- notification strings -->
     <string name="notif_title_1">Having a bad day?</string>
     <string name="notif_title_2">Insult more!</string>
     <string name="notif_title_3">Get it out!</string>
+    <!-- in app billing -->
+    <string name="bought_insults_title">Unblocked all insults</string>
 
 </resources>

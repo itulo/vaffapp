@@ -25,8 +25,8 @@ import android.widget.Button;
 
 import com.flurry.android.FlurryAgent;
 
-import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
+import italo.vaffapp.app.util.IabException;
 import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
 
@@ -34,15 +34,23 @@ import java.util.Calendar;
 
 import italo.vaffapp.app.util.IabHelper;
 import italo.vaffapp.app.util.IabResult;
+import italo.vaffapp.app.util.Inventory;
+import italo.vaffapp.app.util.Purchase;
 import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private final int UNBLOCK_INSULTS = 10; // insults to unblock when returning user
+    private final int UNBLOCK_INSULTS = 3; // insults to unblock when returning user
     private int pref_language;
     // in app billing
-    IabHelper mHelper;
+    private IabHelper mHelper;
+    static final int RC_REQUEST = 10001;    // (arbitrary) request code for the purchase flow
+    private String SKU_ALL_INSULTS_ID = "0";
+    private int blocked_insults = 0;
+    Inventory inv;
+    private boolean added_count_insults = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,25 +67,6 @@ public class MainActivity extends ActionBarActivity {
         new SimpleEula(this).show();
         setLanguage();
         RewardIfReturn();
-
-        /* in app billing */
-        String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuVoijs7LeeIM18nmYa2gX6iqFGRtzbPJxlsqVJFYjwceyK729qQcNRW0lZQKlvNSO2B5leFqwb86nB3LT57COBjpDvoKUHYDAKdM7RBqCxI2WyD47R+dHROokVwjHJlmo/H3gDCkdZF2idV4HAInWYUC8WwVgG5xv6jqVRp01hRuiSdadtjK+oUAIJPYsm690I+lzJcQTmcdXisC6k/yKXw+OsTRrwhudXeHFAVlBZxS/YteaI7rjgJjPCkheRA5iBdgK75925K4g1w/jNOuuZwkGoxCQjUxmFGSc8EwaKbLrfuJlg715RSQuQT6v/xs+/rDDMvifgFSsxJGO+Sd9QIDAQAB";
-        // compute your public key and store it in base64EncodedPublicKey
-        mHelper = new IabHelper(this, base64EncodedPublicKey);
-        try {
-            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-                public void onIabSetupFinished(IabResult result) {
-                    if (!result.isSuccess()) {
-                        // Oh noes, there was a problem.
-                        //Toast.makeText(getSupportActionBar().getThemedContext(), "Problem setting up In-app Billing: " + result.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                    // Hooray, IAB is fully set up!
-                    //Toast.makeText(getSupportActionBar().getThemedContext(), "Ole'", Toast.LENGTH_SHORT);
-                }
-            });
-        } catch (NullPointerException e) {
-            //Toast.makeText(getSupportActionBar().getThemedContext(), "NullPointerException configuring In-app billing", Toast.LENGTH_SHORT).show();
-        }
     }
 
     /* change the UI's language: Italiano <-> English */
@@ -138,16 +127,22 @@ public class MainActivity extends ActionBarActivity {
             Button button_insultaci = (Button) findViewById(R.id.button_insultaci);
             button_insultaci.setVisibility(View.GONE);
         }
+
+        setCountBlockedInsultsInButton();
+        checkInAppBilling();
     }
 
     public void onStop() {
-        //showAdDialogIfNewAppVersion();
+        showAdDialogIfNewAppVersion();
         super.onStop();
     }
 
     public void onDestroy(){
         super.onDestroy();
-        if (mHelper != null) mHelper.dispose();
+        if (mHelper != null) {
+            try { mHelper.dispose();
+            } catch (IllegalArgumentException e) {} // 'Service not registered' - happens in emulator
+        }
         mHelper = null;
     }
 
@@ -202,6 +197,153 @@ public class MainActivity extends ActionBarActivity {
         SharedPrefsMethods.putInt("last_day_use", today);
     }
 
+    void setCountBlockedInsultsInButton(){
+        if ( added_count_insults == false ) {
+            blocked_insults = SharedMethods.getAmountBlockedInsults(this);
+            Button b = (Button) findViewById(R.id.button_buy_insults);
+            if (blocked_insults <= 0) {
+                hideButton(b);
+            } else {
+                String title = b.getText().toString();
+                title = title + "\n(" + blocked_insults + " " + getString(R.string.n_block_insults) + ")";
+                b.setText(title);
+            }
+            added_count_insults = true;
+        }
+    }
+
+    void hideButton(Button b){
+        b.setVisibility(View.GONE);
+    }
+
+    void unblockAllInsults(){
+        if ( blocked_insults > 0) {
+            SharedMethods.unblockInsults(this, getString(R.string.bought_insults_title), blocked_insults);
+            hideButton((Button)findViewById(R.id.button_buy_insults));
+        }
+    }
+
+
+    /// IN APP BILLING  METHODS ///
+    private void checkInAppBilling(){
+        /* in app billing */
+        String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuVoijs7LeeIM18nmYa2gX6iqFGRtzbPJxlsqVJFYjwceyK729qQcNRW0lZQKlvNSO2B5leFqwb86nB3LT57COBjpDvoKUHYDAKdM7RBqCxI2WyD47R+dHROokVwjHJlmo/H3gDCkdZF2idV4HAInWYUC8WwVgG5xv6jqVRp01hRuiSdadtjK+oUAIJPYsm690I+lzJcQTmcdXisC6k/yKXw+OsTRrwhudXeHFAVlBZxS/YteaI7rjgJjPCkheRA5iBdgK75925K4g1w/jNOuuZwkGoxCQjUxmFGSc8EwaKbLrfuJlg715RSQuQT6v/xs+/rDDMvifgFSsxJGO+Sd9QIDAQAB";
+        Inventory inv = null;
+
+        mHelper = new IabHelper(this, base64EncodedPublicKey);
+        mHelper.enableDebugLogging(true);
+        try {
+            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+                public void onIabSetupFinished(IabResult result) {
+                    if (!result.isSuccess()) {
+                        // Oh noes, there was a problem.
+                        complain("Problem setting up in-app billing: " + result);
+                        return;
+                    }
+                    mHelper.queryInventoryAsync(mGotInventoryListener);
+                }
+            });
+        // Emulator throws it
+        }catch (NullPointerException e) { }
+    }
+
+
+    // Listener that's called when we finish querying the items and subscriptions we own
+    IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
+        public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+
+            // Have we been disposed of in the meantime? If so, quit.
+            if (mHelper == null) return;
+
+            // Is it a failure?
+            if (result.isFailure()) {
+                complain("Failed to query inventory: " + result);
+                return;
+            }
+            inventory.print_content();
+            System.out.println(inventory.hasPurchase(SKU_ALL_INSULTS_ID));
+            inv = inventory;
+            checkInventory();
+        }
+    };
+
+    // Callback for when a purchase is finished
+    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+        public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+
+            // if we were disposed of in the meantime, quit.
+            if (mHelper == null) return;
+
+            if (result.isFailure()) {
+                complain("Error purchasing: " + result);
+                return;
+            }
+            /*if (!verifyDeveloperPayload(purchase)) {
+                complain("Error purchasing. Authenticity verification failed.");
+                setWaitScreen(false);
+                return;
+            }*/
+
+            if (purchase.getSku().equals(SKU_ALL_INSULTS_ID)) {
+                // bought
+                // no consumption for this - purchase is forever
+                // mHelper.consumeAsync(purchase, mConsumeFinishedListener);
+                unblockAllInsults();
+            }
+        }
+    };
+
+    // Called when consumption is complete
+    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
+        public void onConsumeFinished(Purchase purchase, IabResult result) {
+
+            // if we were disposed of in the meantime, quit.
+            if (mHelper == null) return;
+
+            // We know this is the "gas" sku because it's the only one we consume,
+            // so we don't check which sku was consumed. If you have more than one
+            // sku, you probably should check...
+            if (!result.isSuccess()) {
+                unblockAllInsults();
+            }
+            else
+                complain("Error while consuming: " + result);
+        }
+    };
+
+    void checkInventory(){
+        if ( inv.hasPurchase(SKU_ALL_INSULTS_ID) )
+            unblockAllInsults();
+    }
+
+    public void buyAllInsults(View v){
+        if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
+            // We will be notified of completion via mPurchaseFinishedListener
+            mHelper.launchPurchaseFlow(this, SKU_ALL_INSULTS_ID, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
+        }
+    }
+
+    void complain(String message) {
+        AlertDialog.Builder bld = new AlertDialog.Builder(this);
+        bld.setMessage(message);
+        bld.setNeutralButton("OK", null);
+        bld.create().show();
+    }
+
+    /// IN APP BILLING METHODS END ///
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (mHelper == null) return;
+
+        // Pass on the activity result to the helper for handling
+        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+            // not handled, so handle it ourselves (here's where you'd
+            // perform any handling of activity results not related to in-app
+            // billing...
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

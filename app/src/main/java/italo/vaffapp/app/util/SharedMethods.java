@@ -96,15 +96,22 @@ public class SharedMethods {
         }
     }
 
+    public static int getAmountBlockedInsults(Activity a){
+        int blocked = 0;
+
+        DatabaseHandler db = new DatabaseHandler(a);
+        db.openDataBase();
+        blocked = db.countBlockedInsults();
+        db.close();
+
+        return blocked;
+    }
+
     public static void showDialog(Activity a, String title, String text){
         AlertDialog.Builder builder = new AlertDialog.Builder(a);
         builder.setMessage(text)
                 .setTitle(title)
-                .setPositiveButton(a.getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //do nothing
-                    }
-                });
+                .setNeutralButton(a.getString(R.string.ok), null);
         builder.create().show();
     }
 }

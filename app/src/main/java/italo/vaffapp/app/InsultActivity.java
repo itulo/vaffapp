@@ -88,6 +88,7 @@ public class InsultActivity extends ActionBarActivity {
     private int pref_language;
 
     private static String link = "http://adf.ly/ssss4";
+    private static String vf_hashtag = " #VaffApp"; // one space before on purpose
 
     private int shared_insults; // # of times a person shares an insult
     private final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
@@ -389,7 +390,7 @@ public class InsultActivity extends ActionBarActivity {
         } else {
             ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
             clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
-                    insult.getText()+" #vaffapp"));
+                    insult.getText()+vf_hashtag));
         }
 
         // Create Dialog to warn user
@@ -509,12 +510,12 @@ public class InsultActivity extends ActionBarActivity {
 
                     Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                     targetedShareIntent.setType("text/plain");
-                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + " #vaffapp\n\n--" + link);
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag + "\n\n--" + link);
                     if (choice.equals("Twitter")) {
                         flurry_stats.put("Share on", "Twitter");
                         flurry_stats.put("Insult", insult.getText().toString());
                         // can't share a link on twitter
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + " #vaffapp");
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag);
                         targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }

@@ -13,7 +13,7 @@
     <string name="button_insult_2">Share</string>
     <string name="insultati_button">Get insulted</string>
     <string name="insultaci_button">Insult us</string>
-    <string name="buy_insults">Sblock all insults</string>
+    <string name="buy_insults">Unlock all insults</string>
     <string name="title_activity_send_insult">Send feedback or an insult</string>
     <string name="fb_warning_message">Facebook doesn\'t allow any app to edit one\'s status. Fortunately the insult was copied in the clipboard, you only need to paste it</string>
     <string name="fb_warning_title">Uff!</string>
@@ -40,19 +40,19 @@
     <string name="ad_title">Did you like the VaffApp?</string>
     <string name="ad_message">Download the VaffApp Pro\nIt has more insults, no commercial and sharing on more apps!</string>
     <string name="ad_ok_button">Yes, I want to support you!</string>
-    <string name="ad_no_button">Nah, I am stingy/mom and daddy won\'t give me the money</string>
+    <string name="ad_no_button">Nah, I am stingy</string>
     <!-- reward messages -->
     <string name="comeback_reward_title">Thanks for coming back!</string>
-    <string name="unblocked">Unblocked</string>
+    <string name="unblocked">Unlocked</string>
     <string name="insults">insults</string>
     <string name="share_reward">You shared 3 insults!</string>
     <string name="share_instructions_title">Instructions!</string>
-    <string name="share_instructions_msg">Whenever you share insults 3 times, you will unblock 10 new insults</string>
+    <string name="share_instructions_msg">Whenever you share 3 insults, you will unlock 10 new insults</string>
     <!-- notification strings -->
     <string name="notif_title_1">Having a bad day?</string>
     <string name="notif_title_2">Insult more!</string>
     <string name="notif_title_3">Get it out!</string>
     <!-- in app billing -->
-    <string name="bought_insults_title">Unblocked all insults</string>
+    <string name="bought_insults_title">Unlocked all insults</string>
 
 </resources>

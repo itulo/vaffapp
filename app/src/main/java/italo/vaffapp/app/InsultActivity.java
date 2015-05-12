@@ -421,10 +421,12 @@ public class InsultActivity extends ActionBarActivity {
 
         for(final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
+            System.out.println(packageName);
             // facebook.katana is FB app, facebook.orca is the messenger
+            // From May 2015 facebook.orca/messenger does not register itself as share intent target
             if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
-                    || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
-                    || packageName.contains("google.android.talk") || packageName.contains("com.viber") ){
+                    || packageName.contains("com.whatsapp")  || packageName.contains("google.android.talk")
+                    || packageName.contains("com.viber") || packageName.contains("com.android.mms") ){
                 diff_app.add(app);
             }
         }
@@ -451,10 +453,6 @@ public class InsultActivity extends ActionBarActivity {
                 app = new App("Twitter", package_name, icon);
                 apps[i] = app;
             }
-            if (package_name.contains("com.facebook.orca")) {
-                app = new App("Messenger", package_name, icon);
-                apps[i] = app;
-            }
             if (package_name.contains("com.whatsapp")) {
                 app = new App("WhatsApp", package_name, icon);
                 apps[i] = app;
@@ -465,6 +463,10 @@ public class InsultActivity extends ActionBarActivity {
             }
             if (package_name.contains("com.viber")) {
                 app = new App("Viber", package_name, icon);
+                apps[i] = app;
+            }
+            if (package_name.contains("com.android.mms")) {
+                app = new App("SMS/Text", package_name, icon);
                 apps[i] = app;
             }
         }

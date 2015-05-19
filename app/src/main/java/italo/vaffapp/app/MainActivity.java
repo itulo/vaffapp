@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.content.Intent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 import android.content.res.Configuration;
@@ -31,12 +32,15 @@ import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
 
 import java.util.Calendar;
+import java.util.Map;
 
 import italo.vaffapp.app.util.IabHelper;
 import italo.vaffapp.app.util.IabResult;
 import italo.vaffapp.app.util.Inventory;
 import italo.vaffapp.app.util.Purchase;
 import android.widget.Toast;
+
+import com.flurry.android.FlurryAgent;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -121,6 +125,8 @@ public class MainActivity extends ActionBarActivity {
     public void onStart() {
         super.onStart();
 
+        FlurryAgent.onStartSession(this, getString(R.string.flurry_id));
+
         // hide 'Insultaci' button if english UI
         // disable button, thank user
         if ( pref_language == LanguageOptions.ENGLISH ) {
@@ -135,6 +141,7 @@ public class MainActivity extends ActionBarActivity {
     public void onStop() {
         showAdDialogIfNewAppVersion();
         super.onStop();
+        FlurryAgent.onEndSession(this);
     }
 
     public void onDestroy(){
@@ -223,7 +230,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
     /// IN APP BILLING  METHODS ///
     private void checkInAppBilling(){
         /* in app billing */
@@ -271,6 +277,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void buyAllInsults(View v){
+        Map<String, String> flurry_stats = new HashMap<String, String>();
+        flurry_stats.put("Unblock more insults", "intention to unblock");
+        FlurryAgent.logEvent("Unblock", flurry_stats);
+
         if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
             // We will be notified of completion via mPurchaseFinishedListener
             mHelper.launchPurchaseFlow(this, SKU_ALL_INSULTS_ID, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");

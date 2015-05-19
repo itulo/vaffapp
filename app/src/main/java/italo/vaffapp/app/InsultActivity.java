@@ -87,7 +87,8 @@ public class InsultActivity extends ActionBarActivity {
 
     private int pref_language;
 
-    private static String link = "http://adf.ly/ssss4";
+    private static String hid_link = "http://adf.ly/ssss4";
+    private static String vaffapp_link = "https://play.google.com/store/apps/details?id=italo.vaffapp.app";
     private static String vf_hashtag = " #VaffApp"; // one space before on purpose
 
     private int shared_insults; // # of times a person shares an insult
@@ -426,7 +427,8 @@ public class InsultActivity extends ActionBarActivity {
             // From May 2015 facebook.orca/messenger does not register itself as share intent target
             if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
                     || packageName.contains("com.whatsapp")  || packageName.contains("google.android.talk")
-                    || packageName.contains("com.viber") || packageName.contains("com.android.mms") ){
+                    || packageName.contains("com.viber") || packageName.contains("com.android.mms")
+                    || packageName.contains("com.facebook.orca") ){
                 diff_app.add(app);
             }
         }
@@ -434,7 +436,7 @@ public class InsultActivity extends ActionBarActivity {
         return diff_app;
     }
 
-    // 1. show a choice dialog to choose between Twitter, Facebook, Messenger, WhatsApp, Hangout and Viber
+    // 1. show a choice dialog to choose between Twitter, Facebook, Messenger, WhatsApp, Hangout, Viber and SMS/Text
     public void preChoiceMenu(ArrayList<ResolveInfo> diff_app){
         String package_name;
         Drawable icon;
@@ -447,6 +449,10 @@ public class InsultActivity extends ActionBarActivity {
             icon = diff_app.get(i).loadIcon(pm);
             if (package_name.contains("com.facebook.katana")) {
                 app = new App("Facebook", package_name, icon);
+                apps[i] = app;
+            }
+            if (package_name.contains("com.facebook.orca")) {
+                app = new App("Messenger", package_name, icon);
                 apps[i] = app;
             }
             if (package_name.contains("com.twitter.android")) {
@@ -512,7 +518,7 @@ public class InsultActivity extends ActionBarActivity {
 
                     Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                     targetedShareIntent.setType("text/plain");
-                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag + "\n\n--" + link);
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag + "\n\n--" + hid_link);
                     if (choice.equals("Twitter")) {
                         flurry_stats.put("Share on", "Twitter");
                         flurry_stats.put("Insult", insult.getText().toString());
@@ -524,7 +530,9 @@ public class InsultActivity extends ActionBarActivity {
                     if (choice.equals("Messenger")) {
                         flurry_stats.put("Share on", "Messenger");
                         flurry_stats.put("Insult", insult.getText().toString());
-
+                        // sharing a link on messenger shows also a preview of the website
+                        // so it's better to use the original link
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag + "\n\n--" + vaffapp_link);
                         targetedShareIntent.setPackage(apps[which].getPackageName());
                         startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                     }
@@ -544,6 +552,13 @@ public class InsultActivity extends ActionBarActivity {
                     }
                     if (choice.equals("Viber")) {
                         flurry_stats.put("Share on", "Viber");
+                        flurry_stats.put("Insult", insult.getText().toString());
+
+                        targetedShareIntent.setPackage(apps[which].getPackageName());
+                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
+                    }
+                    if (choice.equals("SMS/Text")) {
+                        flurry_stats.put("Share on", "SMS");
                         flurry_stats.put("Insult", insult.getText().toString());
 
                         targetedShareIntent.setPackage(apps[which].getPackageName());

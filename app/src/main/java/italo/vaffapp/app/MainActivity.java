@@ -278,7 +278,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void buyAllInsults(View v){
         Map<String, String> flurry_stats = new HashMap<String, String>();
-        flurry_stats.put("Unblock more insults", "intention to unblock");
+        flurry_stats.put("Unblock", "click on 'Unblock insults'");
         FlurryAgent.logEvent("Unblock", flurry_stats);
 
         if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {

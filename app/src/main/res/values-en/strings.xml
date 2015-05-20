@@ -54,5 +54,8 @@
     <string name="notif_title_3">Get it out!</string>
     <!-- in app billing -->
     <string name="bought_insults_title">Unlocked all insults</string>
+    <!-- master detail flow -->
+    <string name="tutti_insulti_button">Tutti gli insulti</string>
+    <string name="preferences_file">preferences_file</string>
 
 </resources>

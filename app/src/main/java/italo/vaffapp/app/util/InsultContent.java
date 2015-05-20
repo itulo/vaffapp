@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import italo.vaffapp.prop.app.databases.Insult;
+import italo.vaffapp.app.databases.Insult;
 
 /**
  * Helper class for providing sample content for user interfaces created by

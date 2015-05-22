@@ -2,4 +2,4 @@
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/insult_detail"
     style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
     android:layout_height="match_parent" android:padding="16dp" android:textIsSelectable="true"
-    tools:context="italo.vaffapp.prop.app.InsultDetailFragment" />
+    tools:context="italo.vaffapp.app.InsultDetailFragment" />

@@ -404,7 +404,7 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    /* Go to SendInsultActivity */
+    /* Go to InsultDetailActivity */
     public void startInsultDetailActivity(View view) {
         Intent intent = new Intent(this, InsultListActivity.class);
         startActivity(intent);

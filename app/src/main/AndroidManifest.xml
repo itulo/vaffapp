@@ -59,6 +59,27 @@
                 android:value="italo.vaffapp.app.MainActivity" />
         </activity>
 
+        <activity
+            android:name="italo.vaffapp.app.InsultListActivity"
+            android:label="@string/title_insult_list"
+            android:configChanges="orientation"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="italo.vaffapp.app.MainActivity" />
+        </activity>
+        <activity
+            android:name="italo.vaffapp.app.InsultDetailActivity"
+            android:label="@string/title_insult_detail"
+            android:configChanges="orientation"
+            android:parentActivityName=".InsultListActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="italo.vaffapp.app.InsultListActivity" />
+        </activity>
+
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 

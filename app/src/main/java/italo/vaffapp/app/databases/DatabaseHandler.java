@@ -165,7 +165,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public ArrayList<Insult> getAllInsults() {
         ArrayList<Insult> insultList = new ArrayList<Insult>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_INSULTS + " where visible = 1";
+        //String selectQuery = "SELECT * FROM " + TABLE_INSULTS + " where visible = 1";
+        //String selectQuery = "SELECT rowid,* FROM " + TABLE_INSULTS + " order by region, LOWER(insult)";
+        String selectQuery = "SELECT rowid,* FROM " + TABLE_INSULTS + " where visible = 1 order by region, LOWER(insult)";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -173,11 +175,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Insult insult = new Insult();
-                insult.setInsult(cursor.getString(0)); // 0 is insult
-                insult.setDesc(cursor.getString(1)); // 1 is desc
-                insult.setEnglish(cursor.getString(2)); //2 is english
-                // 3 is visible - not needed
-                insult.setRegionId(cursor.getInt(4)); // 4 is region id
+                insult.setId(cursor.getInt(0)); // 0 is rowid
+                insult.setInsult(cursor.getString(1)); // 1 is insult
+                insult.setDesc(cursor.getString(2)); // 2 is desc
+                insult.setEnglish(cursor.getString(3)); //3 is english
+                // 4 is visible - not needed
+                insult.setRegionId(cursor.getInt(5)); // 5 is region id
                 insultList.add(insult);
             } while (cursor.moveToNext());
         }

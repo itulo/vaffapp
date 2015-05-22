@@ -65,8 +65,8 @@ import android.graphics.Color;
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
-    private UiLifecycleHelper uiHelper;
-    private Session.StatusCallback callback = null;
+    //private UiLifecycleHelper uiHelper;
+    //private Session.StatusCallback callback = null;
     private TextView insult;
     private TextView insult_desc;
     private TextView insult_eng;
@@ -107,11 +107,13 @@ public class InsultActivity extends ActionBarActivity {
                 .commit();
         }
 
+        SharedMethods.onCreate(this, savedInstanceState);
+
         // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
         // 1. configure the UiLifecycleHelper in onCreate
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
+        //uiHelper = new UiLifecycleHelper(this, callback);
+        //uiHelper.onCreate(savedInstanceState);
 
         // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
         vunglePub.init(this, "italo.vaffapp.app");
@@ -129,7 +131,8 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
+        //uiHelper.onActivityResult(requestCode, resultCode, data);
+        SharedMethods.onActivityResult(requestCode, resultCode, data);
 
         // when a user shares and then the program returns to the VaffApp
         if (requestCode == SHARE_REQUEST) {
@@ -144,7 +147,8 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        uiHelper.onResume();
+        SharedMethods.onResume();
+        //uiHelper.onResume();
         vunglePub.onResume();
         setRegionNameInTitle();
         AppEventsLogger.activateApp(this);  // to track in FB
@@ -154,15 +158,17 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        uiHelper.onSaveInstanceState(outState);
+        //uiHelper.onSaveInstanceState(outState);
+        SharedMethods.onSaveInstanceState(outState);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        uiHelper.onPause();
+        SharedMethods.onPause();
+        //uiHelper.onPause();
         vunglePub.onPause();
-        speaker.onPause();
+        //speaker.onPause();
         scheduleNotification();
         AppEventsLogger.deactivateApp(this);    // to track in FB
     }
@@ -170,7 +176,8 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        uiHelper.onDestroy();
+        SharedMethods.onDestroy();
+        //uiHelper.onDestroy();
     }
 
     public void onStop(){
@@ -188,9 +195,9 @@ public class InsultActivity extends ActionBarActivity {
 
     public void onStart(){
         super.onStart();
-
+        SharedMethods.onStart(getApplicationContext());
         //initialize TextToSpeech objects in Speaker
-        speaker = new Speaker(getApplicationContext());
+        //speaker = new Speaker(getApplicationContext());
 
         FlurryAgent.onStartSession(this, getString(R.string.flurry_id));
 
@@ -202,7 +209,8 @@ public class InsultActivity extends ActionBarActivity {
             setTextviews();
         }
         if ( pref_language == LanguageOptions.ITALIANO )
-            hideEngTextView();
+            SharedMethods.hideEngTextView(insult_eng);
+            //hideEngTextView();
     }
 
     // if the UI is in italian, don't show the TextView for the english translation of an insult
@@ -382,7 +390,7 @@ public class InsultActivity extends ActionBarActivity {
             .setRequestCode(SHARE_REQUEST)  // request code to pass to onActivityResult when it returns to VaffApp
             //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
             .build();
-        uiHelper.trackPendingDialogCall(shareDialog.present());
+        //uiHelper.trackPendingDialogCall(shareDialog.present());
     }
 
     public void insultFriendOnFB() {

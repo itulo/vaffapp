@@ -57,5 +57,7 @@
     <!-- master detail flow -->
     <string name="tutti_insulti_button">Tutti gli insulti</string>
     <string name="preferences_file">preferences_file</string>
+    <string name="title_insult_list">Tutti gli Insulti</string>
+    <string name="title_insult_detail">Insulto</string>
 
 </resources>

@@ -60,6 +60,7 @@
         android:paddingTop="10dp" >
 
     <Button
+        android:id="@+id/insultati_ancora_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_insult_1"
@@ -68,11 +69,12 @@
         android:onClick="showInsult"
         android:background="@drawable/button_background" />
     <TextView
+        android:id="@+id/fake_textview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.1" />
     <Button
-        android:id="@+id/button_copy"
+        android:id="@+id/condividi_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_insult_2"

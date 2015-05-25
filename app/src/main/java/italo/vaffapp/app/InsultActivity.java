@@ -4,10 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -17,12 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.content.Intent;
 
-import italo.vaffapp.app.databases.DatabaseHandler;
 import italo.vaffapp.app.databases.Insult;
 import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
@@ -32,18 +27,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import com.facebook.*;
-import com.facebook.widget.*;
 import com.facebook.AppEventsLogger;
 import android.content.ClipboardManager;
 import android.content.ClipData;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-
-import java.util.List;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.os.Parcelable;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
@@ -57,16 +43,12 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.flurry.android.FlurryAgent;
-
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
 
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
-    //private UiLifecycleHelper uiHelper;
-    //private Session.StatusCallback callback = null;
     private TextView insult;
     private TextView insult_desc;
     private TextView insult_eng;
@@ -77,19 +59,12 @@ public class InsultActivity extends ActionBarActivity {
     private static byte[] occurrences;
     private static short generated_n = 0;
 
-    private Speaker speaker;
-
     final VunglePub vunglePub = VunglePub.getInstance();
     private short time_for_ad_1 = 30;
 
-    private boolean SEND_STATS_FLURRY = true;
     private static short pronunciated_n = 0;
 
     private int pref_language;
-
-    private static String hid_link = "http://adf.ly/ssss4";
-    private static String vaffapp_link = "https://play.google.com/store/apps/details?id=italo.vaffapp.app";
-    private static String vf_hashtag = " #VaffApp"; // one space before on purpose
 
     private int shared_insults; // # of times a person shares an insult
     private final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
@@ -109,12 +84,6 @@ public class InsultActivity extends ActionBarActivity {
 
         SharedMethods.onCreate(this, savedInstanceState);
 
-        // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
-        // Includes callback in case FB app is not installed!
-        // 1. configure the UiLifecycleHelper in onCreate
-        //uiHelper = new UiLifecycleHelper(this, callback);
-        //uiHelper.onCreate(savedInstanceState);
-
         // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
         vunglePub.init(this, "italo.vaffapp.app");
 
@@ -131,12 +100,11 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //uiHelper.onActivityResult(requestCode, resultCode, data);
         SharedMethods.onActivityResult(requestCode, resultCode, data);
 
         // when a user shares and then the program returns to the VaffApp
         if (requestCode == SHARE_REQUEST) {
-            // I have to comment the following line, it works only for Twitter
+            // I have to comment the instruction below, it works only for Twitter
             // all the others app return always RESULT_OK -1 (Facebook) or RESULT_CANCELLED 0
             //if (resultCode == RESULT_OK) {
             increaseSharedInsult();
@@ -148,7 +116,6 @@ public class InsultActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         SharedMethods.onResume();
-        //uiHelper.onResume();
         vunglePub.onResume();
         setRegionNameInTitle();
         AppEventsLogger.activateApp(this);  // to track in FB
@@ -158,7 +125,6 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //uiHelper.onSaveInstanceState(outState);
         SharedMethods.onSaveInstanceState(outState);
     }
 
@@ -166,9 +132,7 @@ public class InsultActivity extends ActionBarActivity {
     public void onPause() {
         super.onPause();
         SharedMethods.onPause();
-        //uiHelper.onPause();
         vunglePub.onPause();
-        //speaker.onPause();
         scheduleNotification();
         AppEventsLogger.deactivateApp(this);    // to track in FB
     }
@@ -177,7 +141,6 @@ public class InsultActivity extends ActionBarActivity {
     public void onDestroy() {
         super.onDestroy();
         SharedMethods.onDestroy();
-        //uiHelper.onDestroy();
     }
 
     public void onStop(){
@@ -187,19 +150,15 @@ public class InsultActivity extends ActionBarActivity {
         flurry_stats.put("Amount Insults generated", String.valueOf(generated_n));
         flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
         // send stats if number of generated insults is >= 10
-        if ( SEND_STATS_FLURRY && generated_n >= 10 )
-            FlurryAgent.logEvent("onStop()", flurry_stats);
+        if ( generated_n >= 10 )
+            SharedMethods.sendFlurry("onStop()", flurry_stats);
 
-        FlurryAgent.onEndSession(this);
+        SharedMethods.onStop(this);
     }
 
     public void onStart(){
         super.onStart();
         SharedMethods.onStart(getApplicationContext());
-        //initialize TextToSpeech objects in Speaker
-        //speaker = new Speaker(getApplicationContext());
-
-        FlurryAgent.onStartSession(this, getString(R.string.flurry_id));
 
         if ( insults == null ) {
             nextInsult();
@@ -210,7 +169,6 @@ public class InsultActivity extends ActionBarActivity {
         }
         if ( pref_language == LanguageOptions.ITALIANO )
             SharedMethods.hideEngTextView(insult_eng);
-            //hideEngTextView();
     }
 
     // if the UI is in italian, don't show the TextView for the english translation of an insult
@@ -254,7 +212,7 @@ public class InsultActivity extends ActionBarActivity {
 
     public void speakInsult(View v){
         pronunciated_n++;
-        speaker.speakInsult(insult.getText().toString());
+        SharedMethods.speakInsult(insult.getText().toString());
 
         /* This is a trick: copy the insult with description, translation and region)
            to keep sharing on Facebook as before */
@@ -269,12 +227,12 @@ public class InsultActivity extends ActionBarActivity {
 
     public void speakDesc(View v){
         pronunciated_n++;
-        speaker.speakInsult(insult_desc.getText().toString());
+        SharedMethods.speakDesc(insult_desc.getText().toString());
     }
 
     public void speakEng(View v){
         pronunciated_n++;
-        speaker.speakEnglish(insult_eng.getText().toString());
+        SharedMethods.speakEnglish(insult_eng.getText().toString());
     }
 
     /* fade away text, get new insult, fade in text*/
@@ -376,214 +334,15 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void loadInsults(){
-        DatabaseHandler db = new DatabaseHandler(this);
-        db.openDataBase();
-        insults = db.getAllInsults();
-        db.close();
-
+        insults = SharedMethods.loadInsults(this);
         occurrences = new byte[insults.size()];
-    }
-
-    public void postToFB() {
-        FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
-            .setApplicationName(getString(R.string.app_name))
-            .setRequestCode(SHARE_REQUEST)  // request code to pass to onActivityResult when it returns to VaffApp
-            //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
-            .build();
-        //uiHelper.trackPendingDialogCall(shareDialog.present());
-    }
-
-    public void insultFriendOnFB() {
-        if (insult == null ) {
-            return;
-        } else {
-            ClipboardManager clipb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            clipb.setPrimaryClip(ClipData.newPlainText(getString(R.string.title_activity_insulto),
-                    insult.getText()+vf_hashtag));
-        }
-
-        // Create Dialog to warn user
-        //http://developer.android.com/guide/topics/ui/dialogs.html
-        //http://developmentality.wordpress.com/2009/10/31/android-dialog-box-tutorial/
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getString(R.string.fb_warning_message))
-                .setTitle(getString(R.string.fb_warning_title))
-                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        postToFB();
-                    }
-                });
-        // Create the AlertDialog object and return it
-        builder.create().show();
-    }
-
-    // check for presence of Facebook, Messenger, Twitter, Viber and WhatsApp apps (these will be treated differently)
-    public ArrayList<ResolveInfo> checkPresenceOfApps(View view){
-        ArrayList<ResolveInfo> diff_app;
-
-        diff_app = new ArrayList<ResolveInfo>();
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-
-        sharingIntent.setType("text/plain");
-        PackageManager pm = view.getContext().getPackageManager();
-        List<ResolveInfo> activityList = pm.queryIntentActivities(sharingIntent, 0);
-
-        for(final ResolveInfo app : activityList) {
-            String packageName = app.activityInfo.packageName;
-            System.out.println(packageName);
-            // facebook.katana is FB app, facebook.orca is the messenger
-            // From May 2015 facebook.orca/messenger does not register itself as share intent target
-            if ( packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
-                    || packageName.contains("com.whatsapp")  || packageName.contains("google.android.talk")
-                    || packageName.contains("com.viber") || packageName.contains("com.android.mms")
-                    || packageName.contains("com.facebook.orca") ){
-                diff_app.add(app);
-            }
-        }
-
-        return diff_app;
-    }
-
-    // 1. show a choice dialog to choose between Twitter, Facebook, Messenger, WhatsApp, Hangout, Viber and SMS/Text
-    public void preChoiceMenu(ArrayList<ResolveInfo> diff_app){
-        String package_name;
-        Drawable icon;
-        App app;
-        final App[] apps = new App[diff_app.size()];
-        PackageManager pm = this.getPackageManager();
-
-        for (int i=0; i<diff_app.size();i++) {
-            package_name = diff_app.get(i).activityInfo.packageName;
-            icon = diff_app.get(i).loadIcon(pm);
-            if (package_name.contains("com.facebook.katana")) {
-                app = new App("Facebook", package_name, icon);
-                apps[i] = app;
-            }
-            if (package_name.contains("com.facebook.orca")) {
-                app = new App("Messenger", package_name, icon);
-                apps[i] = app;
-            }
-            if (package_name.contains("com.twitter.android")) {
-                app = new App("Twitter", package_name, icon);
-                apps[i] = app;
-            }
-            if (package_name.contains("com.whatsapp")) {
-                app = new App("WhatsApp", package_name, icon);
-                apps[i] = app;
-            }
-            if (package_name.contains("google.android.talk")) {
-                app = new App("Hangout", package_name, icon);
-                apps[i] = app;
-            }
-            if (package_name.contains("com.viber")) {
-                app = new App("Viber", package_name, icon);
-                apps[i] = app;
-            }
-            if (package_name.contains("com.android.mms")) {
-                app = new App("SMS/Text", package_name, icon);
-                apps[i] = app;
-            }
-        }
-
-        /* show icons of apps */
-        // http://stackoverflow.com/questions/3920640/how-to-add-icon-in-alert-dialog-before-each-item
-        ListAdapter adapter = new ArrayAdapter<App>(
-                this,
-                android.R.layout.select_dialog_item,
-                android.R.id.text1,
-                apps){
-            public View getView(int position, View convertView, ViewGroup parent) {
-                //User super class to create the View
-                View v = super.getView(position, convertView, parent);
-                TextView tv = (TextView)v.findViewById(android.R.id.text1);
-
-                //Put the image on the TextView
-                tv.setCompoundDrawablesWithIntrinsicBounds(apps[position].icon, null, null, null);
-
-                //Add margin between image and text (support various screen densities)
-                int dp5 = (int) (5 * getResources().getDisplayMetrics().density + 0.5f);
-                tv.setCompoundDrawablePadding(dp5);
-
-                return v;
-            }
-        };
-
-        new AlertDialog.Builder(this)
-            .setTitle(getString(R.string.choice1))
-            .setAdapter(adapter, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    String choice = apps[which].toString();
-                    // Flurry analytics
-                    Map<String, String> flurry_stats = new HashMap<String, String>();
-
-                    if (choice.equals("Facebook")) {
-                        flurry_stats.put("Share on", "Facebook");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        insultFriendOnFB();
-                    }
-
-                    Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-                    targetedShareIntent.setType("text/plain");
-                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag + "\n\n--" + hid_link);
-                    if (choice.equals("Twitter")) {
-                        flurry_stats.put("Share on", "Twitter");
-                        flurry_stats.put("Insult", insult.getText().toString());
-                        // can't share a link on twitter
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag);
-                        targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
-                    }
-                    if (choice.equals("Messenger")) {
-                        flurry_stats.put("Share on", "Messenger");
-                        flurry_stats.put("Insult", insult.getText().toString());
-                        // sharing a link on messenger shows also a preview of the website
-                        // so it's better to use the original link
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getText() + vf_hashtag + "\n\n--" + vaffapp_link);
-                        targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
-                    }
-                    if (choice.equals("WhatsApp")) {
-                        flurry_stats.put("Share on", "WhatsApp");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
-                    }
-                    if (choice.equals("Hangout")) {
-                        flurry_stats.put("Share on", "Hangout");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
-                    }
-                    if (choice.equals("Viber")) {
-                        flurry_stats.put("Share on", "Viber");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
-                    }
-                    if (choice.equals("SMS/Text")) {
-                        flurry_stats.put("Share on", "SMS");
-                        flurry_stats.put("Insult", insult.getText().toString());
-
-                        targetedShareIntent.setPackage(apps[which].getPackageName());
-                        startActivityForResult(targetedShareIntent, SHARE_REQUEST);
-                    }
-
-                    if (SEND_STATS_FLURRY)
-                        FlurryAgent.logEvent("Sharing", flurry_stats);
-
-                }
-            }).create().show();
     }
 
     // Checks presence of apps Facebook and Twitter
     // if not, shows a dialog box with all apps able to receive the insult
     public void share(View view){
-        ArrayList<ResolveInfo> diff_app = checkPresenceOfApps(view);
+        SharedMethods.share(this, insults.get(rand_index));
+        /*ArrayList<ResolveInfo> diff_app = checkPresenceOfApps(view);
 
         if ( diff_app.size() > 0 ){
             preChoiceMenu(diff_app);
@@ -599,7 +358,7 @@ public class InsultActivity extends ActionBarActivity {
                     });
             // Create the AlertDialog object and return it
             builder.create().show();
-        }
+        }*/
     }
 
     public void increaseSharedInsult(){

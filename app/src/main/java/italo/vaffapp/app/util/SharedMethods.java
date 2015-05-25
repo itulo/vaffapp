@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.facebook.Session;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.FacebookDialog;
+import com.flurry.android.FlurryAgent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,10 +45,12 @@ import italo.vaffapp.app.Speaker;
 public class SharedMethods {
     // for condividi
     private static List<Intent> targetedShareIntents;
-    private static List<ResolveInfo> diff_app;
     private static Intent sharingIntent;
     private static Speaker speaker;
-    private static String vf_hashtag = " #VaffApp"; // one space on purpose
+
+    private static String hid_link = "http://adf.ly/ssss4";
+    private static String vaffapp_link = "https://play.google.com/store/apps/details?id=italo.vaffapp.app";
+    private static String vf_hashtag = " #VaffApp"; // one space before on purpose
 
     // for FB
     private static UiLifecycleHelper uiHelper;
@@ -65,6 +68,7 @@ public class SharedMethods {
     public static void onStart(Context c) {
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(c);
+        FlurryAgent.onStartSession(c, c.getString(R.string.flurry_id));
     }
 
     public static void onResume() {
@@ -84,8 +88,16 @@ public class SharedMethods {
         speaker.onPause();
     }
 
+    public static void onStop(Activity a) {
+        FlurryAgent.onEndSession(a);
+    }
+
     public static void onDestroy() {
         uiHelper.onDestroy();
+    }
+
+    public static void sendFlurry(String name, Map<String, String> flurry_stats) {
+        FlurryAgent.logEvent(name, flurry_stats);
     }
 
     /* set vaffapp icon in ActionBar - Needed from Android 5
@@ -160,10 +172,10 @@ public class SharedMethods {
 
     /* methods used to share! */
     public static void share(final Activity a, final Insult insult) {
-        checkPresenceOfApps(a, insult);
+        List<ResolveInfo> diff_app = checkPresenceOfApps(a, insult);
 
         if (diff_app.size() > 0) {
-            preChoiceMenu(a, insult);
+            preChoiceMenu(diff_app, a, insult);
         } else {
             sharingIntent.putExtra(Intent.EXTRA_TEXT, insult + vf_hashtag);
             a.startActivity(Intent.createChooser(sharingIntent, a.getString(R.string.choice1)));
@@ -171,9 +183,9 @@ public class SharedMethods {
     }
 
     // check for presence of Facebook, Messenger, Twitter, WhatsApp, Hangaout, and Viber apps (these will be treated differently)
-    public static void checkPresenceOfApps(Activity a, Insult insult) {
+    public static List<ResolveInfo> checkPresenceOfApps(Activity a, Insult insult) {
         targetedShareIntents = new ArrayList<Intent>();
-        diff_app = new ArrayList<ResolveInfo>();
+        List<ResolveInfo> diff_app = new ArrayList<ResolveInfo>();
         sharingIntent = new Intent(Intent.ACTION_SEND);
 
         sharingIntent.setType("text/plain");
@@ -200,17 +212,19 @@ public class SharedMethods {
             targetedShareIntent.setPackage(packageName);
             targetedShareIntents.add(targetedShareIntent);
         }
+        return diff_app;
     }
 
     // 1. show a first choice dialog to choose between Twitter, Facebook and Other
     // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
-    public static void preChoiceMenu(final Activity a, final Insult insult) {
+    public static void preChoiceMenu(List<ResolveInfo> diff_app, final Activity a, final Insult insult) {
         final CharSequence insult_text = insult.getInsult();
 
         String package_name;
         Drawable icon;
         App app;
-        final App[] apps = new App[diff_app.size()+1];
+        //final App[] apps = new App[diff_app.size()+1];
+        final App[] apps = new App[diff_app.size()];
         PackageManager pm = a.getPackageManager();
 
         for (int i = 0; i < diff_app.size(); i++) {
@@ -243,7 +257,7 @@ public class SharedMethods {
             }
         }
 
-        apps[diff_app.size()] = new App(a.getString(R.string.other), "", null);
+        //apps[diff_app.size()] = new App(a.getString(R.string.other), "", null);
 
         /* show icons of apps */
         // http://stackoverflow.com/questions/3920640/how-to-add-icon-in-alert-dialog-before-each-item
@@ -286,10 +300,12 @@ public class SharedMethods {
 
                         Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                         targetedShareIntent.setType("text/plain");
-                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag);
+                        targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag + "\n\n--" + hid_link);
                         if (choice.equals("Twitter")) {
                             flurry_stats.put("Share on", "Twitter");
                             flurry_stats.put("Insult", insult_text.toString());
+                            // can't share a link on twitter
+                            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag);
 
                             targetedShareIntent.setPackage(apps[which].getPackageName());
                             a.startActivity(targetedShareIntent);
@@ -297,7 +313,9 @@ public class SharedMethods {
                         if (choice.equals("Messenger")) {
                             flurry_stats.put("Share on", "Messenger");
                             flurry_stats.put("Insult", insult_text.toString());
-
+                            // sharing a link on messenger shows also a preview of the website
+                            // so it's better to use the original link
+                            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag + "\n\n--" + vaffapp_link);
                             targetedShareIntent.setPackage(apps[which].getPackageName());
                             a.startActivity(targetedShareIntent);
                         }
@@ -331,8 +349,7 @@ public class SharedMethods {
                             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                             a.startActivity(chooserIntent);
                         }*/
-                        //if ( SEND_STATS_FLURRY )
-                        //    FlurryAgent.logEvent("Sharing", flurry_stats);
+                        sendFlurry("Sharing", flurry_stats);
                     }
                 }).create().show();
     }
@@ -360,7 +377,7 @@ public class SharedMethods {
     public static void postToFB(final Activity a) {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(a)
                 .setApplicationName(a.getString(R.string.app_name))
-                        //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.prop.app")
+                        //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
                 .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
     }

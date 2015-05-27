@@ -67,8 +67,6 @@ public class InsultActivity extends ActionBarActivity {
     private int pref_language;
 
     private int shared_insults; // # of times a person shares an insult
-    private final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
-    static final int SHARE_REQUEST = 1; // to be used in onActivityResult
 
     static ArrayList<String> notification_titles = null;
 
@@ -103,9 +101,9 @@ public class InsultActivity extends ActionBarActivity {
         SharedMethods.onActivityResult(requestCode, resultCode, data);
 
         // when a user shares and then the program returns to the VaffApp
-        if (requestCode == SHARE_REQUEST) {
+        if (requestCode == SharedMethods.SHARE_REQUEST) {
             // I have to comment the instruction below, it works only for Twitter
-            // all the others app return always RESULT_OK -1 (Facebook) or RESULT_CANCELLED 0
+            // all the others app return always RESULT_CANCELLED 0 or RESULT_OK -1 (Facebook)
             //if (resultCode == RESULT_OK) {
             increaseSharedInsult();
         }
@@ -338,35 +336,17 @@ public class InsultActivity extends ActionBarActivity {
         occurrences = new byte[insults.size()];
     }
 
-    // Checks presence of apps Facebook and Twitter
-    // if not, shows a dialog box with all apps able to receive the insult
-    public void share(View view){
-        SharedMethods.share(this, insults.get(rand_index));
-        /*ArrayList<ResolveInfo> diff_app = checkPresenceOfApps(view);
 
-        if ( diff_app.size() > 0 ){
-            preChoiceMenu(diff_app);
-        }
-        else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(getString(R.string.noapp_warning_message))
-                    .setTitle(getString(R.string.noapp_warning_title))
-                    .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            //do nothing
-                        }
-                    });
-            // Create the AlertDialog object and return it
-            builder.create().show();
-        }*/
+    public void share(View view){
+        // Checks presence of apps Facebook, Messenger, Twitter, Hangout, Whatsapp and Viber
+        // if not, shows a dialog box with all apps able to receive the insult
+        SharedMethods.share(this, insults.get(rand_index));
     }
 
     public void increaseSharedInsult(){
         shared_insults++;
 
-        if ( shared_insults%3 == 0 ){
-            SharedMethods.unblockInsults(this, getString(R.string.share_reward), UNBLOCK_INSULTS);
-        }
+        SharedMethods.checkSharedInsults(this, getString(R.string.share_reward), shared_insults);
 
         SharedPrefsMethods.putInt("shared_insults", shared_insults);
     }

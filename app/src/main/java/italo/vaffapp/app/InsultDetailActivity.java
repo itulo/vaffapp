@@ -6,6 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
+import italo.vaffapp.app.util.SharedMethods;
+import italo.vaffapp.app.util.SharedPrefsMethods;
+
 
 /**
  * An activity representing a single Insult detail screen. This
@@ -17,6 +20,8 @@ import android.view.MenuItem;
  * more than a {@link InsultDetailFragment}.
  */
 public class InsultDetailActivity extends ActionBarActivity {
+
+    private int shared_insults; // # of times a person shares an insult
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,34 @@ public class InsultDetailActivity extends ActionBarActivity {
                     .add(R.id.insult_detail_container, fragment)
                     .commit();
         }
+
+        /* This is taken from InsultActivity's same method */
+        SharedPrefsMethods.setupSharedPrefsMethods(this);
+        shared_insults = SharedPrefsMethods.getInt("shared_insults", 0);
+    }
+
+    // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        /* This below is taken from InsultActivity's same method */
+        // when a user shares and then the program returns to the VaffApp
+        if (requestCode == SharedMethods.SHARE_REQUEST) {
+            // I have to comment the instruction below, it works only for Twitter
+            // all the others app return always RESULT_CANCELLED 0 or RESULT_OK -1 (Facebook)
+            //if (resultCode == RESULT_OK) {
+            increaseSharedInsult();
+        }
+    }
+
+    /* This is a copy of InsultActivity's same method */
+    public void increaseSharedInsult(){
+        shared_insults++;
+
+        SharedMethods.checkSharedInsults(this, getString(R.string.share_reward), shared_insults);
+
+        SharedPrefsMethods.putInt("shared_insults", shared_insults);
     }
 
     @Override

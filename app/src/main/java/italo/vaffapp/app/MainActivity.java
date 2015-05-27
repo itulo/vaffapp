@@ -24,8 +24,6 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
 
-import com.flurry.android.FlurryAgent;
-
 import italo.vaffapp.app.databases.Insult;
 import italo.vaffapp.app.util.IabException;
 import italo.vaffapp.app.util.SharedMethods;
@@ -39,8 +37,6 @@ import italo.vaffapp.app.util.IabResult;
 import italo.vaffapp.app.util.Inventory;
 import italo.vaffapp.app.util.Purchase;
 import android.widget.Toast;
-
-import com.flurry.android.FlurryAgent;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -125,7 +121,7 @@ public class MainActivity extends ActionBarActivity {
     public void onStart() {
         super.onStart();
 
-        FlurryAgent.onStartSession(this, getString(R.string.flurry_id));
+        SharedMethods.onStart(this);
 
         // hide 'Insultaci' button if english UI
         // disable button, thank user
@@ -141,7 +137,7 @@ public class MainActivity extends ActionBarActivity {
     public void onStop() {
         showAdDialogIfNewAppVersion();
         super.onStop();
-        FlurryAgent.onEndSession(this);
+        SharedMethods.onStop(this);
     }
 
     public void onDestroy(){
@@ -179,7 +175,7 @@ public class MainActivity extends ActionBarActivity {
                                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                             }
                             // send to Flurry!
-                            FlurryAgent.logEvent("show VaffAppPro");
+                            SharedMethods.sendEventFlurry("show VaffAppPro");
                         }
                     });
             // Create the AlertDialog object and return it
@@ -279,7 +275,7 @@ public class MainActivity extends ActionBarActivity {
     public void buyAllInsults(View v){
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Unblock", "click on 'Unblock insults'");
-        FlurryAgent.logEvent("Unblock", flurry_stats);
+        SharedMethods.sendFlurry("Unblock", flurry_stats);
 
         if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
             // We will be notified of completion via mPurchaseFinishedListener

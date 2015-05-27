@@ -35,7 +35,7 @@ public class Speaker {
         }
     }
 
-    public static void onPause(){
+    public void onPause(){
         if(speaker != null){
             speaker.stop();
             speaker.shutdown();

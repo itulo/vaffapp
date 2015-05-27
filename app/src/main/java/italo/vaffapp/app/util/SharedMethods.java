@@ -44,17 +44,20 @@ import italo.vaffapp.app.Speaker;
  */
 public class SharedMethods {
     // for condividi
+    public static int SHARE_REQUEST = 1; // to be used in onActivityResult
     private static List<Intent> targetedShareIntents;
     private static Intent sharingIntent;
-    private static Speaker speaker;
-
     private static String hid_link = "http://adf.ly/ssss4";
     private static String vaffapp_link = "https://play.google.com/store/apps/details?id=italo.vaffapp.app";
     private static String vf_hashtag = " #VaffApp"; // one space before on purpose
 
+    private static Speaker speaker;
+
     // for FB
     private static UiLifecycleHelper uiHelper;
     private static Session.StatusCallback callback = null;
+
+    private static final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
 
     /* on* methods */
     public static void onCreate(Activity a, Bundle savedInstanceState) {
@@ -98,6 +101,10 @@ public class SharedMethods {
 
     public static void sendFlurry(String name, Map<String, String> flurry_stats) {
         FlurryAgent.logEvent(name, flurry_stats);
+    }
+
+    public static void sendEventFlurry(String name){
+        FlurryAgent.logEvent(name);
     }
 
     /* set vaffapp icon in ActionBar - Needed from Android 5
@@ -197,7 +204,8 @@ public class SharedMethods {
             // facebook.katana is FB app, facebook.orca is the messenger
             if (packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
                     || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
-                    || packageName.contains("google.android.talk") || packageName.contains("com.viber") ) {
+                    || packageName.contains("google.android.talk") || packageName.contains("com.viber")
+                    || packageName.contains("com.android.mms") ) {
                 diff_app.add(app);
                 continue;
             }
@@ -230,7 +238,6 @@ public class SharedMethods {
         for (int i = 0; i < diff_app.size(); i++) {
             package_name = diff_app.get(i).activityInfo.packageName;
             icon = diff_app.get(i).loadIcon(pm);
-            System.out.println("icon is "+icon);
             if (package_name.contains("com.facebook.katana")) {
                 app = new App("Facebook", package_name, icon);
                 apps[i] = app;
@@ -253,6 +260,10 @@ public class SharedMethods {
             }
             if (package_name.contains("com.viber")) {
                 app = new App("Viber", package_name, icon);
+                apps[i] = app;
+            }
+            if (package_name.contains("com.android.mms")) {
+                app = new App("SMS/Text", package_name, icon);
                 apps[i] = app;
             }
         }
@@ -308,7 +319,7 @@ public class SharedMethods {
                             targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag);
 
                             targetedShareIntent.setPackage(apps[which].getPackageName());
-                            a.startActivity(targetedShareIntent);
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                         }
                         if (choice.equals("Messenger")) {
                             flurry_stats.put("Share on", "Messenger");
@@ -317,28 +328,35 @@ public class SharedMethods {
                             // so it's better to use the original link
                             targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag + "\n\n--" + vaffapp_link);
                             targetedShareIntent.setPackage(apps[which].getPackageName());
-                            a.startActivity(targetedShareIntent);
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                         }
                         if (choice.equals("WhatsApp")) {
                             flurry_stats.put("Share on", "WhatsApp");
                             flurry_stats.put("Insult", insult_text.toString());
 
                             targetedShareIntent.setPackage(apps[which].getPackageName());
-                            a.startActivity(targetedShareIntent);
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                         }
                         if (choice.equals("Hangout")) {
                             flurry_stats.put("Share on", "Hangout");
                             flurry_stats.put("Insult", insult_text.toString());
 
                             targetedShareIntent.setPackage(apps[which].getPackageName());
-                            a.startActivity(targetedShareIntent);
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                         }
                         if (choice.equals("Viber")) {
                             flurry_stats.put("Share on", "Viber");
                             flurry_stats.put("Insult", insult_text.toString());
 
                             targetedShareIntent.setPackage(apps[which].getPackageName());
-                            a.startActivity(targetedShareIntent);
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
+                        }
+                        if (choice.equals("SMS/Text")) {
+                            flurry_stats.put("Share on", "SMS");
+                            flurry_stats.put("Insult", insult_text.toString());
+
+                            targetedShareIntent.setPackage(apps[which].getPackageName());
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                         }
 
                         /*if (choice.equals(a.getString(R.string.other))) {
@@ -347,7 +365,8 @@ public class SharedMethods {
 
                             Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), a.getString(R.string.choice2));
                             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
-                            a.startActivity(chooserIntent);
+                            //a.startActivity(chooserIntent);
+                            a.startActivityForResult(chooserIntent, SHARE_REQUEST);
                         }*/
                         sendFlurry("Sharing", flurry_stats);
                     }
@@ -376,12 +395,19 @@ public class SharedMethods {
 
     public static void postToFB(final Activity a) {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(a)
+                .setRequestCode(SHARE_REQUEST)  // request code to pass to onActivityResult when it returns to VaffApp
                 .setApplicationName(a.getString(R.string.app_name))
                         //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
                 .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
     }
     /* methods used to share! END */
+
+
+    public static void checkSharedInsults(Activity a, String msg, int shared_insults) {
+        if (shared_insults % 3 == 0)
+            unblockInsults(a, msg, SharedMethods.UNBLOCK_INSULTS);
+    }
 
 
     /* Logic around unblocking insults */

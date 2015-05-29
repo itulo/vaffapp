@@ -43,10 +43,12 @@ public class MainActivity extends ActionBarActivity {
 
     private final int UNBLOCK_INSULTS = 3; // insults to unblock when returning user
     private int pref_language;
+
     // in app billing
     private IabHelper mHelper;
     static final int RC_REQUEST = 10001;    // (arbitrary) request code for the purchase flow
     private String SKU_ALL_INSULTS_ID = "0";
+    private String SKU_SURF_INSULTS = "1";
     private int blocked_insults = 0;
     Inventory inv;
     private boolean added_count_insults = false;
@@ -201,7 +203,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     void setCountBlockedInsultsInButton(){
-        if ( added_count_insults == false ) {
+        if ( !added_count_insults ) {
             blocked_insults = SharedMethods.getAmountBlockedInsults(this);
             Button b = (Button)findViewById(R.id.button_buy_insults);
             if (blocked_insults <= 0) {
@@ -218,12 +220,24 @@ public class MainActivity extends ActionBarActivity {
     void hideButton(Button b){
         b.setVisibility(View.GONE);
     }
+    void showButton(Button b){
+        b.setVisibility(View.VISIBLE);
+    }
 
     void unblockAllInsults(){
         if ( blocked_insults > 0) {
             SharedMethods.unblockInsults(this, getString(R.string.bought_insults_title), blocked_insults);
             hideButton((Button)findViewById(R.id.button_buy_insults));
         }
+    }
+
+    void unblockInsultsList(){
+        // hide unblock insults list
+        Button b = (Button)findViewById(R.id.button_buy_surf_insults);
+        hideButton(b);
+        // show all insults button
+        b = (Button)findViewById(R.id.button_tutti_insulti);
+        showButton(b);
     }
 
     /// IN APP BILLING  METHODS ///
@@ -274,12 +288,23 @@ public class MainActivity extends ActionBarActivity {
 
     public void buyAllInsults(View v){
         Map<String, String> flurry_stats = new HashMap<String, String>();
-        flurry_stats.put("Unblock", "click on 'Unblock insults'");
+        flurry_stats.put("Unblock", "All insults");
         SharedMethods.sendFlurry("Unblock", flurry_stats);
 
         if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
             // We will be notified of completion via mPurchaseFinishedListener
             mHelper.launchPurchaseFlow(this, SKU_ALL_INSULTS_ID, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
+        }
+    }
+
+    public void buySurfInsults(View v){
+        Map<String, String> flurry_stats = new HashMap<String, String>();
+        flurry_stats.put("Unblock", "Insults list");
+        SharedMethods.sendFlurry("Unblock", flurry_stats);
+
+        if ( !inv.hasPurchase(SKU_SURF_INSULTS) ) {
+            // We will be notified of completion via mPurchaseFinishedListener
+            mHelper.launchPurchaseFlow(this, SKU_SURF_INSULTS, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
         }
     }
 
@@ -290,8 +315,12 @@ public class MainActivity extends ActionBarActivity {
             // if we were disposed of in the meantime, quit.
             if (mHelper == null) return;
 
+            Map<String, String> flurry_stats = new HashMap<String, String>();
+
             if (result.isFailure()) {
                 complain("Error purchasing: " + result);
+                flurry_stats.put("Unblock", "Purchase failed: " + result);
+                SharedMethods.sendFlurry("Unblock", flurry_stats);
                 return;
             }
             /*if (!verifyDeveloperPayload(purchase)) {
@@ -304,8 +333,17 @@ public class MainActivity extends ActionBarActivity {
                 // bought
                 // no consumption for this - purchase is forever
                 // mHelper.consumeAsync(purchase, mConsumeFinishedListener);
+                flurry_stats.put("Unblock", "Purchase all insults");
                 unblockAllInsults();
             }
+            if (purchase.getSku().equals(SKU_SURF_INSULTS)) {
+                // bought
+                // no consumption for this - purchase is forever
+                // mHelper.consumeAsync(purchase, mConsumeFinishedListener);
+                flurry_stats.put("Unblock", "Purchase insults list");
+                unblockInsultsList();
+            }
+            SharedMethods.sendFlurry("Unblock", flurry_stats);
         }
     };
 

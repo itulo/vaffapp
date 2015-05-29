@@ -14,6 +14,7 @@
     <string name="insultati_button">Insultati</string>
     <string name="insultaci_button">Manda un insulto</string>
     <string name="buy_insults">Sblocca tutti gli insulti</string>
+    <string name="buy_surf_insults">Sblocca insulti in lista</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
     <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
     <string name="fb_warning_title">Mamma, che coglioni</string>

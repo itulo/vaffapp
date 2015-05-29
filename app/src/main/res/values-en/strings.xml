@@ -14,6 +14,7 @@
     <string name="insultati_button">Get insulted</string>
     <string name="insultaci_button">Insult us</string>
     <string name="buy_insults">Unlock all insults</string>
+    <string name="buy_surf_insults">Unblock insults list</string>
     <string name="title_activity_send_insult">Send feedback or an insult</string>
     <string name="fb_warning_message">Facebook doesn\'t allow any app to edit one\'s status. Fortunately the insult was copied in the clipboard, you only need to paste it</string>
     <string name="fb_warning_title">Uff!</string>

@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:background="#01B6AD"
+    tools:context="italo.vaffapp.app.InsultActivity$PlaceholderFragment" >
+
+    <TextView
+        android:id="@+id/insult"
+        android:text="@string/insult"
+        android:textStyle="bold|italic"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:background="@drawable/box_around_textviews"
+        android:layout_marginBottom="25dp"
+        android:clickable="true"
+        android:onClick="speakInsult"
+        android:textIsSelectable="true"/>
+
+    <TextView
+        android:id="@+id/insult_desc"
+        android:text="@string/insult_desc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hello_world"
+        android:gravity="center"
+        android:layout_weight="0.3"
+        android:background="@drawable/box_around_textviews"
+        android:clickable="true"
+        android:onClick="speakDesc"
+        android:textIsSelectable="true"
+        android:layout_marginBottom="25dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/insult_eng"
+        android:text="@string/insult_eng"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hello_world"
+        android:gravity="center"
+        android:layout_weight="0.2"
+        android:background="@drawable/box_around_textviews"
+        android:clickable="true"
+        android:onClick="speakEng"
+        android:textIsSelectable="true"
+        android:layout_marginBottom="25dp"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp" >
+
+    <Button
+        android:id="@+id/insultati_ancora_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_insult_1"
+        android:layout_weight="1"
+        style="?android:attr/borderlessButtonStyle"
+        android:onClick="showInsult"
+        android:background="@drawable/button_background"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/fake_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1" />
+    <Button
+        android:id="@+id/condividi_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_insult_2"
+        android:layout_weight="1"
+        style="?android:attr/borderlessButtonStyle"
+        android:onClick="share"
+        android:background="@drawable/button_background"
+        android:textSize="25sp" />
+    </LinearLayout>
+
+</LinearLayout>

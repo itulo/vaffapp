@@ -14,7 +14,7 @@
     <string name="insultati_button">Get insulted</string>
     <string name="insultaci_button">Insult us</string>
     <string name="buy_insults">Unlock all insults</string>
-    <string name="buy_surf_insults">Unblock insults list</string>
+    <string name="buy_surf_insults">Unlock insults list</string>
     <string name="title_activity_send_insult">Send feedback or an insult</string>
     <string name="fb_warning_message">Facebook doesn\'t allow any app to edit one\'s status. Fortunately the insult was copied in the clipboard, you only need to paste it</string>
     <string name="fb_warning_title">Uff!</string>
@@ -31,6 +31,8 @@
     <string name="sardegna">Sardinia</string>
     <string name="n_insulti">insults loaded</string>
     <string name="n_block_insults">more</string>
+    <string name="msg_custom_dialog">You\'re about to unlock a new view</string>
+    <string name="no_thanks">No thanks</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">VaffApp looks for Facebook, Twitter, Whatsapp, Viber, or Hangout apps in your device\nIf you want to share on other apps download the VaffApp Pro!</string>
     <string name="noapp_warning_title">Apps not found</string>
@@ -56,7 +58,7 @@
     <!-- in app billing -->
     <string name="bought_insults_title">Unlocked all insults</string>
     <!-- master detail flow -->
-    <string name="tutti_insulti_button">Tutti gli insulti</string>
+    <string name="tutti_insulti_button">All insults</string>
     <string name="preferences_file">preferences_file</string>
     <string name="title_insult_list">All Insults</string>
     <string name="title_insult_detail">Insult Detail</string>

@@ -14,7 +14,7 @@
     <string name="insultati_button">Insultati</string>
     <string name="insultaci_button">Manda un insulto</string>
     <string name="buy_insults">Sblocca tutti gli insulti</string>
-    <string name="buy_surf_insults">Sblocca insulti in lista</string>
+    <string name="buy_surf_insults">Sblocca lista insulti</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
     <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
     <string name="fb_warning_title">Mamma, che coglioni</string>
@@ -31,6 +31,8 @@
     <string name="sardegna">Sardegna</string>
     <string name="n_insulti">insulti caricati</string>
     <string name="n_block_insults">in più</string>
+    <string name="msg_custom_dialog">Stai per sbloccare una nuova schermata della VaffApp</string>
+    <string name="no_thanks">No grazie</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">La VaffApp non ha trovato le app Facebook, Twitter, Whatsapp, Viber, o Hangout sul tuo dispositivo.\nSe vuoi condividere su altre app, scarica la VaffAppPro!</string>
     <string name="noapp_warning_title">App non trovate</string>

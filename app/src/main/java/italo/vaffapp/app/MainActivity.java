@@ -38,6 +38,8 @@ import italo.vaffapp.app.util.Inventory;
 import italo.vaffapp.app.util.Purchase;
 import android.widget.Toast;
 
+import android.widget.ImageView;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -284,6 +286,8 @@ public class MainActivity extends ActionBarActivity {
     void checkInventory(){
         if ( inv.hasPurchase(SKU_ALL_INSULTS_ID) )
             unblockAllInsults();
+        if (inv.hasPurchase(SKU_SURF_INSULTS))
+            unblockInsultsList();
     }
 
     public void buyAllInsults(View v){
@@ -302,11 +306,33 @@ public class MainActivity extends ActionBarActivity {
         flurry_stats.put("Unblock", "Insults list");
         SharedMethods.sendFlurry("Unblock", flurry_stats);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.buy_surf_insults));
+        LayoutInflater factory = LayoutInflater.from(this);
+        final View view = factory.inflate(R.layout.dialog_with_image, null);
+        ImageView image= (ImageView) view.findViewById(R.id.snapshot_all_insults);
+        image.setImageResource(R.drawable.insult_list);
+        builder.setView(view)
+            .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dlg, int id) {
+                    Map<String, String> flurry_stats = new HashMap<String, String>();
+                    flurry_stats.put("Unblock", "Insults list - OK");
+                    SharedMethods.sendFlurry("Unblock", flurry_stats);
+                    initiatePurchaseSurfInsults();
+                }
+            })
+            .setPositiveButton(getString(R.string.no_thanks), null);
+
+        builder.show();
+    }
+
+    public void initiatePurchaseSurfInsults(){
         if ( !inv.hasPurchase(SKU_SURF_INSULTS) ) {
             // We will be notified of completion via mPurchaseFinishedListener
             mHelper.launchPurchaseFlow(this, SKU_SURF_INSULTS, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
         }
     }
+
 
     // Callback for when a purchase is finished
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
@@ -319,8 +345,6 @@ public class MainActivity extends ActionBarActivity {
 
             if (result.isFailure()) {
                 complain("Error purchasing: " + result);
-                flurry_stats.put("Unblock", "Purchase failed: " + result);
-                SharedMethods.sendFlurry("Unblock", flurry_stats);
                 return;
             }
             /*if (!verifyDeveloperPayload(purchase)) {
@@ -366,6 +390,9 @@ public class MainActivity extends ActionBarActivity {
     };
 
     void complain(String message) {
+        Map<String, String> flurry_stats = new HashMap<String, String>();
+        flurry_stats.put("Complain", "Something failed: " + message);
+        SharedMethods.sendFlurry("Complain", flurry_stats);
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
         bld.setMessage(message);
         bld.setNeutralButton("OK", null);

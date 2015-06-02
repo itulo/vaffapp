@@ -43,7 +43,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends ActionBarActivity {
 
-    private final int UNBLOCK_INSULTS = 3; // insults to unblock when returning user
+    private final int UNLOCK_INSULTS = 3; // insults to unlock when returning user
     private int pref_language;
 
     // in app billing
@@ -51,9 +51,10 @@ public class MainActivity extends ActionBarActivity {
     static final int RC_REQUEST = 10001;    // (arbitrary) request code for the purchase flow
     private String SKU_ALL_INSULTS_ID = "0";
     private String SKU_SURF_INSULTS = "1";
-    private int blocked_insults = 0;
+    private int blocked_insults = -1;
     Inventory inv;
-    private boolean added_count_insults = false;
+
+    private String msg_region_insults = null;
 
 
     @Override
@@ -134,7 +135,7 @@ public class MainActivity extends ActionBarActivity {
             button_insultaci.setVisibility(View.GONE);
         }
 
-        setCountBlockedInsultsInButton();
+        getCountBlockedInsults();
         checkInAppBilling();
     }
 
@@ -187,35 +188,28 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    /* If the user comes back a day after, unblock as many insults as UNBLOCK_INSULTS */
+    /* If the user comes back a day after, unlock as many insults as UNLOCK_INSULTS */
     private void RewardIfReturn(){
         int def_val = -1;
-        ArrayList<Insult> unblocked = null;
+        ArrayList<Insult> unlocked = null;
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
         int last_use = SharedPrefsMethods.getInt("last_day_use", def_val);
-        // last_use = 4; // for debug, uncomment and device will unblock insults
+        // last_use = 4; // for debug, uncomment and device will unlock insults
 
         // if not null and different from today
         if ( last_use != def_val && last_use != today ) {
-            SharedMethods.unblockInsults(this, getString(R.string.comeback_reward_title), UNBLOCK_INSULTS);
+            SharedMethods.unlockInsults(this, getString(R.string.comeback_reward_title), UNLOCK_INSULTS);
         }
         // save shared prefs
         SharedPrefsMethods.putInt("last_day_use", today);
     }
 
-    void setCountBlockedInsultsInButton(){
-        if ( !added_count_insults ) {
+    void getCountBlockedInsults(){
+        if ( blocked_insults == -1 ) {
             blocked_insults = SharedMethods.getAmountBlockedInsults(this);
-            Button b = (Button)findViewById(R.id.button_buy_insults);
-            if (blocked_insults <= 0) {
-                hideButton(b);
-            } else {
-                String title = b.getText().toString();
-                title = title + "\n(" + blocked_insults + " " + getString(R.string.n_block_insults) + ")";
-                b.setText(title);
-            }
-            added_count_insults = true;
+            if (blocked_insults <= 0)
+                hideButton( (Button)findViewById(R.id.button_buy_insults) );
         }
     }
 
@@ -226,15 +220,15 @@ public class MainActivity extends ActionBarActivity {
         b.setVisibility(View.VISIBLE);
     }
 
-    void unblockAllInsults(){
+    void unlockAllInsults(){
         if ( blocked_insults > 0) {
-            SharedMethods.unblockInsults(this, getString(R.string.bought_insults_title), blocked_insults);
+            SharedMethods.unlockInsults(this, getString(R.string.bought_insults_title), blocked_insults);
             hideButton((Button)findViewById(R.id.button_buy_insults));
         }
     }
 
-    void unblockInsultsList(){
-        // hide unblock insults list
+    void unlockInsultsList(){
+        // hide unlock insults list
         Button b = (Button)findViewById(R.id.button_buy_surf_insults);
         hideButton(b);
         // show all insults button
@@ -285,16 +279,36 @@ public class MainActivity extends ActionBarActivity {
 
     void checkInventory(){
         if ( inv.hasPurchase(SKU_ALL_INSULTS_ID) )
-            unblockAllInsults();
+            unlockAllInsults();
         if (inv.hasPurchase(SKU_SURF_INSULTS))
-            unblockInsultsList();
+            unlockInsultsList();
     }
 
     public void buyAllInsults(View v){
         Map<String, String> flurry_stats = new HashMap<String, String>();
-        flurry_stats.put("Unblock", "All insults");
-        SharedMethods.sendFlurry("Unblock", flurry_stats);
+        flurry_stats.put("Unlock", "All insults");
+        SharedMethods.sendFlurry("Unlock", flurry_stats);
 
+        if ( msg_region_insults == null )
+            msg_region_insults = SharedMethods.getStringInsultsPerRegion(this);
+
+        AlertDialog.Builder bld = new AlertDialog.Builder(this);
+        bld.setTitle(getString(R.string.buy_insults))
+            .setMessage(getString(R.string.msg_unlock_insults) + msg_region_insults)
+            .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dlg, int id) {
+                        Map<String, String> flurry_stats = new HashMap<String, String>();
+                        flurry_stats.put("Unlock", "All insults - OK");
+                        SharedMethods.sendFlurry("Unlock", flurry_stats);
+                        initiatePurchaseAllInsults();
+                    }
+                })
+            .setPositiveButton(getString(R.string.no_thanks), null)
+            .create()
+            .show();
+    }
+
+    public void initiatePurchaseAllInsults(){
         if ( !inv.hasPurchase(SKU_ALL_INSULTS_ID) ) {
             // We will be notified of completion via mPurchaseFinishedListener
             mHelper.launchPurchaseFlow(this, SKU_ALL_INSULTS_ID, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
@@ -303,8 +317,8 @@ public class MainActivity extends ActionBarActivity {
 
     public void buySurfInsults(View v){
         Map<String, String> flurry_stats = new HashMap<String, String>();
-        flurry_stats.put("Unblock", "Insults list");
-        SharedMethods.sendFlurry("Unblock", flurry_stats);
+        flurry_stats.put("Unlock", "Insults list");
+        SharedMethods.sendFlurry("Unlock", flurry_stats);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.buy_surf_insults));
@@ -316,8 +330,8 @@ public class MainActivity extends ActionBarActivity {
             .setNeutralButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
-                    flurry_stats.put("Unblock", "Insults list - OK");
-                    SharedMethods.sendFlurry("Unblock", flurry_stats);
+                    flurry_stats.put("Unlock", "Insults list - OK");
+                    SharedMethods.sendFlurry("Unlock", flurry_stats);
                     initiatePurchaseSurfInsults();
                 }
             })
@@ -357,17 +371,17 @@ public class MainActivity extends ActionBarActivity {
                 // bought
                 // no consumption for this - purchase is forever
                 // mHelper.consumeAsync(purchase, mConsumeFinishedListener);
-                flurry_stats.put("Unblock", "Purchase all insults");
-                unblockAllInsults();
+                flurry_stats.put("Unlock", "Purchase all insults");
+                unlockAllInsults();
             }
             if (purchase.getSku().equals(SKU_SURF_INSULTS)) {
                 // bought
                 // no consumption for this - purchase is forever
                 // mHelper.consumeAsync(purchase, mConsumeFinishedListener);
-                flurry_stats.put("Unblock", "Purchase insults list");
-                unblockInsultsList();
+                flurry_stats.put("Unlock", "Purchase insults list");
+                unlockInsultsList();
             }
-            SharedMethods.sendFlurry("Unblock", flurry_stats);
+            SharedMethods.sendFlurry("Unlock", flurry_stats);
         }
     };
 
@@ -382,7 +396,7 @@ public class MainActivity extends ActionBarActivity {
             // so we don't check which sku was consumed. If you have more than one
             // sku, you probably should check...
             if (!result.isSuccess()) {
-                unblockAllInsults();
+                unlockAllInsults();
             }
             else
                 complain("Error while consuming: " + result);
@@ -394,9 +408,10 @@ public class MainActivity extends ActionBarActivity {
         flurry_stats.put("Complain", "Something failed: " + message);
         SharedMethods.sendFlurry("Complain", flurry_stats);
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
-        bld.setMessage(message);
-        bld.setNeutralButton("OK", null);
-        bld.create().show();
+        bld.setMessage(message)
+            .setNeutralButton("OK", null)
+            .create()
+            .show();
     }
 
     /// IN APP BILLING METHODS END ///

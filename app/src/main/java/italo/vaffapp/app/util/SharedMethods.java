@@ -406,29 +406,46 @@ public class SharedMethods {
 
     public static void checkSharedInsults(Activity a, String msg, int shared_insults) {
         if (shared_insults % 3 == 0)
-            unblockInsults(a, msg, SharedMethods.UNBLOCK_INSULTS);
+            unlockInsults(a, msg, SharedMethods.UNBLOCK_INSULTS);
     }
 
 
-    /* Logic around unblocking insults */
-    public static void unblockInsults(Activity a, String title, int size){
-        ArrayList<Insult> unblocked = null;
+    /* Logic around unlocking insults */
+    public static void unlockInsults(Activity a, String title, int size){
+        ArrayList<Insult> unlocked = null;
 
         DatabaseHandler db = new DatabaseHandler(a);
         db.openDataBase();
-        unblocked = db.unblockInsults(size);
+        unlocked = db.unlockInsults(size);
         db.close();
 
-        if ( unblocked != null && unblocked.size() > 0) {
+        if ( unlocked != null && unlocked.size() > 0) {
             String text =
-                    a.getString(R.string.unblocked) + " " + unblocked.size() + " " + a.getString(R.string.insults) + "\n\n";
+                    a.getString(R.string.unlocked) + " " + unlocked.size() + " " + a.getString(R.string.insults) + "\n\n";
 
-            for (Insult temp : unblocked) {
+            for (Insult temp : unlocked) {
                 text += SharedMethods.getRegionFromId(temp.getRegionId()).toUpperCase() + ": " + temp.getInsult() + "\n";
             }
 
             showDialog(a, title, text);
         }
+    }
+
+    public static String getStringInsultsPerRegion(Activity a){
+        String StringRegionNInsults = new String();
+        int tot_insults = 0;
+        DatabaseHandler db = new DatabaseHandler(a);
+        db.openDataBase();
+        HashMap<Integer, Integer> regionNInsults = db.getInsultsPerRegion();
+        db.close();
+
+        for (Map.Entry<Integer, Integer> entry : regionNInsults.entrySet()){
+            StringRegionNInsults += getRegionFromId(entry.getKey()) + ": " + entry.getValue() + "\n";
+            tot_insults += entry.getValue();
+        }
+        StringRegionNInsults += "TOT: " + tot_insults;
+
+        return StringRegionNInsults;
     }
 
     public static int getAmountBlockedInsults(Activity a){
@@ -441,7 +458,7 @@ public class SharedMethods {
 
         return blocked;
     }
-    /* Logic around unblocking insults - END */
+    /* Logic around unlocking insults - END */
 
 
     public static void showDialog(Activity a, String title, String text){

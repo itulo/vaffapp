@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
+import java.util.HashMap;
 
 /**
  * Created by iarmenti on 4/26/14.
@@ -225,12 +226,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public ArrayList<Insult> unblockInsults(int insults){
+    public ArrayList<Insult> unlockInsults(int insults){
         if ( insults <= 0 )
             return null;
 
-        ArrayList<Insult> unblocked = new ArrayList<Insult>();
-        String unblocked_ids = "";
+        ArrayList<Insult> unlocked = new ArrayList<Insult>();
+        String unlocked_ids = "";
 
         String selectQuery = "SELECT rowid,insult,region FROM " + TABLE_INSULTS + " where visible = 0 order by insult limit " + insults;
 
@@ -238,21 +239,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                unblocked_ids += cursor.getString(0) + ",";
+                unlocked_ids += cursor.getString(0) + ",";
                 Insult insult = new Insult();
                 insult.setInsult(cursor.getString(1));
                 insult.setRegionId(cursor.getInt(2));
-                unblocked.add(insult);
+                unlocked.add(insult);
             } while (cursor.moveToNext());
         }
 
-        if ( unblocked.size() > 0 ){
-            unblocked_ids = unblocked_ids.substring(0, unblocked_ids.length()-1); // delete last character, a ','
-            String query = "UPDATE " + TABLE_INSULTS + " SET visible = 1 where rowid in (" + unblocked_ids + ")";
+        if ( unlocked.size() > 0 ){
+            unlocked_ids = unlocked_ids.substring(0, unlocked_ids.length()-1); // delete last character, a ','
+            String query = "UPDATE " + TABLE_INSULTS + " SET visible = 1 where rowid in (" + unlocked_ids + ")";
             db.execSQL(query);
         }
 
-        return unblocked;
+        return unlocked;
     }
 
     public int countBlockedInsults(){
@@ -260,12 +261,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         String selectQuery = "select count(*) FROM " + TABLE_INSULTS + " where visible = 0";
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);if (cursor.moveToFirst()) {
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
             do {
                 blocked = cursor.getInt(0);
             } while (cursor.moveToNext());
         }
 
         return blocked;
+    }
+
+    public HashMap<Integer, Integer> getInsultsPerRegion(){
+        HashMap<Integer, Integer> ins_per_reg = new HashMap<Integer, Integer>();
+        String selectQuery = "select region, count(*) from insults where visible = 0 group by region";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                ins_per_reg.put(cursor.getInt(0), cursor.getInt(1));
+            } while (cursor.moveToNext());
+        }
+
+        return ins_per_reg;
     }
 }

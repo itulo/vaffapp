@@ -9,7 +9,7 @@
     <string name="insult">Dammit</string>
     <string name="insult_desc">Something went wrong, try restarting the app</string>
     <string name="insult_eng">…</string>
-    <string name="button_insult_1">Other insult</string>
+    <string name="button_insult_1">Next insult</string>
     <string name="button_insult_2">Share</string>
     <string name="insultati_button">Get insulted</string>
     <string name="insultaci_button">Insult us</string>
@@ -31,7 +31,7 @@
     <string name="sardegna">Sardinia</string>
     <string name="n_insulti">insults loaded</string>
     <string name="n_block_insults">more</string>
-    <string name="msg_custom_dialog">You\'re about to unlock a new view, where you can look at insults all at once</string>
+    <string name="msg_custom_dialog">You\'re about to unlock a new view, where you can look at insults all at once (and also share them!)</string>
     <string name="no_thanks">No thanks</string>
     <string name="msg_unlock_insults">You\'re about to get this many insults per region (also all new insults coming in the future):\n\n</string>
     <!-- title e message when no apps for sharing are found -->

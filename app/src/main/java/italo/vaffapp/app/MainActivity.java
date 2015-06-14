@@ -36,6 +36,8 @@ import italo.vaffapp.app.util.IabHelper;
 import italo.vaffapp.app.util.IabResult;
 import italo.vaffapp.app.util.Inventory;
 import italo.vaffapp.app.util.Purchase;
+import italo.vaffapp.app.util.SkuDetails;
+
 import android.widget.Toast;
 
 import android.widget.ImageView;
@@ -54,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
     private int blocked_insults = -1;
     Inventory inv;
 
-    private String msg_region_insults = null;
+    private String insults_per_region = null;   // string listing each region with how many insults are locked
 
 
     @Override
@@ -252,7 +254,11 @@ public class MainActivity extends ActionBarActivity {
                         complain("Problem setting up in-app billing: " + result);
                         return;
                     }
-                    mHelper.queryInventoryAsync(mGotInventoryListener);
+
+                    ArrayList inAppProducts = new ArrayList();
+                    inAppProducts.add(SKU_ALL_INSULTS_ID);
+                    inAppProducts.add(SKU_SURF_INSULTS);
+                    mHelper.queryInventoryAsync(true, inAppProducts, mGotInventoryListener);
                 }
             });
         // Emulator throws it
@@ -262,7 +268,6 @@ public class MainActivity extends ActionBarActivity {
     // Listener that's called when we finish querying the items and subscriptions we own
     IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-
             // Have we been disposed of in the meantime? If so, quit.
             if (mHelper == null) return;
 
@@ -271,7 +276,6 @@ public class MainActivity extends ActionBarActivity {
                 complain("Failed to query inventory: " + result);
                 return;
             }
-            //inventory.print_content();
             inv = inventory;
             checkInventory();
         }
@@ -285,16 +289,24 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void buyAllInsults(View v){
+        String title = getString(R.string.buy_insults);
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Unlock", "All insults");
         SharedMethods.sendFlurry("Unlock", flurry_stats);
 
-        if ( msg_region_insults == null )
-            msg_region_insults = SharedMethods.getStringInsultsPerRegion(this);
+        if ( inv != null ) {
+            SkuDetails sku_d = inv.getSkuDetails(SKU_ALL_INSULTS_ID);
+            if ( sku_d != null ){
+                title += " " + "(" + sku_d.getPrice() + ")";
+            }
+        }
+
+        if ( insults_per_region == null )
+            insults_per_region = SharedMethods.getStringInsultsPerRegion(this);
 
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
-        bld.setTitle(getString(R.string.buy_insults))
-            .setMessage(getString(R.string.msg_unlock_insults) + msg_region_insults)
+        bld.setTitle(title)
+            .setMessage(getString(R.string.msg_unlock_insults) + insults_per_region)
             .setNeutralButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dlg, int id) {
                         Map<String, String> flurry_stats = new HashMap<String, String>();
@@ -316,12 +328,20 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void buySurfInsults(View v){
+        String title = getString(R.string.buy_surf_insults);
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Unlock", "Insults list");
         SharedMethods.sendFlurry("Unlock", flurry_stats);
 
+        if ( inv != null ) {
+            SkuDetails sku_d = inv.getSkuDetails(SKU_SURF_INSULTS);
+            if ( sku_d != null ){
+                title += " " + "(" + sku_d.getPrice() + ")";
+            }
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.buy_surf_insults));
+        builder.setTitle(title);
         LayoutInflater factory = LayoutInflater.from(this);
         final View view = factory.inflate(R.layout.dialog_with_image, null);
         ImageView image= (ImageView) view.findViewById(R.id.snapshot_all_insults);

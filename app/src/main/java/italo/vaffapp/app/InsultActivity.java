@@ -59,7 +59,7 @@ public class InsultActivity extends ActionBarActivity {
     private static byte[] occurrences;
     private static short generated_n = 0;
 
-    final VunglePub vunglePub = VunglePub.getInstance();
+    private static VunglePub vunglePub = null;
     private short time_for_ad_1 = 30;
 
     private static short pronunciated_n = 0;
@@ -82,8 +82,11 @@ public class InsultActivity extends ActionBarActivity {
 
         SharedMethods.onCreate(this, savedInstanceState);
 
-        // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
-        vunglePub.init(this, "italo.vaffapp.app");
+        if ( vunglePub == null ) {
+            vunglePub = VunglePub.getInstance();
+            // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
+            vunglePub.init(this, "italo.vaffapp.app");
+        }
 
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
@@ -287,7 +290,7 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n == time_for_ad_1 ){
-            if ( vunglePub.isCachedAdAvailable() ) {
+            if ( vunglePub.isAdPlayable() ) {
                 final AdConfig overrideConfig = new AdConfig();
                 overrideConfig.setOrientation(Orientation.autoRotate);
                 overrideConfig.setSoundEnabled(false);

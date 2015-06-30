@@ -16,8 +16,8 @@
     <string name="buy_insults">Ottieni più insulti</string>
     <string name="buy_surf_insults">Sblocca lista insulti</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
-    <string name="fb_warning_message">Facebook impedisce ad ogni app di scrivere nello status. Per fortuna l\'insulto è stato copiato nella clipboard: devi solo incollarlo!</string>
-    <string name="fb_warning_title">Mamma, che coglioni</string>
+    <string name="fb_warning_message">L\'insulto è stato copiato nella clipboard, copialo nel post!</string>
+    <string name="fb_warning_title">Condivisione su Facebook</string>
     <string name="ok">OK</string>
     <string name="other">Altro</string>
     <string name="choice1">Condividi su...</string>

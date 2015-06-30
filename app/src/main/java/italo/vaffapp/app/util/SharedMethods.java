@@ -397,7 +397,7 @@ public class SharedMethods {
         FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(a)
                 .setRequestCode(SHARE_REQUEST)  // request code to pass to onActivityResult when it returns to VaffApp
                 .setApplicationName(a.getString(R.string.app_name))
-                        //.setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
+                .setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
                 .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());
     }

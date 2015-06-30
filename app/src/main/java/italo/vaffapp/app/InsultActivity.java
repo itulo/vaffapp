@@ -287,7 +287,7 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         if ( generated_n == time_for_ad_1 ){
-            if ( vunglePub.isCachedAdAvailable() ) {
+            if ( vunglePub.isAdPlayable() ) {
                 final AdConfig overrideConfig = new AdConfig();
                 overrideConfig.setOrientation(Orientation.autoRotate);
                 overrideConfig.setSoundEnabled(false);

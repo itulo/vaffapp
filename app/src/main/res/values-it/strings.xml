@@ -32,6 +32,7 @@
     <string name="n_insulti">insulti caricati</string>
     <string name="n_block_insults">in più</string>
     <string name="msg_custom_dialog">Stai per sbloccare una nuova schermata della VaffApp dove puoi vedere tutti gli insulti in una volta (ed anche condividerli!)</string>
+    <string name="buy">Compra</string>
     <string name="no_thanks">No grazie</string>
     <string name="msg_unlock_insults">Stai per sbloccare i seguenti insulti per regione (e tutti i nuovi insulti da futuri aggiornamenti):\n\n</string>
     <!-- title e message when no apps for sharing are found -->

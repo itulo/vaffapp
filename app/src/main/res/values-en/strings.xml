@@ -32,6 +32,7 @@
     <string name="n_insulti">insults loaded</string>
     <string name="n_block_insults">more</string>
     <string name="msg_custom_dialog">You\'re about to unlock a new view, where you can look at insults all at once (and also share them!)</string>
+    <string name="buy">Buy</string>
     <string name="no_thanks">No thanks</string>
     <string name="msg_unlock_insults">You\'re about to get this many insults per region (also all new insults coming in the future):\n\n</string>
     <!-- title e message when no apps for sharing are found -->

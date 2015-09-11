@@ -347,7 +347,7 @@ public class MainActivity extends ActionBarActivity {
         ImageView image= (ImageView) view.findViewById(R.id.snapshot_all_insults);
         image.setImageResource(R.drawable.insult_list);
         builder.setView(view)
-            .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
                     flurry_stats.put("Unlock", "Insults list - OK");
@@ -427,11 +427,12 @@ public class MainActivity extends ActionBarActivity {
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Complain", "Something failed: " + message);
         SharedMethods.sendFlurry("Complain", flurry_stats);
-        AlertDialog.Builder bld = new AlertDialog.Builder(this);
+        // DON'T SHOW TO USER!!!
+        /*AlertDialog.Builder bld = new AlertDialog.Builder(this);
         bld.setMessage(message)
             .setNeutralButton("OK", null)
             .create()
-            .show();
+            .show();*/
     }
 
     /// IN APP BILLING METHODS END ///

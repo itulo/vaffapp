@@ -15,7 +15,7 @@ public final class R {
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>bottom</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
 <tr><td><code>inline</code></td><td>1</td><td></td></tr>
 <tr><td><code>top</code></td><td>2</td><td></td></tr>
 </table>
@@ -72,7 +72,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>center</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
+<tr><td><code>center</code></td><td>0</td><td></td></tr>
 <tr><td><code>left</code></td><td>1</td><td></td></tr>
 <tr><td><code>right</code></td><td>2</td><td></td></tr>
 </table>
@@ -124,7 +124,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>small</code></td><td>-2</td><td> Keep in sync with constants in ProfilePictureView </td></tr>
+<tr><td><code>small</code></td><td>-2</td><td></td></tr>
 <tr><td><code>normal</code></td><td>-3</td><td></td></tr>
 <tr><td><code>large</code></td><td>-4</td><td></td></tr>
 </table>
@@ -184,7 +184,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>standard</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
+<tr><td><code>standard</code></td><td>0</td><td></td></tr>
 <tr><td><code>button</code></td><td>1</td><td></td></tr>
 <tr><td><code>box_count</code></td><td>2</td><td></td></tr>
 </table>
@@ -204,48 +204,48 @@ containing a value of this type.
         public static int title_text=0x7f01000d;
     }
     public static final class color {
-        public static int com_facebook_blue=0x7f040000;
-        public static int com_facebook_likeboxcountview_border_color=0x7f040001;
-        public static int com_facebook_likeboxcountview_text_color=0x7f040002;
-        public static int com_facebook_likebutton_text_color=0x7f040003;
-        public static int com_facebook_likeview_text_color=0x7f040004;
-        public static int com_facebook_loginview_text_color=0x7f040005;
-        public static int com_facebook_picker_search_bar_background=0x7f040006;
-        public static int com_facebook_picker_search_bar_text=0x7f040007;
-        public static int com_facebook_usersettingsfragment_connected_shadow_color=0x7f040008;
-        public static int com_facebook_usersettingsfragment_connected_text_color=0x7f040009;
-        public static int com_facebook_usersettingsfragment_not_connected_text_color=0x7f04000a;
+        public static int com_facebook_blue=0x7f060000;
+        public static int com_facebook_likeboxcountview_border_color=0x7f060001;
+        public static int com_facebook_likeboxcountview_text_color=0x7f060002;
+        public static int com_facebook_likebutton_text_color=0x7f060003;
+        public static int com_facebook_likeview_text_color=0x7f060004;
+        public static int com_facebook_loginview_text_color=0x7f060005;
+        public static int com_facebook_picker_search_bar_background=0x7f060006;
+        public static int com_facebook_picker_search_bar_text=0x7f060007;
+        public static int com_facebook_usersettingsfragment_connected_shadow_color=0x7f060008;
+        public static int com_facebook_usersettingsfragment_connected_text_color=0x7f060009;
+        public static int com_facebook_usersettingsfragment_not_connected_text_color=0x7f06000a;
     }
     public static final class dimen {
-        public static int com_facebook_likeboxcountview_border_radius=0x7f050000;
-        public static int com_facebook_likeboxcountview_border_width=0x7f050001;
-        public static int com_facebook_likeboxcountview_caret_height=0x7f050002;
-        public static int com_facebook_likeboxcountview_caret_width=0x7f050003;
-        public static int com_facebook_likeboxcountview_text_padding=0x7f050004;
-        public static int com_facebook_likeboxcountview_text_size=0x7f050005;
-        public static int com_facebook_likebutton_compound_drawable_padding=0x7f050006;
-        public static int com_facebook_likebutton_padding_bottom=0x7f050007;
-        public static int com_facebook_likebutton_padding_left=0x7f050008;
-        public static int com_facebook_likebutton_padding_right=0x7f050009;
-        public static int com_facebook_likebutton_padding_top=0x7f05000a;
-        public static int com_facebook_likebutton_text_size=0x7f05000b;
-        public static int com_facebook_likeview_edge_padding=0x7f05000c;
-        public static int com_facebook_likeview_internal_padding=0x7f05000d;
-        public static int com_facebook_likeview_text_size=0x7f05000e;
-        public static int com_facebook_loginview_compound_drawable_padding=0x7f05000f;
-        public static int com_facebook_loginview_padding_bottom=0x7f050010;
-        public static int com_facebook_loginview_padding_left=0x7f050011;
-        public static int com_facebook_loginview_padding_right=0x7f050012;
-        public static int com_facebook_loginview_padding_top=0x7f050013;
-        public static int com_facebook_loginview_text_size=0x7f050014;
-        public static int com_facebook_picker_divider_width=0x7f05001c;
-        public static int com_facebook_picker_place_image_size=0x7f050015;
-        public static int com_facebook_profilepictureview_preset_size_large=0x7f050016;
-        public static int com_facebook_profilepictureview_preset_size_normal=0x7f050017;
-        public static int com_facebook_profilepictureview_preset_size_small=0x7f050018;
-        public static int com_facebook_tooltip_horizontal_padding=0x7f050019;
-        public static int com_facebook_usersettingsfragment_profile_picture_height=0x7f05001a;
-        public static int com_facebook_usersettingsfragment_profile_picture_width=0x7f05001b;
+        public static int com_facebook_likeboxcountview_border_radius=0x7f050001;
+        public static int com_facebook_likeboxcountview_border_width=0x7f050002;
+        public static int com_facebook_likeboxcountview_caret_height=0x7f050003;
+        public static int com_facebook_likeboxcountview_caret_width=0x7f050004;
+        public static int com_facebook_likeboxcountview_text_padding=0x7f050005;
+        public static int com_facebook_likeboxcountview_text_size=0x7f050006;
+        public static int com_facebook_likebutton_compound_drawable_padding=0x7f050007;
+        public static int com_facebook_likebutton_padding_bottom=0x7f050008;
+        public static int com_facebook_likebutton_padding_left=0x7f050009;
+        public static int com_facebook_likebutton_padding_right=0x7f05000a;
+        public static int com_facebook_likebutton_padding_top=0x7f05000b;
+        public static int com_facebook_likebutton_text_size=0x7f05000c;
+        public static int com_facebook_likeview_edge_padding=0x7f05000d;
+        public static int com_facebook_likeview_internal_padding=0x7f05000e;
+        public static int com_facebook_likeview_text_size=0x7f05000f;
+        public static int com_facebook_loginview_compound_drawable_padding=0x7f050010;
+        public static int com_facebook_loginview_padding_bottom=0x7f050011;
+        public static int com_facebook_loginview_padding_left=0x7f050012;
+        public static int com_facebook_loginview_padding_right=0x7f050013;
+        public static int com_facebook_loginview_padding_top=0x7f050014;
+        public static int com_facebook_loginview_text_size=0x7f050015;
+        public static int com_facebook_picker_divider_width=0x7f050000;
+        public static int com_facebook_picker_place_image_size=0x7f050016;
+        public static int com_facebook_profilepictureview_preset_size_large=0x7f050017;
+        public static int com_facebook_profilepictureview_preset_size_normal=0x7f050018;
+        public static int com_facebook_profilepictureview_preset_size_small=0x7f050019;
+        public static int com_facebook_tooltip_horizontal_padding=0x7f05001a;
+        public static int com_facebook_usersettingsfragment_profile_picture_height=0x7f05001b;
+        public static int com_facebook_usersettingsfragment_profile_picture_width=0x7f05001c;
     }
     public static final class drawable {
         public static int com_facebook_button_blue=0x7f020000;
@@ -355,35 +355,35 @@ containing a value of this type.
         public static int com_facebook_usersettingsfragment=0x7f03000e;
     }
     public static final class string {
-        public static int com_facebook_choose_friends=0x7f060000;
-        public static int com_facebook_dialogloginactivity_ok_button=0x7f060001;
-        public static int com_facebook_image_download_unknown_error=0x7f060002;
-        public static int com_facebook_internet_permission_error_message=0x7f060003;
-        public static int com_facebook_internet_permission_error_title=0x7f060004;
-        public static int com_facebook_like_button_liked=0x7f060005;
-        public static int com_facebook_like_button_not_liked=0x7f060006;
-        public static int com_facebook_loading=0x7f060007;
-        public static int com_facebook_loginview_cancel_action=0x7f060008;
-        public static int com_facebook_loginview_log_in_button=0x7f060009;
-        public static int com_facebook_loginview_log_out_action=0x7f06000a;
-        public static int com_facebook_loginview_log_out_button=0x7f06000b;
-        public static int com_facebook_loginview_logged_in_as=0x7f06000c;
-        public static int com_facebook_loginview_logged_in_using_facebook=0x7f06000d;
-        public static int com_facebook_logo_content_description=0x7f06000e;
-        public static int com_facebook_nearby=0x7f06000f;
-        public static int com_facebook_picker_done_button_text=0x7f060010;
-        public static int com_facebook_placepicker_subtitle_catetory_only_format=0x7f060011;
-        public static int com_facebook_placepicker_subtitle_format=0x7f060012;
-        public static int com_facebook_placepicker_subtitle_were_here_only_format=0x7f060013;
-        public static int com_facebook_requesterror_password_changed=0x7f060014;
-        public static int com_facebook_requesterror_permissions=0x7f060015;
-        public static int com_facebook_requesterror_reconnect=0x7f060016;
-        public static int com_facebook_requesterror_relogin=0x7f060017;
-        public static int com_facebook_requesterror_web_login=0x7f060018;
-        public static int com_facebook_tooltip_default=0x7f060019;
-        public static int com_facebook_usersettingsfragment_log_in_button=0x7f06001a;
-        public static int com_facebook_usersettingsfragment_logged_in=0x7f06001b;
-        public static int com_facebook_usersettingsfragment_not_logged_in=0x7f06001c;
+        public static int com_facebook_choose_friends=0x7f040000;
+        public static int com_facebook_dialogloginactivity_ok_button=0x7f040001;
+        public static int com_facebook_image_download_unknown_error=0x7f040002;
+        public static int com_facebook_internet_permission_error_message=0x7f040003;
+        public static int com_facebook_internet_permission_error_title=0x7f040004;
+        public static int com_facebook_like_button_liked=0x7f04001a;
+        public static int com_facebook_like_button_not_liked=0x7f04001b;
+        public static int com_facebook_loading=0x7f040005;
+        public static int com_facebook_loginview_cancel_action=0x7f040006;
+        public static int com_facebook_loginview_log_in_button=0x7f040007;
+        public static int com_facebook_loginview_log_out_action=0x7f040008;
+        public static int com_facebook_loginview_log_out_button=0x7f040009;
+        public static int com_facebook_loginview_logged_in_as=0x7f04000a;
+        public static int com_facebook_loginview_logged_in_using_facebook=0x7f04000b;
+        public static int com_facebook_logo_content_description=0x7f04000c;
+        public static int com_facebook_nearby=0x7f04000d;
+        public static int com_facebook_picker_done_button_text=0x7f04000e;
+        public static int com_facebook_placepicker_subtitle_catetory_only_format=0x7f04000f;
+        public static int com_facebook_placepicker_subtitle_format=0x7f040010;
+        public static int com_facebook_placepicker_subtitle_were_here_only_format=0x7f040011;
+        public static int com_facebook_requesterror_password_changed=0x7f040012;
+        public static int com_facebook_requesterror_permissions=0x7f040013;
+        public static int com_facebook_requesterror_reconnect=0x7f040014;
+        public static int com_facebook_requesterror_relogin=0x7f040015;
+        public static int com_facebook_requesterror_web_login=0x7f040016;
+        public static int com_facebook_tooltip_default=0x7f04001c;
+        public static int com_facebook_usersettingsfragment_log_in_button=0x7f040017;
+        public static int com_facebook_usersettingsfragment_logged_in=0x7f040018;
+        public static int com_facebook_usersettingsfragment_not_logged_in=0x7f040019;
     }
     public static final class style {
         public static int com_facebook_loginview_default_style=0x7f070000;
@@ -451,7 +451,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>bottom</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
 <tr><td><code>inline</code></td><td>1</td><td></td></tr>
 <tr><td><code>top</code></td><td>2</td><td></td></tr>
 </table>
@@ -484,7 +484,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>center</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
+<tr><td><code>center</code></td><td>0</td><td></td></tr>
 <tr><td><code>left</code></td><td>1</td><td></td></tr>
 <tr><td><code>right</code></td><td>2</td><td></td></tr>
 </table>
@@ -516,7 +516,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>standard</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
+<tr><td><code>standard</code></td><td>0</td><td></td></tr>
 <tr><td><code>button</code></td><td>1</td><td></td></tr>
 <tr><td><code>box_count</code></td><td>2</td><td></td></tr>
 </table>
@@ -829,7 +829,7 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>small</code></td><td>-2</td><td> Keep in sync with constants in ProfilePictureView </td></tr>
+<tr><td><code>small</code></td><td>-2</td><td></td></tr>
 <tr><td><code>normal</code></td><td>-3</td><td></td></tr>
 <tr><td><code>large</code></td><td>-4</td><td></td></tr>
 </table>

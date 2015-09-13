@@ -72,3 +72,7 @@
 -keepattributes Signature
 -keep class dagger.*
 
+# After starting using API 23
+-dontwarn org.apache.http.**
+-dontwarn android.net.http.AndroidHttpClient
+-dontwarn com.google.android.gms.**

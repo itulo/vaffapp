@@ -168,7 +168,7 @@ public class MainActivity extends ActionBarActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(getString(R.string.ad_message))
                     .setTitle(getString(R.string.ad_title))
-                    .setNegativeButton(getString(R.string.ad_no_button), new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getString(R.string.no_thanks), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             //do nothing
                         }
@@ -307,7 +307,7 @@ public class MainActivity extends ActionBarActivity {
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
         bld.setTitle(title)
             .setMessage(getString(R.string.msg_unlock_insults) + insults_per_region)
-            .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dlg, int id) {
                         Map<String, String> flurry_stats = new HashMap<String, String>();
                         flurry_stats.put("Unlock", "All insults - OK");
@@ -434,7 +434,6 @@ public class MainActivity extends ActionBarActivity {
             .create()
             .show();*/
     }
-
     /// IN APP BILLING METHODS END ///
 
     @Override

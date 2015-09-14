@@ -44,8 +44,7 @@
     <!-- message for VaffappPro - when exiting from application -->
     <string name="ad_title">Piaciuta la VaffApp?</string>
     <string name="ad_message">Scarica la VaffApp Pro!\nHa più insulti, nessuna pubblicità e condivisione su più app!</string>
-    <string name="ad_ok_button">Sì, ti voglio sostenere!</string>
-    <string name="ad_no_button">Nah, ho le braccine corte</string>
+    <string name="ad_ok_button">Guarda</string>
     <!-- reward messages -->
     <string name="comeback_reward_title">Grazie per essere tornato!</string>
     <string name="unlocked">Sbloccati</string>

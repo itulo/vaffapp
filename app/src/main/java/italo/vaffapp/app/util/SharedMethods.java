@@ -66,12 +66,17 @@ public class SharedMethods {
         // 1. configure the UiLifecycleHelper in onCreate
         uiHelper = new UiLifecycleHelper(a, callback);
         uiHelper.onCreate(savedInstanceState);
+
+
     }
 
     public static void onStart(Context c) {
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(c);
-        FlurryAgent.onStartSession(c, c.getString(R.string.flurry_id));
+
+        FlurryAgent.setLogEnabled(false);
+        FlurryAgent.init(c, c.getString(R.string.flurry_id));
+        FlurryAgent.onStartSession(c);
     }
 
     public static void onResume() {

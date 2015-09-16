@@ -42,10 +42,15 @@ import android.widget.Toast;
 
 import android.widget.ImageView;
 
+import com.vungle.publisher.AdConfig;
+import com.vungle.publisher.Orientation;
+import com.vungle.publisher.VunglePub;
+
 
 public class MainActivity extends ActionBarActivity {
 
     private final int UNLOCK_INSULTS = 3; // insults to unlock when returning user
+    private final int UNLOCK_INSULTS_AD = 20; //insults to unlock when user watches ad
     private int pref_language;
 
     // in app billing
@@ -58,6 +63,7 @@ public class MainActivity extends ActionBarActivity {
 
     private String insults_per_region = null;   // string listing each region with how many insults are locked
 
+    private static VunglePub vunglePub = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +80,12 @@ public class MainActivity extends ActionBarActivity {
         new SimpleEula(this).show();
         setLanguage();
         RewardIfReturn();
+
+        if ( vunglePub == null ) {
+            vunglePub = VunglePub.getInstance();
+            // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
+            vunglePub.init(this, "italo.vaffapp.app");
+        }
     }
 
     /* change the UI's language: Italiano <-> English */
@@ -141,10 +153,20 @@ public class MainActivity extends ActionBarActivity {
         checkInAppBilling();
     }
 
+    public void onResume(){
+        super.onResume();
+        vunglePub.onResume();
+    }
+
     public void onStop() {
         showAdDialogIfNewAppVersion();
         super.onStop();
         SharedMethods.onStop(this);
+    }
+
+    public void onPause(){
+        super.onPause();
+        vunglePub.onPause();
     }
 
     public void onDestroy(){
@@ -306,15 +328,25 @@ public class MainActivity extends ActionBarActivity {
 
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
         bld.setTitle(title)
-            .setMessage(getString(R.string.msg_unlock_insults) + insults_per_region)
+            .setMessage(getString(R.string.msg_unlock_insults) + insults_per_region + getString(R.string.msg_unlock_insults2) + UNLOCK_INSULTS_AD)
             .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dlg, int id) {
-                        Map<String, String> flurry_stats = new HashMap<String, String>();
-                        flurry_stats.put("Unlock", "All insults - OK");
-                        SharedMethods.sendFlurry("Unlock", flurry_stats);
-                        initiatePurchaseAllInsults();
+                public void onClick(DialogInterface dlg, int id) {
+                    Map<String, String> flurry_stats = new HashMap<String, String>();
+                    flurry_stats.put("Unlock", "All insults - OK");
+                    SharedMethods.sendFlurry("Unlock", flurry_stats);
+                    initiatePurchaseAllInsults();
+                }
+            })
+            .setNegativeButton(getString(R.string.watch_ad), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dlg, int id) {
+                    if (vunglePub.isAdPlayable()) {
+                        final AdConfig overrideConfig = new AdConfig();
+                        overrideConfig.setOrientation(Orientation.autoRotate);
+                        overrideConfig.setSoundEnabled(false);
+                        vunglePub.playAd(overrideConfig);
                     }
-                })
+                }
+            })
             .setPositiveButton(getString(R.string.no_thanks), null)
             .create()
             .show();

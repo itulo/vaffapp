@@ -34,7 +34,9 @@
     <string name="msg_custom_dialog">You\'re about to unlock a new view, where you can look at insults all at once (and also share them!)</string>
     <string name="buy">Buy</string>
     <string name="no_thanks">No thanks</string>
+    <string name="watch_ad">Watch ad</string>
     <string name="msg_unlock_insults">You\'re about to get this many insults per region (also all new insults coming in the future):\n\n</string>
+    <string name="msg_unlock_insults2">\n\nYou can also watch an ad and unlock&#160;</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">VaffApp looks for Facebook, Twitter, Whatsapp, Viber, or Hangout apps in your device\nIf you want to share on other apps download the VaffApp Pro!</string>
     <string name="noapp_warning_title">Apps not found</string>

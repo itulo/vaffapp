@@ -47,13 +47,16 @@
     <string name="ad_title">Piaciuta la VaffApp?</string>
     <string name="ad_message">Scarica la VaffApp Pro!\nHa più insulti, nessuna pubblicità e condivisione su più app!</string>
     <string name="ad_ok_button">Guarda</string>
-    <!-- reward messages -->
+    <!-- reward related messages and warnings -->
     <string name="comeback_reward_title">Grazie per essere tornato!</string>
     <string name="unlocked">Sbloccati</string>
     <string name="insults">insulti</string>
     <string name="share_reward">Hai condiviso 3 insulti!</string>
     <string name="share_instructions_title">Istruzioni!</string>
     <string name="share_instructions_msg">Condividi un insulto 3 volte per sbloccare 10 nuovi insulti</string>
+    <string name="ad_watched">Grazie per aver guardato l\'ad!</string>
+    <string name="ad_na_title">Ad non disponibile</string>
+    <string name="ad_na_msg">L\'ad non è stato ancora caricato, riprova tra qualche secondo</string>
     <!-- notification strings -->
     <string name="notif_title_1">Giornata storta?</string>
     <string name="notif_title_2">Insulta di più!</string>

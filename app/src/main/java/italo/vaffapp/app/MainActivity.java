@@ -43,6 +43,7 @@ import android.widget.Toast;
 import android.widget.ImageView;
 
 import com.vungle.publisher.AdConfig;
+import com.vungle.publisher.EventListener;
 import com.vungle.publisher.Orientation;
 import com.vungle.publisher.VunglePub;
 
@@ -64,6 +65,44 @@ public class MainActivity extends ActionBarActivity {
     private String insults_per_region = null;   // string listing each region with how many insults are locked
 
     private static VunglePub vunglePub = null;
+    private final EventListener vungleListener = new EventListener(){
+
+        @Override
+        public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
+            if ( isCompletedView ) {
+                // the function below shows a dialog, this must be run in the UiThread
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        removeVungleListenerandUnlockInsults();
+                    }
+                });
+            } else {
+                removeVungleListener();
+            }
+        }
+
+        @Override
+        public void onAdStart() {
+            // Called before playing an ad
+        }
+
+        @Override
+        public void onAdEnd(boolean wasCallToActionClicked) {
+            // Called when the user leaves the ad and control is returned to your application
+        }
+
+        @Override
+        public void onAdPlayableChanged(boolean isAdPlayable) {
+            // Called when the playability state changes. if isAdPlayable is true, you can now play an ad.
+            // If false, you cannot yet play an ad.
+        }
+
+        @Override
+        public void onAdUnavailable(String reason) {
+            // Called when VunglePub.playAd() was called, but no ad was available to play
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +181,7 @@ public class MainActivity extends ActionBarActivity {
 
         SharedMethods.onStart(this);
 
-        // hide 'Insultaci' button if english UI
+        // hide 'Suggerisci un insulto' button if english UI
         // disable button, thank user
         if ( pref_language == LanguageOptions.ENGLISH ) {
             Button button_insultaci = (Button) findViewById(R.id.button_insultaci);
@@ -260,6 +299,28 @@ public class MainActivity extends ActionBarActivity {
         showButton(b);
     }
 
+    void playAd(){
+        if (vunglePub.isAdPlayable()) {
+            vunglePub.setEventListeners(vungleListener);
+            final AdConfig overrideConfig = new AdConfig();
+            overrideConfig.setOrientation(Orientation.autoRotate);
+            overrideConfig.setIncentivized(true);
+            overrideConfig.setSoundEnabled(false);
+            vunglePub.playAd(overrideConfig);
+        } else {
+            SharedMethods.showDialog(this, getString(R.string.ad_na_title), getString(R.string.ad_na_msg));
+        }
+    }
+
+    void removeVungleListener(){
+        vunglePub.removeEventListeners(vungleListener);
+    }
+
+    void removeVungleListenerandUnlockInsults(){
+        removeVungleListener();
+        SharedMethods.unlockInsults(this, getString(R.string.ad_watched), UNLOCK_INSULTS_AD);
+    }
+
     /// IN APP BILLING  METHODS ///
     private void checkInAppBilling(){
         /* in app billing */
@@ -339,12 +400,7 @@ public class MainActivity extends ActionBarActivity {
             })
             .setNegativeButton(getString(R.string.watch_ad), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
-                    if (vunglePub.isAdPlayable()) {
-                        final AdConfig overrideConfig = new AdConfig();
-                        overrideConfig.setOrientation(Orientation.autoRotate);
-                        overrideConfig.setSoundEnabled(false);
-                        vunglePub.playAd(overrideConfig);
-                    }
+                    playAd();
                 }
             })
             .setPositiveButton(getString(R.string.no_thanks), null)

@@ -33,9 +33,6 @@ import android.content.ClipData;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
-import com.vungle.publisher.VunglePub;
-import com.vungle.publisher.AdConfig;
-import com.vungle.publisher.Orientation;
 
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -59,9 +56,6 @@ public class InsultActivity extends ActionBarActivity {
     private static byte[] occurrences;
     private static short generated_n = 0;
 
-    private static VunglePub vunglePub = null;
-    private short time_for_ad_1 = 30;
-
     private static short pronunciated_n = 0;
 
     private int pref_language;
@@ -81,12 +75,6 @@ public class InsultActivity extends ActionBarActivity {
         }
 
         SharedMethods.onCreate(this, savedInstanceState);
-
-        if ( vunglePub == null ) {
-            vunglePub = VunglePub.getInstance();
-            // https://github.com/Vungle/vungle-resources/blob/master/English/Android/3.2.x/android-dev-guide.md
-            vunglePub.init(this, "italo.vaffapp.app");
-        }
 
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
@@ -117,7 +105,6 @@ public class InsultActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         SharedMethods.onResume();
-        vunglePub.onResume();
         setRegionNameInTitle();
         AppEventsLogger.activateApp(this);  // to track in FB
         checkGooglePlayServicesVersion();
@@ -133,7 +120,6 @@ public class InsultActivity extends ActionBarActivity {
     public void onPause() {
         super.onPause();
         SharedMethods.onPause();
-        vunglePub.onPause();
         scheduleNotification();
         AppEventsLogger.deactivateApp(this);    // to track in FB
     }
@@ -287,18 +273,6 @@ public class InsultActivity extends ActionBarActivity {
             for(int i=0;i<occurrences.length;i++)
                 occurrences[i] = 0;
             generated_n = 0;
-        }
-
-        if ( generated_n == time_for_ad_1 ){
-            if ( vunglePub.isAdPlayable() ) {
-                final AdConfig overrideConfig = new AdConfig();
-                overrideConfig.setOrientation(Orientation.autoRotate);
-                overrideConfig.setSoundEnabled(false);
-                vunglePub.playAd(overrideConfig);
-            }
-            else {
-                time_for_ad_1++;
-            }
         }
     }
 

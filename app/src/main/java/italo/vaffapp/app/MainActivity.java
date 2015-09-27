@@ -38,8 +38,6 @@ import italo.vaffapp.app.util.Inventory;
 import italo.vaffapp.app.util.Purchase;
 import italo.vaffapp.app.util.SkuDetails;
 
-import android.widget.Toast;
-
 import android.widget.ImageView;
 
 import com.vungle.publisher.AdConfig;
@@ -405,7 +403,7 @@ public class MainActivity extends ActionBarActivity {
 
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
         bld.setTitle(title)
-            .setMessage(getString(R.string.msg_unlock_insults) + insults_per_region + getString(R.string.msg_unlock_insults2) + UNLOCK_INSULTS_AD)
+            .setMessage(getString(R.string.msg_unlock_insults) + UNLOCK_INSULTS_AD +' '+ getString(R.string.insults) + getString(R.string.msg_unlock_insults2) + insults_per_region)
             .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();

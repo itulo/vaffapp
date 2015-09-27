@@ -69,7 +69,9 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
+            Map<String, String> flurry_stats = new HashMap<String, String>();
             if ( isCompletedView ) {
+                flurry_stats.put("Unlock", "Played ad completely");
                 // the function below shows a dialog, this must be run in the UiThread
                 MainActivity.this.runOnUiThread(new Runnable() {
                     public void run() {
@@ -77,6 +79,7 @@ public class MainActivity extends ActionBarActivity {
                     }
                 });
             } else {
+                flurry_stats.put("Unlock", "Not played ad completely");
                 removeVungleListener();
             }
         }
@@ -253,19 +256,28 @@ public class MainActivity extends ActionBarActivity {
 
     /* If the user comes back a day after, unlock as many insults as UNLOCK_INSULTS */
     private void RewardIfReturn(){
-        int def_val = -1;
+        int last_day_use_def_val = -1;
+        int days_app_opened_def_cal = 0;
         ArrayList<Insult> unlocked = null;
+        Map<String, String> flurry_stats = new HashMap<String, String>();
+
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
-        int last_use = SharedPrefsMethods.getInt("last_day_use", def_val);
+        int last_use = SharedPrefsMethods.getInt("last_day_use", last_day_use_def_val);
         // last_use = 4; // for debug, uncomment and device will unlock insults
 
+        int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", days_app_opened_def_cal);
+        days_app_opened++;
+
         // if not null and different from today
-        if ( last_use != def_val && last_use != today ) {
+        if ( last_use != last_day_use_def_val && last_use != today ) {
+            if (days_app_opened > 1)
+                flurry_stats.put("Returning user", Integer.toString(days_app_opened));
             SharedMethods.unlockInsults(this, getString(R.string.comeback_reward_title), UNLOCK_INSULTS);
         }
         // save shared prefs
         SharedPrefsMethods.putInt("last_day_use", today);
+        SharedPrefsMethods.putInt("times_app_opened", days_app_opened);
     }
 
     void getCountBlockedInsults(){
@@ -300,7 +312,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     void playAd(){
+        Map<String, String> flurry_stats = new HashMap<String, String>();
+
         if (vunglePub.isAdPlayable()) {
+            flurry_stats.put("Unlock", "Play ad");
             vunglePub.setEventListeners(vungleListener);
             final AdConfig overrideConfig = new AdConfig();
             overrideConfig.setOrientation(Orientation.autoRotate);
@@ -308,6 +323,7 @@ public class MainActivity extends ActionBarActivity {
             overrideConfig.setSoundEnabled(false);
             vunglePub.playAd(overrideConfig);
         } else {
+            flurry_stats.put("Unlock", "Ad not available");
             SharedMethods.showDialog(this, getString(R.string.ad_na_title), getString(R.string.ad_na_msg));
         }
     }
@@ -393,13 +409,15 @@ public class MainActivity extends ActionBarActivity {
             .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
-                    flurry_stats.put("Unlock", "All insults - OK");
+                    flurry_stats.put("Unlock", "All insults - Buy");
                     SharedMethods.sendFlurry("Unlock", flurry_stats);
                     initiatePurchaseAllInsults();
                 }
             })
             .setNegativeButton(getString(R.string.watch_ad), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
+                    Map<String, String> flurry_stats = new HashMap<String, String>();
+                    flurry_stats.put("Unlock", "Watch ad");
                     playAd();
                 }
             })
@@ -438,7 +456,7 @@ public class MainActivity extends ActionBarActivity {
             .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
-                    flurry_stats.put("Unlock", "Insults list - OK");
+                    flurry_stats.put("Unlock", "Insults list - Buy");
                     SharedMethods.sendFlurry("Unlock", flurry_stats);
                     initiatePurchaseSurfInsults();
                 }

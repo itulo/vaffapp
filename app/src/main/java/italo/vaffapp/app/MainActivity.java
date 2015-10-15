@@ -69,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
         public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
             Map<String, String> flurry_stats = new HashMap<String, String>();
             if ( isCompletedView ) {
-                flurry_stats.put("Unlock", "Played ad completely");
+                flurry_stats.put("Ad", "Played completely");
                 // the function below shows a dialog, this must be run in the UiThread
                 MainActivity.this.runOnUiThread(new Runnable() {
                     public void run() {
@@ -77,9 +77,10 @@ public class MainActivity extends ActionBarActivity {
                     }
                 });
             } else {
-                flurry_stats.put("Unlock", "Not played ad completely");
+                flurry_stats.put("Ad", "Not played completely");
                 removeVungleListener();
             }
+            SharedMethods.sendFlurry("Unlock", flurry_stats);
         }
 
         @Override
@@ -223,8 +224,10 @@ public class MainActivity extends ActionBarActivity {
         PackageInfo versionInfo = SharedMethods.getPackageInfo(this);
         final String current_app_ver = "app"+versionInfo.versionCode;
         String ad_app_ver = SharedPrefsMethods.getString("ad_app_ver", "");
+        int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", -1);
 
-        if ( !ad_app_ver.equals(current_app_ver) ){
+        // make sure the buy VaffappPro ad is not shown the first time ever the app is opened
+        if ( !ad_app_ver.equals(current_app_ver) && days_app_opened > 1){
             SharedPrefsMethods.putString("ad_app_ver", current_app_ver);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -255,22 +258,19 @@ public class MainActivity extends ActionBarActivity {
     /* If the user comes back a day after, unlock as many insults as UNLOCK_INSULTS */
     private void RewardIfReturn(){
         int last_day_use_def_val = -1;
-        int days_app_opened_def_cal = 0;
-        ArrayList<Insult> unlocked = null;
-        Map<String, String> flurry_stats = new HashMap<String, String>();
 
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
         int last_use = SharedPrefsMethods.getInt("last_day_use", last_day_use_def_val);
         // last_use = 4; // for debug, uncomment and device will unlock insults
 
-        int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", days_app_opened_def_cal);
+        int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", 0);
         days_app_opened++;
 
         // if not null and different from today
         if ( last_use != last_day_use_def_val && last_use != today ) {
             if (days_app_opened > 1)
-                flurry_stats.put("Returning user", Integer.toString(days_app_opened));
+                SharedMethods.sendEventFlurry("Returning user: "+days_app_opened);
             SharedMethods.unlockInsults(this, getString(R.string.comeback_reward_title), UNLOCK_INSULTS);
         }
         // save shared prefs
@@ -313,7 +313,7 @@ public class MainActivity extends ActionBarActivity {
         Map<String, String> flurry_stats = new HashMap<String, String>();
 
         if (vunglePub.isAdPlayable()) {
-            flurry_stats.put("Unlock", "Play ad");
+            flurry_stats.put("Ad", "Play");
             vunglePub.setEventListeners(vungleListener);
             final AdConfig overrideConfig = new AdConfig();
             overrideConfig.setOrientation(Orientation.autoRotate);
@@ -321,9 +321,10 @@ public class MainActivity extends ActionBarActivity {
             overrideConfig.setSoundEnabled(false);
             vunglePub.playAd(overrideConfig);
         } else {
-            flurry_stats.put("Unlock", "Ad not available");
+            flurry_stats.put("Ad", "Not available");
             SharedMethods.showDialog(this, getString(R.string.ad_na_title), getString(R.string.ad_na_msg));
         }
+        SharedMethods.sendFlurry("Unlock", flurry_stats);
     }
 
     void removeVungleListener(){
@@ -416,6 +417,7 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
                     flurry_stats.put("Unlock", "Watch ad");
+                    SharedMethods.sendFlurry("Unlock", flurry_stats);
                     playAd();
                 }
             })

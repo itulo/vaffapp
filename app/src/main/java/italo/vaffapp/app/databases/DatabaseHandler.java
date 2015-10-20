@@ -9,10 +9,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.sql.SQLException;
-import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
@@ -20,6 +17,10 @@ import java.util.HashMap;
 
 /**
  * Created by iarmenti on 4/26/14.
+ *
+ * Implementation based on
+ * http://blog.reigndesign.com/blog/using-your-own-sqlite-database-in-android-applications/
+ * http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -28,18 +29,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "vaffapp.db";
     private static final String TABLE_INSULTS = "insults";
-    private static final String TABLE_REGIONS = "regions";
     private static final String TABLE_VERSION = "version";
-    // my db version - increase anytime db content changes
-    // if different from "version" table, it copies again the db from the assets folder
-    // and writes in the same table the new version number
-
+    // Increase to force a full rewrite of the database
     private static int DB_VER = 27;
-
-    // Insults Table Columns names
-    private static final String KEY_ID = "rowid";
-    private static final String KEY_INSULT = "insult";
-    private static final String KEY_DESC = "desc";
 
     private SQLiteDatabase myDataBase;
     private final Context myContext;
@@ -78,7 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     private void copyDbProcess() {
-        //By calling this method and empty database will be created into the default system path
+        //By calling this method an empty database will be created into the default system path
         //of your application so we are gonna be able to overwrite that database with our database.
         this.getReadableDatabase();
         try {
@@ -165,9 +157,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Getting All Insults whose column visible = true
     public ArrayList<Insult> getAllInsults() {
         ArrayList<Insult> insultList = new ArrayList<Insult>();
-        // Select All Query
-        //String selectQuery = "SELECT * FROM " + TABLE_INSULTS + " where visible = 1";
-        //String selectQuery = "SELECT rowid,* FROM " + TABLE_INSULTS + " order by region, LOWER(insult)";
+
         String selectQuery = "SELECT rowid,* FROM " + TABLE_INSULTS + " where visible = 1 order by region, LOWER(insult)";
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -187,27 +177,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         return insultList;
-    }
-
-    // get all regions
-    public ArrayList<Region> getAllRegions() {
-        ArrayList<Region> regionList = new ArrayList<Region>();
-        String selectQuery = "SELECT * FROM " + TABLE_REGIONS;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                Region region = new Region();
-                region.setName(cursor.getString(1)); // 0 is insult
-                // Adding region to list
-                regionList.add(region);
-            } while (cursor.moveToNext());
-        }
-
-        return regionList;
     }
 
     // get version number
@@ -248,7 +217,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         if ( unlocked.size() > 0 ){
-            unlocked_ids = unlocked_ids.substring(0, unlocked_ids.length()-1); // delete last character, a ','
+            unlocked_ids = unlocked_ids.substring(0, unlocked_ids.length()-1); // delete last character, a comma
             String query = "UPDATE " + TABLE_INSULTS + " SET visible = 1 where rowid in (" + unlocked_ids + ")";
             db.execSQL(query);
         }

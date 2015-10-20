@@ -46,9 +46,7 @@ public class Insult {
         return _region_id;
     }
 
-    /* this method is required in the Master/Detail flow
-       to show a list of Insult only by _insult
-     */
+    // this method is used in the Master/Detail flow
     public String toString() {
         String region_name;
 

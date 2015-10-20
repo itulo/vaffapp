@@ -61,13 +61,11 @@ public class SharedMethods {
 
     /* on* methods */
     public static void onCreate(Activity a, Bundle savedInstanceState) {
-        // FB code, UiLifecycleHelper needed to share a post - https://developers.facebook.com/docs/android/share
+        // FB code, UiLifecycleHelper is needed to share a post - https://developers.facebook.com/docs/android/share
         // Includes callback in case FB app is not installed!
         // 1. configure the UiLifecycleHelper in onCreate
         uiHelper = new UiLifecycleHelper(a, callback);
         uiHelper.onCreate(savedInstanceState);
-
-
     }
 
     public static void onStart(Context c) {
@@ -153,28 +151,26 @@ public class SharedMethods {
     public static String getRegionFromId(int region_id){
         String region;
         switch(region_id){
-            /* Edit 15-01-2015: In db I organized regions in alphabetic order so their ids changed
-              (before they were in order-ish from north to south) */
             case 1: region = "Molise"; break;
-            case 19: region = "Valle d'Aosta"; break;
-            case 12: region = "Piemonte"; break;
-            case 10: region = "Lombardia"; break;
-            case 17: region = "Trentino Alto Adige"; break;
-            case 7: region = "Friuli Venezia Giulia"; break;
-            case 20: region = "Veneto"; break;
-            case 6: region = "Emilia Romagna"; break;
-            case 9: region = "Liguria"; break;
-            case 16: region = "Toscana"; break;
-            case 8: region = "Lazio"; break;
-            case 18: region = "Umbria"; break;
-            case 11: region = "Marche"; break;
             case 2: region = "Abruzzo"; break;
-            case 5: region = "Campania"; break;
-            case 13: region = "Puglia"; break;
             case 3: region = "Basilicata"; break;
             case 4: region = "Calabria"; break;
-            case 15: region = "Sicilia"; break;
+            case 5: region = "Campania"; break;
+            case 6: region = "Emilia Romagna"; break;
+            case 7: region = "Friuli Venezia Giulia"; break;
+            case 8: region = "Lazio"; break;
+            case 9: region = "Liguria"; break;
+            case 10: region = "Lombardia"; break;
+            case 11: region = "Marche"; break;
+            case 12: region = "Piemonte"; break;
+            case 13: region = "Puglia"; break;
             case 14: region = "Sardegna"; break;
+            case 15: region = "Sicilia"; break;
+            case 16: region = "Toscana"; break;
+            case 17: region = "Trentino Alto Adige"; break;
+            case 18: region = "Umbria"; break;
+            case 19: region = "Valle d'Aosta"; break;
+            case 20: region = "Veneto"; break;
             case 21: region = "Nazionale"; break;
             default: region = ""; break;
         }
@@ -236,7 +232,6 @@ public class SharedMethods {
         String package_name;
         Drawable icon;
         App app;
-        //final App[] apps = new App[diff_app.size()+1];
         final App[] apps = new App[diff_app.size()];
         PackageManager pm = a.getPackageManager();
 
@@ -272,8 +267,6 @@ public class SharedMethods {
                 apps[i] = app;
             }
         }
-
-        //apps[diff_app.size()] = new App(a.getString(R.string.other), "", null);
 
         /* show icons of apps */
         // http://stackoverflow.com/questions/3920640/how-to-add-icon-in-alert-dialog-before-each-item
@@ -363,16 +356,6 @@ public class SharedMethods {
                             targetedShareIntent.setPackage(apps[which].getPackageName());
                             a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
                         }
-
-                        /*if (choice.equals(a.getString(R.string.other))) {
-                            flurry_stats.put("Share on", "Other");
-                            flurry_stats.put("Insult", insult_text.toString());
-
-                            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), a.getString(R.string.choice2));
-                            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
-                            //a.startActivity(chooserIntent);
-                            a.startActivityForResult(chooserIntent, SHARE_REQUEST);
-                        }*/
                         sendFlurry("Sharing", flurry_stats);
                     }
                 }).create().show();

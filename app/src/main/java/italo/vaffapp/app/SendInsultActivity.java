@@ -76,7 +76,7 @@ public class SendInsultActivity extends ActionBarActivity {
 
             feedback += "\n\nBy " + identity;
             // send the feedback to flurry
-            flurry_stats.put("Email", feedback);
+            flurry_stats.put("Feedback", feedback);
             FlurryAgent.logEvent("User feedback", flurry_stats);
 
             // disable button, thank user
@@ -107,6 +107,7 @@ public class SendInsultActivity extends ActionBarActivity {
         TextView tmp_textview;
         RadioButton tmp_radiobutt;
         String str = null;
+        // the message is in italian: 'new insult suggested from the VaffApp'
         feedback = "Nuovo insulto suggerito tramite la VaffApp:\n\n";
 
         // Check anonymous checkbox is selected
@@ -122,6 +123,7 @@ public class SendInsultActivity extends ActionBarActivity {
             return false;
         }
         tmp_radiobutt = (RadioButton) findViewById(choice);
+        // 'Region:'
         feedback += "Regione: " + tmp_radiobutt.getText() + "\n";
 
         // check edittext(s)
@@ -135,11 +137,13 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
+            // 'Insult:'
             feedback += "Insulto: '" + str + "'\n";
 
         tmp_edittext = (EditText) findViewById(R.id.edittext_descrizione);
         if ( tmp_edittext != null ) {
             str = tmp_edittext.getText().toString();
+                                                                            //Comment/Request
             if (str.trim().length() <= 0 && !tmp_radiobutt.getText().equals("Commento/Richiesta") ) {
                 tmp_textview = (TextView) findViewById(R.id.textview_descrizione);
                 tmp_textview.setTextColor(Color.RED);
@@ -147,6 +151,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
+            // 'Description:'
             feedback += "Descrizione: '" + str + "'";
 
         return true;

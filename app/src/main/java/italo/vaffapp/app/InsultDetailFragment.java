@@ -16,7 +16,7 @@ import android.content.Context;
 
 import com.flurry.android.FlurryAgent;
 
-import italo.vaffapp.app.databases.Insult;
+import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
 import italo.vaffapp.app.util.SharedMethods;
 

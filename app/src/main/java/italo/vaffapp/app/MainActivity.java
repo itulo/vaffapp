@@ -24,7 +24,6 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
 
-import italo.vaffapp.app.util.IabException;
 import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;
 
@@ -46,10 +45,9 @@ import com.vungle.publisher.VunglePub;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    // for rewarding
     private final int UNLOCK_INSULTS = 3; // insults to unlock when returning user
     private final int UNLOCK_INSULTS_AD = 20; //insults to unlock when user watches ad
-    private int pref_language;
 
     // in app billing
     private IabHelper mHelper;
@@ -60,6 +58,7 @@ public class MainActivity extends ActionBarActivity {
     Inventory inv;
 
     private String insults_per_region = null;   // string listing each region with how many insults are locked
+    private int pref_language;
 
     private static VunglePub vunglePub = null;
     private final EventListener vungleListener = new EventListener(){

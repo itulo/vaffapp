@@ -34,8 +34,8 @@ import java.util.Map;
 
 import italo.vaffapp.app.App;
 import italo.vaffapp.app.R;
-import italo.vaffapp.app.databases.DatabaseHandler;
-import italo.vaffapp.app.databases.Insult;
+import italo.vaffapp.app.database.DatabaseHandler;
+import italo.vaffapp.app.entity.Insult;
 
 import italo.vaffapp.app.Speaker;
 

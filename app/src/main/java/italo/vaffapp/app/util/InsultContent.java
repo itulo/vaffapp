@@ -7,13 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import italo.vaffapp.app.databases.Insult;
+import italo.vaffapp.app.entity.Insult;
 
 /**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- * <p/>
- * TODO: Replace all uses of this class before publishing your app.
+ * Helper class for providing all insults in a list - used by Master Detail flow
  */
 public class InsultContent {
 

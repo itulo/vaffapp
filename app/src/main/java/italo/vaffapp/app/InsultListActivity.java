@@ -7,8 +7,6 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
-import italo.vaffapp.app.util.SharedMethods;
-
 
 /**
  * An activity representing a list of Insults. This activity
@@ -27,11 +25,7 @@ import italo.vaffapp.app.util.SharedMethods;
  * to listen for item selections.
  */
 
-/* IA - changing this to extend from ActionBarActivity because as a FragmentActivity
-   it was not showing the action bar
-   edit: rolling back the change */
 public class InsultListActivity extends FragmentActivity
-//public class InsultListActivity extends ActionBarActivity
         implements InsultListFragment.Callbacks {
 
     /**
@@ -62,8 +56,6 @@ public class InsultListActivity extends FragmentActivity
                     .findFragmentById(R.id.insult_list))
                     .setActivateOnItemClick(true);
         }
-
-        // TODO: If exposing deep links into your app, handle intents here.
     }
 
     @Override

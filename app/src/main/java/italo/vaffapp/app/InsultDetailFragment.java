@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.content.Context;
 
-import com.flurry.android.FlurryAgent;
-
 import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
 import italo.vaffapp.app.util.SharedMethods;
@@ -34,7 +32,7 @@ public class InsultDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
 
     /**
-     * The dummy content this fragment is presenting.
+     * The content this fragment is presenting.
      */
     private Insult mItem;
 
@@ -51,9 +49,7 @@ public class InsultDetailFragment extends Fragment {
         SharedMethods.onCreate(getActivity(), savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
+            // load insults
             mItem = InsultContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
         }
     }
@@ -61,27 +57,17 @@ public class InsultDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //View rootView = inflater.inflate(R.layout.fragment_insult_detail, container, false);
-        // IA - re-use fragment_main2
         View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
-
-        // Show the dummy content as text in a TextView.
-        //if (mItem != null) {
-        //((TextView) rootView.findViewById(R.id.insult_detail)).setText(mItem.content);
-        //setTextviews(mItem);
-        //}
 
         return rootView;
     }
 
-    //IA
     public void onStart() {
         super.onStart();
         Activity a = getActivity();
         int pref_language = -1;
 
         SharedMethods.onStart(a.getApplicationContext());
-
         SharedPreferences settings = a.getSharedPreferences(getString(R.string.preferences_file), Context.MODE_PRIVATE);
         pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
 
@@ -124,7 +110,6 @@ public class InsultDetailFragment extends Fragment {
         SharedMethods.onDestroy();
     }
 
-    //IA
     public void setTextviews(Insult i, int pref_lang) {
         TextView tmp;
         View view = getView();
@@ -182,7 +167,7 @@ public class InsultDetailFragment extends Fragment {
         TextView tmpt;
         View view = getView();
 
-        // hide the 'insultati di nuovo'/'other insult' button
+        // hide the 'insultati ancora'/'next insult' button
         Button tmpb = (Button) view.findViewById(R.id.insultati_ancora_button);
         tmpb.setVisibility(View.GONE);
         // and the fake textview used as separator between buttons
@@ -196,7 +181,7 @@ public class InsultDetailFragment extends Fragment {
         }
     }
 
-    // IA - does not work gotta do binding programmatically
+    // does not work gotta do binding programmatically
     public void setCondividiOnClick() {
         Button tmpb = (Button) getView().findViewById(R.id.condividi_button);
         tmpb.setOnClickListener(new View.OnClickListener() {

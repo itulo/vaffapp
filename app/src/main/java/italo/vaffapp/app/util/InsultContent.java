@@ -15,16 +15,16 @@ import italo.vaffapp.app.entity.Insult;
 public class InsultContent {
 
     /**
-     * An array of sample (dummy) items.
+     * An array of sample insult items.
      */
     public static List<Insult> ITEMS = new ArrayList<Insult>();
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * A map of sample insult items, by ID.
      */
     public static Map<String, Insult> ITEM_MAP = new HashMap<String, Insult>();
 
-    public static void setupInsults(Activity act) { //could be also setupItems
+    public static void setupInsults(Activity act) {
         if (ITEMS.size() == 0) {
             ITEMS = SharedMethods.loadInsults(act);
         }

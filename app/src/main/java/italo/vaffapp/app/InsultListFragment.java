@@ -7,12 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
-import java.util.ArrayList;
-
 import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
-import italo.vaffapp.app.util.SharedMethods;
 
 /**
  * A list fragment representing a list of Insults. This fragment
@@ -68,25 +64,20 @@ public class InsultListFragment extends ListFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public InsultListFragment() {
-    }
+    public InsultListFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //if ( insults == null)
-        //    insults = SharedMethods.LoadInsults(getActivity().getApplicationContext());
-        // loads insults from db if not done already
         InsultContent.setupInsults(getActivity());
 
-        // TODO: replace with a real list adapter.
-        //setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-        setListAdapter(new ArrayAdapter<Insult>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                InsultContent.ITEMS));
+        setListAdapter(new ArrayAdapter<>(
+            getActivity(),
+            android.R.layout.simple_list_item_activated_1,
+            android.R.id.text1,
+            InsultContent.ITEMS)
+        );
     }
 
     @Override

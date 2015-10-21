@@ -68,7 +68,7 @@ public class MainActivity extends ActionBarActivity {
             Map<String, String> flurry_stats = new HashMap<String, String>();
             if ( isCompletedView ) {
                 flurry_stats.put("Ad", "Played completely");
-                // the function below shows a dialog, this must be run in the UiThread
+                // the function below shows a dialog so must be run in the UiThread
                 MainActivity.this.runOnUiThread(new Runnable() {
                     public void run() {
                         removeVungleListenerandUnlockInsults();
@@ -139,10 +139,10 @@ public class MainActivity extends ActionBarActivity {
         if (pref_language == no_lang) {
             Locale current = getResources().getConfiguration().locale;
             if (current == Locale.ITALIAN)
-                pref_language = LanguageOptions.ENGLISH;    //switchLanguage() is going to switch before saving
+                pref_language = LanguageOptions.ENGLISH;
             else
-                pref_language = LanguageOptions.ITALIANO;   //switchLanguage() is going to switch before saving
-
+                pref_language = LanguageOptions.ITALIANO;
+            //switchLanguage() is going to switch before saving
             switchLanguage();
         } else {
             switch (pref_language) {
@@ -182,7 +182,6 @@ public class MainActivity extends ActionBarActivity {
         SharedMethods.onStart(this);
 
         // hide 'Suggerisci un insulto' button if english UI
-        // disable button, thank user
         if ( pref_language == LanguageOptions.ENGLISH ) {
             Button button_insultaci = (Button) findViewById(R.id.button_insultaci);
             button_insultaci.setVisibility(View.GONE);
@@ -190,6 +189,8 @@ public class MainActivity extends ActionBarActivity {
 
         getCountBlockedInsults();
         checkInAppBilling();
+        // To see the button 'list insults' in the emulator, uncomment this
+        //unlockInsultsList();
     }
 
     public void onResume(){
@@ -224,7 +225,7 @@ public class MainActivity extends ActionBarActivity {
         String ad_app_ver = SharedPrefsMethods.getString("ad_app_ver", "");
         int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", -1);
 
-        // make sure the buy VaffappPro ad is not shown the first time ever the app is opened
+        // show VaffAppPro ad anytime the version changes, but not the first time ever the app is used
         if ( !ad_app_ver.equals(current_app_ver) && days_app_opened > 1){
             SharedPrefsMethods.putString("ad_app_ver", current_app_ver);
 
@@ -248,7 +249,7 @@ public class MainActivity extends ActionBarActivity {
                             SharedMethods.sendEventFlurry("show VaffAppPro");
                         }
                     });
-            // Create the AlertDialog object and return it
+
             builder.create().show();
         }
     }
@@ -526,19 +527,13 @@ public class MainActivity extends ActionBarActivity {
                 complain("Error while consuming: " + result);
         }
     };
+    /// IN APP BILLING METHODS END ///
 
     void complain(String message) {
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Complain", "Something failed: " + message);
         SharedMethods.sendFlurry("Complain", flurry_stats);
-        // DON'T SHOW TO USER!!!
-        /*AlertDialog.Builder bld = new AlertDialog.Builder(this);
-        bld.setMessage(message)
-            .setNeutralButton("OK", null)
-            .create()
-            .show();*/
     }
-    /// IN APP BILLING METHODS END ///
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

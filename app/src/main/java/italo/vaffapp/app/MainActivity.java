@@ -246,7 +246,7 @@ public class MainActivity extends ActionBarActivity {
                                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                             }
                             // send to Flurry!
-                            SharedMethods.sendEventFlurry("show VaffAppPro");
+                            SharedMethods.sendEventFlurry("Check VaffAppPro");
                         }
                     });
 
@@ -261,7 +261,7 @@ public class MainActivity extends ActionBarActivity {
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
         int last_use = SharedPrefsMethods.getInt("last_day_use", last_day_use_def_val);
-        // last_use = 4; // for debug, uncomment and device will unlock insults
+        // last_use = 4; // for debug, uncomment and device will unlock insults (as long as today is no the 4th :) )
 
         int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", 0);
         days_app_opened++;
@@ -486,11 +486,6 @@ public class MainActivity extends ActionBarActivity {
                 complain("Error purchasing: " + result);
                 return;
             }
-            /*if (!verifyDeveloperPayload(purchase)) {
-                complain("Error purchasing. Authenticity verification failed.");
-                setWaitScreen(false);
-                return;
-            }*/
 
             if (purchase.getSku().equals(SKU_ALL_INSULTS_ID)) {
                 // bought
@@ -510,7 +505,7 @@ public class MainActivity extends ActionBarActivity {
         }
     };
 
-    // Called when consumption is complete
+    // Called when consumption is complete - keeping this function for the future
     IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
         public void onConsumeFinished(Purchase purchase, IabResult result) {
 
@@ -521,7 +516,7 @@ public class MainActivity extends ActionBarActivity {
             // so we don't check which sku was consumed. If you have more than one
             // sku, you probably should check...
             if (!result.isSuccess()) {
-                unlockAllInsults();
+                //unlockAllInsults();
             }
             else
                 complain("Error while consuming: " + result);

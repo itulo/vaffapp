@@ -72,9 +72,10 @@ public class SendInsultActivity extends ActionBarActivity {
 
         if ( checkForm() ) {
             final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
-            feedback += "\n\nBy " + identity;
             Map<String, String> flurry_stats = new HashMap<String, String>();
-            // Flurry send how many insults generated
+
+            feedback += "\n\nBy " + identity;
+            // send the feedback to flurry
             flurry_stats.put("Email", feedback);
             FlurryAgent.logEvent("User feedback", flurry_stats);
 

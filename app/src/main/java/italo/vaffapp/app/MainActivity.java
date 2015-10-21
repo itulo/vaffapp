@@ -24,7 +24,6 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
 
-import italo.vaffapp.app.databases.Insult;
 import italo.vaffapp.app.util.IabException;
 import italo.vaffapp.app.util.SharedMethods;
 import italo.vaffapp.app.util.SharedPrefsMethods;

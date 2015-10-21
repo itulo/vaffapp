@@ -43,9 +43,8 @@ import italo.vaffapp.app.Speaker;
  * Created by iarmenti on 11/27/14.
  */
 public class SharedMethods {
-    // for condividi
+    // for sharing
     public static int SHARE_REQUEST = 1; // to be used in onActivityResult
-    private static List<Intent> targetedShareIntents;
     private static Intent sharingIntent;
     private static String hid_link = "http://adf.ly/ssss4";
     private static String vaffapp_link = "https://play.google.com/store/apps/details?id=italo.vaffapp.app";
@@ -180,7 +179,7 @@ public class SharedMethods {
 
     /* methods used to share! */
     public static void share(final Activity a, final Insult insult) {
-        List<ResolveInfo> diff_app = checkPresenceOfApps(a, insult);
+        List<ResolveInfo> diff_app = checkPresenceOfApps(a);
 
         if (diff_app.size() > 0) {
             preChoiceMenu(diff_app, a, insult);
@@ -191,8 +190,7 @@ public class SharedMethods {
     }
 
     // check for presence of Facebook, Messenger, Twitter, WhatsApp, Hangaout, and Viber apps (these will be treated differently)
-    public static List<ResolveInfo> checkPresenceOfApps(Activity a, Insult insult) {
-        targetedShareIntents = new ArrayList<Intent>();
+    public static List<ResolveInfo> checkPresenceOfApps(Activity a) {
         List<ResolveInfo> diff_app = new ArrayList<ResolveInfo>();
         sharingIntent = new Intent(Intent.ACTION_SEND);
 
@@ -215,11 +213,6 @@ public class SharedMethods {
                     || packageName.contains("com.sec.android.widgetapp.diotek.smemo") || packageName.contains("com.google.android.apps.docs")) {
                 continue;
             }
-            Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-            targetedShareIntent.setType("text/plain");
-            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult.getInsult() + vf_hashtag);
-            targetedShareIntent.setPackage(packageName);
-            targetedShareIntents.add(targetedShareIntent);
         }
         return diff_app;
     }

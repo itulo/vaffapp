@@ -15,14 +15,8 @@ import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.Button;
 
-import italo.vaffapp.app.mail.GMailSender;
 import italo.vaffapp.app.util.SharedMethods;
-
-import android.os.AsyncTask;
-
 import android.graphics.Color;
-
-import android.util.Log;
 
 import android.accounts.AccountManager;
 import android.accounts.Account;
@@ -34,8 +28,7 @@ import android.text.TextUtils;
 import android.widget.CheckBox;
 
 public class SendInsultActivity extends ActionBarActivity {
-    final String vaffapp_email = "vaffapp@gmail.com";
-    private String email_msg = "";
+    private String feedback = "";
     private boolean anonymous = false;
 
     @Override
@@ -48,10 +41,7 @@ public class SendInsultActivity extends ActionBarActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        // comment so it doesn't show 'Settings'
-        //getMenuInflater().inflate(R.menu.send_insult, menu);
+    public boolean onCreateOptionsMenu(Menu menu){
         return true;
     }
 
@@ -82,26 +72,11 @@ public class SendInsultActivity extends ActionBarActivity {
 
         if ( checkForm() ) {
             final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
-            email_msg += "\n\nBy " + identity;
+            feedback += "\n\nBy " + identity;
             Map<String, String> flurry_stats = new HashMap<String, String>();
             // Flurry send how many insults generated
-            flurry_stats.put("Email", email_msg);
-            FlurryAgent.logEvent("sendFeedback()", flurry_stats);
-
-            new AsyncTask<Void, Void, Void>() {
-                @Override public Void doInBackground(Void... params) {
-                    try {
-                        GMailSender sender = new GMailSender(vaffapp_email, "kuukausi");
-                        sender.sendMail(vaffapp_email,
-                                email_msg,
-                                vaffapp_email,
-                                vaffapp_email);
-                    } catch (Exception e) {
-                        Log.e("SendInsultActivity","SendMail\n" + e.getMessage());
-                    }
-                    return null;
-                }
-            }.execute();
+            flurry_stats.put("Email", feedback);
+            FlurryAgent.logEvent("User feedback", flurry_stats);
 
             // disable button, thank user
             button_manda = (Button)findViewById(R.id.button_manda);
@@ -131,7 +106,7 @@ public class SendInsultActivity extends ActionBarActivity {
         TextView tmp_textview;
         RadioButton tmp_radiobutt;
         String str = null;
-        email_msg = "Nuovo insulto suggerito tramite la VaffApp:\n\n";
+        feedback = "Nuovo insulto suggerito tramite la VaffApp:\n\n";
 
         // Check anonymous checkbox is selected
         cb = (CheckBox) findViewById(R.id.checkBox1);
@@ -146,7 +121,7 @@ public class SendInsultActivity extends ActionBarActivity {
             return false;
         }
         tmp_radiobutt = (RadioButton) findViewById(choice);
-        email_msg += "Regione: " + tmp_radiobutt.getText() + "\n";
+        feedback += "Regione: " + tmp_radiobutt.getText() + "\n";
 
         // check edittext(s)
         tmp_edittext = (EditText) findViewById(R.id.edittext_insulto);
@@ -159,7 +134,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
-            email_msg += "Insulto: '" + str + "'\n";
+            feedback += "Insulto: '" + str + "'\n";
 
         tmp_edittext = (EditText) findViewById(R.id.edittext_descrizione);
         if ( tmp_edittext != null ) {
@@ -171,7 +146,7 @@ public class SendInsultActivity extends ActionBarActivity {
             }
         }
         if (str != null)
-            email_msg += "Descrizione: '" + str + "'";
+            feedback += "Descrizione: '" + str + "'";
 
         return true;
     }

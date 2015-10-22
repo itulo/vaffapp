@@ -16,7 +16,8 @@ import android.content.Context;
 
 import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
-import italo.vaffapp.app.util.SharedMethods;
+import italo.vaffapp.app.util.LanguageOptions;
+import italo.vaffapp.app.common.CommonMethods;
 
 /**
  * A fragment representing a single Insult detail screen.
@@ -46,7 +47,7 @@ public class InsultDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedMethods.onCreate(getActivity(), savedInstanceState);
+        CommonMethods.onCreate(getActivity(), savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // load insults
@@ -67,7 +68,7 @@ public class InsultDetailFragment extends Fragment {
         Activity a = getActivity();
         int pref_language = -1;
 
-        SharedMethods.onStart(a.getApplicationContext());
+        CommonMethods.onStart(a.getApplicationContext());
         SharedPreferences settings = a.getSharedPreferences(getString(R.string.preferences_file), Context.MODE_PRIVATE);
         pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
 
@@ -82,32 +83,32 @@ public class InsultDetailFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        SharedMethods.onActivityResult(requestCode, resultCode, data);
+        CommonMethods.onActivityResult(requestCode, resultCode, data);
     }
 
     // 3. configure other methods on uiHelper to handle Activity lifecycle callbacks correctly
     @Override
     public void onResume() {
         super.onResume();
-        SharedMethods.onResume();
+        CommonMethods.onResume();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        SharedMethods.onSaveInstanceState(outState);
+        CommonMethods.onSaveInstanceState(outState);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        SharedMethods.onPause();
+        CommonMethods.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        SharedMethods.onDestroy();
+        CommonMethods.onDestroy();
     }
 
     public void setTextviews(Insult i, int pref_lang) {
@@ -141,7 +142,7 @@ public class InsultDetailFragment extends Fragment {
         tmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedMethods.speakInsult(mItem.getInsult());
+                CommonMethods.speakInsult(mItem.getInsult());
             }
         });
 
@@ -149,7 +150,7 @@ public class InsultDetailFragment extends Fragment {
         tmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedMethods.speakDesc(mItem.getDesc());
+                CommonMethods.speakDesc(mItem.getDesc());
             }
         });
 
@@ -157,7 +158,7 @@ public class InsultDetailFragment extends Fragment {
         tmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedMethods.speakEnglish(mItem.getEnglish());
+                CommonMethods.speakEnglish(mItem.getEnglish());
             }
         });
     }
@@ -177,7 +178,7 @@ public class InsultDetailFragment extends Fragment {
         // if language is italian - hide english translation textview
         if (pref_lang == LanguageOptions.ITALIANO) {
             tmpt = (TextView) view.findViewById(R.id.insult_eng);
-            SharedMethods.hideEngTextView(tmpt);
+            CommonMethods.hideEngTextView(tmpt);
         }
     }
 
@@ -187,13 +188,13 @@ public class InsultDetailFragment extends Fragment {
         tmpb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedMethods.share(getActivity(), mItem);
+                CommonMethods.share(getActivity(), mItem);
             }
         });
     }
 
     public void setRegionNameInTitle() {
-        String region = SharedMethods.getRegionFromId(mItem.getRegionId());
+        String region = CommonMethods.getRegionFromId(mItem.getRegionId());
         ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(region);
     }
 }

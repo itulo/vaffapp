@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import italo.vaffapp.app.common.CommonMethods;
 import italo.vaffapp.app.entity.Insult;
 
 /**
@@ -26,7 +27,7 @@ public class InsultContent {
 
     public static void setupInsults(Activity act) {
         if (ITEMS.size() == 0) {
-            ITEMS = SharedMethods.loadInsults(act);
+            ITEMS = CommonMethods.loadInsults(act);
         }
         if (ITEM_MAP.size() == 0) {
             for (Insult tmp : ITEMS) {

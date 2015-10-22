@@ -24,8 +24,9 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.widget.Button;
 
-import italo.vaffapp.app.util.SharedMethods;
-import italo.vaffapp.app.util.SharedPrefsMethods;
+import italo.vaffapp.app.util.LanguageOptions;
+import italo.vaffapp.app.common.CommonMethods;
+import italo.vaffapp.app.common.CommonSharedPrefsMethods;
 
 import java.util.Calendar;
 import java.util.Map;
@@ -34,6 +35,7 @@ import italo.vaffapp.app.util.IabHelper;
 import italo.vaffapp.app.util.IabResult;
 import italo.vaffapp.app.util.Inventory;
 import italo.vaffapp.app.util.Purchase;
+import italo.vaffapp.app.util.SimpleEula;
 import italo.vaffapp.app.util.SkuDetails;
 
 import android.widget.ImageView;
@@ -78,7 +80,7 @@ public class MainActivity extends ActionBarActivity {
                 flurry_stats.put("Ad", "Not played completely");
                 removeVungleListener();
             }
-            SharedMethods.sendFlurry("Unlock", flurry_stats);
+            CommonMethods.sendFlurry("Unlock", flurry_stats);
         }
 
         @Override
@@ -114,8 +116,8 @@ public class MainActivity extends ActionBarActivity {
                 .commit();
         }
 
-        SharedMethods.setIconInActionBar(this);
-        SharedPrefsMethods.setupSharedPrefsMethods(this);
+        CommonMethods.setIconInActionBar(this);
+        CommonSharedPrefsMethods.setupSharedPrefsMethods(this);
         new SimpleEula(this).show();
         setLanguage();
         RewardIfReturn();
@@ -133,7 +135,7 @@ public class MainActivity extends ActionBarActivity {
         Configuration config = new Configuration();
 
         // 0 = Italian (default), 1 = English
-        pref_language = SharedPrefsMethods.getInt("language", no_lang);
+        pref_language = CommonSharedPrefsMethods.getInt("language", no_lang);
 
         // this 'if' is executed only the first time the app is executed
         if (pref_language == no_lang) {
@@ -165,7 +167,7 @@ public class MainActivity extends ActionBarActivity {
             case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
             case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
         }
-        SharedPrefsMethods.putInt("language", new_lang);
+        CommonSharedPrefsMethods.putInt("language", new_lang);
 
         //restart app
         Intent mStartActivity = new Intent(this, MainActivity.class);
@@ -179,7 +181,7 @@ public class MainActivity extends ActionBarActivity {
     public void onStart() {
         super.onStart();
 
-        SharedMethods.onStart(this);
+        CommonMethods.onStart(this);
 
         // hide 'Suggerisci un insulto' button if english UI
         if ( pref_language == LanguageOptions.ENGLISH ) {
@@ -201,7 +203,7 @@ public class MainActivity extends ActionBarActivity {
     public void onStop() {
         showAdDialogIfNewAppVersion();
         super.onStop();
-        SharedMethods.onStop(this);
+        CommonMethods.onStop(this);
     }
 
     public void onPause(){
@@ -220,14 +222,14 @@ public class MainActivity extends ActionBarActivity {
 
     /* show the ad for VaffAppPro if it is the first time running a new version of the VaffApp */
     public void showAdDialogIfNewAppVersion(){
-        PackageInfo versionInfo = SharedMethods.getPackageInfo(this);
+        PackageInfo versionInfo = CommonMethods.getPackageInfo(this);
         final String current_app_ver = "app"+versionInfo.versionCode;
-        String ad_app_ver = SharedPrefsMethods.getString("ad_app_ver", "");
-        int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", -1);
+        String ad_app_ver = CommonSharedPrefsMethods.getString("ad_app_ver", "");
+        int days_app_opened = CommonSharedPrefsMethods.getInt("times_app_opened", -1);
 
         // show VaffAppPro ad anytime the version changes, but not the first time ever the app is used
         if ( !ad_app_ver.equals(current_app_ver) && days_app_opened > 1){
-            SharedPrefsMethods.putString("ad_app_ver", current_app_ver);
+            CommonSharedPrefsMethods.putString("ad_app_ver", current_app_ver);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(getString(R.string.ad_message))
@@ -246,7 +248,7 @@ public class MainActivity extends ActionBarActivity {
                                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                             }
                             // send to Flurry!
-                            SharedMethods.sendEventFlurry("Check VaffAppPro");
+                            CommonMethods.sendEventFlurry("Check VaffAppPro");
                         }
                     });
 
@@ -260,26 +262,26 @@ public class MainActivity extends ActionBarActivity {
 
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
-        int last_use = SharedPrefsMethods.getInt("last_day_use", last_day_use_def_val);
+        int last_use = CommonSharedPrefsMethods.getInt("last_day_use", last_day_use_def_val);
         // last_use = 4; // for debug, uncomment and device will unlock insults (as long as today is no the 4th :) )
 
-        int days_app_opened = SharedPrefsMethods.getInt("times_app_opened", 0);
+        int days_app_opened = CommonSharedPrefsMethods.getInt("times_app_opened", 0);
         days_app_opened++;
 
         // if not null and different from today
         if ( last_use != last_day_use_def_val && last_use != today ) {
             if (days_app_opened > 1)
-                SharedMethods.sendEventFlurry("Returning user: "+days_app_opened);
-            SharedMethods.unlockInsults(this, getString(R.string.comeback_reward_title), UNLOCK_INSULTS);
+                CommonMethods.sendEventFlurry("Returning user: " + days_app_opened);
+            CommonMethods.unlockInsults(this, getString(R.string.comeback_reward_title), UNLOCK_INSULTS);
         }
         // save shared prefs
-        SharedPrefsMethods.putInt("last_day_use", today);
-        SharedPrefsMethods.putInt("times_app_opened", days_app_opened);
+        CommonSharedPrefsMethods.putInt("last_day_use", today);
+        CommonSharedPrefsMethods.putInt("times_app_opened", days_app_opened);
     }
 
     void getCountBlockedInsults(){
         if ( blocked_insults == -1 ) {
-            blocked_insults = SharedMethods.getAmountBlockedInsults(this);
+            blocked_insults = CommonMethods.getAmountBlockedInsults(this);
             if (blocked_insults <= 0)
                 hideButton( (Button)findViewById(R.id.button_buy_insults) );
         }
@@ -294,7 +296,7 @@ public class MainActivity extends ActionBarActivity {
 
     void unlockAllInsults(){
         if ( blocked_insults > 0) {
-            SharedMethods.unlockInsults(this, getString(R.string.bought_insults_title), blocked_insults);
+            CommonMethods.unlockInsults(this, getString(R.string.bought_insults_title), blocked_insults);
             hideButton((Button)findViewById(R.id.button_buy_insults));
         }
     }
@@ -321,9 +323,9 @@ public class MainActivity extends ActionBarActivity {
             vunglePub.playAd(overrideConfig);
         } else {
             flurry_stats.put("Ad", "Not available");
-            SharedMethods.showDialog(this, getString(R.string.ad_na_title), getString(R.string.ad_na_msg));
+            CommonMethods.showDialog(this, getString(R.string.ad_na_title), getString(R.string.ad_na_msg));
         }
-        SharedMethods.sendFlurry("Unlock", flurry_stats);
+        CommonMethods.sendFlurry("Unlock", flurry_stats);
     }
 
     void removeVungleListener(){
@@ -332,7 +334,7 @@ public class MainActivity extends ActionBarActivity {
 
     void removeVungleListenerandUnlockInsults(){
         removeVungleListener();
-        SharedMethods.unlockInsults(this, getString(R.string.ad_watched), UNLOCK_INSULTS_AD);
+        CommonMethods.unlockInsults(this, getString(R.string.ad_watched), UNLOCK_INSULTS_AD);
     }
 
     /// IN APP BILLING  METHODS ///
@@ -389,7 +391,7 @@ public class MainActivity extends ActionBarActivity {
         String title = getString(R.string.buy_insults);
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Unlock", "All insults");
-        SharedMethods.sendFlurry("Unlock", flurry_stats);
+        CommonMethods.sendFlurry("Unlock", flurry_stats);
 
         if ( inv != null ) {
             SkuDetails sku_d = inv.getSkuDetails(SKU_ALL_INSULTS_ID);
@@ -399,7 +401,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         if ( insults_per_region == null )
-            insults_per_region = SharedMethods.getStringInsultsPerRegion(this);
+            insults_per_region = CommonMethods.getStringInsultsPerRegion(this);
 
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
         bld.setTitle(title)
@@ -408,7 +410,7 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
                     flurry_stats.put("Unlock", "All insults - Buy");
-                    SharedMethods.sendFlurry("Unlock", flurry_stats);
+                    CommonMethods.sendFlurry("Unlock", flurry_stats);
                     initiatePurchaseAllInsults();
                 }
             })
@@ -416,7 +418,7 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
                     flurry_stats.put("Unlock", "Watch ad");
-                    SharedMethods.sendFlurry("Unlock", flurry_stats);
+                    CommonMethods.sendFlurry("Unlock", flurry_stats);
                     playAd();
                 }
             })
@@ -436,7 +438,7 @@ public class MainActivity extends ActionBarActivity {
         String title = getString(R.string.buy_surf_insults);
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Unlock", "Insults list");
-        SharedMethods.sendFlurry("Unlock", flurry_stats);
+        CommonMethods.sendFlurry("Unlock", flurry_stats);
 
         if ( inv != null ) {
             SkuDetails sku_d = inv.getSkuDetails(SKU_SURF_INSULTS);
@@ -456,7 +458,7 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(DialogInterface dlg, int id) {
                     Map<String, String> flurry_stats = new HashMap<String, String>();
                     flurry_stats.put("Unlock", "Insults list - Buy");
-                    SharedMethods.sendFlurry("Unlock", flurry_stats);
+                    CommonMethods.sendFlurry("Unlock", flurry_stats);
                     initiatePurchaseSurfInsults();
                 }
             })
@@ -501,7 +503,7 @@ public class MainActivity extends ActionBarActivity {
                 flurry_stats.put("Unlock", "Purchase insults list");
                 unlockInsultsList();
             }
-            SharedMethods.sendFlurry("Unlock", flurry_stats);
+            CommonMethods.sendFlurry("Unlock", flurry_stats);
         }
     };
 
@@ -527,7 +529,7 @@ public class MainActivity extends ActionBarActivity {
     void complain(String message) {
         Map<String, String> flurry_stats = new HashMap<String, String>();
         flurry_stats.put("Complain", "Something failed: " + message);
-        SharedMethods.sendFlurry("Complain", flurry_stats);
+        CommonMethods.sendFlurry("Complain", flurry_stats);
     }
 
     @Override

@@ -6,8 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
-import italo.vaffapp.app.util.SharedMethods;
-import italo.vaffapp.app.util.SharedPrefsMethods;
+import italo.vaffapp.app.common.CommonMethods;
+import italo.vaffapp.app.common.CommonSharedPrefsMethods;
 
 
 /**
@@ -54,8 +54,8 @@ public class InsultDetailActivity extends ActionBarActivity {
         }
 
         /* This is taken from InsultActivity's same method */
-        SharedPrefsMethods.setupSharedPrefsMethods(this);
-        shared_insults = SharedPrefsMethods.getInt("shared_insults", 0);
+        CommonSharedPrefsMethods.setupSharedPrefsMethods(this);
+        shared_insults = CommonSharedPrefsMethods.getInt("shared_insults", 0);
     }
 
     // 2. configure a callback handler that's invoked when the share dialog closes and control returns to the calling app
@@ -65,7 +65,7 @@ public class InsultDetailActivity extends ActionBarActivity {
 
         /* This below is taken from InsultActivity's same method */
         // when a user shares and then the program returns to the VaffApp
-        if (requestCode == SharedMethods.SHARE_REQUEST) {
+        if (requestCode == CommonMethods.SHARE_REQUEST) {
             // I have to comment the instruction below, it works only for Twitter
             // all the others app return always RESULT_CANCELLED 0 or RESULT_OK -1 (Facebook)
             //if (resultCode == RESULT_OK) {
@@ -77,9 +77,9 @@ public class InsultDetailActivity extends ActionBarActivity {
     public void increaseSharedInsult(){
         shared_insults++;
 
-        SharedMethods.checkSharedInsults(this, getString(R.string.share_reward), shared_insults);
+        CommonMethods.checkSharedInsults(this, getString(R.string.share_reward), shared_insults);
 
-        SharedPrefsMethods.putInt("shared_insults", shared_insults);
+        CommonSharedPrefsMethods.putInt("shared_insults", shared_insults);
     }
 
     @Override

@@ -15,7 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.Button;
 
-import italo.vaffapp.app.util.SharedMethods;
+import italo.vaffapp.app.common.CommonMethods;
 import android.graphics.Color;
 
 import android.accounts.AccountManager;
@@ -36,7 +36,7 @@ public class SendInsultActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_insult);
 
-        SharedMethods.setIconInActionBar(this);
+        CommonMethods.setIconInActionBar(this);
     }
 
 

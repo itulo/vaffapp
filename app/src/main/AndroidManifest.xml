@@ -88,7 +88,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         
-        <receiver android:name=".NotificationPublisher" />
+        <receiver android:name=".util.NotificationPublisher" />
     </application>
 
 </manifest>

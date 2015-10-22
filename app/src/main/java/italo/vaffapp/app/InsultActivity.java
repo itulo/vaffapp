@@ -19,8 +19,10 @@ import android.widget.TextView;
 import android.content.Intent;
 
 import italo.vaffapp.app.entity.Insult;
-import italo.vaffapp.app.util.SharedMethods;
-import italo.vaffapp.app.util.SharedPrefsMethods;
+import italo.vaffapp.app.util.LanguageOptions;
+import italo.vaffapp.app.util.NotificationPublisher;
+import italo.vaffapp.app.common.CommonMethods;
+import italo.vaffapp.app.common.CommonSharedPrefsMethods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,13 +76,13 @@ public class InsultActivity extends ActionBarActivity {
                 .commit();
         }
 
-        SharedMethods.onCreate(this, savedInstanceState);
+        CommonMethods.onCreate(this, savedInstanceState);
 
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
 
-        SharedPrefsMethods.setupSharedPrefsMethods(this);
-        shared_insults = SharedPrefsMethods.getInt("shared_insults", 0);
+        CommonSharedPrefsMethods.setupSharedPrefsMethods(this);
+        shared_insults = CommonSharedPrefsMethods.getInt("shared_insults", 0);
 
         showInstructionsIfFirstTime();
     }
@@ -89,10 +91,10 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        SharedMethods.onActivityResult(requestCode, resultCode, data);
+        CommonMethods.onActivityResult(requestCode, resultCode, data);
 
         // when a user shares and then the program returns to the VaffApp
-        if (requestCode == SharedMethods.SHARE_REQUEST) {
+        if (requestCode == CommonMethods.SHARE_REQUEST) {
             // I have to comment the instruction below, it works only for Twitter
             // all the others app return always RESULT_CANCELLED 0 or RESULT_OK -1 (Facebook)
             //if (resultCode == RESULT_OK) {
@@ -104,7 +106,7 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        SharedMethods.onResume();
+        CommonMethods.onResume();
         setRegionNameInTitle();
         AppEventsLogger.activateApp(this);  // to track in FB
         checkGooglePlayServicesVersion();
@@ -113,13 +115,13 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        SharedMethods.onSaveInstanceState(outState);
+        CommonMethods.onSaveInstanceState(outState);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        SharedMethods.onPause();
+        CommonMethods.onPause();
         scheduleNotification();
         AppEventsLogger.deactivateApp(this);    // to track in FB
     }
@@ -127,7 +129,7 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        SharedMethods.onDestroy();
+        CommonMethods.onDestroy();
     }
 
     public void onStop(){
@@ -138,14 +140,14 @@ public class InsultActivity extends ActionBarActivity {
         flurry_stats.put("Amount insults pronunciated", String.valueOf(pronunciated_n));
         // send stats if number of generated insults is >= 10
         if ( generated_n >= 10 )
-            SharedMethods.sendFlurry("onStop()", flurry_stats);
+            CommonMethods.sendFlurry("onStop()", flurry_stats);
 
-        SharedMethods.onStop(this);
+        CommonMethods.onStop(this);
     }
 
     public void onStart(){
         super.onStart();
-        SharedMethods.onStart(getApplicationContext());
+        CommonMethods.onStart(getApplicationContext());
 
         if ( insults == null ) {
             nextInsult();
@@ -155,7 +157,7 @@ public class InsultActivity extends ActionBarActivity {
             setTextviews();
         }
         if ( pref_language == LanguageOptions.ITALIANO )
-            SharedMethods.hideEngTextView(insult_eng);
+            CommonMethods.hideEngTextView(insult_eng);
     }
 
     // if the UI is in italian, don't show the TextView for the english translation of an insult
@@ -199,7 +201,7 @@ public class InsultActivity extends ActionBarActivity {
 
     public void speakInsult(View v){
         pronunciated_n++;
-        SharedMethods.speakInsult(insult.getText().toString());
+        CommonMethods.speakInsult(insult.getText().toString());
 
         /* This is a trick: copy the insult with description, translation and region)
            to keep sharing on Facebook as before */
@@ -214,12 +216,12 @@ public class InsultActivity extends ActionBarActivity {
 
     public void speakDesc(View v){
         pronunciated_n++;
-        SharedMethods.speakDesc(insult_desc.getText().toString());
+        CommonMethods.speakDesc(insult_desc.getText().toString());
     }
 
     public void speakEng(View v){
         pronunciated_n++;
-        SharedMethods.speakEnglish(insult_eng.getText().toString());
+        CommonMethods.speakEnglish(insult_eng.getText().toString());
     }
 
     /* fade away text, get new insult, fade in text*/
@@ -304,12 +306,12 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     public void setRegionNameInTitle(){
-        region = SharedMethods.getRegionFromId(insults.get(rand_index).getRegionId());
+        region = CommonMethods.getRegionFromId(insults.get(rand_index).getRegionId());
         getSupportActionBar().setTitle(region);
     }
 
     public void loadInsults(){
-        insults = SharedMethods.loadInsults(this);
+        insults = CommonMethods.loadInsults(this);
         occurrences = new byte[insults.size()];
     }
 
@@ -317,15 +319,15 @@ public class InsultActivity extends ActionBarActivity {
     public void share(View view){
         // Checks presence of apps Facebook, Messenger, Twitter, Hangout, Whatsapp and Viber
         // if not, shows a dialog box with all apps able to receive the insult
-        SharedMethods.share(this, insults.get(rand_index));
+        CommonMethods.share(this, insults.get(rand_index));
     }
 
     public void increaseSharedInsult(){
         shared_insults++;
 
-        SharedMethods.checkSharedInsults(this, getString(R.string.share_reward), shared_insults);
+        CommonMethods.checkSharedInsults(this, getString(R.string.share_reward), shared_insults);
 
-        SharedPrefsMethods.putInt("shared_insults", shared_insults);
+        CommonSharedPrefsMethods.putInt("shared_insults", shared_insults);
     }
 
     // Notification stuff
@@ -372,12 +374,12 @@ public class InsultActivity extends ActionBarActivity {
     }
 
     private void showInstructionsIfFirstTime(){
-        SharedPrefsMethods.setupSharedPrefsMethods(this);
-        int instructions_showed = SharedPrefsMethods.getInt("instruction_showed", 0);
+        CommonSharedPrefsMethods.setupSharedPrefsMethods(this);
+        int instructions_showed = CommonSharedPrefsMethods.getInt("instruction_showed", 0);
 
         if ( instructions_showed == 0 ){
-            SharedMethods.showDialog(this, getString(R.string.share_instructions_title), getString(R.string.share_instructions_msg));
-            SharedPrefsMethods.putInt("instruction_showed", 1);
+            CommonMethods.showDialog(this, getString(R.string.share_instructions_title), getString(R.string.share_instructions_msg));
+            CommonSharedPrefsMethods.putInt("instruction_showed", 1);
         }
     }
 

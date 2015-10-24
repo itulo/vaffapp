@@ -2,6 +2,10 @@
 <resources>
 
     <string name="app_name">VaffApp</string>
+    <!-- ids and numbers -->
+    <string name="facebook_app_id">1435530263364363</string>
+    <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
+
     <string name="welcome">Ciao, oggi è una giornata di merda e un vaffanculo gratis non te lo risparmi</string> <!-- first message -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_insult">InsultActivity</string>
@@ -40,10 +44,7 @@
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">La VaffApp non ha trovato le app Facebook, Twitter, Whatsapp, Viber, o Hangout sul tuo dispositivo.\nSe vuoi condividere su altre app, scarica la VaffAppPro!</string>
     <string name="noapp_warning_title">App non trovate</string>
-    <!-- ids and numbers -->
-    <string name="facebook_app_id">1435530263364363</string>
-    <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
-    <!-- message for VaffappPro - when exiting from application -->
+    <!-- message for VaffappPro - when exiting from mainactivity -->
     <string name="ad_title">Piaciuta la VaffApp?</string>
     <string name="ad_message">Scarica la VaffApp Pro!\nHa più insulti, nessuna pubblicità e condivisione su più app!</string>
     <string name="ad_ok_button">Guarda</string>

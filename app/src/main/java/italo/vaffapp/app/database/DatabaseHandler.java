@@ -32,8 +32,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "vaffapp.db";
     private static final String TABLE_INSULTS = "insults";
     private static final String TABLE_VERSION = "version";
-    // Increase to force a full rewrite of the database
-    private static int DB_VER = 27;
+    // Increase to force a full rewrite of the database (which is done when I make a new database with new insults)
+    private static int DB_VER = 28;
 
     private SQLiteDatabase myDataBase;
     private final Context myContext;

@@ -23,13 +23,7 @@ In the beginning I was not planning to share this codebase on github. The code i
 There are no tests, pardon me.
 
 # Usage of this code
-I decided to share this codebase hoping that somebody could benefit from it. If you see a solution to your problem feel free to copy the code (please mention where you got it). You are free to offer me a coffee by: watching an ad, making an in-app purchase, or paypal :)
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="2GK6ATHBUWZDQ">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+I decided to share this codebase hoping that somebody could benefit from it. If you see a solution to your problem feel free to copy the code (please mention where you got it). You are free to offer me a coffee by: watching an ad, making an in-app purchase :)
 
 # Contact
 For any communication feel free to contact me at italo.armenti at gmail.com

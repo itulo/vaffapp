@@ -215,8 +215,7 @@ public class CommonMethods {
         return diff_app;
     }
 
-    // 1. show a first choice dialog to choose between Twitter, Facebook and Other
-    // 2. if "Other" is chosen, show another dialog with all apps that can share (Whatsapp, Viber, Hangout...)
+    // show a first choice dialog to choose between Twitter, Facebook, Messenger, Hangout, Viber, SMS
     public static void preChoiceMenu(List<ResolveInfo> diff_app, final Activity a, final Insult insult) {
         final CharSequence insult_text = insult.getInsult();
 

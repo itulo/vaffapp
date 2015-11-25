@@ -1,6 +1,6 @@
-VaffApp
+Intro
 =======
-VaffApp is a project that I started with the purpose of learning android programming (and make money of course). The app is available from the Google Play Store, [here](https://play.google.com/store/apps/details?id=italo.vaffapp.app).
+This is the codebase of the android app VaffApp, available from the Google Play Store, [here](https://play.google.com/store/apps/details?id=italo.vaffapp.app).
 The app gathers insults from different italian dialects, grouped by region, with an interpretation in standard italian. The user can surf insults randomly and share them.
 
 # Technical details
@@ -27,7 +27,7 @@ In the beginning I was not planning to share this codebase on github. The code i
 There are no tests, pardon me.
 
 # Usage of this code
-I decided to share this codebase hoping that somebody could benefit from it. If you see a solution to your problem feel free to copy the code (please mention where you got it). You are free to offer me a coffee by: watching an ad, making an in-app purchase :)
+If you see a solution to your problem feel free to copy the code (please mention where you got it from). You are free to offer me a coffee by: watching an ad, making an in-app purchase :)
 
 # Contact
 For any communication feel free to contact me at italo.armenti at gmail.com

@@ -248,7 +248,7 @@ public class MainActivity extends ActionBarActivity {
                                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                             }
                             // send to Flurry!
-                            CommonMethods.sendEventFlurry("Check VaffAppPro");
+                            CommonMethods.sendEventFlurry("Open VaffAppPro");
                         }
                     });
 
@@ -259,6 +259,7 @@ public class MainActivity extends ActionBarActivity {
     /* If the user comes back a day after, unlock as many insults as UNLOCK_INSULTS */
     private void RewardIfReturn(){
         int last_day_use_def_val = -1;
+        Map<String, String> flurry_stats = new HashMap<String, String>();
 
         int today = Calendar.getInstance().get(Calendar.DATE); //returns the day of the month.
 
@@ -270,8 +271,10 @@ public class MainActivity extends ActionBarActivity {
 
         // if not null and different from today
         if ( last_use != last_day_use_def_val && last_use != today ) {
-            if (days_app_opened > 1)
-                CommonMethods.sendEventFlurry("Returning user: " + days_app_opened);
+            if (days_app_opened > 1) {
+                flurry_stats.put("Times", Integer.toString(days_app_opened));
+                CommonMethods.sendFlurry("Returning user", flurry_stats);
+            }
             CommonMethods.unlockInsults(this, getString(R.string.comeback_reward_title), UNLOCK_INSULTS);
         }
         // save shared prefs

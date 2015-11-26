@@ -53,11 +53,10 @@ public class MainActivity extends ActionBarActivity {
 
     // in app billing
     private IabHelper mHelper;
-    static final int RC_REQUEST = 10001;    // (arbitrary) request code for the purchase flow
+    private Inventory inv;
+    private static final int RC_REQUEST = 10001;    // (arbitrary) request code for the purchase flow
     private String SKU_ALL_INSULTS_ID = "0";
-    private String SKU_SURF_INSULTS = "1";
     private int blocked_insults = -1;
-    Inventory inv;
 
     private String insults_per_region = null;   // string listing each region with how many insults are locked
     private int pref_language;
@@ -137,7 +136,7 @@ public class MainActivity extends ActionBarActivity {
         // 0 = Italian (default), 1 = English
         pref_language = CommonSharedPrefsMethods.getInt("language", no_lang);
 
-        // this 'if' is executed only the first time the app is executed
+        // this 'if' is executed only at the first launch of the app
         if (pref_language == no_lang) {
             Locale current = getResources().getConfiguration().locale;
             if (current == Locale.ITALIAN)
@@ -191,8 +190,6 @@ public class MainActivity extends ActionBarActivity {
 
         getCountBlockedInsults();
         checkInAppBilling();
-        // To see the button 'list insults' in the emulator, uncomment this
-        //unlockInsultsList();
     }
 
     public void onResume(){
@@ -304,15 +301,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    void unlockInsultsList(){
-        // hide unlock insults list
-        Button b = (Button)findViewById(R.id.button_buy_surf_insults);
-        hideButton(b);
-        // show all insults button
-        b = (Button)findViewById(R.id.button_tutti_insulti);
-        showButton(b);
-    }
-
     void playAd(){
         Map<String, String> flurry_stats = new HashMap<String, String>();
 
@@ -359,7 +347,6 @@ public class MainActivity extends ActionBarActivity {
 
                     ArrayList inAppProducts = new ArrayList();
                     inAppProducts.add(SKU_ALL_INSULTS_ID);
-                    inAppProducts.add(SKU_SURF_INSULTS);
                     mHelper.queryInventoryAsync(true, inAppProducts, mGotInventoryListener);
                 }
             });
@@ -386,8 +373,6 @@ public class MainActivity extends ActionBarActivity {
     void checkInventory(){
         if ( inv.hasPurchase(SKU_ALL_INSULTS_ID) )
             unlockAllInsults();
-        if (inv.hasPurchase(SKU_SURF_INSULTS))
-            unlockInsultsList();
     }
 
     public void buyAllInsults(View v){
@@ -437,47 +422,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void buySurfInsults(View v){
-        String title = getString(R.string.buy_surf_insults);
-        Map<String, String> flurry_stats = new HashMap<String, String>();
-        flurry_stats.put("Unlock", "Insults list");
-        CommonMethods.sendFlurry("Unlock", flurry_stats);
-
-        if ( inv != null ) {
-            SkuDetails sku_d = inv.getSkuDetails(SKU_SURF_INSULTS);
-            if ( sku_d != null ){
-                title += " " + "(" + sku_d.getPrice() + ")";
-            }
-        }
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title);
-        LayoutInflater factory = LayoutInflater.from(this);
-        final View view = factory.inflate(R.layout.dialog_with_image, null);
-        ImageView image= (ImageView) view.findViewById(R.id.snapshot_all_insults);
-        image.setImageResource(R.drawable.insult_list);
-        builder.setView(view)
-            .setNeutralButton(getString(R.string.buy), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dlg, int id) {
-                    Map<String, String> flurry_stats = new HashMap<String, String>();
-                    flurry_stats.put("Unlock", "Insults list - Buy");
-                    CommonMethods.sendFlurry("Unlock", flurry_stats);
-                    initiatePurchaseSurfInsults();
-                }
-            })
-            .setPositiveButton(getString(R.string.no_thanks), null);
-
-        builder.show();
-    }
-
-    public void initiatePurchaseSurfInsults(){
-        if ( !inv.hasPurchase(SKU_SURF_INSULTS) ) {
-            // We will be notified of completion via mPurchaseFinishedListener
-            mHelper.launchPurchaseFlow(this, SKU_SURF_INSULTS, RC_REQUEST, mPurchaseFinishedListener, "vaffapp");
-        }
-    }
-
-
     // Callback for when a purchase is finished
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
@@ -499,13 +443,7 @@ public class MainActivity extends ActionBarActivity {
                 flurry_stats.put("Unlock", "Purchase all insults");
                 unlockAllInsults();
             }
-            if (purchase.getSku().equals(SKU_SURF_INSULTS)) {
-                // bought
-                // no consumption for this - purchase is forever
-                // mHelper.consumeAsync(purchase, mConsumeFinishedListener);
-                flurry_stats.put("Unlock", "Purchase insults list");
-                unlockInsultsList();
-            }
+
             CommonMethods.sendFlurry("Unlock", flurry_stats);
         }
     };

@@ -53,8 +53,7 @@
         android:onClick="startInsultDetailActivity"
         android:layout_below="@+id/button_insultaci"
         android:layout_marginTop="17dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -67,17 +66,5 @@
         android:onClick="buyAllInsults"
         android:textSize="15sp"
         android:layout_marginBottom="10dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buy_surf_insults"
-        android:id="@+id/button_buy_surf_insults"
-        android:layout_above="@+id/button_buy_insults"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
-        android:textSize="15sp"
-        android:background="@drawable/button_background"
-        android:onClick="buySurfInsults" />
 
 </RelativeLayout>

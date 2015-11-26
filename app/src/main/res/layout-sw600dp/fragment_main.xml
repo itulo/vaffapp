@@ -69,16 +69,4 @@
         android:textSize="30sp"
         android:layout_marginBottom="30dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buy_surf_insults"
-        android:id="@+id/button_buy_surf_insults"
-        android:layout_above="@+id/button_buy_insults"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:textSize="30sp"
-        android:background="@drawable/button_background"
-        android:onClick="buySurfInsults" />
-
 </RelativeLayout>

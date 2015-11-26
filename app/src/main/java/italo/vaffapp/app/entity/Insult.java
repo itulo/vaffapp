@@ -46,7 +46,7 @@ public class Insult {
         return _region_id;
     }
 
-    // this method is used in the Master/Detail flow
+    // this method is used by the Master/Detail flow
     public String toString() {
         String region_name;
 

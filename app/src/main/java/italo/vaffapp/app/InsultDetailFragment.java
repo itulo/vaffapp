@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.content.Context;
 
+import italo.vaffapp.app.common.CommonSharedPrefsMethods;
 import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
 import italo.vaffapp.app.util.LanguageOptions;
@@ -48,6 +49,7 @@ public class InsultDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CommonMethods.onCreate(getActivity(), savedInstanceState);
+        CommonSharedPrefsMethods.setupSharedPrefsMethods(getActivity());
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // load insults
@@ -69,8 +71,7 @@ public class InsultDetailFragment extends Fragment {
         int pref_language = -1;
 
         CommonMethods.onStart(a.getApplicationContext());
-        SharedPreferences settings = a.getSharedPreferences(getString(R.string.preferences_file), Context.MODE_PRIVATE);
-        pref_language = settings.getInt("language", LanguageOptions.ITALIANO);
+        pref_language = CommonSharedPrefsMethods.getInt("language", LanguageOptions.ITALIANO);
 
         setRegionNameInTitle();
         setTextviews(mItem, pref_language);

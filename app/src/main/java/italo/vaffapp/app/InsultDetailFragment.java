@@ -71,7 +71,8 @@ public class InsultDetailFragment extends Fragment {
         int pref_language = -1;
 
         CommonMethods.onStart(a.getApplicationContext());
-        pref_language = CommonSharedPrefsMethods.getInt("language", LanguageOptions.ITALIANO);
+        pref_language = CommonSharedPrefsMethods.getInt("language", pref_language);
+        System.out.println("PREF LANGUAGE IS " + pref_language);
 
         setRegionNameInTitle();
         setTextviews(mItem, pref_language);
@@ -179,7 +180,7 @@ public class InsultDetailFragment extends Fragment {
         // if language is italian - hide english translation textview
         if (pref_lang == LanguageOptions.ITALIANO) {
             tmpt = (TextView) view.findViewById(R.id.insult_eng);
-            CommonMethods.hideEngTextView(tmpt);
+            tmpt.setVisibility(View.GONE);
         }
     }
 

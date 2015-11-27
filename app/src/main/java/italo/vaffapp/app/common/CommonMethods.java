@@ -448,14 +448,6 @@ public class CommonMethods {
     }
 
 
-    /* Hide the textview holding the english translation of an insult
-       Only when language is english
-     */
-    public static void hideEngTextView(TextView eng_text_view) {
-        eng_text_view.setVisibility(View.GONE);
-    }
-
-
     /* speaker methods */
     public static void speakInsult(String s) {
         speaker.speakInsult(s);

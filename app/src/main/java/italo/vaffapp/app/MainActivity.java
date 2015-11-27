@@ -135,6 +135,7 @@ public class MainActivity extends ActionBarActivity {
 
         // 0 = Italian (default), 1 = English
         pref_language = CommonSharedPrefsMethods.getInt("language", no_lang);
+        System.out.println("PREF LANGUAGE IS " + pref_language);
 
         // this 'if' is executed only at the first launch of the app
         if (pref_language == no_lang) {

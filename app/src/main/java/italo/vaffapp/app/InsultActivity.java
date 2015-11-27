@@ -157,12 +157,7 @@ public class InsultActivity extends ActionBarActivity {
             setTextviews();
         }
         if ( pref_language == LanguageOptions.ITALIANO )
-            CommonMethods.hideEngTextView(insult_eng);
-    }
-
-    // if the UI is in italian, don't show the TextView for the english translation of an insult
-    public void hideEngTextView(){
-        insult_eng.setVisibility(View.GONE);
+            insult_eng.setVisibility(View.GONE);
     }
 
     public void checkGooglePlayServicesVersion(){

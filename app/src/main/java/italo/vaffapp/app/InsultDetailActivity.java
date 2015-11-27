@@ -23,6 +23,9 @@ public class InsultDetailActivity extends ActionBarActivity {
 
     private int shared_insults; // # of times a person shares an insult
 
+    final String pref_language_string = "pref_language";
+    private int pref_language = 0; // default let's keep the int for Italian
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class InsultDetailActivity extends ActionBarActivity {
 
         // Show the Up button in the action bar.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent mIntent = getIntent();
+        pref_language = mIntent.getIntExtra(pref_language_string, pref_language);
 
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
@@ -46,6 +52,7 @@ public class InsultDetailActivity extends ActionBarActivity {
             Bundle arguments = new Bundle();
             arguments.putString(InsultDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(InsultDetailFragment.ARG_ITEM_ID));
+            arguments.putInt(pref_language_string, pref_language);
             InsultDetailFragment fragment = new InsultDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

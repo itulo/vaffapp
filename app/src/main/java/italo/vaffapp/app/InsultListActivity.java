@@ -34,6 +34,9 @@ public class InsultListActivity extends FragmentActivity
      */
     private boolean mTwoPane;
 
+    final String pref_language_string = "pref_language";
+    private int pref_language = -1; // default let's keep the int for Italian
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,9 @@ public class InsultListActivity extends FragmentActivity
                     .findFragmentById(R.id.insult_list))
                     .setActivateOnItemClick(true);
         }
+
+        Intent mIntent = getIntent();
+        pref_language = mIntent.getIntExtra(pref_language_string, pref_language);
     }
 
     @Override
@@ -87,6 +93,7 @@ public class InsultListActivity extends FragmentActivity
             // fragment transaction.
             Bundle arguments = new Bundle();
             arguments.putString(InsultDetailFragment.ARG_ITEM_ID, id);
+            arguments.putInt(pref_language_string, pref_language);
             InsultDetailFragment fragment = new InsultDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -98,6 +105,7 @@ public class InsultListActivity extends FragmentActivity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, InsultDetailActivity.class);
             detailIntent.putExtra(InsultDetailFragment.ARG_ITEM_ID, id);
+            detailIntent.putExtra(pref_language_string, pref_language);
             startActivity(detailIntent);
         }
     }

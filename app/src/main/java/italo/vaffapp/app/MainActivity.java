@@ -541,6 +541,7 @@ public class MainActivity extends ActionBarActivity {
     /* Go to InsultDetailActivity */
     public void startInsultDetailActivity(View view) {
         Intent intent = new Intent(this, InsultListActivity.class);
+        intent.putExtra("pref_language", pref_language);
         startActivity(intent);
     }
 }

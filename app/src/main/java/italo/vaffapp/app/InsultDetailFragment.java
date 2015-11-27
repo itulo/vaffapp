@@ -38,6 +38,9 @@ public class InsultDetailFragment extends Fragment {
      */
     private Insult mItem;
 
+    final String pref_language_string = "pref_language";
+    private int pref_language = -1; // default let's keep the int for Italian
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -55,6 +58,9 @@ public class InsultDetailFragment extends Fragment {
             // load insults
             mItem = InsultContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
         }
+        if (getArguments().containsKey(pref_language_string)) {
+            pref_language = getArguments().getInt(pref_language_string, pref_language);
+        }
     }
 
     @Override
@@ -68,10 +74,10 @@ public class InsultDetailFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Activity a = getActivity();
-        int pref_language = -1;
-
-        CommonMethods.onStart(a.getApplicationContext());
-        pref_language = CommonSharedPrefsMethods.getInt("language", pref_language);
+//        int pref_language = -1;
+//
+//        CommonMethods.onStart(a.getApplicationContext());
+//        pref_language = CommonSharedPrefsMethods.getInt("language", pref_language);
         System.out.println("PREF LANGUAGE IS " + pref_language);
 
         setRegionNameInTitle();

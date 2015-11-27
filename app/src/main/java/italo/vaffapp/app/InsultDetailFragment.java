@@ -2,7 +2,6 @@ package italo.vaffapp.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.Context;
 
-import italo.vaffapp.app.common.CommonSharedPrefsMethods;
 import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
 import italo.vaffapp.app.util.LanguageOptions;
@@ -52,7 +49,6 @@ public class InsultDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CommonMethods.onCreate(getActivity(), savedInstanceState);
-        CommonSharedPrefsMethods.setupSharedPrefsMethods(getActivity());
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // load insults
@@ -74,11 +70,6 @@ public class InsultDetailFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Activity a = getActivity();
-//        int pref_language = -1;
-//
-//        CommonMethods.onStart(a.getApplicationContext());
-//        pref_language = CommonSharedPrefsMethods.getInt("language", pref_language);
-        System.out.println("PREF LANGUAGE IS " + pref_language);
 
         setRegionNameInTitle();
         setTextviews(mItem, pref_language);

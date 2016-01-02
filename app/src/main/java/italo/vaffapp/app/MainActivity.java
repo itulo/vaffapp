@@ -49,7 +49,7 @@ import com.vungle.publisher.VunglePub;
 public class MainActivity extends ActionBarActivity {
     // for rewarding
     private final int UNLOCK_INSULTS = 3; // insults to unlock when returning user
-    private final int UNLOCK_INSULTS_AD = 20; //insults to unlock when user watches ad
+    private final int UNLOCK_INSULTS_AD = 40; //insults to unlock when user watches ad
 
     // in app billing
     private IabHelper mHelper;

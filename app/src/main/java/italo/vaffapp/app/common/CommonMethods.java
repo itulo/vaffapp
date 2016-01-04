@@ -202,7 +202,7 @@ public class CommonMethods {
             if (packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
                     || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
                     || packageName.contains("google.android.talk") || packageName.contains("com.viber")
-                    || packageName.contains("com.android.mms") ) {
+                    || packageName.contains("com.android.mms") || packageName.contains("org.telegram.messenger")) {
                 diff_app.add(app);
                 continue;
             }
@@ -250,6 +250,10 @@ public class CommonMethods {
             }
             if (package_name.contains("com.viber")) {
                 app = new App("Viber", package_name, icon);
+                apps[i] = app;
+            }
+            if (package_name.contains("org.telegram.messenger")) {
+                app = new App("Telegram", package_name, icon);
                 apps[i] = app;
             }
             if (package_name.contains("com.android.mms")) {
@@ -334,6 +338,13 @@ public class CommonMethods {
                         }
                         if (choice.equals("Viber")) {
                             flurry_stats.put("Share on", "Viber");
+                            flurry_stats.put("Insult", insult_text.toString());
+
+                            targetedShareIntent.setPackage(apps[which].getPackageName());
+                            a.startActivityForResult(targetedShareIntent, SHARE_REQUEST);
+                        }
+                        if (choice.equals("Telegram")) {
+                            flurry_stats.put("Share on", "Telegram");
                             flurry_stats.put("Insult", insult_text.toString());
 
                             targetedShareIntent.setPackage(apps[which].getPackageName());

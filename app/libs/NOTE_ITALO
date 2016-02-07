@@ -1,0 +1,8 @@
+Vungle has also library support-v4-18.0.0.jar but I deleted it because it was conflicting with appcompat-v4 used by the app (I suppose).
+Anyway, once I removed it I didn't get the error anymore
+All Vungle jars:
+vungle-publisher-adaptive-id-3.2.2.jar
+dagger-1.2.2.jar
+nineoldandroids-2.4.0.jar
+javax.inject-1.jar
+support-v4-18.0.0.jar

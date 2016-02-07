@@ -21,9 +21,6 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.Session;
-import com.facebook.UiLifecycleHelper;
-import com.facebook.widget.FacebookDialog;
 import com.flurry.android.FlurryAgent;
 
 import java.util.ArrayList;
@@ -50,21 +47,9 @@ public class CommonMethods {
 
     private static Speaker speaker;
 
-    // for FB
-    private static UiLifecycleHelper uiHelper;
-    private static Session.StatusCallback callback = null;
-
     private static final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
 
     /* on* methods */
-    public static void onCreate(Activity a, Bundle savedInstanceState) {
-        // FB code, UiLifecycleHelper is needed to share a post - https://developers.facebook.com/docs/android/share
-        // Includes callback in case FB app is not installed!
-        // 1. configure the UiLifecycleHelper in onCreate
-        uiHelper = new UiLifecycleHelper(a, callback);
-        uiHelper.onCreate(savedInstanceState);
-    }
-
     public static void onStart(Context c) {
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(c);
@@ -74,29 +59,12 @@ public class CommonMethods {
         FlurryAgent.onStartSession(c);
     }
 
-    public static void onResume() {
-        uiHelper.onResume();
-    }
-
-    public static void onActivityResult(int requestCode, int resultCode, Intent data) {
-        uiHelper.onActivityResult(requestCode, resultCode, data);
-    }
-
-    public static void onSaveInstanceState(Bundle outState) {
-        uiHelper.onSaveInstanceState(outState);
-    }
-
     public static void onPause() {
-        uiHelper.onPause();
         speaker.onPause();
     }
 
     public static void onStop(Activity a) {
         FlurryAgent.onEndSession(a);
-    }
-
-    public static void onDestroy() {
-        uiHelper.onDestroy();
     }
 
     public static void sendFlurry(String name, Map<String, String> flurry_stats) {
@@ -199,7 +167,7 @@ public class CommonMethods {
         for (final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
             // facebook.katana is FB app, facebook.orca is the messenger
-            if (packageName.contains("com.facebook.katana") || packageName.contains("com.twitter.android")
+            if ( packageName.contains("com.twitter.android")
                     || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
                     || packageName.contains("google.android.talk") || packageName.contains("com.viber")
                     || packageName.contains("com.android.mms") || packageName.contains("org.telegram.messenger")) {
@@ -228,10 +196,6 @@ public class CommonMethods {
         for (int i = 0; i < diff_app.size(); i++) {
             package_name = diff_app.get(i).activityInfo.packageName;
             icon = diff_app.get(i).loadIcon(pm);
-            if (package_name.contains("com.facebook.katana")) {
-                app = new App("Facebook", package_name, icon);
-                apps[i] = app;
-            }
             if (package_name.contains("com.twitter.android")) {
                 app = new App("Twitter", package_name, icon);
                 apps[i] = app;
@@ -294,13 +258,6 @@ public class CommonMethods {
                         // Flurry analytics
                         Map<String, String> flurry_stats = new HashMap<String, String>();
 
-                        if (choice.equals("Facebook")) {
-                            flurry_stats.put("Share on", "Facebook");
-                            flurry_stats.put("Insult", insult_text.toString());
-
-                            insultFriendOnFB(a, insult);
-                        }
-
                         Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
                         targetedShareIntent.setType("text/plain");
                         targetedShareIntent.putExtra(Intent.EXTRA_TEXT, insult_text + vf_hashtag + "\n\n--" + hid_link);
@@ -360,35 +317,6 @@ public class CommonMethods {
                         sendFlurry("Sharing", flurry_stats);
                     }
                 }).create().show();
-    }
-
-    public static void insultFriendOnFB(final Activity a, final Insult insult) {
-        ClipboardManager clipb = (ClipboardManager) a.getSystemService(Context.CLIPBOARD_SERVICE);
-        clipb.setPrimaryClip(ClipData.newPlainText(a.getString(R.string.title_activity_insulto),
-                insult.getInsult() + vf_hashtag));
-
-        // Create Dialog to warn user
-        //http://developer.android.com/guide/topics/ui/dialogs.html
-        //http://developmentality.wordpress.com/2009/10/31/android-dialog-box-tutorial/
-        AlertDialog.Builder builder = new AlertDialog.Builder(a);
-        builder.setMessage(a.getString(R.string.fb_warning_message))
-                .setTitle(a.getString(R.string.fb_warning_title))
-                .setPositiveButton(a.getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        postToFB(a);
-                    }
-                });
-        // Create the AlertDialog object and return it
-        builder.create().show();
-    }
-
-    public static void postToFB(final Activity a) {
-        FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(a)
-                .setRequestCode(SHARE_REQUEST)  // request code to pass to onActivityResult when it returns to VaffApp
-                .setApplicationName(a.getString(R.string.app_name))
-                .setLink("http://play.google.com/store/apps/details?id=italo.vaffapp.app")
-                .build();
-        uiHelper.trackPendingDialogCall(shareDialog.present());
     }
     /* methods used to share! END */
 

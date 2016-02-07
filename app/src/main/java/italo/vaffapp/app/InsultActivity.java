@@ -29,7 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import com.facebook.AppEventsLogger;
 import android.content.ClipboardManager;
 import android.content.ClipData;
 
@@ -76,8 +75,6 @@ public class InsultActivity extends ActionBarActivity {
                 .commit();
         }
 
-        CommonMethods.onCreate(this, savedInstanceState);
-
         Intent mIntent = getIntent();
         pref_language = mIntent.getIntExtra("pref_language", 0);
 
@@ -91,7 +88,6 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        CommonMethods.onActivityResult(requestCode, resultCode, data);
 
         // when a user shares and then the program returns to the VaffApp
         if (requestCode == CommonMethods.SHARE_REQUEST) {
@@ -106,16 +102,13 @@ public class InsultActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        CommonMethods.onResume();
         setRegionNameInTitle();
-        AppEventsLogger.activateApp(this);  // to track in FB
         checkGooglePlayServicesVersion();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        CommonMethods.onSaveInstanceState(outState);
     }
 
     @Override
@@ -123,13 +116,11 @@ public class InsultActivity extends ActionBarActivity {
         super.onPause();
         CommonMethods.onPause();
         scheduleNotification();
-        AppEventsLogger.deactivateApp(this);    // to track in FB
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        CommonMethods.onDestroy();
     }
 
     public void onStop(){

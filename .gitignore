@@ -2,7 +2,6 @@
 /local.properties
 /.idea/*
 .DS_Store
-/facebook/*
 /build/*
 /app/build/*
 gradlew.bat

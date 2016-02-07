@@ -48,7 +48,6 @@ public class InsultDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CommonMethods.onCreate(getActivity(), savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // load insults
@@ -82,20 +81,17 @@ public class InsultDetailFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        CommonMethods.onActivityResult(requestCode, resultCode, data);
     }
 
     // 3. configure other methods on uiHelper to handle Activity lifecycle callbacks correctly
     @Override
     public void onResume() {
         super.onResume();
-        CommonMethods.onResume();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        CommonMethods.onSaveInstanceState(outState);
     }
 
     @Override
@@ -107,7 +103,6 @@ public class InsultDetailFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        CommonMethods.onDestroy();
     }
 
     public void setTextviews(Insult i, int pref_lang) {

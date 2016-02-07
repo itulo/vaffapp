@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
-import java.util.HashMap;
+import java.util.TreeMap;
+import java.util.Map;
 
 import italo.vaffapp.app.entity.Insult;
 
@@ -242,14 +243,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return blocked;
     }
 
-    public HashMap<Integer, Integer> getInsultsPerRegion(){
-        HashMap<Integer, Integer> ins_per_reg = new HashMap<Integer, Integer>();
+    public TreeMap<Integer, ArrayList<Integer>> getInsultsPerRegion(){
+        TreeMap<Integer, ArrayList<Integer>> ins_per_reg = new TreeMap<Integer, ArrayList<Integer>>();
         String selectQuery = "select region, count(*) from insults where visible = 0 group by region";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                ins_per_reg.put(cursor.getInt(0), cursor.getInt(1));
+                Integer insult_amount = cursor.getInt(1);
+                ArrayList<Integer> regions = ins_per_reg.get(insult_amount);
+                if ( regions == null )
+                    regions = new ArrayList<Integer>();
+                regions.add(cursor.getInt(0));
+                ins_per_reg.put(insult_amount, regions);
             } while (cursor.moveToNext());
         }
 

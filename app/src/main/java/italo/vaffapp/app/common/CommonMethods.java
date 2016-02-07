@@ -2,8 +2,6 @@ package italo.vaffapp.app.common;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,7 +9,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -24,6 +21,7 @@ import android.widget.Toast;
 import com.flurry.android.FlurryAgent;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -353,12 +351,15 @@ public class CommonMethods {
         int tot_insults = 0;
         DatabaseHandler db = new DatabaseHandler(a);
         db.openDataBase();
-        HashMap<Integer, Integer> regionNInsults = db.getInsultsPerRegion();
+        TreeMap<Integer, ArrayList<Integer>> regionNInsults = db.getInsultsPerRegion();
         db.close();
 
-        for (Map.Entry<Integer, Integer> entry : regionNInsults.entrySet()){
-            StringRegionNInsults += getRegionFromId(entry.getKey()) + ": " + entry.getValue() + "\n";
-            tot_insults += entry.getValue();
+        for (Integer amount_insults : regionNInsults.descendingKeySet()){
+            ArrayList<Integer> regions = regionNInsults.get(amount_insults);
+            for (Integer region : regions) {
+                StringRegionNInsults += getRegionFromId(region) + ": " + amount_insults + "\n";
+                tot_insults += amount_insults;
+            }
         }
         StringRegionNInsults += "TOT: " + tot_insults;
 

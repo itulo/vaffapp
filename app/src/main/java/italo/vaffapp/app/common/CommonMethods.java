@@ -47,7 +47,7 @@ public class CommonMethods {
 
     private static Speaker speaker;
 
-    private static final int UNBLOCK_INSULTS = 10; // insults to unblock everytime sharing is done 3 times
+    private static final int UNBLOCK_INSULTS = 20; // insults to unlock everytime sharing is done 3 times
 
     /* on* methods */
     public static void onStart(Context c) {

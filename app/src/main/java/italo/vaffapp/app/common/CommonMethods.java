@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.flurry.android.FlurryAgent;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.List;
@@ -78,7 +79,7 @@ public class CommonMethods {
      */
     public static void setIconInActionBar(ActionBarActivity act) {
         ActionBar ab = act.getSupportActionBar();
-
+        
         ab.setDisplayShowHomeEnabled(true);
         ab.setLogo(R.drawable.ic_launcher);
         ab.setDisplayUseLogoEnabled(true);
@@ -161,6 +162,7 @@ public class CommonMethods {
         sharingIntent.setType("text/plain");
         PackageManager pm = a.getPackageManager();
         List<ResolveInfo> activityList = pm.queryIntentActivities(sharingIntent, 0);
+        HashSet<String> packagesIncluded = new HashSet<String>();
 
         for (final ResolveInfo app : activityList) {
             String packageName = app.activityInfo.packageName;
@@ -169,13 +171,10 @@ public class CommonMethods {
                     || packageName.contains("com.facebook.orca") || packageName.contains("com.whatsapp")
                     || packageName.contains("google.android.talk") || packageName.contains("com.viber")
                     || packageName.contains("com.android.mms") || packageName.contains("org.telegram.messenger")) {
-                diff_app.add(app);
-                continue;
-            }
-            // skip these
-            if (packageName.contains("com.android.bluetooth") || packageName.contains("flipboard.app")
-                    || packageName.contains("com.sec.android.widgetapp.diotek.smemo") || packageName.contains("com.google.android.apps.docs")) {
-                continue;
+                if ( !packagesIncluded.contains(packageName) ){
+                    diff_app.add(app);
+                    packagesIncluded.add(packageName);
+                }
             }
         }
         return diff_app;

@@ -34,7 +34,10 @@ import italo.vaffapp.app.util.App;
 import italo.vaffapp.app.util.Speaker;
 
 /**
- * Created by iarmenti on 11/27/14.
+ * Methods used by more than one activity
+ *
+ * @author Italo Armenti
+ * date 11/27/2014
  */
 public class CommonMethods {
     // for sharing
@@ -79,10 +82,14 @@ public class CommonMethods {
      */
     public static void setIconInActionBar(ActionBarActivity act) {
         ActionBar ab = act.getSupportActionBar();
-        
-        ab.setDisplayShowHomeEnabled(true);
-        ab.setLogo(R.drawable.ic_launcher);
-        ab.setDisplayUseLogoEnabled(true);
+
+        try{
+            ab.setDisplayShowHomeEnabled(true);
+            ab.setLogo(R.drawable.ic_launcher);
+            ab.setDisplayUseLogoEnabled(true);
+        } catch (NullPointerException e) {
+            // do nothing
+        }
     }
 
     /* fetch all insults from database */
@@ -154,7 +161,7 @@ public class CommonMethods {
         }
     }
 
-    // check for presence of Facebook, Messenger, Twitter, WhatsApp, Hangaout, and Viber apps (these will be treated differently)
+    // check for presence of Messenger, Twitter, WhatsApp, Hangout, and Viber apps, and SMS/Text (these will be treated differently)
     public static List<ResolveInfo> checkPresenceOfApps(Activity a) {
         List<ResolveInfo> diff_app = new ArrayList<ResolveInfo>();
         sharingIntent = new Intent(Intent.ACTION_SEND);

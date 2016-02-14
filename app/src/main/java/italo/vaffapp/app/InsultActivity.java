@@ -44,6 +44,9 @@ import android.widget.Toast;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 public class InsultActivity extends ActionBarActivity {
     private static ArrayList<Insult> insults = null;
@@ -138,7 +141,9 @@ public class InsultActivity extends ActionBarActivity {
 
     public void onStart(){
         super.onStart();
+
         CommonMethods.onStart(getApplicationContext());
+        CommonMethods.setupAdMob(this);
 
         if ( insults == null ) {
             nextInsult();

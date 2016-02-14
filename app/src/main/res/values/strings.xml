@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">VaffApp</string>
+    <string name="app_name" translatable="false">VaffApp</string>
     <!-- ids and numbers -->
-    <string name="facebook_app_id">1435530263364363</string>
-    <string name="flurry_id">CTMK9MZJN48KNVB3JH5V</string>
+    <string name="flurry_id" translatable="false">CTMK9MZJN48KNVB3JH5V</string>
+    <string name="admob_banner_id" translatable="false">ca-app-pub-6113915254397786/1328742956</string>
 
     <string name="welcome">Ciao, oggi è una giornata di merda e un vaffanculo gratis non te lo risparmi</string> <!-- first message -->
     <string name="action_settings">Settings</string>

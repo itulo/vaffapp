@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -56,9 +58,11 @@ public class CommonMethods {
         //initialize TextToSpeech objects in Speaker
         speaker = new Speaker(c);
 
-        FlurryAgent.setLogEnabled(false);
-        FlurryAgent.init(c, c.getString(R.string.flurry_id));
-        FlurryAgent.onStartSession(c);
+        if (!FlurryAgent.isSessionActive()) {
+            FlurryAgent.setLogEnabled(false);
+            FlurryAgent.init(c, c.getString(R.string.flurry_id));
+            FlurryAgent.onStartSession(c);
+        }
     }
 
     public static void onPause() {
@@ -90,6 +94,12 @@ public class CommonMethods {
         } catch (NullPointerException e) {
             // do nothing
         }
+    }
+
+    public static void setupAdMob(Activity a){
+        AdView mAdView = (AdView) a.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     /* fetch all insults from database */

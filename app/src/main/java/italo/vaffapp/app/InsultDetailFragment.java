@@ -68,7 +68,10 @@ public class InsultDetailFragment extends Fragment {
 
     public void onStart() {
         super.onStart();
+
         Activity a = getActivity();
+        CommonMethods.onStart(a.getApplicationContext());
+        CommonMethods.setupAdMob(a);
 
         setRegionNameInTitle();
         setTextviews(mItem, pref_language);

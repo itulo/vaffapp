@@ -8,9 +8,9 @@ All the insults are stored in an SQlite database which I update from time to tim
 The app implements rewarding and in-app purchases. Rewards (more insults) are given when the user opens the app every new day, and when they share any insults for three times. In-app purchases allow the user to obtain all insults in the database.
 There are 4 activities:
 * MainActivity: shows a welcoming message, buttons to other activities and buttons to do an in-app purchase. It also shows an ad when the user wants too. It hides the button to SendInsultActivity when the UI is in english.
-* InsultActivity: shows an insult randomly. It allows the user to share.
+* InsultActivity: shows an insult randomly and allows the user to share. It shows also a banner ad.
 * SendInsultActivity: allows the user to suggest an insult or send a feedback.
-* InsultListActivity: InsultDetailActivity, InsultDetailFragment and InsultListFragment are part of this activity too. Here the user can look at all insults in a list, and select one for more details.
+* InsultListActivity: InsultDetailActivity, InsultDetailFragment and InsultListFragment are part of this activity too. Here the user can look at all insults in a list, and select one for more details. Also here there is a banner ad.
 
 # Getting Started
 Open local.properties, change path to android sdk.

@@ -1,20 +1,18 @@
 package italo.vaffapp.app.database;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteException;
-import android.database.Cursor;
 import android.content.Context;
-
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.TreeMap;
-import java.util.Map;
 
 import italo.vaffapp.app.entity.Insult;
 
@@ -34,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_INSULTS = "insults";
     private static final String TABLE_VERSION = "version";
     // Increase to force a full rewrite of the database (which is done when I make a new database with new insults)
-    private static int DB_VER = 30;
+    private static int DB_VER = 31;
 
     private SQLiteDatabase myDataBase;
     private final Context myContext;

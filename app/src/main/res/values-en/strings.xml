@@ -7,11 +7,11 @@
     <string name="insult">Dammit</string>
     <string name="insult_desc">Something went wrong, try restarting the app</string>
     <string name="insult_eng">…</string>
-    <string name="button_insult_1">Next insult</string>
+    <string name="button_insult_1">Next</string>
     <string name="button_insult_2">Share</string>
-    <string name="insultati_button">Get insulted</string>
+    <string name="insultati_button">Random insult</string>
     <string name="insultaci_button">Insult us</string>
-    <string name="buy_insults">Get all insults</string>
+    <string name="buy_insults">More insults</string>
     <string name="title_activity_send_insult">Send feedback or an insult</string>
     <string name="fb_warning_message">The insult was copied in the clipboard, paste it to the post!</string>
     <string name="fb_warning_title">Sharing on Facebook</string>
@@ -32,7 +32,7 @@
     <string name="buy">Buy</string>
     <string name="no_thanks">No thanks</string>
     <string name="watch_ad">Watch ad</string>
-    <string name="msg_unlock_insults2">\n\nOr buy all available insults (included new ones from future upgrades):\n\n</string>
+    <string name="msg_unlock_insults2">\n\nOr, if you really like the Vaffapp, buy all available insults (included new ones from future upgrades):\n\n</string>
     <string name="msg_unlock_insults">\n\nWatch an ad and unlock&#160;</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">VaffApp looks for Facebook, Twitter, Whatsapp, Viber, or Hangout apps in your device\nIf you want to share on other apps download the VaffApp Pro!</string>

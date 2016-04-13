@@ -13,11 +13,11 @@
     <string name="insult">Vaffanculo, cazzo</string>
     <string name="insult_desc">Qualcosa è andato storto… chissenefrega, cazzi tuoi</string>
     <string name="insult_eng">…</string>
-    <string name="button_insult_1">Insultati ancora</string>
+    <string name="button_insult_1">Prossimo</string>
     <string name="button_insult_2">Condividi</string>
-    <string name="insultati_button">Insultati</string>
+    <string name="insultati_button">Insulto a caso</string>
     <string name="insultaci_button">Suggerisci un insulto</string>
-    <string name="buy_insults">Ottieni più insulti</string>
+    <string name="buy_insults">Più insulti</string>
     <string name="title_activity_send_insult">Manda un insulto o commento</string>
     <string name="fb_warning_message">L\'insulto è stato copiato nella clipboard, copialo nel post!</string>
     <string name="fb_warning_title">Condivisione su Facebook</string>
@@ -38,7 +38,7 @@
     <string name="buy">Compra</string>
     <string name="no_thanks">No grazie</string>
     <string name="watch_ad">Guarda ad</string>
-    <string name="msg_unlock_insults2">\n\nOppure compra tutti gli insulti disponibili (inclusi quelli nuovi in futuri aggiornamenti):\n\n</string>
+    <string name="msg_unlock_insults2">\n\nOppure, se la Vaffapp ti è proprio piaciuta, puoi offrirmi un caffé comprando tutti gli insulti disponibili (inclusi quelli nuovi in futuri aggiornamenti):\n\n</string>
     <string name="msg_unlock_insults">Guarda un ad e sblocca&#160;</string>
     <!-- title e message when no apps for sharing are found -->
     <string name="noapp_warning_message">La VaffApp non ha trovato le app Facebook, Twitter, Whatsapp, Viber, o Hangout sul tuo dispositivo.\nSe vuoi condividere su altre app, scarica la VaffAppPro!</string>

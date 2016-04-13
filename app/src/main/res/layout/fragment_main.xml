@@ -26,23 +26,12 @@
         android:layout_height="wrap_content"
         android:text="@string/insultati_button"
         android:id="@+id/button"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:onClick="startInsultActivity"
         android:background="@drawable/button_background"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/insultaci_button"
-        android:id="@+id/button_insultaci"
-        android:background="@drawable/button_background"
-        android:onClick="startSendInsultActivity"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button_tutti_insulti"
@@ -53,6 +42,17 @@
         android:onClick="startInsultDetailActivity"
         android:layout_below="@+id/button_insultaci"
         android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/insultaci_button"
+        android:id="@+id/button_insultaci"
+        android:background="@drawable/button_background"
+        android:onClick="startSendInsultActivity"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/button"
         android:layout_centerHorizontal="true" />
 
     <Button

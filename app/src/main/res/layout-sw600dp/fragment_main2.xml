@@ -6,8 +6,8 @@
     android:orientation="vertical"
     android:paddingTop="30dp"
     android:paddingBottom="30dp"
-    android:paddingLeft="25dp"
-    android:paddingRight="25dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     android:background="#01B6AD"
     tools:context="italo.vaffapp.app.InsultActivity$PlaceholderFragment" >
 
@@ -91,7 +91,6 @@
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView
-        android:paddingTop="5dp"
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

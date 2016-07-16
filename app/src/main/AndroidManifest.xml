@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="italo.vaffapp.app"
-    android:versionCode="60"
-    android:versionName="7.6"
+    android:versionCode="61"
+    android:versionName="8.0"
     android:installLocation="auto" >
 
     <uses-sdk

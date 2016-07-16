@@ -1,7 +1,7 @@
 Intro
 =======
 This is the codebase of the android app VaffApp, available from the Google Play Store, [here](https://play.google.com/store/apps/details?id=italo.vaffapp.app).
-The app gathers insults from different italian dialects, grouped by region, with an interpretation in standard italian. The user can surf insults randomly and share them.
+The app gathers insults from different italian dialects, grouped by region, with an interpretation in standard italian. The user can surf insults randomly or read them from a least, and share them.
 
 # Technical details
 All the insults are stored in an SQlite database which I update from time to time.

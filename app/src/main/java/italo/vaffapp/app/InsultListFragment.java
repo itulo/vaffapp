@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
 
 /**
@@ -71,13 +69,8 @@ public class InsultListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         InsultContent.setupInsults(getActivity());
-
-        setListAdapter(new ArrayAdapter<>(
-            getActivity(),
-            android.R.layout.simple_list_item_activated_1,
-            android.R.id.text1,
-            InsultContent.ITEMS)
-        );
+        InsultListAdapter adapter = new InsultListAdapter(getContext(), InsultContent.ITEMS);
+        setListAdapter(adapter);
     }
 
     @Override

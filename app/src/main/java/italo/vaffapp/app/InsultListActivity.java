@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
 
@@ -34,9 +33,6 @@ public class InsultListActivity extends FragmentActivity
      */
     private boolean mTwoPane;
 
-    final String pref_language_string = "pref_language";
-    private int pref_language = -1; // default let's keep the int for Italian
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,13 +51,8 @@ public class InsultListActivity extends FragmentActivity
 
             // In two-pane mode, list items should be given the
             // 'activated' state when touched.
-            ((InsultListFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.insult_list))
-                    .setActivateOnItemClick(true);
+            ((InsultListFragment) getSupportFragmentManager().findFragmentById(R.id.insult_list)).setActivateOnItemClick(true);
         }
-
-        Intent mIntent = getIntent();
-        pref_language = mIntent.getIntExtra(pref_language_string, pref_language);
     }
 
     @Override
@@ -93,7 +84,6 @@ public class InsultListActivity extends FragmentActivity
             // fragment transaction.
             Bundle arguments = new Bundle();
             arguments.putString(InsultDetailFragment.ARG_ITEM_ID, id);
-            arguments.putInt(pref_language_string, pref_language);
             InsultDetailFragment fragment = new InsultDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -105,7 +95,6 @@ public class InsultListActivity extends FragmentActivity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, InsultDetailActivity.class);
             detailIntent.putExtra(InsultDetailFragment.ARG_ITEM_ID, id);
-            detailIntent.putExtra(pref_language_string, pref_language);
             startActivity(detailIntent);
         }
     }

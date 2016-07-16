@@ -11,6 +11,8 @@ import android.content.SharedPreferences;
  * Used in: SimpleEula, MainActivity
  */
 public class CommonSharedPrefsMethods {
+    final private static String PREFERENCE_LANGUAGE_NAME = "language";
+    private static int prefLanguage = -1;
     private static SharedPreferences prefs;
 
     /* any activity needing shared prefs should call this method in onCreate */
@@ -42,5 +44,15 @@ public class CommonSharedPrefsMethods {
 
     public static void clearPrefs(){
         prefs.edit().clear().commit();
+    }
+
+    public static void savePrefLanguage(int prefLanguage){
+        putInt(PREFERENCE_LANGUAGE_NAME, prefLanguage);
+    }
+
+    public static int getPrefLanguage(){
+        if (prefLanguage == -1)
+            prefLanguage = prefs.getInt(PREFERENCE_LANGUAGE_NAME, prefLanguage);
+        return prefLanguage;
     }
 }

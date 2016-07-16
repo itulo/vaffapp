@@ -1,9 +1,15 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp" android:baselineAligned="false"
-    android:divider="?android:attr/dividerHorizontal" android:orientation="horizontal"
-    android:showDividers="middle" tools:context="italo.vaffapp.app.InsultListActivity">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="horizontal"
+    android:showDividers="middle"
+    tools:context="italo.vaffapp.app.InsultListActivity">
 
     <!--
     This layout is a two-pane layout for the Insults
@@ -17,8 +23,12 @@
     http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
     -->
 
-    <fragment android:id="@+id/insult_list" android:name="italo.vaffapp.app.InsultListFragment"
-        android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+    <fragment
+        android:id="@+id/insult_list"
+        android:name="italo.vaffapp.app.InsultListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         tools:layout="@android:layout/list_content" />
 
     <!-- original -->
@@ -26,7 +36,10 @@
         android:layout_height="match_parent" android:layout_weight="3" /> -->
 
     <!-- using fragment_main2.xml -->
-    <FrameLayout android:id="@+id/insult_container" android:layout_width="0dp"
-        android:layout_height="match_parent" android:layout_weight="3" />
+    <FrameLayout
+        android:id="@+id/insult_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3" />
 
 </LinearLayout>

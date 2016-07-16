@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import italo.vaffapp.app.common.CommonSharedPrefsMethods;
 import italo.vaffapp.app.entity.Insult;
 import italo.vaffapp.app.util.InsultContent;
 import italo.vaffapp.app.util.LanguageOptions;
@@ -35,8 +36,7 @@ public class InsultDetailFragment extends Fragment {
      */
     private Insult mItem;
 
-    final String pref_language_string = "pref_language";
-    private int pref_language = -1; // default let's keep the int for Italian
+    private int prefLanguage = -1;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -53,9 +53,7 @@ public class InsultDetailFragment extends Fragment {
             // load insults
             mItem = InsultContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
         }
-        if (getArguments().containsKey(pref_language_string)) {
-            pref_language = getArguments().getInt(pref_language_string, pref_language);
-        }
+        prefLanguage = CommonSharedPrefsMethods.getPrefLanguage();
     }
 
     @Override
@@ -74,9 +72,9 @@ public class InsultDetailFragment extends Fragment {
         CommonMethods.setupAdMob(a);
 
         setRegionNameInTitle();
-        setTextviews(mItem, pref_language);
+        setTextviews(mItem, prefLanguage);
         setTextviewsListeners();
-        hideButtonAndTextView(pref_language);
+        hideButtonAndTextView(prefLanguage);
         setCondividiOnClick();
     }
 

@@ -1,49 +1,44 @@
 package italo.vaffapp.app;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.content.res.Configuration;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.Intent;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
-
-import android.content.res.Configuration;
-import android.app.PendingIntent;
-import android.app.AlarmManager;
-import android.content.Context;
 import android.widget.Button;
-
-import italo.vaffapp.app.util.LanguageOptions;
-import italo.vaffapp.app.common.CommonMethods;
-import italo.vaffapp.app.common.CommonSharedPrefsMethods;
-
-import java.util.Calendar;
-import java.util.Map;
-
-import italo.vaffapp.app.util.IabHelper;
-import italo.vaffapp.app.util.IabResult;
-import italo.vaffapp.app.util.Inventory;
-import italo.vaffapp.app.util.Purchase;
-import italo.vaffapp.app.util.SimpleEula;
-import italo.vaffapp.app.util.SkuDetails;
-
-import android.widget.ImageView;
 
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
 import com.vungle.publisher.Orientation;
 import com.vungle.publisher.VunglePub;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+import italo.vaffapp.app.common.CommonMethods;
+import italo.vaffapp.app.common.CommonSharedPrefsMethods;
+import italo.vaffapp.app.util.IabHelper;
+import italo.vaffapp.app.util.IabResult;
+import italo.vaffapp.app.util.Inventory;
+import italo.vaffapp.app.util.LanguageOptions;
+import italo.vaffapp.app.util.Purchase;
+import italo.vaffapp.app.util.SimpleEula;
+import italo.vaffapp.app.util.SkuDetails;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -134,7 +129,7 @@ public class MainActivity extends ActionBarActivity {
         Configuration config = new Configuration();
 
         // 0 = Italian (default), 1 = English
-        pref_language = CommonSharedPrefsMethods.getInt("language", no_lang);
+        pref_language = CommonSharedPrefsMethods.getPrefLanguage();
 
         // this 'if' is executed only at the first launch of the app
         if (pref_language == no_lang) {
@@ -166,7 +161,7 @@ public class MainActivity extends ActionBarActivity {
             case LanguageOptions.ENGLISH: new_lang = LanguageOptions.ITALIANO; break;
             case LanguageOptions.ITALIANO: new_lang = LanguageOptions.ENGLISH; break;
         }
-        CommonSharedPrefsMethods.putInt("language", new_lang);
+        CommonSharedPrefsMethods.savePrefLanguage(new_lang);
 
         //restart app
         Intent mStartActivity = new Intent(this, MainActivity.class);

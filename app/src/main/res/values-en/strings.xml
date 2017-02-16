@@ -61,5 +61,6 @@
     <string name="preferences_file">preferences_file</string>
     <string name="title_insult_list">All Insults</string>
     <string name="title_insult_detail">Insult Detail</string>
+    <string name="email">Email:</string>
 
 </resources>

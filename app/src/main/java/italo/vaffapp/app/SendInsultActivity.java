@@ -1,35 +1,26 @@
 package italo.vaffapp.app;
 
-import android.support.v7.app.ActionBarActivity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import com.flurry.android.FlurryAgent;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.Button;
-
 import italo.vaffapp.app.common.CommonMethods;
-import android.graphics.Color;
-
-import android.accounts.AccountManager;
-import android.accounts.Account;
-
-import com.flurry.android.FlurryAgent;
-import com.google.android.gms.auth.GoogleAuthUtil;
-import android.text.TextUtils;
-
-import android.widget.CheckBox;
 
 public class SendInsultActivity extends ActionBarActivity {
     private String feedback = "";
-    private boolean anonymous = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +62,10 @@ public class SendInsultActivity extends ActionBarActivity {
         Button button_manda;
 
         if ( checkForm() ) {
-            final String identity = (anonymous) ? "Anonymous" : getDeviceEmail();
+            final EditText email = (EditText)findViewById(R.id.edittext_email);
             Map<String, String> flurry_stats = new HashMap<String, String>();
 
-            feedback += "\n\nBy " + identity;
+            feedback += "\n\nBy " + email.getText().toString();
             // send the feedback to flurry
             flurry_stats.put("Feedback", feedback);
             FlurryAgent.logEvent("User feedback", flurry_stats);
@@ -86,33 +77,14 @@ public class SendInsultActivity extends ActionBarActivity {
         }
     }
 
-    // get email of this device (the one registered on google play)
-    public String getDeviceEmail(){
-        AccountManager mAccountManager = AccountManager.get(this);
-        Account[] accounts = mAccountManager.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
-        String[] names = new String[accounts.length];
-        for (int i = 0; i < accounts.length; i++) {
-            names[i] = accounts[i].name;
-        }
-        if (accounts.length > 0 )
-            return TextUtils.join(",", names);
-        else
-            return "vaffapp@gmail.com";
-    }
-
     // check the form but also build the message for the email
     public boolean checkForm(){
-        CheckBox cb;
         EditText tmp_edittext;
         TextView tmp_textview;
         RadioButton tmp_radiobutt;
         String str = null;
         // the message is in italian: 'new insult suggested from the VaffApp'
         feedback = "Nuovo insulto suggerito tramite la VaffApp:\n\n";
-
-        // Check anonymous checkbox is selected
-        cb = (CheckBox) findViewById(R.id.checkBox1);
-        anonymous = cb.isChecked();
 
         // Check radio group choice
         RadioGroup rg = (RadioGroup)findViewById(R.id.radio_group_choice);
